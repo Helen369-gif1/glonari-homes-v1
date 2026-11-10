@@ -1,0 +1,94 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "Glonari Homes, home page" [ref=f1e5] [cursor=pointer]:
+        - /url: index.html
+      - navigation "Main" [ref=f1e6]:
+        - list [ref=f1e7]:
+          - listitem [ref=f1e8]:
+            - link "Home" [ref=f1e9] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=f1e10]:
+            - link "How It Works" [ref=f1e11] [cursor=pointer]:
+              - /url: how-it-works.html
+          - listitem [ref=f1e12]:
+            - link "Living With Glonari" [ref=f1e13] [cursor=pointer]:
+              - /url: living-with-glonari.html
+          - listitem [ref=f1e14]:
+            - link "Already Own a Home?" [ref=f1e15] [cursor=pointer]:
+              - /url: already-own-a-home.html
+          - listitem [ref=f1e16]:
+            - link "FAQs" [ref=f1e17] [cursor=pointer]:
+              - /url: faqs.html
+      - link "Find My Glonari Home" [ref=f1e18] [cursor=pointer]:
+        - /url: find-your-home.html
+  - main [ref=f1e19]:
+    - region "Your Home. More Possibilities." [ref=f1e20]:
+      - generic [ref=f1e22]:
+        - generic [ref=f1e23]:
+          - paragraph [ref=f1e25]: Home
+          - img "A woman with a cup of tea relaxes in a wicker chair on the porch of her craftsman home at golden hour" [ref=f1e26]
+        - generic [ref=f1e28]:
+          - heading "Your Home. More Possibilities." [level=1] [ref=f1e29]
+          - paragraph [ref=f1e30]: The Glonari Home Module™ brings Gia, Global Connections and Digital Banker to the home you already own. You keep your title and your mortgage. Your home gains an economic layer.
+        - generic [aria-hidden]: Scroll
+  - contentinfo [ref=f1e31]:
+    - generic [ref=f1e32]:
+      - generic [ref=f1e33]:
+        - generic [ref=f1e34]:
+          - link [ref=f1e35] [cursor=pointer]:
+            - /url: index.html
+            - img "Glonari Homes" [ref=f1e36]
+          - paragraph [ref=f1e37]: Live better. Create value. Build toward ownership.
+          - link "Find My Glonari Home" [ref=f1e38] [cursor=pointer]:
+            - /url: find-your-home.html
+        - navigation "Footer" [ref=f1e39]:
+          - generic [ref=f1e40]:
+            - paragraph [ref=f1e41]: Explore
+            - list [ref=f1e42]:
+              - listitem [ref=f1e43]:
+                - link "How It Works" [ref=f1e44] [cursor=pointer]:
+                  - /url: how-it-works.html
+              - listitem [ref=f1e45]:
+                - link "Living With Glonari" [ref=f1e46] [cursor=pointer]:
+                  - /url: living-with-glonari.html
+              - listitem [ref=f1e47]:
+                - link "Already Own a Home?" [ref=f1e48] [cursor=pointer]:
+                  - /url: already-own-a-home.html
+              - listitem [ref=f1e49]:
+                - link "Find Your Home" [ref=f1e50] [cursor=pointer]:
+                  - /url: find-your-home.html
+              - listitem [ref=f1e51]:
+                - link "FAQs" [ref=f1e52] [cursor=pointer]:
+                  - /url: faqs.html
+          - generic [ref=f1e53]:
+            - paragraph [ref=f1e54]: Glonari
+            - list [ref=f1e55]:
+              - listitem [ref=f1e56]:
+                - link "About Glonari" [ref=f1e57] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e58]:
+                - link "Global Dream Journey" [ref=f1e59] [cursor=pointer]:
+                  - /url: https://helen369-gif1.github.io/global-dream-prototype/
+              - listitem [ref=f1e60]:
+                - link "Member Qualification" [ref=f1e61] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e62]:
+                - link "Contact" [ref=f1e63] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e64]:
+                - link "Member Login" [ref=f1e65] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=f1e66]:
+            - paragraph [ref=f1e67]: Legal
+            - list [ref=f1e68]:
+              - listitem [ref=f1e69]:
+                - link "Privacy & Your Data" [ref=f1e70] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e71]:
+                - link "Legal & Disclosures" [ref=f1e72] [cursor=pointer]:
+                  - /url: "#"
+      - paragraph [ref=f1e73]: All figures are illustrative. Glonari Homes is in development and terms may change. Home Business results are not guaranteed, are not passive income and depend on member participation and program terms. GLO is a membership and access credential, not rent, a property interest or a source of income. This site is not an offer to sell, lease or finance any property. Glonari is not a bank.
+      - paragraph [ref=f1e74]: © 2026 Glonari. All rights reserved.

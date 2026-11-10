@@ -1,0 +1,245 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "Glonari Homes, home page" [ref=f1e5] [cursor=pointer]:
+        - /url: index.html
+      - navigation "Main" [ref=f1e6]:
+        - list [ref=f1e7]:
+          - listitem [ref=f1e8]:
+            - link "Home" [ref=f1e9] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=f1e10]:
+            - link "How It Works" [ref=f1e11] [cursor=pointer]:
+              - /url: how-it-works.html
+          - listitem [ref=f1e12]:
+            - link "Living With Glonari" [ref=f1e13] [cursor=pointer]:
+              - /url: living-with-glonari.html
+          - listitem [ref=f1e14]:
+            - link "Already Own a Home?" [ref=f1e15] [cursor=pointer]:
+              - /url: already-own-a-home.html
+          - listitem [ref=f1e16]:
+            - link "FAQs" [ref=f1e17] [cursor=pointer]:
+              - /url: faqs.html
+      - link "Find My Glonari Home" [ref=f1e18] [cursor=pointer]:
+        - /url: find-your-home.html
+  - main [ref=f1e19]:
+    - region [ref=f1e20]:
+      - generic [ref=f1e22]:
+        - generic [ref=f1e23]:
+          - paragraph [ref=f1e25]: Living
+          - img "A family laughing over breakfast at the kitchen table in warm morning light, the garden visible through the windows" [ref=f1e26]
+        - generic [ref=f1e28]:
+          - heading "This Is Your Home While You Build Your Future." [level=1] [ref=f1e29]
+          - paragraph [ref=f1e30]: A Glonari Home is not a short-term rental. It is a long-term, protected place to live, with a clear path to owning it.
+        - generic [aria-hidden]: Scroll
+    - region [ref=f1e31]:
+      - generic [ref=f1e33]:
+        - generic [ref=f1e34]:
+          - paragraph [ref=f1e35]: Security
+          - heading "A Home You Can Count On." [level=2] [ref=f1e36]
+          - paragraph [ref=f1e37]: Glonari Homes are designed for long-term living, not year-to-year uncertainty.
+        - list [ref=f1e38]:
+          - listitem [ref=f1e39]:
+            - generic [aria-hidden] [ref=f1e40]: "01"
+            - paragraph [ref=f1e41]: Long initial term. Planned at around 10 years.
+          - listitem [ref=f1e42]:
+            - generic [aria-hidden] [ref=f1e43]: "02"
+            - paragraph [ref=f1e44]: Renewal options you control.
+          - listitem [ref=f1e45]:
+            - generic [aria-hidden] [ref=f1e46]: "03"
+            - paragraph [ref=f1e47]: Limited termination rights for the property owner.
+          - listitem [ref=f1e48]:
+            - generic [aria-hidden] [ref=f1e49]: "04"
+            - paragraph [ref=f1e50]: Your rights continue even if the property is refinanced or sold.
+        - paragraph [ref=f1e51]: Final terms depend on state law and program agreements.
+    - region [ref=f1e52]:
+      - generic [ref=f1e56]:
+        - generic [ref=f1e57]:
+          - paragraph [ref=f1e58]: Try Before You Buy™
+          - heading "Experience First. Decide Later." [level=2] [ref=f1e59]
+          - paragraph [ref=f1e60]: Move in. Learn the neighborhood. Work with Gia. Watch your Home Business grow. Digital Banker tracks your progress toward ownership the whole time.
+        - list [ref=f1e62]:
+          - listitem [ref=f1e63]:
+            - generic [aria-hidden] [ref=f1e64]: Prepare
+            - generic [ref=f1e65]:
+              - heading "Prepare" [level=3] [ref=f1e66]
+              - paragraph [ref=f1e67]: Talk with Gia and choose your home.
+          - listitem [ref=f1e68]:
+            - generic [aria-hidden] [ref=f1e69]: Move In
+            - generic [ref=f1e70]:
+              - heading "Move In" [level=3] [ref=f1e71]
+              - paragraph [ref=f1e72]: Your home from day one.
+          - listitem [ref=f1e73]:
+            - generic [aria-hidden] [ref=f1e74]: Live
+            - generic [ref=f1e75]:
+              - heading "Live" [level=3] [ref=f1e76]
+              - paragraph [ref=f1e77]: Learn the neighborhood. Work with Gia.
+          - listitem [ref=f1e78]:
+            - generic [aria-hidden] [ref=f1e79]: Build
+            - generic [ref=f1e80]:
+              - heading "Build" [level=3] [ref=f1e81]
+              - paragraph [ref=f1e82]: Watch your Home Business grow.
+          - listitem [ref=f1e83]:
+            - generic [aria-hidden] [ref=f1e84]: Decide
+            - generic [ref=f1e85]:
+              - heading "Decide" [level=3] [ref=f1e86]
+              - paragraph [ref=f1e87]: Choose what you own, when you’re ready.
+    - region [ref=f1e89]:
+      - generic [ref=f1e90]:
+        - generic [ref=f1e91]:
+          - generic [ref=f1e92]:
+            - paragraph [ref=f1e93]: Two ways to own
+            - heading "When You’re Ready, Choose What You Own." [level=2] [ref=f1e94]
+          - generic [ref=f1e95]:
+            - article [ref=f1e96]:
+              - img "A two-storey Mediterranean-style house with a tiled roof and two olive trees in front, on a sunny day" [ref=f1e98]
+              - generic [ref=f1e99]:
+                - heading "Own the Home" [level=3] [ref=f1e100]
+                - paragraph [ref=f1e101]: Buy the house itself as ordinary real property, with its future appreciation. You can keep using Glonari services as a member.
+            - article [ref=f1e102]:
+              - img "The same house in the evening, its windows lit, with a desk and lamp visible in the ground-floor room on the right" [ref=f1e104]
+              - generic [ref=f1e105]:
+                - heading "Own the Complete Glonari Home" [level=3] [ref=f1e106]
+                - paragraph [ref=f1e107]: "Buy the house together with its established Home Business: its Gia setup, its Global Connections relationship, its operating history and the opportunity to keep running it. Your share of what it creates is yours to use however you choose."
+        - paragraph [ref=f1e108]: You don’t have to decide on day one. That’s the point.
+    - region [ref=f1e109]:
+      - generic [ref=f1e110]:
+        - generic [ref=f1e111]:
+          - paragraph [ref=f1e112]: 04 · When life changes
+          - heading "Your Home Can Change With You." [level=2] [ref=f1e113]
+          - paragraph [ref=f1e114]: A new baby. Children moving out. A new job in another city. You’re not locked into one address. When your life changes, you can ask to move to another Glonari Home that fits better, subject to availability and program terms.
+        - generic [ref=f1e115]:
+          - list "Life changes" [ref=f1e116]:
+            - listitem [ref=f1e117]:
+              - button "A new baby" [ref=f1e118] [cursor=pointer]
+            - listitem [ref=f1e119]:
+              - button "Children moving out" [ref=f1e120] [cursor=pointer]
+            - listitem [ref=f1e121]:
+              - button "A new job in another city" [ref=f1e122] [cursor=pointer]
+          - generic [ref=f1e123]:
+            - figure [ref=f1e124]:
+              - generic [ref=f1e125]:
+                - img "A young couple on a garden sofa at sunset, the mother holding their newborn wrapped in a knitted blanket" [ref=f1e126]
+                - generic [ref=f1e127]: A new baby.
+            - figure:
+              - generic:
+                - img "Parents saying goodbye to their teenage son at the front door, his backpack on and a suitcase beside him"
+                - generic: Children moving out.
+            - figure:
+              - generic:
+                - img "A young woman smiling as she packs folded sweaters and a plant into a moving box outside her home, a suitcase behind her"
+                - generic: A new job in another city.
+            - paragraph [ref=f1e128]:
+              - generic [ref=f1e129]: "Gia: looking for a bigger home"
+          - complementary "What Gia does when your life changes" [ref=f1e131]:
+            - paragraph [ref=f1e132]: Gia
+            - list [ref=f1e133]:
+              - listitem [ref=f1e134]: Current home
+              - listitem [ref=f1e136]: Tell Gia what changed
+              - listitem [ref=f1e138]: Gia finds your next match
+              - listitem [ref=f1e140]: Your next Glonari Home
+    - region [ref=f1e142]:
+      - generic [ref=f1e144]:
+        - paragraph [ref=f1e145]: 05 · Gia goes with you
+        - heading "Your Relationship Isn’t Tied to an Address." [level=2] [ref=f1e146]
+        - paragraph [ref=f1e147]: Your home may change. Gia doesn’t start over. She already knows your goals, preferences and the way you like to work, so finding your next home starts from where you are, not from zero.
+      - generic [ref=f1e151]:
+        - generic [ref=f1e152]:
+          - img "A calm living room with a sofa, an armchair and a round coffee table in front of a large floor-to-ceiling window" [ref=f1e154]
+          - paragraph [aria-hidden] [ref=f1e155]:
+            - generic [ref=f1e156]: 01 / 04 · City
+            - generic [ref=f1e157]: 02 / 04 · Suburb
+            - generic [ref=f1e158]: 03 / 04 · By the sea
+            - generic [ref=f1e159]: 04 / 04 · Garden home
+        - group "Messages from Gia in four different homes" [ref=f1e160]:
+          - generic [ref=f1e162]:
+            - strong [ref=f1e163]: Gia
+            - generic [ref=f1e164]: Your Glonari AI
+          - generic [ref=f1e166]:
+            - generic [ref=f1e167]:
+              - paragraph [aria-hidden] [ref=f1e168]
+              - paragraph [ref=f1e172]:
+                - generic [ref=f1e173]: "City:"
+                - text: Welcome home. Your morning routine is set up, just like before.
+            - generic [ref=f1e174]:
+              - paragraph [aria-hidden] [ref=f1e175]
+              - paragraph [ref=f1e179]:
+                - generic [ref=f1e180]: "Suburb:"
+                - text: More room for the kids, and the school you liked is ten minutes away.
+            - generic [ref=f1e181]:
+              - paragraph [aria-hidden] [ref=f1e182]
+              - paragraph [ref=f1e186]:
+                - generic [ref=f1e187]: "By the sea:"
+                - text: Your Home Business moved with you. Nothing starts from zero.
+            - generic [ref=f1e188]:
+              - paragraph [aria-hidden] [ref=f1e189]
+              - paragraph [ref=f1e193]:
+                - generic [ref=f1e194]: "Garden home:"
+                - text: A smaller place, the same you. I kept everything that matters.
+    - generic [ref=f1e196]:
+      - paragraph [ref=f1e197]: Coming next
+      - paragraph [ref=f1e198]:
+        - text: The journey before and after, and the bigger idea are being built. Meanwhile, see
+        - link "How It Works" [ref=f1e199] [cursor=pointer]:
+          - /url: how-it-works.html
+        - text: .
+  - contentinfo [ref=f1e200]:
+    - generic [ref=f1e201]:
+      - generic [ref=f1e202]:
+        - generic [ref=f1e203]:
+          - link [ref=f1e204] [cursor=pointer]:
+            - /url: index.html
+            - img "Glonari Homes" [ref=f1e205]
+          - paragraph [ref=f1e206]: Live better. Create value. Build toward ownership.
+          - link "Find My Glonari Home" [ref=f1e207] [cursor=pointer]:
+            - /url: find-your-home.html
+        - navigation "Footer" [ref=f1e208]:
+          - generic [ref=f1e209]:
+            - paragraph [ref=f1e210]: Explore
+            - list [ref=f1e211]:
+              - listitem [ref=f1e212]:
+                - link "How It Works" [ref=f1e213] [cursor=pointer]:
+                  - /url: how-it-works.html
+              - listitem [ref=f1e214]:
+                - link "Living With Glonari" [ref=f1e215] [cursor=pointer]:
+                  - /url: living-with-glonari.html
+              - listitem [ref=f1e216]:
+                - link "Already Own a Home?" [ref=f1e217] [cursor=pointer]:
+                  - /url: already-own-a-home.html
+              - listitem [ref=f1e218]:
+                - link "Find Your Home" [ref=f1e219] [cursor=pointer]:
+                  - /url: find-your-home.html
+              - listitem [ref=f1e220]:
+                - link "FAQs" [ref=f1e221] [cursor=pointer]:
+                  - /url: faqs.html
+          - generic [ref=f1e222]:
+            - paragraph [ref=f1e223]: Glonari
+            - list [ref=f1e224]:
+              - listitem [ref=f1e225]:
+                - link "About Glonari" [ref=f1e226] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e227]:
+                - link "Global Dream Journey" [ref=f1e228] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e229]:
+                - link "Member Qualification" [ref=f1e230] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e231]:
+                - link "Contact" [ref=f1e232] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e233]:
+                - link "Member Login" [ref=f1e234] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=f1e235]:
+            - paragraph [ref=f1e236]: Legal
+            - list [ref=f1e237]:
+              - listitem [ref=f1e238]:
+                - link "Privacy & Your Data" [ref=f1e239] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f1e240]:
+                - link "Legal & Disclosures" [ref=f1e241] [cursor=pointer]:
+                  - /url: "#"
+      - paragraph [ref=f1e242]: All figures are illustrative. Glonari Homes is in development and terms may change. Home Business results are not guaranteed, are not passive income and depend on member participation and program terms. GLO is a membership and access credential, not rent, a property interest or a source of income. This site is not an offer to sell, lease or finance any property. Glonari is not a bank.
+      - paragraph [ref=f1e243]: © 2026 Glonari. All rights reserved.

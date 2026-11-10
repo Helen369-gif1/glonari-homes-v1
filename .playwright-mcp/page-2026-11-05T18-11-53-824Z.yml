@@ -1,0 +1,210 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Glonari Homes, home page" [ref=e5] [cursor=pointer]:
+        - /url: index.html
+        - text: Glonari Homes
+      - navigation "Main" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=e10]:
+            - link "How It Works" [ref=e11] [cursor=pointer]:
+              - /url: how-it-works.html
+          - listitem [ref=e12]:
+            - link "Living With Glonari" [ref=e13] [cursor=pointer]:
+              - /url: living-with-glonari.html
+          - listitem [ref=e14]:
+            - link "Already Own a Home?" [ref=e15] [cursor=pointer]:
+              - /url: already-own-a-home.html
+          - listitem [ref=e16]:
+            - link "FAQs" [ref=e17] [cursor=pointer]:
+              - /url: faqs.html
+      - link "Find My Glonari Home" [ref=e18] [cursor=pointer]:
+        - /url: find-your-home.html
+  - main [ref=e19]:
+    - region [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading "Glonari" [level=1] [ref=e25]
+          - img "A woman in a cream suit stands on a stone terrace above a Mediterranean valley with villas, olive trees and the sea" [ref=e29]
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Your dream home. A new way to make it yours.
+          - paragraph [ref=e33]:
+            - strong [ref=e34]: Meet Gia
+            - text: — your personal AI guide to a new way of living with Glonari.
+        - generic [aria-hidden]: Scroll
+    - region [ref=e35]:
+      - generic [ref=e36]:
+        - paragraph [ref=e37]: The problem
+        - heading "For Most People, a Home Only Moves Money One Way." [level=2] [ref=e38]
+        - generic [ref=e39]:
+          - paragraph [ref=e40]: Rent, mortgage, insurance, utilities and repairs keep rising. You pay, and the home gives you a place to live. That’s the whole deal.
+          - paragraph [ref=e41]: Meanwhile, AI is helping businesses cut costs and find new income every day. We think households deserve the same advantage.
+      - generic [ref=e43]:
+        - figure [ref=e44]:
+          - img "A couple at a kitchen table with a laptop, brochures and bills spread around them" [ref=e45]
+        - generic [ref=e46]:
+          - generic [ref=e47]: The usual home
+          - text: You pay. It gives you a place to live.
+        - img "The same couple relaxing by a pool in a garden on a sunny afternoon" [ref=e50]
+      - paragraph [ref=e51]: So we built a home that works with you.
+    - region [ref=e52]:
+      - generic [ref=e54]:
+        - paragraph [ref=e55]: What a Glonari Home is
+        - heading "Your Home plus Your Home Business plus Gia equals Your Glonari Home" [level=2] [ref=e56]
+        - generic [aria-hidden] [ref=e57]:
+          - generic [ref=e58]: Your Home
+          - generic [ref=e60]: +
+          - generic [ref=e61]: Your Home Business
+          - generic [ref=e63]: +
+          - generic [ref=e64]: Gia
+        - paragraph [aria-hidden] [ref=e66]: = Your Glonari Home
+      - generic [ref=e67]:
+        - paragraph [ref=e69]: Every Glonari Home comes with its own Glonari Home Business™. It is a real, AI-powered business connected to your home.
+        - generic [ref=e70]:
+          - paragraph [ref=e71]: Gia helps it find savings and opportunities that fit your life. Global Connections®, Glonari’s opportunity network, turns qualifying activity into real economic value.
+          - paragraph [ref=e72]: You live normally. Gia handles the heavy lifting. You decide what to take part in.
+          - link "How the Home Business Works" [ref=e73] [cursor=pointer]:
+            - /url: how-it-works.html
+            - text: How the Home Business Works
+            - generic [aria-hidden] [ref=e74]: →
+    - region [ref=e75]:
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: Illustrative example · a $1M home in Southern California
+          - heading "Pay Less Than Rent. Get More Than a Home." [level=2] [ref=e80]
+        - list [ref=e81]
+        - img "A modern two-storey Southern California home with olive trees and warm light in the windows" [ref=e82]
+        - paragraph [ref=e83]: Illustrative example only. Home Business results are not guaranteed, are not passive income, and depend on your participation and program terms. Actual payments and results vary.
+      - generic [ref=e84]:
+        - paragraph [ref=e85]: How can more cost less? Because a Glonari Home isn’t only a place to live.
+        - generic [ref=e86]:
+          - paragraph [ref=e87]: It comes with a business designed to create value, and Glonari’s scale brings savings no single household could negotiate alone.
+          - link "Where Does the Value Come From?" [ref=e88] [cursor=pointer]:
+            - /url: how-it-works.html#value
+            - text: Where Does the Value Come From?
+            - generic [aria-hidden] [ref=e89]: →
+    - region [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - paragraph [ref=e93]: Meet Gia
+          - heading "You Don’t Have to Run a Business Alone." [level=2] [ref=e94]
+          - paragraph [ref=e95]: Gia is your personal Glonari AI. She learns what matters to you, then finds opportunities, compares offers, follows up and keeps track of the results.
+          - paragraph [ref=e96]: When something needs a human decision, she asks you. When it doesn’t, she simply handles it.
+          - paragraph [ref=e97]: Your experience. Gia’s intelligence. Working together.
+        - generic [ref=e98]:
+          - img "A warm living room in the evening with a sofa, a reading lamp and books" [ref=e99]
+          - group "Example conversation with Gia" [ref=e100]:
+            - generic [ref=e102]:
+              - strong [ref=e103]: Gia
+              - generic [ref=e104]: Your Glonari AI
+            - generic [ref=e105]:
+              - paragraph [ref=e106]: Gia, how is my Home Business doing this month?
+              - paragraph [ref=e107]: You’re ahead of last month. I found two savings on your utilities and three opportunities that match your interests. Want to look at them together?
+    - region [ref=e108]:
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - paragraph [ref=e113]: Try Before You Buy™
+          - heading "Live in It Before You Decide to Own It." [level=2] [ref=e114]
+          - paragraph [ref=e115]: Most people buy the biggest asset of their life after a few short visits. With Try Before You Buy™, you live in the home, get to know the neighborhood, work with Gia and see your Home Business in action.
+        - figure "01 Move in Settle into the home and get to know the neighborhood." [ref=e116]:
+          - img "A couple carries moving boxes to the door of their new home while their son runs inside" [ref=e117]
+          - generic [ref=e118]:
+            - generic [ref=e119]: "01"
+            - strong [ref=e120]: Move in
+            - text: Settle into the home and get to know the neighborhood.
+        - figure "02 Live and build Work with Gia and see your Home Business in action." [ref=e121]:
+          - img "The family has dinner together in the garden at sunset" [ref=e122]
+          - generic [ref=e123]:
+            - generic [ref=e124]: "02"
+            - strong [ref=e125]: Live and build
+            - text: Work with Gia and see your Home Business in action.
+        - figure "03 Decide Buy the home, or the complete Glonari Home with its Home Business." [ref=e126]:
+          - img "The couple stands smiling in front of their home" [ref=e127]
+          - generic [ref=e128]:
+            - generic [ref=e129]: "03"
+            - strong [ref=e130]: Decide
+            - text: Buy the home, or the complete Glonari Home with its Home Business.
+        - generic [ref=e131]:
+          - paragraph [ref=e132]: Live it. Build it. Then decide.
+          - link "Explore the Path to Ownership" [ref=e133] [cursor=pointer]:
+            - /url: living-with-glonari.html#ownership
+            - text: Explore the Path to Ownership
+            - generic [aria-hidden] [ref=e134]: →
+    - region [ref=e136]:
+      - generic [ref=e138]:
+        - img "A Glonari home at dusk with warm light in the windows" [ref=e139]
+        - generic [ref=e142]:
+          - heading "What Could Your Home Do for You?" [level=2] [ref=e143]
+          - paragraph [ref=e144]: Tell Gia where you’d like to live and what matters most. She’ll help you see what you qualify for and which homes could fit.
+          - generic [ref=e145]:
+            - link "Find My Glonari Home" [ref=e146] [cursor=pointer]:
+              - /url: find-your-home.html
+            - link "See If I Qualify" [ref=e147] [cursor=pointer]:
+              - /url: find-your-home.html#qualify
+          - paragraph [ref=e148]:
+            - text: Already own a home you love?
+            - link "See the Glonari Home Module" [ref=e149] [cursor=pointer]:
+              - /url: already-own-a-home.html
+              - text: See the Glonari Home Module →
+  - contentinfo [ref=e150]:
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - link "Glonari Homes" [ref=e154] [cursor=pointer]:
+            - /url: index.html
+          - paragraph [ref=e155]: Live better. Create value. Build toward ownership.
+          - link "Find My Glonari Home" [ref=e156] [cursor=pointer]:
+            - /url: find-your-home.html
+        - navigation "Footer" [ref=e157]:
+          - generic [ref=e158]:
+            - paragraph [ref=e159]: Explore
+            - list [ref=e160]:
+              - listitem [ref=e161]:
+                - link "How It Works" [ref=e162] [cursor=pointer]:
+                  - /url: how-it-works.html
+              - listitem [ref=e163]:
+                - link "Living With Glonari" [ref=e164] [cursor=pointer]:
+                  - /url: living-with-glonari.html
+              - listitem [ref=e165]:
+                - link "Already Own a Home?" [ref=e166] [cursor=pointer]:
+                  - /url: already-own-a-home.html
+              - listitem [ref=e167]:
+                - link "Find Your Home" [ref=e168] [cursor=pointer]:
+                  - /url: find-your-home.html
+              - listitem [ref=e169]:
+                - link "FAQs" [ref=e170] [cursor=pointer]:
+                  - /url: faqs.html
+          - generic [ref=e171]:
+            - paragraph [ref=e172]: Glonari
+            - list [ref=e173]:
+              - listitem [ref=e174]:
+                - link "About Glonari" [ref=e175] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e176]:
+                - link "Global Dream Journey" [ref=e177] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e178]:
+                - link "Member Qualification" [ref=e179] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e180]:
+                - link "Contact" [ref=e181] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e182]:
+                - link "Member Login" [ref=e183] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e184]:
+            - paragraph [ref=e185]: Legal
+            - list [ref=e186]:
+              - listitem [ref=e187]:
+                - link "Privacy & Your Data" [ref=e188] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e189]:
+                - link "Legal & Disclosures" [ref=e190] [cursor=pointer]:
+                  - /url: "#"
+      - paragraph [ref=e191]: All figures are illustrative. Glonari Homes is in development and terms may change. Home Business results are not guaranteed, are not passive income and depend on member participation and program terms. GLO is a membership and access credential, not rent, a property interest or a source of income. This site is not an offer to sell, lease or finance any property. Glonari is not a bank.
+      - paragraph [ref=e192]: © 2026 Glonari. All rights reserved.

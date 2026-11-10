@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It Works &middot; Glonari Homes</title>
+<meta name="description" content="A Glonari Home is a beautiful place to live, paired with a Home Business that helps pay for it. Gia, your personal AI, does most of the work.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/how-it-works.css">
+</head>
+<body class="no-js hiw-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Line icons: 48×48 grid, 1.5px stroke, one colour (currentColor) -->
+<svg class="hiw-sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-person" viewBox="0 0 48 48"><circle cx="24" cy="17" r="7"/><path d="M11 39c1.5-7.5 6.6-12 13-12s11.5 4.5 13 12"/></symbol>
+  <symbol id="i-gia" viewBox="0 0 48 48"><path d="M24 7c1.2 9.3 7.7 15.8 17 17-9.3 1.2-15.8 7.7-17 17-1.2-9.3-7.7-15.8-17-17 9.3-1.2 15.8-7.7 17-17Z"/><path d="M37 7v6M34 10h6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><ellipse cx="24" cy="24" rx="7" ry="16"/><path d="M8 24h32M10.5 16h27M10.5 32h27"/></symbol>
+  <symbol id="i-share" viewBox="0 0 48 48"><circle cx="19" cy="24" r="10"/><circle cx="29" cy="24" r="10"/></symbol>
+  <symbol id="i-home" viewBox="0 0 48 48"><path d="M8 22 24 9l16 13"/><path d="M13 18v20h22V18"/><path d="M21 38v-9h6v9"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 48 48"><path d="M12 13 28 7l3 6"/><rect x="7" y="13" width="31" height="25" rx="3"/><path d="M41 21h-8a4 4 0 0 0 0 8h8Z"/></symbol>
+  <symbol id="i-banker" viewBox="0 0 48 48"><rect x="11" y="6" width="26" height="36" rx="4"/><path d="M17 14h14M17 20h8"/><path d="m17 34 5-5 4 3 6-7"/></symbol>
+  <symbol id="i-glo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M16 29h16"/><path d="m24 15 3.5 5-3.5 5-3.5-5Z"/></symbol>
+  <symbol id="i-business" viewBox="0 0 48 48"><rect x="7" y="16" width="34" height="23" rx="3"/><path d="M18 16v-4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/><path d="M7 26h34"/><path d="M21 26v3h6v-3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 48 48"><path d="M24 7l14 5v11c0 9-6 15.5-14 18-8-2.5-14-9-14-18V12Z"/><path d="m18 24 4.5 4.5L31 20"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 48 48"><path d="M5 24c4.5-8 11-12.5 19-12.5S38.5 16 43 24c-4.5 8-11 12.5-19 12.5S9.5 32 5 24Z"/><circle cx="24" cy="24" r="6"/></symbol>
+  <symbol id="i-control" viewBox="0 0 48 48"><path d="M8 16h18M34 16h6M8 32h6M22 32h18"/><circle cx="30" cy="16" r="4"/><circle cx="18" cy="32" r="4"/></symbol>
+  <symbol id="i-yes" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5"/><path d="m5 8.2 2 2 4-4.2"/></symbol>
+  <symbol id="i-no" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5"/><path d="M3.4 12.6 12.6 3.4"/></symbol>
+</svg>
+
+<!-- partial:header -->
+<header class="site-header" data-header>
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Glonari Homes, home page"><img src="assets/images/logo-glonari-homes.webp" alt="" width="540" height="170"></a>
+
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+        <li><a href="already-own-a-home.html">Already Own a Home?</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+      <a class="btn btn--small nav__cta-mobile" href="find-your-home.html">Find My Glonari Home</a>
+    </nav>
+
+    <a class="btn btn--small header-cta" href="find-your-home.html">Find My Glonari Home</a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" data-burger>
+      <span class="visually-hidden">Menu</span>
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+<!-- /partial:header -->
+
+<main id="main">
+
+  <!-- ============ First screen (scene): terrace · words · family ============ -->
+  <section class="hiw-hero" aria-labelledby="hiw-title" data-hero>
+    <div class="scene" data-scene="hiw-hero" style="--travel: 160svh">
+      <div class="scene__stage hiw-hero__stage">
+        <div class="hiw-hero__frame">
+          <img class="hiw-hero__layer hiw-hero__bg" src="assets/images/how-00-terrace-bg-1600.webp"
+               srcset="assets/images/how-00-terrace-bg-1600.webp 1600w, assets/images/how-00-terrace-bg-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" alt="" fetchpriority="high">
+          <div class="hiw-hero__layer hiw-hero__wordbox" aria-hidden="true">
+            <p class="hiw-hero__word"><span class="hiw-hero__word-in"><span>How it</span> <span>works</span></span></p>
+          </div>
+          <img class="hiw-hero__layer hiw-hero__fg" src="assets/images/how-00-terrace-family-cutout-1600.webp"
+               srcset="assets/images/how-00-terrace-family-cutout-1600.webp 1600w, assets/images/how-00-terrace-family-cutout-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" fetchpriority="high"
+               alt="A family on a terrace sofa at dusk looks at a tablet together, with the sea and the lights of the coast behind them">
+        </div>
+
+        <div class="hiw-hero__shade" aria-hidden="true"></div>
+
+        <div class="hiw-hero__copy">
+          <div class="hiw-hero__copy-in">
+            <h1 class="hiw-hero__title" id="hiw-title" data-hcopy>How a Glonari Home Works</h1>
+            <p class="hiw-hero__sub" data-hcopy>A home, a personal AI and a real business, working together for you.</p>
+          </div>
+        </div>
+
+        <div class="hiw-hero__cue" aria-hidden="true">Scroll</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Chapter index (fixed left rail; compact chip under 1100px) ============ -->
+  <nav class="hiw-toc" aria-label="Chapters" data-hiw-toc>
+    <ol class="hiw-toc__list">
+      <li><a href="#ch-01"><span class="hiw-toc__n">01</span><span class="hiw-toc__t">Four Parts</span></a></li>
+      <li><a href="#ch-02"><span class="hiw-toc__n">02</span><span class="hiw-toc__t">Where the Money Comes From</span></a></li>
+      <li><a href="#ch-03"><span class="hiw-toc__n">03</span><span class="hiw-toc__t">Participation</span></a></li>
+      <li><a href="#ch-04"><span class="hiw-toc__n">04</span><span class="hiw-toc__t">How Results Work</span></a></li>
+      <li><a href="#ch-05"><span class="hiw-toc__n">05</span><span class="hiw-toc__t">GLO</span></a></li>
+      <li><a href="#ch-06"><span class="hiw-toc__n">06</span><span class="hiw-toc__t">Your Statement</span></a></li>
+      <li><a href="#ch-07"><span class="hiw-toc__n">07</span><span class="hiw-toc__t">Privacy</span></a></li>
+      <li><a href="#ch-08"><span class="hiw-toc__n">08</span><span class="hiw-toc__t">The Whole System</span></a></li>
+    </ol>
+    <p class="hiw-toc__compact" aria-hidden="true"><span data-hiw-toc-current>01</span> / 08</p>
+  </nav>
+
+  <!-- ============ 01 · The four parts ============ -->
+  <section class="hiw-ch" id="ch-01" aria-labelledby="ch-01-title">
+    <div class="container">
+      <header class="hiw-head" data-reveal>
+        <p class="hiw-head__n" aria-hidden="true">01</p>
+        <p class="eyebrow">Chapter 01 &middot; The four parts</p>
+        <h2 class="h2" id="ch-01-title">The Four Parts</h2>
+      </header>
+      <div class="hiw-grid4">
+        <article class="hiw-card" data-reveal style="--d:0">
+          <img src="assets/images/how-01-house-800.webp" srcset="assets/images/how-01-house-800.webp 800w, assets/images/how-01-house-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1500" loading="lazy" alt="">
+          <p class="hiw-card__n" aria-hidden="true">01</p>
+          <h3 class="hiw-card__title">Your Home</h3>
+          <p>The house you live in, with long-term, protected occupancy.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:1">
+          <img src="assets/images/how-01-gia-800.webp" srcset="assets/images/how-01-gia-800.webp 800w, assets/images/how-01-gia-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1500" loading="lazy" alt="">
+          <p class="hiw-card__n" aria-hidden="true">02</p>
+          <h3 class="hiw-card__title">Gia&trade;</h3>
+          <p>Your personal AI. She learns your goals, does the repetitive work and tells you where your time is worth spending.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:2">
+          <img src="assets/images/how-01-business-800.webp" srcset="assets/images/how-01-business-800.webp 800w, assets/images/how-01-business-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1500" loading="lazy" alt="">
+          <p class="hiw-card__n" aria-hidden="true">03</p>
+          <h3 class="hiw-card__title">Your Glonari Home Business&trade;</h3>
+          <p>A real business connected to your home. It turns savings, opportunities and your participation into economic value.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:3">
+          <img src="assets/images/how-01-connections-800.webp" srcset="assets/images/how-01-connections-800.webp 800w, assets/images/how-01-connections-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1500" loading="lazy" alt="">
+          <p class="hiw-card__n" aria-hidden="true">04</p>
+          <h3 class="hiw-card__title">Global Connections&reg;</h3>
+          <p>Glonari&rsquo;s network of merchants, service providers and partners. It is where the value is actually created and paid.</p>
+        </article>
+      </div>
+      <p class="hiw-closer" data-reveal style="--d:4">Four parts. One simple experience.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 · Where the value comes from (opener = pause) ============ -->
+  <section class="hiw-ch hiw-ch--opened" id="ch-02" aria-labelledby="ch-02-title">
+    <!-- pinned on wide screens (layeredScene() in how-it-works.js); phones: the plain parallax opener -->
+    <div class="scene hiw-layered" data-scene="hiw-cafe" style="--travel: 140svh">
+    <div class="scene__stage">
+    <div class="hiw-opener hiw-opener--layered hiw-opener--cafe" data-opener>
+      <!-- two layers in one frame (parallax like the first screen): the terrace, then the three friends in front -->
+      <img class="hiw-opener__img hiw-opener__bg" src="assets/images/how-02-cafe-bg-1600.webp"
+           srcset="assets/images/how-02-cafe-bg-1600.webp 1600w, assets/images/how-02-cafe-bg-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy" alt="">
+      <img class="hiw-opener__img hiw-opener__fg" src="assets/images/how-02-cafe-people-cutout-1600.webp"
+           srcset="assets/images/how-02-cafe-people-cutout-1600.webp 1600w, assets/images/how-02-cafe-people-cutout-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy"
+           alt="Three friends talk over coffee at an outdoor caf&eacute; on a hillside terrace at sunset, representing Glonari's Global Connections network">
+      <div class="hiw-opener__veil" aria-hidden="true"></div>
+      <div class="container hiw-opener__copy">
+        <p class="hiw-opener__n" aria-hidden="true" data-reveal style="--d:0">02</p>
+        <p class="eyebrow eyebrow--light" data-reveal style="--d:1">Chapter 02 &middot; Where the value comes from</p>
+        <h2 class="h2 hiw-opener__title" id="ch-02-title"><span data-reveal style="--d:2">The Money Comes From Real Activity.</span> <span data-reveal style="--d:3">Not From Living in the House.</span></h2>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="container hiw-after">
+      <p class="lead hiw-intro" data-reveal>Your Home Business earns from real commercial relationships, coordinated through Global Connections. Because Glonari works with thousands of homes, it can negotiate deals that no single family could get on its own.</p>
+      <div class="hiw-grid4">
+        <article class="hiw-card" data-reveal style="--d:0">
+          <img src="assets/images/how-02-savings-800.webp" srcset="assets/images/how-02-savings-800.webp 800w, assets/images/how-02-savings-1200.webp 1122w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1122" height="1402" loading="lazy" alt="">
+          <h3 class="hiw-card__title">Household savings</h3>
+          <p>Better rates on insurance, utilities, maintenance, services and everyday purchases.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:1">
+          <img src="assets/images/how-02-partners-800.webp" srcset="assets/images/how-02-partners-800.webp 800w, assets/images/how-02-partners-1200.webp 1122w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1122" height="1402" loading="lazy" alt="">
+          <h3 class="hiw-card__title">Merchant and service relationships</h3>
+          <p>Commissions and rewards from partners you choose to use.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:2">
+          <img src="assets/images/how-02-referrals-800.webp" srcset="assets/images/how-02-referrals-800.webp 800w, assets/images/how-02-referrals-1200.webp 1122w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1122" height="1402" loading="lazy" alt="">
+          <h3 class="hiw-card__title">Referrals</h3>
+          <p>Introducing people to Glonari Homes, or businesses to the network, when it fits.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:3">
+          <img src="assets/images/how-02-knowledge-800.webp" srcset="assets/images/how-02-knowledge-800.webp 800w, assets/images/how-02-knowledge-1200.webp 1122w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1122" height="1402" loading="lazy" alt="">
+          <h3 class="hiw-card__title">Your knowledge</h3>
+          <p>Reviews, research, local insight and experience that companies value, shared only with your permission.</p>
+        </article>
+      </div>
+      <p class="hiw-closer hiw-closer--big" data-reveal>Gia finds the opportunity. Your participation creates the value.</p>
+    </div>
+  </section>
+
+  <!-- ============ 03 · What participation means ============ -->
+  <section class="hiw-ch" id="ch-03" aria-labelledby="ch-03-title">
+    <div class="container">
+      <header class="hiw-head" data-reveal>
+        <p class="hiw-head__n" aria-hidden="true">03</p>
+        <p class="eyebrow">Chapter 03 &middot; Participation</p>
+        <h2 class="h2" id="ch-03-title">You Take Part. Gia Does the Work.</h2>
+      </header>
+      <p class="hiw-copy" data-reveal>This is not passive income, and it is not a second job. A Home Business works because you take part, but Gia is built to handle everything that doesn&rsquo;t need a human.</p>
+      <div class="hiw-duo" data-duo>
+        <article class="hiw-duo__col hiw-duo__col--you" data-reveal style="--d:0" tabindex="0" aria-labelledby="duo-you">
+          <div class="hiw-duo__media">
+            <img src="assets/images/how-03-you-800.webp" srcset="assets/images/how-03-you-800.webp 800w, assets/images/how-03-you-1200.webp 1200w"
+                 sizes="(max-width: 1023px) 92vw, 50vw" width="1200" height="1200" loading="lazy" alt="">
+            <div class="hiw-chat hiw-chat--you" data-chat="you" aria-hidden="true">
+              <p class="hiw-msg hiw-msg--you"><span class="hiw-msg__b">Yes, let&rsquo;s do it</span></p>
+              <p class="hiw-msg hiw-msg--you"><span class="hiw-msg__b">Permission granted &check;</span></p>
+              <p class="hiw-msg hiw-msg--you"><span class="hiw-msg__b">Here&rsquo;s my review of the caf&eacute;</span></p>
+            </div>
+          </div>
+          <div class="hiw-duo__text">
+            <h3 class="hiw-duo__title" id="duo-you">What you do</h3>
+            <p>Share experiences you choose to share, make decisions, give permission, make introductions, take part in opportunities you like.</p>
+          </div>
+        </article>
+        <article class="hiw-duo__col hiw-duo__col--gia" data-reveal style="--d:1" tabindex="0" aria-labelledby="duo-gia">
+          <div class="hiw-duo__media">
+            <img src="assets/images/how-03-gia-800.webp" srcset="assets/images/how-03-gia-800.webp 800w, assets/images/how-03-gia-1200.webp 1200w"
+                 sizes="(max-width: 1023px) 92vw, 50vw" width="1200" height="1200" loading="lazy" alt="">
+            <div class="hiw-chat hiw-chat--gia" data-chat="gia" aria-hidden="true">
+              <p class="hiw-msg hiw-msg--gia"><img src="assets/images/gia-avatar-256.webp" width="24" height="24" alt=""><span class="hiw-msg__b">Scheduled your review call &middot; Tue 10:00</span></p>
+              <p class="hiw-msg hiw-msg--gia"><img src="assets/images/gia-avatar-256.webp" width="24" height="24" alt=""><span class="hiw-msg__b">Results tracked this month &check;</span></p>
+              <p class="hiw-msg hiw-msg--gia"><img src="assets/images/gia-avatar-256.webp" width="24" height="24" alt=""><span class="hiw-msg__b">Quick question: OK to share your caf&eacute; review?</span></p>
+            </div>
+          </div>
+          <div class="hiw-duo__text">
+            <h3 class="hiw-duo__title" id="duo-gia">What Gia does</h3>
+            <p>Searches, compares, organizes, follows up, schedules, tracks results and asks you only when it matters.</p>
+          </div>
+        </article>
+      </div>
+      <p class="hiw-closer" data-reveal>You don&rsquo;t need to become a marketer, a researcher or a gig worker. You just need to be yourself.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 · How results work (scene) ============ -->
+  <section class="hiw-ch hiw-results" id="ch-04" aria-labelledby="ch-04-title">
+    <div class="scene" data-scene="hiw-results" style="--travel: 150svh">
+      <div class="scene__stage hiw-results__stage">
+        <div class="container hiw-results__grid">
+          <div class="hiw-results__text">
+            <header class="hiw-head hiw-head--tight">
+              <p class="hiw-head__n" aria-hidden="true">04</p>
+              <p class="eyebrow">Chapter 04 &middot; How results work</p>
+              <h2 class="h2" id="ch-04-title">The More Value You Create, the More You Receive.</h2>
+            </header>
+            <p>Your Home Business doesn&rsquo;t pay a fixed amount. Each month, it receives a share of the qualifying value created through your participation. A more active month can produce more. A quieter month produces less.</p>
+            <p>Part of that value supports your home while you live there. The rest belongs to you. Use it for savings, travel, education or anything else. Glonari doesn&rsquo;t require you to spend it on housing.</p>
+            <p class="hiw-disclaimer">Results are not guaranteed and depend on actual qualifying activity and program terms.</p>
+          </div>
+
+          <div class="hiw-results__side">
+            <div class="hiw-flow" role="list" aria-label="How results flow">
+              <div class="hiw-flow__node" role="listitem" data-step><svg class="hiw-icon" aria-hidden="true"><use href="#i-person"/></svg><span>You take part</span></div>
+              <svg class="hiw-flow__arrow" data-step="line" viewBox="0 0 12 40" aria-hidden="true"><path d="M6 1v37M2 33.5 6 38l4-4.5"/></svg>
+              <div class="hiw-flow__node" role="listitem" data-step><svg class="hiw-icon" aria-hidden="true"><use href="#i-gia"/></svg><span>Gia organizes</span></div>
+              <svg class="hiw-flow__arrow" data-step="line" viewBox="0 0 12 40" aria-hidden="true"><path d="M6 1v37M2 33.5 6 38l4-4.5"/></svg>
+              <div class="hiw-flow__node" role="listitem" data-step><svg class="hiw-icon" aria-hidden="true"><use href="#i-globe"/></svg><span>Global Connections creates value</span></div>
+              <svg class="hiw-flow__arrow" data-step="line" viewBox="0 0 12 40" aria-hidden="true"><path d="M6 1v37M2 33.5 6 38l4-4.5"/></svg>
+              <div class="hiw-flow__node hiw-flow__node--key" role="listitem" data-step><svg class="hiw-icon" aria-hidden="true"><use href="#i-share"/></svg><span>You and Glonari share it</span></div>
+              <svg class="hiw-flow__fork" data-step="line" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0v14M50 40V14h100v26" vector-effect="non-scaling-stroke"/></svg>
+              <div class="hiw-flow__split" role="listitem">
+                <div class="hiw-flow__node hiw-flow__node--part" data-step><svg class="hiw-icon" aria-hidden="true"><use href="#i-home"/></svg><span>Supports your home</span></div>
+                <div class="hiw-flow__node hiw-flow__node--part" data-step><svg class="hiw-icon" aria-hidden="true"><use href="#i-wallet"/></svg><span>Yours to use</span></div>
+              </div>
+            </div>
+            <div class="hiw-statement" data-statement>
+              <p class="hiw-statement__big">Glonari does better when you do better.</p>
+              <p class="hiw-statement__sub">Traditional landlords earn more when rent goes up. Glonari earns more when you create more value.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 · GLO (the one dark chapter) ============ -->
+  <section class="hiw-ch hiw-ch--opened hiw-ch--dark" id="ch-05" aria-labelledby="ch-05-title" data-dark>
+    <div class="hiw-opener hiw-opener--night" data-opener>
+      <img class="hiw-opener__img" src="assets/images/how-05-glo-hall-night-1600.webp"
+           srcset="assets/images/how-05-glo-hall-night-1600.webp 1600w, assets/images/how-05-glo-hall-night-2560.webp 2560w"
+           sizes="100vw" width="2560" height="1440" loading="lazy"
+           alt="A candle-lit stone hall at night with arched windows, olive trees in urns and soft armchairs">
+      <div class="hiw-opener__veil" aria-hidden="true"></div>
+      <div class="container hiw-opener__copy">
+        <p class="hiw-opener__n" aria-hidden="true" data-reveal style="--d:0">05</p>
+        <p class="eyebrow eyebrow--light" data-reveal style="--d:1">Chapter 05 &middot; GLO: the power behind Gia</p>
+        <h2 class="h2 hiw-opener__title" id="ch-05-title"><span data-reveal style="--d:2">GLO Powers Your Gia.</span> <span data-reveal style="--d:3">You Create the Value.</span></h2>
+      </div>
+    </div>
+    <div class="container hiw-after">
+      <p class="lead hiw-intro" data-reveal>Running an AI-powered Home Business takes real technology: Gia&rsquo;s AI capacity, Global Connections, Digital Banker and the Glonari Home platform. GLO&trade; is your Glonari membership and access credential. It gives you and your home access to that capacity.</p>
+
+      <div class="hiw-seal" data-reveal>
+        <svg viewBox="0 0 160 160" role="img" aria-label="GLO">
+          <circle cx="80" cy="80" r="74"/>
+          <text x="80" y="88" text-anchor="middle">GLO</text>
+          <path d="M50 104h60"/>
+        </svg>
+      </div>
+
+      <div class="hiw-panels">
+        <article class="hiw-panel" data-reveal style="--d:0">
+          <h3 class="hiw-panel__title">What GLO is</h3>
+          <ul class="hiw-marks">
+            <li><svg aria-hidden="true"><use href="#i-yes"/></svg>Your membership</li>
+            <li><svg aria-hidden="true"><use href="#i-yes"/></svg>Your access to Gia&rsquo;s AI capacity</li>
+            <li><svg aria-hidden="true"><use href="#i-yes"/></svg>Your qualification for Glonari Home services</li>
+          </ul>
+        </article>
+        <article class="hiw-panel hiw-panel--not" data-reveal style="--d:1">
+          <h3 class="hiw-panel__title">What GLO is not</h3>
+          <ul class="hiw-marks">
+            <li><svg aria-hidden="true"><use href="#i-no"/></svg>Rent</li>
+            <li><svg aria-hidden="true"><use href="#i-no"/></svg>A down payment</li>
+            <li><svg aria-hidden="true"><use href="#i-no"/></svg>A share of the property</li>
+            <li><svg aria-hidden="true"><use href="#i-no"/></svg>A source of income</li>
+          </ul>
+        </article>
+      </div>
+      <p class="hiw-note" data-reveal>Note: The GLO level for each home depends on the home and program tier. Gia will show you what applies during qualification.</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 · Your monthly statement ============ -->
+  <section class="hiw-ch" id="ch-06" aria-labelledby="ch-06-title">
+    <div class="container hiw-split">
+      <div>
+        <header class="hiw-head" data-reveal>
+          <p class="hiw-head__n" aria-hidden="true">06</p>
+          <p class="eyebrow">Chapter 06 &middot; Your monthly statement</p>
+          <h2 class="h2" id="ch-06-title">Complex Behind the Scenes. Simple for You.</h2>
+        </header>
+        <p class="hiw-copy" data-reveal>Digital Banker&trade;, Glonari&rsquo;s financial management experience, puts everything about your home in one place: what you paid, what your Home Business created, what supported your home and what is yours.</p>
+        <p class="hiw-copy" data-reveal>Ask Gia: &ldquo;Why was my share higher this month?&rdquo; Gia explains the activity behind every number.</p>
+      </div>
+
+      <figure class="hiw-banker" aria-label="Glonari Home Economic Statement, illustrative example">
+        <p class="hiw-banker__label" data-reveal>Illustrative example</p>
+        <div class="hiw-banker__device" data-reveal>
+          <div class="hiw-banker__screen">
+            <div class="hiw-banker__top">
+              <span>Digital Banker&trade;</span>
+              <span>Glonari Home Economic Statement&trade;</span>
+            </div>
+            <p class="hiw-banker__hero"><span>Your share this month:</span> <strong>$3,000</strong></p>
+            <dl class="hiw-banker__rows">
+              <div data-reveal style="--d:1"><dt>Your monthly home payment</dt><dd>$4,000</dd></div>
+              <div data-reveal style="--d:2"><dt>Value created by your Home Business</dt><dd>$5,000</dd></div>
+              <div data-reveal style="--d:3"><dt>Applied to your home</dt><dd>$2,000</dd></div>
+              <div data-reveal style="--d:4"><dt>Your share</dt><dd>$3,000</dd></div>
+              <div data-reveal style="--d:5"><dt>Savings Gia found</dt><dd>$320</dd></div>
+              <div class="hiw-banker__progress" data-reveal style="--d:6">
+                <dt>Your progress toward ownership</dt><dd>18%</dd>
+                <span class="hiw-banker__bar" aria-hidden="true"><span style="--p: 18%"></span></span>
+              </div>
+            </dl>
+            <div class="hiw-banker__chat">
+              <p class="hiw-msg hiw-msg--you" data-reveal style="--d:7"><span class="visually-hidden">You: </span>Why was my share higher this month?</p>
+              <div class="hiw-msg-row" data-reveal style="--d:8">
+                <img src="assets/images/gia-avatar-256.webp" width="256" height="256" loading="lazy" alt="">
+                <p class="hiw-msg hiw-msg--gia"><span class="visually-hidden">Gia: </span>Your Home Business created more qualifying value this month: more savings, more opportunities and higher rewards through Global Connections.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 · Privacy (pause) ============ -->
+  <section class="hiw-ch hiw-privacy" id="ch-07" aria-labelledby="ch-07-title">
+    <div class="container">
+      <header class="hiw-head" data-reveal>
+        <p class="hiw-head__n" aria-hidden="true">07</p>
+        <p class="eyebrow">Chapter 07 &middot; Privacy</p>
+        <h2 class="h2" id="ch-07-title">Your Intelligence. Your Choices.</h2>
+      </header>
+      <p class="lead hiw-intro" data-reveal>You decide what to share and what to take part in. Gia tells you when information could create an opportunity, and nothing happens without your permission. Your personal memory with Gia stays yours. It is kept separate from the home and its business.</p>
+      <ul class="hiw-tags">
+        <li data-reveal style="--d:0"><svg class="hiw-icon" aria-hidden="true"><use href="#i-shield"/></svg>Permission-based</li>
+        <li data-reveal style="--d:1"><svg class="hiw-icon" aria-hidden="true"><use href="#i-eye"/></svg>Transparent</li>
+        <li data-reveal style="--d:2"><svg class="hiw-icon" aria-hidden="true"><use href="#i-control"/></svg>You&rsquo;re in control</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 08 · The whole system (opener + scene) ============ -->
+  <section class="hiw-ch hiw-ch--opened hiw-system" id="ch-08" aria-labelledby="ch-08-title">
+    <!-- pinned on wide screens (layeredScene() in how-it-works.js); phones: the plain parallax opener -->
+    <div class="scene hiw-layered" data-scene="hiw-family" style="--travel: 140svh">
+    <div class="scene__stage">
+    <div class="hiw-opener hiw-opener--layered hiw-opener--family" data-opener>
+      <!-- two layers in one frame: the terrace, then the family at the table in front -->
+      <img class="hiw-opener__img hiw-opener__bg" src="assets/images/how-08-terrace-bg-1600.webp"
+           srcset="assets/images/how-08-terrace-bg-1600.webp 1600w, assets/images/how-08-terrace-bg-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy" alt="">
+      <img class="hiw-opener__img hiw-opener__fg" src="assets/images/how-08-terrace-family-1600.webp"
+           srcset="assets/images/how-08-terrace-family-1600.webp 1600w, assets/images/how-08-terrace-family-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy"
+           alt="A family and a friend laugh together over dinner at an outdoor table by their home at sunset">
+      <div class="hiw-opener__veil" aria-hidden="true"></div>
+      <div class="container hiw-opener__copy">
+        <p class="hiw-opener__n" aria-hidden="true" data-reveal style="--d:0">08</p>
+        <p class="eyebrow eyebrow--light" data-reveal style="--d:1">Chapter 08</p>
+        <h2 class="h2 hiw-opener__title" id="ch-08-title"><span data-reveal style="--d:2">The Whole System</span></h2>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="scene" data-scene="hiw-system" style="--travel: 170svh">
+      <div class="scene__stage hiw-system__stage">
+        <div class="container hiw-system__in">
+          <div class="hiw-system__map">
+            <svg class="hiw-system__lines" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true">
+              <!-- cut-out spans x 16–144, y 25.6–90 of this viewBox; each line runs from its card
+                   toward the people and stops at the figures (it passes behind the cut-out) -->
+              <line x1="87.7" y1="10" x2="87.7" y2="28" pathLength="1"/>
+              <line x1="17.6" y1="31.5" x2="38" y2="33" pathLength="1"/>
+              <line x1="143.2" y1="27" x2="128" y2="33" pathLength="1"/>
+              <line x1="11.2" y1="76.5" x2="30" y2="80" pathLength="1"/>
+              <line x1="147.2" y1="76.5" x2="132" y2="79" pathLength="1"/>
+            </svg>
+            <img class="hiw-system__img" src="assets/images/how-08-family-gia-cutout-1600.webp"
+                 srcset="assets/images/how-08-family-gia-cutout-1600.webp 1600w, assets/images/how-08-family-gia-cutout-2560.webp 2560w"
+                 sizes="(max-width: 768px) 100vw, 80vw" width="2560" height="1288" loading="lazy"
+                 alt="A family and Gia smile and talk together around a table set for dinner">
+            <ul class="hiw-system__nodes">
+              <li class="hiw-node" style="--x: 54.8%; --y: 11%"><span class="hiw-node__card"><svg class="hiw-icon" aria-hidden="true"><use href="#i-gia"/></svg>Gia</span></li>
+              <li class="hiw-node" style="--x: 11%; --y: 35%"><span class="hiw-node__card"><svg class="hiw-icon" aria-hidden="true"><use href="#i-globe"/></svg>Global Connections</span></li>
+              <li class="hiw-node" style="--x: 89.5%; --y: 30%"><span class="hiw-node__card"><svg class="hiw-icon" aria-hidden="true"><use href="#i-banker"/></svg>Digital Banker</span></li>
+              <li class="hiw-node" style="--x: 7%; --y: 85%"><span class="hiw-node__card"><svg class="hiw-icon" aria-hidden="true"><use href="#i-glo"/></svg>GLO</span></li>
+              <li class="hiw-node" style="--x: 92%; --y: 85%"><span class="hiw-node__card"><svg class="hiw-icon" aria-hidden="true"><use href="#i-business"/></svg>Home Business</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container hiw-system__end">
+      <p class="hiw-system__line" data-reveal>The home is where you live. Gia is the intelligence. Global Connections creates the value. Digital Banker keeps the record. GLO gives access. You make it all work.</p>
+      <a class="btn hiw-system__cta" href="living-with-glonari.html" data-reveal style="--d:1">See Where It Can Take You <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--light" href="index.html"><img src="assets/images/logo-glonari-homes.webp" alt="Glonari Homes" width="540" height="170"></a>
+        <p>Live better. Create value. Build toward ownership.</p>
+        <a class="btn btn--light btn--small" href="find-your-home.html">Find My Glonari Home</a>
+      </div>
+      <nav class="site-footer__cols" aria-label="Footer">
+        <div>
+          <p class="site-footer__h">Explore</p>
+          <ul>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+            <li><a href="already-own-a-home.html">Already Own a Home?</a></li>
+            <li><a href="find-your-home.html">Find Your Home</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__h">Glonari</p>
+          <ul>
+            <li><a href="#">About Glonari</a></li>
+            <li><a href="https://helen369-gif1.github.io/global-dream-prototype/" target="_blank" rel="noopener">Global Dream Journey</a></li>
+            <li><a href="#">Member Qualification</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Member Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__h">Legal</p>
+          <ul>
+            <li><a href="#">Privacy &amp; Your Data</a></li>
+            <li><a href="#">Legal &amp; Disclosures</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__disclosure">All figures are illustrative. Glonari Homes is in development and terms may change. Home Business results are not guaranteed, are not passive income and depend on member participation and program terms. GLO is a membership and access credential, not rent, a property interest or a source of income. This site is not an offer to sell, lease or finance any property. Glonari is not a bank.</p>
+    <p class="site-footer__legal">© 2026 Glonari. All rights reserved.</p>
+  </div>
+</footer>
+<!-- /partial:footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/how-it-works.js" defer></script>
+</body>
+</html>

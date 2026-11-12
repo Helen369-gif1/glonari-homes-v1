@@ -1,0 +1,201 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Glonari Homes, home page" [ref=e5] [cursor=pointer]:
+        - /url: index.html
+      - navigation "Main" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=e10]:
+            - link "How It Works" [ref=e11] [cursor=pointer]:
+              - /url: how-it-works.html
+          - listitem [ref=e12]:
+            - link "Living With Glonari" [ref=e13] [cursor=pointer]:
+              - /url: living-with-glonari.html
+          - listitem [ref=e14]:
+            - link "Find Your Home" [ref=e15] [cursor=pointer]:
+              - /url: find-your-home.html
+          - listitem [ref=e16]:
+            - link "Glonari Properties" [ref=e17] [cursor=pointer]:
+              - /url: glonari-properties.html
+          - listitem [ref=e18]:
+            - link "FAQs" [ref=e19] [cursor=pointer]:
+              - /url: faqs.html
+      - link "Find My Glonari Home" [ref=e20] [cursor=pointer]:
+        - /url: find-your-home.html
+  - main [ref=e21]:
+    - region "A Better Way to Live. Built Around You." [ref=e22]:
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - paragraph [ref=e27]:
+            - generic [ref=e28]: How it works
+          - img "A family on a terrace sofa at dusk looks at a tablet together, with the sea and the lights of the coast behind them" [ref=e29]
+        - generic [ref=e31]:
+          - heading "A Better Way to Live. Built Around You." [level=1] [ref=e32]
+          - paragraph [ref=e33]: Glonari Homes connects a home, professional property management, and Gia—your personal AI concierge—in one residential experience.
+          - paragraph [ref=e34]: "The goal is simple: make living more comfortable and potentially more affordable."
+          - link "Understand the Program" [ref=e35] [cursor=pointer]:
+            - /url: "#ch-02"
+        - generic [aria-hidden]: Scroll
+    - region "One Connected Experience. Different Roles." [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: 02 · Who does what?
+          - heading "One Connected Experience. Different Roles." [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - article [ref=e42]:
+            - paragraph [ref=e43]:
+              - strong [ref=e44]: Glonari Properties™
+              - text: acquires, owns, and manages qualifying residential properties.
+          - article [ref=e45]:
+            - paragraph [ref=e46]:
+              - strong [ref=e47]: Glonari Homes™
+              - text: provides the residential living experience under a program agreement.
+          - article [ref=e48]:
+            - paragraph [ref=e49]:
+              - strong [ref=e50]: Gia™
+              - text: helps coordinate services, maintenance, schedules, shopping, and personal assistance.
+          - article [ref=e51]:
+            - paragraph [ref=e52]:
+              - strong [ref=e53]: You
+              - text: choose a home, review the terms, and decide whether the program fits your circumstances.
+    - region "Start With the Home You Want." [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: 03 · Choose your home
+          - heading "Start With the Home You Want." [level=2] [ref=e58]
+        - figure [ref=e59]:
+          - img "A two-storey stucco home with a tiled roof, olive trees and an arched front door in afternoon light" [ref=e61]
+        - generic [ref=e62]:
+          - paragraph [ref=e63]: Choose a qualifying residence, including a home you already own or one you would like Glonari Properties to consider purchasing.
+          - paragraph [ref=e64]: The property must pass the applicable reviews and approvals before it can enter the program.
+          - link "Explore Your Home Options" [ref=e65] [cursor=pointer]:
+            - /url: find-your-home.html
+    - region "Know What You Pay." [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - paragraph [ref=e70]: 04 · Understand the cost
+            - heading "Know What You Pay." [level=2] [ref=e71]
+          - paragraph [ref=e72]:
+            - text: For an illustrative
+            - strong [ref=e73]: $1 million home
+            - text: ", the brochure models a"
+            - strong [ref=e74]: $8,333 monthly Glonari Home fee
+            - text: .
+          - paragraph [ref=e75]:
+            - text: A planned
+            - strong [ref=e76]: $2,500 monthly Global Connections benefit
+            - text: could reduce the remaining cash requirement to
+            - strong [ref=e77]: $5,833
+            - text: .
+          - paragraph [ref=e78]: The contractual fee remains $8,333. The benefit is not guaranteed and must be supported by enforceable, funded arrangements.
+          - link "See the Monthly Cost Example" [ref=e79] [cursor=pointer]:
+            - /url: find-your-home.html#cost-illustration
+        - generic [aria-hidden] [ref=e80]:
+          - paragraph [ref=e81]:
+            - generic [ref=e82]: $8,333
+          - paragraph [ref=e83]:
+            - generic [ref=e84]: −
+            - generic [ref=e85]: $2,500
+          - paragraph [ref=e86]:
+            - generic [ref=e87]: $5,833
+    - region "Your Options Should Be Clear From the Start." [ref=e88]:
+      - generic [ref=e91]:
+        - img "Three friends talk over coffee at an outdoor café on a hillside terrace at sunset" [ref=e92]
+        - generic [ref=e94]:
+          - paragraph [aria-hidden] [ref=e95]: "05"
+          - paragraph [ref=e96]: 05 · Who can join?
+          - heading "Your Options Should Be Clear From the Start." [level=2] [ref=e97]
+      - generic [ref=e99]:
+        - paragraph [ref=e100]: The brochure describes a qualifying GPA position for its full-participation example. Initial investment in GPA securities is limited to eligible accredited investors.
+        - paragraph [ref=e101]: Broader investor access is a future objective, subject to authorization.
+    - region "From the Home You Imagine to the Life You Live." [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: 06 · The journey
+          - heading "From the Home You Imagine to the Life You Live." [level=2] [ref=e106]
+        - list [ref=e107]:
+          - listitem [ref=e108]:
+            - paragraph [ref=e112]:
+              - generic [ref=e113]: "01."
+              - strong [ref=e114]: Choose a qualifying home.
+              - text: Find a residence that meets the program’s property criteria.
+          - listitem [ref=e115]:
+            - paragraph [ref=e119]:
+              - generic [ref=e120]: "02."
+              - strong [ref=e121]: Review eligibility.
+              - text: Understand the proposed agreement, program requirements, and any applicable GPA investment requirements.
+          - listitem [ref=e122]:
+            - paragraph [ref=e126]:
+              - generic [ref=e127]: "03."
+              - strong [ref=e128]: Complete approvals.
+              - text: Property acquisition, membership, and agreements require approval.
+          - listitem [ref=e129]:
+            - paragraph [ref=e133]:
+              - generic [ref=e134]: "04."
+              - strong [ref=e135]: Make it home.
+              - text: Enter the Glonari Home agreement and begin using available Gia services.
+    - region "Understand the Details. Then Decide." [ref=e136]:
+      - generic [ref=e139]:
+        - img "A family and a friend laugh together over dinner at an outdoor table by their home at sunset" [ref=e140]
+        - generic [ref=e142]:
+          - paragraph [aria-hidden] [ref=e143]: "07"
+          - paragraph [ref=e144]: 07 · Next step
+          - heading "Understand the Details. Then Decide." [level=2] [ref=e145]:
+            - generic [ref=e146]: Understand the Details.
+            - generic [ref=e147]: Then Decide.
+      - generic [ref=e148]:
+        - paragraph [ref=e149]: Explore a personal home-and-cost illustration before making a decision about joining the program.
+        - link "Find My Home" [ref=e150] [cursor=pointer]:
+          - /url: find-your-home.html
+  - contentinfo [ref=e151]:
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - link [ref=e155] [cursor=pointer]:
+            - /url: index.html
+            - img "Glonari Homes" [ref=e156]
+          - paragraph [ref=e157]: AI for Human Prosperity™
+          - link "Find My Glonari Home" [ref=e158] [cursor=pointer]:
+            - /url: find-your-home.html
+        - navigation "Footer" [ref=e159]:
+          - generic [ref=e160]:
+            - paragraph [ref=e161]: Explore
+            - list [ref=e162]:
+              - listitem [ref=e163]:
+                - link "Home" [ref=e164] [cursor=pointer]:
+                  - /url: index.html
+              - listitem [ref=e165]:
+                - link "How It Works" [ref=e166] [cursor=pointer]:
+                  - /url: how-it-works.html
+              - listitem [ref=e167]:
+                - link "Living With Glonari" [ref=e168] [cursor=pointer]:
+                  - /url: living-with-glonari.html
+              - listitem [ref=e169]:
+                - link "Find Your Home" [ref=e170] [cursor=pointer]:
+                  - /url: find-your-home.html
+              - listitem [ref=e171]:
+                - link "Glonari Properties" [ref=e172] [cursor=pointer]:
+                  - /url: glonari-properties.html
+              - listitem [ref=e173]:
+                - link "FAQs" [ref=e174] [cursor=pointer]:
+                  - /url: faqs.html
+          - generic [ref=e175]:
+            - paragraph [ref=e176]: Legal
+            - list [ref=e177]:
+              - listitem [ref=e178]:
+                - link "Privacy" [ref=e179] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e180]:
+                - link "Legal & Disclosures" [ref=e181] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e182]:
+                - link "Contact" [ref=e183] [cursor=pointer]:
+                  - /url: "#"
+      - paragraph [ref=e184]: Glonari Homes is a proposed program. Content and numbers on this preliminary site are illustrative and subject to definitive agreements and approval. Investment values may fall. Housing benefits, financing, property availability, and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website draft is not an offer to sell, lease, or finance property or to sell securities.
+      - paragraph [ref=e185]: © 2026 Glonari. All rights reserved.

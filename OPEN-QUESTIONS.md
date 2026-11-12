@@ -27,4 +27,3 @@ The italic notes in the document are questions for the owner, not site copy: the
 ## Technical open points (not from the document)
 
 - How It Works, Screen 04: the button "See the Monthly Cost Example" links to `find-your-home.html#cost-illustration`; that anchor does not exist yet on the Find Your Home stub (build it with Page 04).
-- How It Works, Screen 02: the "Glonari Properties" card uses `placeholder-how-02-properties-800.webp` (a crop of a placeholder home); Screen 03 uses `placeholder-how-03-choose-home-*.webp`. Replace with real photos.

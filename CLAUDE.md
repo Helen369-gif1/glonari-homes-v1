@@ -5,6 +5,7 @@ Multi-page marketing site for Glonari Homes. The site is English only. Talk to t
 ## Start of every session
 
 Read, in order: this file, then `PROJECT-STATUS.md` (what's done / in progress / left / open questions), `DESIGN-SYSTEM-HOMES.md` (colors, typography, spacing, components), `SITE-STRUCTURE.md` (pages, navigation, per-page sections). Together they restore full context without needing the chat history — the project is worked on from two computers.
+Also read DESIGN-BRIEF.md before building or changing any page. It has priority over generic design habits; DESIGN-SYSTEM-HOMES.md and the screenshots in reference/ have priority over it.
 
 ## Обязательные правила
 

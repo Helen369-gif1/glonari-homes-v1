@@ -32,6 +32,14 @@ Create web layouts and code that feel handcrafted and intentional, as if made by
 - Clean semantic markup, tidy CSS components, no redundant code.
 - Fully responsive (mobile included) with comfortable text contrast and legibility.
 
+## New screens and sections (owner's rule, 2026-11-12)
+
+- If the document or the design needs a screen that does not exist yet, build it as a **new, full screen** with its own composition, designed to the level of the home page (the hero, the wipe scene, the pinned numbers). Say so in the plan; do not hide it as an add-on.
+- Never attach extra content to an existing screen just because it is convenient. If it would look cramped, small or ugly, it becomes its own screen.
+- Never fall back to a generic block (image on one side, text on the other, a plain card, small print over a photo). Mandatory notes and disclaimers are part of the design: readable (at least 16px, contrast 4.5:1), on a calm background, never over a busy photo.
+- If there is no suitable image or video yet, use a placeholder (any stock-looking image or video, clearly named `placeholder-…`) so the owner can see the real composition and replace the media later. Do not wait for assets and do not fill the gap with a plain template.
+- Before showing a new screen, run the self-check below. The owner should not have to say that something looks bad.
+
 ## Self-check before delivering
 
 1. Does it look like a typical template or AI-generated page?

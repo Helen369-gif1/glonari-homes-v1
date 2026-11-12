@@ -1,18 +1,12 @@
 /* ==========================================================
    Glonari Homes — Living With Glonari
-   Pinned scenes on wide screens (.has-scenes, >=769px):
-     1) first screen — "walking into the home": garden in bokeh with
-        the word → the kitchen → the family at the table → a slow
-        zoom, the shade and the copy (as heroScene() in how-it-works.js);
-     2) Try Before You Buy — the gold line becomes a timeline.
-   Not a scene: "Two ways to own" — the line splits into two paths
-   drawn on scroll (ownBranches(), >=1101px, motion-safe);
-   "When life changes" — a self-playing 3-scenario stage, not scrubbed (lifeStage(), pure JS, no GSAP).
-     3) "Gia goes with you" — four views behind one window, the chat
-        keeps its history (giaScene()).
-     4) "The bigger idea" — the manifesto, one line at a time, gold dust,
-        the night lightens towards the button (ideaScene()).
-   Four scenes in total (owner). Scrubbed timelines use fromTo only (from breaks on refresh).
+   Page 03 of Glonari_Homes_All_Pages_v2.md, 7 screens. Three pinned scenes
+   (.has-scenes, >=769px, motion-safe): 01 hero (garden, kitchen, the word,
+   the family: heroScene()); 02 Gia (four views behind one window, the chat
+   keeps its history: giaScene()); 07 final (the night villa: finalScene()).
+   Not scenes: 03 settleLight() (the light comes on), 04 lifeStage() (self-playing
+   stage, no GSAP), 05+06 chapRails() (two gold lines drawn with the scroll).
+   Scrubbed timelines use fromTo only (from breaks on refresh).
    ========================================================== */
 (() => {
   "use strict";
@@ -119,113 +113,6 @@
       .fromTo($$("[data-hcopy]", scene), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .16, stagger: .08 }, .7);
   }
 
-  /* Try Before You Buy: a gold dot runs down the line; when it reaches a step, the step's
-     card comes in and stays (y 20→0, scale .94→1). Prepare / Move In stay outlined;
-     Live / Build / Decide then fill with colour and settle with a slight tilt and shift
-     (the 1Password "A Vision of the Future" cards). Ends with all five cards, dot on Decide. */
-  const TILT = { live: [-3, 12], build: [2.5, -10], decide: [-1.5, 14] }; // [rotation°, x px]
-  function tbybScene() {
-    const scene = $('[data-scene="liv-tbyb"]');
-    if (!scene) return;
-    const steps = $$(".liv-step", scene);
-    const dot = $(".liv-steps__dot", scene);
-    // the dot's top so that it sits on a step's ring (ring: top 23px + 3.5px radius; dot radius 6.5px)
-    const dotY = (i) => () => $(".liv-step__label", steps[i]).offsetTop + 20;
-    const at = (i) => .06 + i * .19;
-
-    const tl = gsap.timeline({ scrollTrigger: scrubTo(scene), defaults: { ease: "none" } });
-    tl.fromTo(dot, { y: dotY(0) }, { y: dotY(0), duration: .01 }, 0);
-    steps.forEach((step, i) => {
-      const card = $(".liv-step__card", step);
-      const label = $(".liv-step__label", step);
-      const t = at(i);
-      if (i > 0) tl.fromTo(dot, { y: dotY(i - 1) }, { y: dotY(i), duration: at(i) - at(i - 1), immediateRender: false }, at(i - 1));
-      tl.fromTo(label, { opacity: .4 }, { opacity: 1, duration: .05 }, t)
-        .fromTo(card, { opacity: 0, y: 20, scale: .94 }, { opacity: 1, y: 0, scale: 1, duration: .07, ease: "power1.out" }, t);
-      const kind = Object.keys(TILT).find((k) => card.classList.contains("liv-step__card--" + k));
-      if (kind) {
-        const cs = getComputedStyle(card);
-        const bg = cs.backgroundColor, ink = cs.color;
-        tl.fromTo(card,
-          { backgroundColor: bg.replace("rgb(", "rgba(").replace(")", ", 0)"), borderColor: "rgba(244, 237, 226, .32)", color: "rgb(244, 237, 226)", rotation: 0, x: 0 },
-          { backgroundColor: bg, borderColor: bg, color: ink, rotation: TILT[kind][0], x: TILT[kind][1], duration: .07, ease: "power2.out" }, t + .07);
-      }
-    });
-    tl.to({}, { duration: .1 }); // hold the finished timeline before the pin releases
-
-    /* The pinned stage is one screen tall with its content centred, so empty brown stays
-       under the cards. "Two ways to own" subtracts it (--tbyb-tail) from its top padding:
-       content → next eyebrow stays one --section-y (DESIGN-SYSTEM §5), not two. */
-    const own = $("#ownership");
-    const stage = $(".liv-tbyb__stage", scene);
-    const grid = $(".liv-tbyb__grid", scene);
-    const tail = () => {
-      if (!own) return;
-      const t = stage.getBoundingClientRect().bottom - grid.getBoundingClientRect().bottom;
-      own.style.setProperty("--tbyb-tail", Math.max(0, Math.round(t)) + "px");
-    };
-    tail();
-    ScrollTrigger.addEventListener("refreshInit", tail);
-    return () => {
-      ScrollTrigger.removeEventListener("refreshInit", tail);
-      if (own) own.style.removeProperty("--tbyb-tail");
-    };
-  }
-
-  /* Two ways to own (a pause, no pin): the gold line from TBYB runs down beside the heading
-     and splits into two curves that reach the top centres of the two cards, ending in small
-     rings. The curves draw with the scroll (pathLength="1", so the dash values don't depend
-     on the geometry). Geometry is measured in .liv-own__stage with offset* (transform-free,
-     so the reveal's translateY doesn't skew it) on every refresh and whenever a card changes
-     size (ResizeObserver — this also follows the hover widening frame by frame). */
-  function ownBranches() {
-    const sec = $("#ownership");
-    if (!sec) return () => {};
-    const stage = $(".liv-own__stage", sec);
-    const head = $(".liv-own__head", sec);
-    const duo = $(".liv-own__duo", sec);
-    const cards = $$(".liv-own__card", sec);
-    const paths = $$(".liv-own__branch", sec);
-    const rings = $$(".liv-own__ring", sec);
-
-    const layout = () => {
-      const tlx = parseFloat(getComputedStyle(sec).getPropertyValue("--tl-x")) || 0;
-      const x0 = Math.round(tlx * stage.clientWidth) + .5;  // centre of the 1px CSS line
-      const y0 = head.offsetTop + head.offsetHeight + 20;     // the split: just under the heading
-      const y1 = duo.offsetTop;                               // top edge of the cards
-      const ym = (y0 + y1) / 2;
-      sec.style.setProperty("--own-stem", (stage.offsetTop + y0) + "px");
-      cards.forEach((card, i) => {
-        const cx = Math.round(card.offsetLeft + card.offsetWidth / 2) + .5;
-        paths[i].setAttribute("d", `M${x0} ${y0} C${x0} ${ym} ${cx} ${ym} ${cx} ${y1}`);
-        rings[i].setAttribute("cx", cx);
-        rings[i].setAttribute("cy", y1);
-      });
-    };
-
-    doc.classList.add("has-branches");
-    layout();
-    const ro = new ResizeObserver(layout);
-    ro.observe(stage);
-    cards.forEach((c) => ro.observe(c));
-    ScrollTrigger.addEventListener("refresh", layout);
-
-    gsap.timeline({
-      scrollTrigger: { trigger: duo, start: "top 92%", end: "top 52%", scrub: .6, invalidateOnRefresh: true },
-      defaults: { ease: "none" },
-    })
-      .fromTo(paths, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1 }, 0)
-      .fromTo(rings, { opacity: 0 }, { opacity: 1, duration: .15 }, .9);
-    ScrollTrigger.refresh(); // .has-branches made the gap above the cards taller
-
-    return () => {
-      ro.disconnect();
-      ScrollTrigger.removeEventListener("refresh", layout);
-      sec.style.removeProperty("--own-stem");
-      doc.classList.remove("has-branches");
-    };
-  }
-
   /* Gia goes with you: the room stays, the view behind the glass changes four times
      (city → suburb → sea → garden; each new view fades in over the last, scale 1.06→1),
      the place label follows, and for each place Gia types (the home page's three dots)
@@ -299,12 +186,11 @@
     return () => { body.style.removeProperty("height"); vt.kill(); near = false; syncVideos(); };
   }
 
-  /* The bigger idea (Endel Manifesto): one screen pinned over the night villa. The five
-     manifesto lines replace each other (in: opacity, y 40→0, blur 10→0; out: up and blurred),
-     the dark overlay thins out and a warm glow rises from the windows towards the last line,
-     then the gold button comes in (autoAlpha, so it can't be clicked while hidden).
+  /* Final invitation: one screen pinned over the night villa. The headline is there from the
+     start; the line and then the gold button come in (autoAlpha, so the button can't be clicked
+     while hidden), the dark overlay thins out and a warm glow rises from the windows.
      Gold dust: a canvas of slow rising, twinkling specks; it only runs while the scene is
-     on screen and gets a little brighter with the scroll (level 0→1). */
+     on screen and gets a little brighter with the scroll (level 0 to 1). */
   function ideaDust(canvas) {
     const ctx = canvas.getContext("2d");
     const sprite = document.createElement("canvas");
@@ -360,12 +246,10 @@
     };
   }
 
-  function ideaScene() {
-    const scene = $('[data-scene="liv-idea"]');
+  function finalScene() {
+    const scene = $('[data-scene="liv-final"]');
     if (!scene) return () => {};
-    const lines = $$(".liv-idea__line", scene);
-    const last = lines.length - 1;
-    const dust = ideaDust($(".liv-idea__dust", scene));
+    const dust = ideaDust($(".liv-final__dust", scene));
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -375,32 +259,66 @@
       },
       defaults: { ease: "none" },
     });
-    tl.fromTo($(".liv-idea__dark", scene), { opacity: 1 }, { opacity: .3, duration: last + .4 }, 0)
-      .fromTo($(".liv-idea__glow", scene), { opacity: 0 }, { opacity: 1, duration: last + .4 }, 0);
-    lines.forEach((line, i) => {
-      if (i) tl.fromTo(line, { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: .35, ease: "power2.out" }, i - .1);
-      else tl.fromTo(line, { opacity: 1, y: 0, filter: "blur(0px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: .01 }, 0);
-      if (i < last) tl.fromTo(line, { opacity: 1, y: 0, filter: "blur(0px)" }, { opacity: 0, y: -40, filter: "blur(10px)", duration: .3, ease: "power1.in", immediateRender: false }, i + .6);
-    });
-    tl.fromTo($(".liv-idea__cta", scene), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .3, ease: "power2.out" }, last + .45)
-      .to({}, { duration: .5 }); // hold the last line and the button before the pin releases
+    tl.fromTo($(".liv-final__dark", scene), { opacity: 1 }, { opacity: .3, duration: 1.8 }, 0)
+      .fromTo($(".liv-final__glow", scene), { opacity: 0 }, { opacity: 1, duration: 1.8 }, 0)
+      .fromTo($(".liv-final__p", scene), { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: .45, ease: "power2.out" }, .3)
+      .fromTo($(".liv-final__cta", scene), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .35, ease: "power2.out" }, 1.05)
+      .to({}, { duration: .6 }); // hold the finished screen before the pin releases
 
     return () => dust.kill();
+  }
+
+  /* Feeling at home (a pause, no pin): the "lit" photo fades in over the dusk photo (which has a
+     static darkening filter) the whole time the strip passes the screen, from its top at 85% of the
+     window height to its bottom at 30%. Same photo, same framing, only opacity moves. */
+  function settleLight() {
+    const stage = $("[data-settle]");
+    if (!stage) return;
+    gsap.fromTo($(".liv-settle__lit", stage), { opacity: 0 }, {
+      opacity: 1, ease: "none",
+      scrollTrigger: { trigger: stage, start: "top 85%", end: "bottom 30%", scrub: .6, invalidateOnRefresh: true },
+    });
+  }
+
+  /* The gold line of the "Feeling at home" text block: drawn down with the scroll from the strip's
+     lower edge to the ring at the block's foot (the one effect of that block). */
+  function settleRail() {
+    const box = $(".liv-settle__text");
+    if (!box) return;
+    gsap.timeline({
+      scrollTrigger: { trigger: box, start: "top 85%", end: "bottom 62%", scrub: .6, invalidateOnRefresh: true },
+      defaults: { ease: "none" },
+    })
+      .fromTo($(".liv-settle__rail i", box), { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0)
+      .fromTo($(".liv-settle__rail b", box), { opacity: 0 }, { opacity: 1, duration: .1 }, .9);
+  }
+
+  /* Dark chapter: the two gold lines are drawn down with the scroll (scaleY from the top);
+     the rings at their ends appear when each line arrives. Static layout = lines complete. */
+  function chapRails() {
+    const duo = $("[data-chap]");
+    if (!duo) return;
+    gsap.timeline({
+      scrollTrigger: { trigger: duo, start: "top 78%", end: "bottom 72%", scrub: .6, invalidateOnRefresh: true },
+      defaults: { ease: "none" },
+    })
+      .fromTo($$(".liv-chap__rail i", duo), { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0)
+      .fromTo($$(".liv-chap__rail b", duo), { opacity: 0 }, { opacity: 1, duration: .1 }, .9);
   }
 
   const mm = gsap.matchMedia();
   mm.add("(min-width: 769px) and (prefers-reduced-motion: no-preference)", () => {
     doc.classList.add("has-scenes");
     heroScene();
-    const tbybOff = tbybScene() || (() => {});
     const giaOff = giaScene();
-    const ideaOff = ideaScene();
+    const finalOff = finalScene();
+    settleLight();
+    settleRail();
+    chapRails();
     doc.classList.remove("scenes-pending");
     ScrollTrigger.refresh();
-    return () => { tbybOff(); giaOff(); ideaOff(); doc.classList.remove("has-scenes"); };
+    return () => { giaOff(); finalOff(); doc.classList.remove("has-scenes"); };
   });
-  // the two ownership paths: only where the line stands at --tl-x beside the text (>=1101px)
-  mm.add("(min-width: 1101px) and (prefers-reduced-motion: no-preference)", () => ownBranches());
   doc.classList.remove("scenes-pending");
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();

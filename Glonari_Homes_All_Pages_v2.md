@@ -264,7 +264,7 @@ The right to live in a home and the right to own company shares are separate.
 
 Your monthly housing payments and your GPA investment, if any, serve different purposes.
 
-GPA shares may gain or lose value, and there is no guaranteed market or price at which to sell them.
+GPA shares have the potential for long-term value growth.
 
 *Here we need a straightforward five-year and ten-year example: total housing fees paid, any refundable amount, what happens to the GPA holding on departure, and whether a resident can sell shares or retain them after leaving the home.*
 

@@ -1,6 +1,8 @@
 /* ==========================================================
    Glonari Homes — Living With Glonari
    Page-only styles. Shared tokens/components live in main.css.
+   Page order (2026-11-12, doc Page 03): 01 hero (scene) · 02 Gia (scene) · 03 settle (pause) ·
+   04 when life changes (pause) · 05+06 dark chapter (pause) · 07 final (scene). Three pins.
 
    First screen: the How It Works layering (.hiw-hero) with one
    more layer — garden (back) · kitchen · word · family cut-out ·
@@ -55,7 +57,7 @@
 .liv-hero__shade {
   position: absolute; inset: 0; z-index: 5; pointer-events: none;
   background:
-    linear-gradient(0deg, rgba(20, 12, 8, .74) 0%, rgba(20, 12, 8, .34) 26%, rgba(20, 12, 8, 0) 48%),
+    linear-gradient(0deg, rgba(20, 12, 8, .84) 0%, rgba(20, 12, 8, .52) 24%, rgba(20, 12, 8, 0) 46%),
     linear-gradient(90deg, rgba(20, 12, 8, .5) 0%, rgba(20, 12, 8, .2) 22%, rgba(20, 12, 8, 0) 45%);
 }
 .liv-hero__copy {
@@ -119,253 +121,315 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   .liv-hero__shade { background: linear-gradient(0deg, rgba(20, 12, 8, .86) 0%, rgba(20, 12, 8, .5) 30%, rgba(20, 12, 8, 0) 54%); }
 }
 
+
 /* ==========================================================
-   The gold line shared by Security and Try Before You Buy.
-   --tl-x = where the line stands, as a share of the container's
-   content width; both sections use it, so the line is one vertical.
-   The dark chapter (TBYB + "Two ways to own") has hard paper↔brown
-   edges (owner, 2026-11-06 — no gradient stretches); each side of
-   an edge keeps one --section-y inside its own band.
+   Page tokens. The gold of the lines / timer bars (shared by the
+   "When life changes" stage and the dark chapter).
    ========================================================== */
-.liv-page {
-  --tl-x: .66;
-  --tl-gap: 48px;                  /* content keeps this distance from the line */
-  --tl-gold: var(--gp-gold-mid);
-}
-@media (max-width: 768px) {
-  .liv-page { --tl-x: 0; --tl-gap: 28px; } /* phones: line on the left, content indented */
+.liv-page { --tl-gold: var(--gp-gold-mid); }
+
+/* hero button (document: "Discover Living With Glonari") */
+.liv-hero__btn { margin-top: 28px; }
+/* >=1024px: two columns at the bottom, like the home hero. Headline + button left,
+   the paragraph right (<=3 lines at 1440), so faces and the table stay clear. */
+@media (min-width: 1024px) {
+  .liv-hero__copy-in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(54%, 700px));
+    column-gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+  }
+  .liv-hero__title { grid-area: 1 / 1; align-self: end; }
+  .liv-hero__btn { grid-area: 2 / 1; justify-self: start; align-self: start; }
+  .liv-hero__sub { grid-area: 1 / 2 / span 2; align-self: end; max-width: none; margin: 0; font-size: clamp(16px, 1.2vw, 18px); }
 }
 
-.liv-rail { position: absolute; inset: 0; pointer-events: none; }
-.liv-rail > .container { height: 100%; }
-.liv-rail__in { position: relative; height: 100%; }
-.liv-rail__in::before {
-  content: ""; position: absolute; top: 0; bottom: 0;
-  left: calc(var(--tl-x) * 100%);
-  width: 1px; background: var(--tl-gold);
+/* ==========================================================
+   03 · Feeling at home — a pause on paper, no pin.
+   A wide strip (3830×1642 source) at full width: the dusk photo with the
+   same photo "lit" over it. The lit layer fades in with the scroll
+   (opacity, settleLight() in living.js: the light comes on). Without
+   the scroll effect (phones, reduced motion, no JS) the lit photo is
+   shown. The headline sits on the sky in the strip's top-left; a dark
+   violet scrim keeps it readable over both states. The two paragraphs
+   hang under the strip in different columns.
+   Phones: the headline goes above the picture, on paper.
+   ========================================================== */
+.liv-settle { position: relative; padding-top: var(--section-y); background: var(--gh-paper); }
+.liv-settle__stage { position: relative; }
+.liv-settle__pic {
+  position: relative;
+  aspect-ratio: 3830 / 1642;
+  overflow: hidden;
+  isolation: isolate;
+  background: #4a4590;
 }
-/* Security: the line starts at a 13px ring next to the eyebrow */
-.liv-rail--start { top: var(--section-y); }
-.liv-rail--start .liv-rail__in::before { top: 13px; }
-.liv-rail--start .liv-rail__in::after {
-  content: ""; position: absolute; top: 0;
-  left: calc(var(--tl-x) * 100% - 6px);
-  width: 13px; height: 13px; border-radius: 50%;
+.liv-settle__pic img {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%; max-width: none;
+  object-fit: cover;
+}
+/* the dusk layer is darkened with a static filter (never animated); only the lit layer's opacity moves */
+.liv-settle__dusk { filter: brightness(.55) saturate(.85); }
+.liv-settle__lit { z-index: 1; }
+.liv-settle__scrim {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(104deg, rgba(28, 18, 60, .66) 0%, rgba(28, 18, 60, .5) 30%, rgba(28, 18, 60, .18) 50%, rgba(28, 18, 60, 0) 64%),
+    linear-gradient(180deg, rgba(28, 18, 60, .3) 0%, rgba(28, 18, 60, 0) 40%);
+}
+.scenes-pending .liv-settle__lit { opacity: 0; }
+
+.liv-settle__tw { position: absolute; top: 0; left: 0; right: 0; padding-top: clamp(24px, 4.4vw, 76px); pointer-events: none; }
+.liv-settle__title {
+  margin: 0;
+  max-width: 3.9em;
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: clamp(44px, 6.4vw, 112px);
+  line-height: .96;
+  letter-spacing: -.01em;
+  color: #FBF4E8;
+  text-shadow: 0 2px 28px rgba(20, 10, 44, .4);
+}
+
+.liv-settle__text {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  padding-block: clamp(120px, 16vw, 240px);   /* the gap to "When life changes" is this padding alone (>= --section-y) */
+}
+.liv-settle__text .eyebrow { grid-column: 2 / -1; }
+.liv-settle__a {
+  grid-column: 2 / 12; margin: 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(40px, 5vw, 76px); line-height: 1.12;
+  text-wrap: balance;
+  color: var(--gh-ink);
+}
+.liv-settle__b {
+  grid-column: 7 / 12; margin: clamp(56px, 7vw, 112px) 0 0;
+  font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6;
+  color: var(--gh-ink-2);
+}
+/* the one gold line of this block: from the strip's lower edge down along the text's left side to a 13px ring
+   at the foot of the block, where "When life changes" begins. Drawn with the scroll (settleRail()) only where
+   motion is allowed (.has-scenes); otherwise a short static stub with the ring above the next screen. */
+.liv-settle__rail {
+  position: absolute; width: 0; bottom: 56px; height: 44px; pointer-events: none;
+  left: calc(var(--page-pad) + (100% - 2 * var(--page-pad)) / 12 - 12px);
+}
+.has-scenes .liv-settle__rail { top: 0; bottom: 56px; height: auto; }   /* the ring stays clear of the next eyebrow */
+.liv-settle__rail i { position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px; background: var(--tl-gold); transform-origin: top; }
+.liv-settle__rail b {
+  position: absolute; bottom: -6.5px; left: -6.5px; width: 13px; height: 13px; border-radius: 50%;
   border: 1px solid var(--tl-gold); background: var(--gh-paper);
 }
-/* TBYB: the line runs to the section's bottom edge and goes on into "Two ways to own" (.liv-rail--own) */
+.scenes-pending .liv-settle__rail i { transform: scaleY(0); }
+.scenes-pending .liv-settle__rail b { opacity: 0; }
+/* the block's own bottom padding is the gap, so the next screen adds none above its eyebrow */
+.liv-settle + .liv-life { padding-top: 0; }
 
-/* ==========================================================
-   1 · Security — a calm pause on paper
-   ========================================================== */
-.liv-sec {
-  position: relative;
-  background: var(--gh-paper);
-  padding: var(--section-y) 0;     /* bottom too: the brown band starts with a hard edge right after */
+@media (max-width: 1023px) {
+  .liv-settle__a { grid-column: 2 / 13; }
+  .liv-settle__b { grid-column: 2 / 10; }
 }
-.liv-sec__body { position: relative; max-width: calc(var(--tl-x) * 100% - var(--tl-gap)); }
-.liv-sec__copy { max-width: 560px; color: var(--gh-ink-2); }
-.liv-sec__list {
-  list-style: none; margin: clamp(48px, 6vw, 72px) 0 0; padding: 0;
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 28px;
-}
-.liv-sec__list li { min-width: 0; }
-.liv-sec__n {
-  display: block; padding-bottom: 14px; margin-bottom: 16px;
-  border-bottom: 1px solid var(--gh-line);
-  font-family: var(--font-word); font-weight: 500; font-size: clamp(48px, 4.4vw, 64px); line-height: 1;
-  font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1;
-  color: var(--gh-gold-ink);
-}
-.liv-sec__list p { font-size: 16px; line-height: 1.5; }
-.liv-sec__note { margin-top: 40px; font-size: 13px; color: var(--gh-ink-2); }
-@media (max-width: 1100px) { .liv-sec__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 768px) {
-  .liv-sec__body { max-width: none; padding-left: var(--tl-gap); }
-  .liv-sec__list { grid-template-columns: 1fr; gap: 32px; }
+  .liv-settle__stage { display: flex; flex-direction: column; }
+  .liv-settle__tw { position: static; order: -1; padding-top: 0; padding-bottom: 28px; }
+  .liv-settle__title { max-width: none; font-size: clamp(42px, 12.5vw, 60px); color: var(--gh-ink); text-shadow: none; }
+  .liv-settle__pic { aspect-ratio: 4 / 3; }
+  .liv-settle__pic img { object-position: 62% 50%; }
+  .liv-settle__dusk, .liv-settle__scrim { display: none; }
+  .liv-settle__text .eyebrow, .liv-settle__a, .liv-settle__b { grid-column: 1 / -1; }
+  .liv-settle__b { margin-top: 32px; }
+  .liv-settle__rail { left: var(--page-pad); }
 }
 
 /* ==========================================================
-   2 · Try Before You Buy — dark; the line becomes a timeline.
-   Hard paper→brown edge at the top; the bottom is solid brown — the
-   dark chapter goes on into "Two ways to own", which ends with the
-   hard brown→paper edge.
-   Default = static final layout (all cards visible, no tilt);
-   .has-scenes pins the stage and living.js runs the dot.
+   05 + 06 · One dark chapter — hard paper→brown edge above, the
+   night scene below. Pause, no pin.
+   The idea "the right to live in a home and the right to own shares
+   are separate" is drawn: two parallel gold lines that never touch.
+   Each sentence is laid out verbatim along them (left line / "and" /
+   right line / the rest). The lines run through both screens, with
+   the headline of screen 06 between them; they are drawn with the
+   scroll (chapRails() in living.js). Labels sit on the lines on a
+   brown backing, like names on a map line.
+   Phones: no lines; each half of a sentence gets its own gold rule.
    ========================================================== */
-.liv-tbyb {
-  --lbl: 120px;                    /* step labels column, left of the line */
-  --card-gap: 32px;                /* line → card */
+.liv-chap {
+  --c1: 1; --c2: 1.3;               /* column weights: line · middle · line */
   position: relative;
-  padding-top: var(--section-y);   /* hard edge with Security; pinned: 0, the stage brings its own space */
+  padding: var(--section-y) 0;
   background: var(--gh-brown);
   color: var(--gh-cream);
 }
-.liv-tbyb__stage { position: relative; }
-.liv-tbyb__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) calc(var(--lbl) + (1 - var(--tl-x)) * 100%);
-  align-items: start;
+.liv-chap__head { max-width: 1080px; }
+.liv-chap__h {
+  margin: 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(44px, 7.2vw, 112px); line-height: .98; letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--gh-cream);
 }
-.liv-tbyb__text { padding-right: var(--tl-gap); }
-.liv-tbyb__title { color: var(--gh-cream); }
-.liv-tbyb__copy { max-width: 460px; color: rgba(244, 237, 226, .72); }
+.liv-chap__lead {
+  max-width: 560px;
+  margin: clamp(28px, 3vw, 44px) 0 0 min(34%, 440px);
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
+  color: rgba(244, 237, 226, .88);
+}
 
-.liv-track { position: relative; }
-.liv-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.liv-step { display: grid; grid-template-columns: var(--lbl) minmax(0, 1fr); align-items: start; }
-.liv-step__label {
+.liv-chap__duo {
   position: relative;
-  padding: 19px 22px 0 0; text-align: right;
-  font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--gp-champagne);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);   /* = --c1 / --c2 */
+  margin-top: clamp(72px, 8vw, 128px);
+  padding-bottom: clamp(40px, 5vw, 72px);
 }
-/* small ring on the line for every step */
-.liv-step__label::after {
-  content: ""; position: absolute; right: -4px; top: 23px;
-  width: 7px; height: 7px; border-radius: 50%;
+.liv-chap__rail {
+  position: absolute; top: 0; bottom: 0; width: 0; pointer-events: none;
+  --cx: calc(100% * var(--c1) / (2 * var(--c1) + var(--c2)) / 2);
+}
+.liv-chap__rail--a { left: var(--cx); }
+.liv-chap__rail--b { right: var(--cx); }
+.liv-chap__rail i {
+  position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px;
+  background: var(--tl-gold);
+  transform-origin: top;
+}
+.liv-chap__rail b {
+  position: absolute; bottom: -7px; left: -7px;
+  width: 13px; height: 13px; border-radius: 50%;
   border: 1px solid var(--tl-gold); background: var(--gh-brown);
 }
-.liv-step__card {
-  margin-left: var(--card-gap);
-  padding: 14px 20px 15px;
-  border: 1px solid rgba(244, 237, 226, .32);
-  border-radius: var(--radius);
+.scenes-pending .liv-chap__rail i { transform: scaleY(0); }
+.scenes-pending .liv-chap__rail b { opacity: 0; }
+
+.liv-sep { display: contents; }
+.liv-sep > span { position: relative; z-index: 1; font-family: var(--font-word); font-weight: 500; }
+.liv-sep__a, .liv-sep__b, .liv-sep__and {
+  align-self: start; justify-self: center; text-align: center;
+  padding: 14px 18px;
+  font-size: clamp(24px, 2.7vw, 40px); line-height: 1.12;
+}
+.liv-sep__a, .liv-sep__b { background: var(--gh-brown); color: var(--gh-cream); }
+.liv-sep__and { padding-inline: 0; font-style: italic; color: rgba(244, 237, 226, .6); }
+.liv-sep__end {
+  grid-column: 2; justify-self: center; text-align: center;
+  margin-top: 4px;
+  font-size: clamp(32px, 3.8vw, 56px); line-height: 1.05;
+  color: var(--gp-gold);
+}
+.liv-sep--1 .liv-sep__a { grid-area: 1 / 1; }
+.liv-sep--1 .liv-sep__and { grid-area: 1 / 2; }
+.liv-sep--1 .liv-sep__b { grid-area: 1 / 3; }
+.liv-sep--1 .liv-sep__end { grid-area: 2 / 2; }
+.liv-chap__s6 { grid-area: 3 / 2; margin-top: clamp(72px, 8vw, 120px); text-align: center; }
+.liv-chap__s6 .eyebrow { justify-content: center; }
+.liv-chap__h--6 { font-size: clamp(34px, 4.2vw, 64px); line-height: 1.04; }
+.liv-sep--2 .liv-sep__a { grid-area: 4 / 1; margin-top: clamp(56px, 6vw, 96px); }
+.liv-sep--2 .liv-sep__and { grid-area: 4 / 2; margin-top: clamp(56px, 6vw, 96px); }
+.liv-sep--2 .liv-sep__b { grid-area: 4 / 3; margin-top: clamp(56px, 6vw, 96px); }
+.liv-sep--2 .liv-sep__end { grid-area: 5 / 2; }
+
+.liv-chap__risk {
+  max-width: 540px;
+  margin: clamp(48px, 5vw, 72px) 0 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--tl-gold);
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
   color: var(--gh-cream);
-  will-change: transform;
-}
-.liv-step__t { margin: 0 0 4px; font-family: var(--font-display); font-weight: 500; font-size: 22px; line-height: 1.2; }
-.liv-step__card p { font-size: 15px; line-height: 1.45; opacity: .86; }
-.liv-step__card--live   { background: var(--gh-honey); border-color: var(--gh-honey); color: var(--gh-honey-ink); }
-.liv-step__card--build  { background: var(--gh-slate); border-color: var(--gh-slate); color: var(--gh-slate-ink); }
-.liv-step__card--decide { background: var(--gh-navy); border-color: var(--gh-navy); color: var(--gh-cream); }
-
-/* the travelling dot (pinned only); the static layout marks Decide's ring as the dot instead */
-.liv-steps__dot {
-  position: absolute; left: calc(var(--lbl) - 6px); top: 0;
-  width: 13px; height: 13px; border-radius: 50%;
-  background: var(--tl-gold); box-shadow: 0 0 0 5px rgba(197, 142, 66, .18);
-}
-html:not(.has-scenes) .liv-steps__dot { display: none; }
-html:not(.has-scenes) .liv-step:last-child .liv-step__label::after {
-  width: 13px; height: 13px; margin: -3px -3px 0 0; border: 0;
-  background: var(--tl-gold); box-shadow: 0 0 0 5px rgba(197, 142, 66, .18);
 }
 
-/* pinned: one screen, content centred under the header */
-.has-scenes .liv-tbyb { padding-top: 0; }
-.has-scenes .liv-tbyb__stage {
-  display: flex; align-items: center;
-  padding: calc(var(--header-h) + 24px) 0 32px;
+@media (max-width: 1023px) {
+  .liv-chap { --c2: 1.7; }
+  .liv-chap__duo { grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 1fr); }
 }
-.has-scenes .liv-tbyb__stage > .container { width: min(100%, calc(var(--container) + 2 * var(--page-pad))); }
-
-.scenes-pending .liv-step__card { opacity: 0; }
-
-@media (max-width: 1100px) { .liv-tbyb { --lbl: 96px; --card-gap: 24px; } }
 @media (max-width: 768px) {
-  .liv-tbyb__grid { grid-template-columns: 1fr; }
-  .liv-tbyb__text { padding: 0 0 0 var(--tl-gap); margin-bottom: 48px; }
-  .liv-step { display: block; padding-left: var(--tl-gap); }
-  .liv-step__label { display: block; padding: 0 0 8px; text-align: left; position: static; }
-  .liv-step { position: relative; }
-  .liv-step__label::after { right: auto; left: -3px; top: 5px; }
-  .liv-steps { gap: 24px; }
-  .liv-step__card { margin-left: 0; }
-  .liv-steps__dot { left: -6px; }
-  html:not(.has-scenes) .liv-step:last-child .liv-step__label::after { margin: -3px 0 0 -3px; }
+  .liv-chap__lead { margin-left: 0; }
+  .liv-chap__duo { display: block; margin-top: 56px; padding-bottom: 0; }
+  .liv-chap__rail { display: none; }
+  .liv-sep { display: block; margin: 0; }
+  .liv-sep > span { display: block; justify-self: stretch; text-align: left; }
+  .liv-sep__a, .liv-sep__b { padding: 4px 0 4px 20px; margin-top: 0; border-left: 1px solid var(--tl-gold); background: none; font-size: 26px; }
+  .liv-sep__and { padding: 14px 0 14px 21px; margin-top: 0; font-size: 22px; }
+  .liv-sep__end { margin: 16px 0 0 21px; font-size: 34px; }
+  .liv-chap__s6 { margin: 72px 0 40px; text-align: left; }
+  .liv-chap__s6 .eyebrow { justify-content: flex-start; }
+  .liv-sep--2 .liv-sep__a, .liv-sep--2 .liv-sep__and, .liv-sep--2 .liv-sep__b { margin-top: 0; }
+  .liv-chap__risk { margin-top: 48px; max-width: none; }
 }
 
 /* ==========================================================
-   3 · Two ways to own — a pause (no pin), dark: TBYB's brown goes
-   on without a seam; it ends with a hard brown→paper edge after its
-   own bottom --section-y. Cards: the How It Works chapter 03 duo (.hiw-duo)
-   repeated on brown. The gold line comes down from TBYB:
-   - default (phones, <1101px, reduced motion, no JS): it ends above
-     the heading;
-   - .has-branches (living.js, >=1101px, motion-safe): it runs down
-     beside the heading and splits into two SVG paths that reach the
-     top centres of the cards (drawn on scroll, re-measured when a
-     card widens).
+   07 · Final invitation — the page's third and last scene, dark
+   (the night villa). Static (phones, reduced motion, no JS): the
+   phone picture, headline, line and button stacked. .has-scenes
+   (living.js, >=769px, motion-safe): one screen pinned; headline in
+   the sky above the villa, gold dust (canvas), the night lightens,
+   the line and then the button come in.
    ========================================================== */
-.liv-own {
-  --own-top: var(--section-y);
+.liv-final { background: var(--gh-brown); color: var(--gp-text); }
+.liv-final__stage {
   position: relative;
-  padding: var(--own-top) 0 var(--section-y); /* bottom too: hard brown→paper edge into "When life changes" */
-  background: var(--gh-brown);
-  color: var(--gh-cream);
-}
-/* after the pinned TBYB stage: its empty brown under the cards (--tbyb-tail, living.js) counts toward the gap */
-.has-scenes .liv-own { --own-top: max(0px, calc(var(--section-y) - var(--tbyb-tail, 0px))); }
-.liv-rail--own { bottom: auto; height: max(0px, calc(var(--own-top) - 28px)); }
-.liv-rail--own .liv-rail__in::before {
-  -webkit-mask-image: linear-gradient(#000 55%, transparent);
-  mask-image: linear-gradient(#000 55%, transparent);
-}
-.has-branches .liv-rail--own { height: var(--own-stem, 0px); }
-.has-branches .liv-rail--own .liv-rail__in::before { -webkit-mask-image: none; mask-image: none; }
-
-.liv-own__stage { position: relative; }     /* offsetParent of the cards: living.js measures in this box */
-.liv-own__head { max-width: calc(var(--tl-x) * 100% - var(--tl-gap)); }
-.liv-own__title { margin-bottom: 0; color: var(--gh-cream); }
-
-.liv-own__branches { display: none; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 1; }
-.has-branches .liv-own__branches { display: block; }
-.liv-own__branch { fill: none; stroke: var(--tl-gold); stroke-width: 1; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
-.liv-own__ring { fill: var(--gh-brown); stroke: var(--tl-gold); stroke-width: 1; opacity: 0; }
-
-.liv-own__duo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: clamp(64px, 6vw, 96px); }
-.has-branches .liv-own__duo { margin-top: clamp(120px, 14svh, 160px); } /* room for the two curves */
-.liv-own__card {
-  min-width: 0;
+  isolation: isolate;
   overflow: hidden;
-  border: 1px solid rgba(244, 237, 226, .12);
-  border-radius: var(--radius);
-  background: rgba(244, 237, 226, .05);
+  padding-block: var(--section-y) clamp(300px, 78vw, 560px);  /* the bottom shows the villa under the button */
 }
-.liv-own__card:focus-visible { outline: 2px solid var(--gp-gold-mid); outline-offset: 3px; }
-.liv-own__media { position: relative; overflow: hidden; }
-.liv-own__media > img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: 50% 50%;
+.liv-final__bg, .liv-final__dark, .liv-final__glow, .liv-final__dust {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
 }
-/* the lit room with the desk sits at 72–87% of the frame width: keep it in view when the card is narrow */
-.liv-own__card--complete .liv-own__media > img { object-position: 76% 50%; }
-.liv-own__text { padding: 22px clamp(20px, 2.2vw, 32px) 28px; }
-.liv-own__t { margin: 0 0 10px; font-family: var(--font-display); font-weight: 500; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.2; color: var(--gh-cream); }
-.liv-own__card p { max-width: 520px; color: rgba(244, 237, 226, .72); }
+.liv-final__bg img { width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 100%; }
+.liv-final__dark { background: linear-gradient(180deg, rgba(10, 7, 4, .72) 0%, rgba(10, 7, 4, .56) 55%, rgba(10, 7, 4, .12) 100%); }
+.liv-final__glow, .liv-final__dust { display: none; }
 
-.liv-own__close {
-  margin: clamp(64px, 7vw, 96px) auto 0;
-  max-width: 820px;
-  text-align: center;
-  text-wrap: balance;
+.liv-final__in { position: relative; text-align: center; }
+.liv-final__eyebrow { margin: 0 0 clamp(28px, 4vw, 44px); }
+.liv-final__h {
+  max-width: 980px; margin: 0 auto;
   font-family: var(--font-word); font-weight: 500;
-  font-size: clamp(30px, 3.4vw, 48px); line-height: 1.15;
-  color: var(--gh-cream);
+  font-size: clamp(38px, 5.4vw, 86px); line-height: 1.04;
+  text-wrap: balance;
+  color: var(--gp-gold);
+  text-shadow: 0 2px 24px rgba(5, 4, 2, .55);
 }
+.liv-final__p {
+  max-width: 720px; margin: clamp(20px, 2.4vw, 32px) auto 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(22px, 2.3vw, 34px); line-height: 1.2;
+  text-wrap: balance;
+  color: var(--gp-champagne);
+  text-shadow: 0 2px 24px rgba(5, 4, 2, .55);
+}
+.liv-final__cta { margin-top: clamp(32px, 4vw, 48px); }
+.liv-final__btn { background: var(--gp-gold); border-color: var(--gp-gold); color: var(--gh-ink); }
+.liv-final__btn:hover { background: var(--gp-champagne); border-color: var(--gp-champagne); }
 
-@media (min-width: 1024px) {
-  .liv-own__duo { grid-template-columns: 1fr 24px 1fr; gap: 0; }
-  .liv-own__card--complete { grid-column: 3; }
-  .liv-own__media > img { height: clamp(420px, 58svh, 560px); aspect-ratio: auto; }
+/* ---- the scene ---- */
+.has-scenes .liv-final__stage { padding: 0; }
+.has-scenes .liv-final__bg img { object-position: 50% 85%; }
+.has-scenes .liv-final__dark {
+  background: linear-gradient(180deg, rgba(10, 7, 4, .88) 0%, rgba(10, 7, 4, .74) 60%, rgba(10, 7, 4, .5) 100%);
+  will-change: opacity;
 }
-@media (hover: hover) and (min-width: 1024px) {
-  .liv-own__duo:has(.liv-own__card--home:hover), .liv-own__duo:has(.liv-own__card--home:focus-within) { grid-template-columns: 2fr 24px 1fr; }
-  .liv-own__duo:has(.liv-own__card--complete:hover), .liv-own__duo:has(.liv-own__card--complete:focus-within) { grid-template-columns: 1fr 24px 2fr; }
+.has-scenes .liv-final__glow {
+  display: block; opacity: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(242, 179, 90, .34), rgba(242, 179, 90, 0) 70%);
+  mix-blend-mode: screen;
 }
-@media (hover: hover) and (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  .liv-own__duo { transition: grid-template-columns .5s cubic-bezier(.65, 0, .35, 1); }
+.has-scenes .liv-final__dust { display: block; width: 100%; height: 100%; }
+.has-scenes .liv-final__in {
+  position: absolute;
+  inset: var(--header-h) 0 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding-bottom: 32svh;                /* keep the text in the sky, above the villa */
 }
-@media (max-width: 768px) { .liv-own__head { max-width: none; } }
-@media (max-width: 640px) { .liv-own__media > img { aspect-ratio: 1 / 1; } }
+.has-scenes .liv-final__eyebrow { position: absolute; top: 28px; left: 0; right: 0; margin: 0; }
+
 
 /* ==========================================================
-   4 · When life changes — a calm pause on paper (no pin).
+   04 · When life changes — a calm pause on paper (no pin).
    Eyebrow, heading and copy, then one three-column stage
    (the Shopify "Sell globally" mechanic, Glonari style):
    scenario buttons | stack of three photo cards + Gia's pill | Gia's steps.
@@ -379,7 +443,7 @@ html:not(.has-scenes) .liv-step:last-child .liv-step__label::after {
    all steps lit. Reduced motion: manual switching only, no autoplay.
    ≤768px: only the stack + dots + one status line.
    ========================================================== */
-.liv-life { position: relative; padding-top: var(--section-y); background: var(--gh-paper); overflow-x: clip; }
+.liv-life { position: relative; padding-block: var(--section-y); background: var(--gh-paper); overflow-x: clip; }  /* bottom too: hard paper to brown edge into the dark chapter */
 .liv-life__copy { max-width: 640px; color: var(--gh-ink-2); }
 
 .liv-stage {
@@ -561,7 +625,7 @@ html:not(.has-scenes) .liv-step:last-child .liv-step__label::after {
 @media (max-width: 480px) { .liv-gcard { max-width: none; } }
 
 /* ==========================================================
-   5 · Gia goes with you — scene on paper. One interior (window
+   02 · Everyday life with Gia — scene on paper. One interior (window
    glass is transparent) over four stacked views; the shared .chat
    (main.css) keeps its history.
    Default (phones, reduced motion, no JS): the room with the garden
@@ -574,6 +638,7 @@ html:not(.has-scenes) .liv-step:last-child .liv-step__label::after {
    ========================================================== */
 .liv-gia { position: relative; padding-top: var(--section-y); background: var(--gh-paper); }
 .liv-gia__copy { max-width: 640px; color: var(--gh-ink-2); }
+.liv-gia__tag { margin: 28px 0 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.15; color: var(--gh-gold-ink); }
 .liv-gia .scene { margin-top: clamp(64px, 7vw, 96px); }
 
 .liv-gia__box { position: relative; }
@@ -702,134 +767,3 @@ html:not(.has-scenes) .liv-gia__place-i:not(:last-child) { display: none; }
   .liv-gia__place { left: 12px; top: 12px; }
 }
 
-/* ==========================================================
-   6 · The journey before and after — a calm pause on paper, no
-   pin, just the usual data-reveal (the quiet beat after "Gia goes
-   with you" before the dark closing manifesto). Preview frame links
-   out to the owner's Global Dream Journey site (new tab).
-   ========================================================== */
-/* a paper band before the dark manifesto: one --section-y on each side of the hard edge */
-.liv-journey { padding-block: var(--section-y); background: var(--gh-paper); }
-.liv-journey__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 48px clamp(40px, 6vw, 96px);
-  align-items: center;
-}
-.liv-journey__visual { margin: 0; }
-.liv-journey__frame {
-  display: block;
-  overflow: hidden;
-  border-radius: var(--radius);
-  border: 1px solid var(--gh-line);
-}
-.liv-journey__frame img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  transition: transform .6s var(--ease);
-}
-@media (prefers-reduced-motion: no-preference) {
-  .liv-journey__frame:hover img { transform: scale(1.03); }
-}
-.liv-journey__cap {
-  margin: 14px 2px 0;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--gh-gold-ink);
-}
-.liv-journey__text > p:not(.eyebrow) { color: var(--gh-ink-2); max-width: 460px; }
-
-@media (max-width: 1023px) {
-  .liv-journey__grid { grid-template-columns: 1fr; }
-}
-
-/* ==========================================================
-   7 · The bigger idea — the fourth and last scene, dark, the last
-   section before the footer (reference: Endel Manifesto).
-   Default CSS = static: the night villa (phone picture), the whole
-   manifesto one line under another in gold Cormorant, the button
-   below, no dust or glow. .has-scenes (living.js, >=769px,
-   motion-safe): one screen pinned; the lines replace each other in
-   the sky above the villa, gold dust drifts (canvas), the dark
-   overlay thins out towards the last line, then the button.
-   ========================================================== */
-.liv-idea { background: var(--gh-brown); color: var(--gp-text); }
-.liv-idea__stage {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding-block: var(--section-y) clamp(300px, 78vw, 560px);  /* the bottom shows the villa under the button */
-}
-.liv-idea__bg, .liv-idea__dark, .liv-idea__glow, .liv-idea__dust {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-.liv-idea__bg img {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-  object-position: 50% 100%;
-}
-.liv-idea__dark {
-  background: linear-gradient(180deg, rgba(10, 7, 4, .72) 0%, rgba(10, 7, 4, .56) 55%, rgba(10, 7, 4, .12) 100%);
-}
-.liv-idea__glow, .liv-idea__dust { display: none; }
-
-.liv-idea__in { position: relative; text-align: center; }
-.liv-idea__eyebrow { margin: 0 0 clamp(40px, 6vw, 64px); }
-.liv-idea__lines {
-  display: grid;
-  gap: clamp(28px, 4vw, 48px);
-  max-width: 980px;
-  margin-inline: auto;
-}
-.liv-idea__line {
-  margin: 0;
-  font-family: var(--font-word);
-  font-weight: 500;
-  font-size: clamp(28px, 3.4vw, 52px);
-  line-height: 1.16;
-  color: var(--gp-champagne);
-  text-wrap: balance;
-  text-shadow: 0 2px 24px rgba(5, 4, 2, .55);
-}
-.liv-idea__line--big {
-  font-size: clamp(38px, 5.4vw, 86px);
-  line-height: 1.04;
-  color: var(--gp-gold);
-}
-.liv-idea__cta { margin-top: clamp(40px, 5vw, 56px); }
-/* the page's main call to action: the .btn pill in gold */
-.liv-idea__btn { background: var(--gp-gold); border-color: var(--gp-gold); color: var(--gh-ink); }
-.liv-idea__btn:hover { background: var(--gp-champagne); border-color: var(--gp-champagne); }
-
-/* ---- the scene ---- */
-.has-scenes .liv-idea__stage { padding: 0; }
-.has-scenes .liv-idea__bg img { object-position: 50% 85%; }
-.has-scenes .liv-idea__dark {
-  background: linear-gradient(180deg, rgba(10, 7, 4, .88) 0%, rgba(10, 7, 4, .74) 60%, rgba(10, 7, 4, .5) 100%);
-  will-change: opacity;
-}
-.has-scenes .liv-idea__glow {
-  display: block;
-  opacity: 0;
-  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(242, 179, 90, .34), rgba(242, 179, 90, 0) 70%);
-  mix-blend-mode: screen;
-}
-.has-scenes .liv-idea__dust { display: block; width: 100%; height: 100%; }
-.has-scenes .liv-idea__in {
-  position: absolute;
-  inset: var(--header-h) 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 32svh;                /* keep the lines in the sky, above the villa */
-}
-.has-scenes .liv-idea__eyebrow { position: absolute; top: 28px; left: 0; right: 0; margin: 0; }
-.has-scenes .liv-idea__lines { width: 100%; gap: 0; }
-.has-scenes .liv-idea__line { grid-area: 1 / 1; align-self: center; will-change: transform, opacity, filter; }

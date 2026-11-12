@@ -24,6 +24,27 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 (Screen 01 has no note.)
 
+## Page 03 — Living With Glonari
+
+**Screen 02 — Everyday life with Gia**
+- Here we need real examples of Gia's currently available services, what she can do automatically, what needs the resident's approval, and which features are still planned.
+- Gia chat (Home page and Living With Glonari): one message mentions "Your Home Business moved with you", which the document does not have. Kept as is by the owner's decision; to be reviewed.
+
+**Screen 03 — Feeling at home**
+- Here we need to explain the actual duration of the housing agreement, renewal rights, possible increases in monthly fees, grounds for termination, and what protects the resident if Glonari Properties sells the home.
+
+**Screen 04 — When life changes**
+- Here we would like to explain whether a family can transfer to another Glonari Home, which properties are available, how notice works, and whether any transfer fees apply. The current brochure does not provide those rules.
+- Copy differs from the document (owner kept the earlier approved texts): the scenario tabs and photo captions ("A new baby" / "Children moving out" / "A new job in another city"), the Gia card steps ("Current home / Tell Gia what changed / Gia finds your next match / Your next Glonari Home") and the three Gia pills. The document only has "A growing family. A new career. A different city. The right home may change over time."
+
+**Screen 05 — The possibility of ownership**
+- Here we need to explain whether a resident can eventually buy the specific home, how the price would be determined, whether shares could be exchanged for or credited toward the purchase, and whether any earlier housing fees would count. None of these purchase terms is established in the new brochure.
+
+**Screen 06 — What stays with you?**
+- Here we need a straightforward five-year and ten-year example: total housing fees paid, any refundable amount, what happens to the GPA holding on departure, and whether a resident can sell shares or retain them after leaving the home.
+
+(Screens 01 and 07 have no note.)
+
 ## Technical open points (not from the document)
 
 - How It Works, Screen 04: the button "See the Monthly Cost Example" links to `find-your-home.html#cost-illustration`; that anchor does not exist yet on the Find Your Home stub (build it with Page 04).

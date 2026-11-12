@@ -50,20 +50,16 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 6. The journey — four nodes on a gold line (no pin)
 7. Next step (scene) — family parallax opener, text + "Find My Home" below
 
-### 3. Living With Glonari — `docs/living-with-glonari.html` — ✅ built (awaiting owner review)
+### 3. Living With Glonari — `docs/living-with-glonari.html` — ✅ rebuilt 2026-11-12 to Page 03 of the v2 document (awaiting owner review)
 
-Page files: `css/living.css`, `js/living.js`. Pinned scenes (owner's decision, four): Hero, Try Before You Buy, Gia goes with you, The bigger idea.
+7 screens. Page files: `css/living.css`, `js/living.js`. Pinned scenes: exactly three (01, 02, 07). Anchors kept for the home page: `#gia-goes-with-you`, `#when-life-changes`.
 
-Planned sections:
-
-- Hero (scene) — garden → kitchen → "LIVING" → family cut-out, copy "This Is Your Home While You Build Your Future." ✅
-1. Security (`#security`, pause, paper) — 01–04 + note; the gold line starts here ✅
-2. Try Before You Buy™ (`#try-before-you-buy`, scene, dark) — the gold line becomes the Prepare → Decide timeline with step cards ✅
-3. Two ways to own (`#ownership`, linked from the home page; pause, dark — continues TBYB) — two hover-widen cards, the gold line splits into two paths, closing line ✅
-4. When life changes (`#when-life-changes`, pause, paper) — self-playing stage (5 s per scenario): scenario buttons | stack of three 4:5 photo cards + Gia pill | Gia card with 4 steps lighting up; phones: stack + dots + status line, swipe ✅
-5. Gia goes with you (`#gia-goes-with-you`, scene, paper) — one room by a big window, four views behind the glass (City · Suburb · By the sea · Garden home), Gia's chat keeps its history; phones: room + chat below + 4 view cards ✅
-6. The journey before and after (`#journey-before-and-after`, pause, paper) — preview frame linking to Global Dream Journey™ + copy, two columns ≥1024px ✅
-7. The bigger idea (`#the-bigger-idea`, scene, dark) — night villa, five manifesto lines one at a time in gold Cormorant, gold dust (canvas), the night lightens, gold button → Find Your Home; static: all lines stacked ✅
+1. Hero (scene) — garden, kitchen, "LIVING", family; "The Life You Make at Home."; button → `#gia-goes-with-you`
+2. Everyday life with Gia (`#gia-goes-with-you`, scene, paper) — one room, four views behind the glass, Gia's chat keeps its history
+3. Feeling at home (`#feeling-at-home`, pause, paper) — wide strip, the light comes on with the scroll
+4. When life changes (`#when-life-changes`, pause, paper) — self-playing stage: tabs | photo stack + Gia pill | Gia steps
+5+6. The possibility of ownership / What stays with you? (`#ownership`, `#what-stays-with-you`, one dark chapter, no pin) — two gold lines that never touch, sentences laid out along them
+7. Final invitation (`#final-invitation`, scene, dark) — night villa, headline, line, "Explore Your Home" → Find Your Home
 
 ### (retired) Already Own a Home? — `docs/already-own-a-home.html` — unlinked, kept as a file
 

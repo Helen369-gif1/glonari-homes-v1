@@ -38,7 +38,7 @@
 
   const scrubTo = (trigger) => ({ trigger, start: "top top", end: "bottom bottom", scrub: .6, invalidateOnRefresh: true });
 
-  /* ---------- 2. Problem: a right-to-left wipe reveals the Glonari Home ----------
+  /* ---------- 2. Why Glonari: a right-to-left wipe reveals the Glonari Home ----------
      The wipe container and its image counter-slide at the same rate, so the
      "after" photo never visibly moves — only the reveal edge sweeps across,
      right to left (same principle as the classic GSAP image-comparison wipe). */
@@ -58,26 +58,7 @@
       .to({}, { duration: .2 });
   }
 
-  /* ---------- 3. Formula: one card opens into three, then the result ---------- */
-  function formulaScene() {
-    const scene = $('[data-scene="formula"]');
-    if (!scene) return;
-    const row = $(".formula__row", scene);
-    const cards = $$(".fcard", scene);
-    const ops = $$(".formula__op", scene);
-    const result = $(".formula__result", scene);
-
-    // distance from each card's final place to the centre of the row
-    const toCentre = (i) => row.offsetWidth / 2 - (cards[i].offsetLeft + cards[i].offsetWidth / 2);
-
-    gsap.timeline({ scrollTrigger: scrubTo(scene) })
-      .fromTo(cards, { x: (i) => toCentre(i), y: (i) => i * 14, scale: (i) => 1 - i * .05 }, { x: 0, y: 0, scale: 1, duration: 1, ease: "power2.inOut" }, .2)
-      .fromTo(ops, { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .25, ease: "power2.out" }, 1)
-      .fromTo(result, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .4, ease: "power2.out" }, 1.3)
-      .to({}, { duration: .35 });
-  }
-
-  /* ---------- 4. Economics: big numbers rise from behind the house ---------- */
+  /* ---------- 3. The cost: big numbers rise from behind the house ---------- */
   function econScene() {
     const scene = $('[data-scene="econ"]');
     if (!scene) return;
@@ -107,28 +88,6 @@
     tl.to({}, { duration: 1 });
   }
 
-  /* ---------- 6. Try Before You Buy: vertical scroll moves the strip sideways ---------- */
-  function tbybScene() {
-    const scene = $('[data-scene="tbyb"]');
-    if (!scene) return;
-    const track = $("[data-track]", scene);
-    const bar = $("[data-progress]", scene);
-    const travel = () => Math.max(0, track.scrollWidth - doc.clientWidth);
-    const setTravel = () => scene.style.setProperty("--travel", `${travel()}px`);
-
-    setTravel();
-    ScrollTrigger.addEventListener("refreshInit", setTravel);
-
-    gsap.timeline({ scrollTrigger: scrubTo(scene), defaults: { ease: "none" } })
-      .to(track, { x: () => -travel(), duration: 1 }, 0)
-      .to(bar, { scaleX: 1, duration: 1 }, 0);
-
-    return () => {
-      ScrollTrigger.removeEventListener("refreshInit", setTravel);
-      scene.style.removeProperty("--travel");
-    };
-  }
-
   /* ---------- 7. CTA: the light softens to evening, the words arrive, light returns a little ---------- */
   function ctaScene() {
     const scene = $('[data-scene="cta"]');
@@ -149,13 +108,10 @@
   mm.add("(min-width: 769px) and (prefers-reduced-motion: no-preference)", () => {
     doc.classList.add("has-scenes");
     problemScene();
-    formulaScene();
     econScene();
-    const undoTbyb = tbybScene();
     ctaScene();
     ScrollTrigger.refresh();
     return () => {
-      if (undoTbyb) undoTbyb();
       doc.classList.remove("has-scenes");
     };
   });

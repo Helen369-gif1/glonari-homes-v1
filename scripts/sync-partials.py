@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Sync site/partials/header.html and footer.html into every page in site/*.html."""
+"""Sync docs/partials/header.html and footer.html into every page in docs/*.html."""
 import re
 from pathlib import Path
 
-SITE = Path(__file__).resolve().parent.parent / "site"
+SITE = Path(__file__).resolve().parent.parent / "docs"
 PARTIALS = SITE / "partials"
 
 

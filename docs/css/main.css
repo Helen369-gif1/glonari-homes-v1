@@ -163,7 +163,7 @@ html.lenis, html.lenis body { height: auto; }
 .site-header__in {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(20px, 2.4vw, 32px);
   height: 100%;
   width: min(100%, 1400px);
   margin-inline: auto;
@@ -195,10 +195,10 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 .nav { margin-left: auto; }
-.nav__list { display: flex; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.nav__list { display: flex; gap: clamp(16px, 1.7vw, 28px); margin: 0; padding: 0; list-style: none; }
 .nav__list a {
   position: relative;
-  font-size: 15px;
+  font-size: clamp(14px, 1.1vw, 15px);
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
@@ -287,7 +287,7 @@ html.lenis, html.lenis body { height: auto; }
   border-bottom: 1px solid rgba(235, 201, 158, .18);
 }
 .site-footer__brand p { margin: 18px 0 24px; max-width: 300px; }
-.site-footer__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.site-footer__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 260px)); gap: 32px; }
 .site-footer__h {
   margin-bottom: 14px;
   font-family: var(--font-mono);
@@ -298,7 +298,7 @@ html.lenis, html.lenis body { height: auto; }
   color: var(--gp-champagne);
 }
 .site-footer ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.site-footer__disclosure { max-width: 900px; margin: 32px 0 16px; font-size: 13px; line-height: 1.6; color: rgba(199, 192, 182, .8); }
+.site-footer__disclosure { max-width: 980px; margin: 32px 0 16px; font-size: 13px; line-height: 1.6; color: rgba(199, 192, 182, .8); }
 .site-footer__legal { font-size: 13px; color: rgba(199, 192, 182, .6); }
 @media (max-width: 860px) {
   .site-footer__top { grid-template-columns: 1fr; }

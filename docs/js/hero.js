@@ -41,8 +41,9 @@
     word.style.transform = `translate3d(0, ${lerp(wordFrom, 0, rise)}%, 0)`;
 
     if (shade) shade.style.opacity = smooth(seg(p, .72, .92)).toFixed(3);
+    const step = copy.length > 1 ? .08 / (copy.length - 1) : 0;   // the last block lands at p = 1
     copy.forEach((el, i) => {
-      const t = easeOut(seg(p, .78 + i * .06, .94 + i * .06));
+      const t = easeOut(seg(p, .76 + i * step, .92 + i * step));
       el.style.opacity = t.toFixed(3);
       el.style.transform = `translate3d(0, ${lerp(24, 0, t)}px, 0)`;
     });

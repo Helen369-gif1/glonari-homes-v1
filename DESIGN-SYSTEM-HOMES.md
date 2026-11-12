@@ -5,7 +5,7 @@ Status: approved by the owner as the base for all new Glonari Homes pages.
 
 ## 1. Purpose and precedence
 
-This file is the single visual source of truth for the Glonari Homes website (`site/`). It documents the system that is **already built and approved** on the home page (`index.html`, `css/main.css`, `css/home.css`), plus the structural guidelines adopted from the wider Glonari design-system family for pages not yet built.
+This file is the single visual source of truth for the Glonari Homes website (`docs/`). It documents the system that is **already built and approved** on the home page (`index.html`, `css/main.css`, `css/home.css`), plus the structural guidelines adopted from the wider Glonari design-system family for pages not yet built.
 
 Precedence when documents disagree:
 
@@ -13,7 +13,7 @@ Precedence when documents disagree:
 2. The home page as already shipped is the visual reference. Do not change it to match this document — this document was written to match it.
 3. This file controls typography, color, spacing, components, and motion for every other page.
 4. `SITE-STRUCTURE.md` controls page list, navigation, and section order.
-5. `Glonari Homes — Website Architecture & Copy v2.docx` controls approved English copy and per-page section content.
+5. `Glonari_Homes_All_Pages_v2.md` (2026-11-12) controls the page list, section order and all English copy. It has priority over the older `.docx` and over earlier decisions about which sections exist.
 
 ### 1.1 Relationship to the other Glonari design systems
 
@@ -76,6 +76,8 @@ Defined in `css/main.css`:
 The three step colours are only for coloured step cards on a dark band (Living With Glonari, Try Before You Buy). No green or olive tones.
 
 ### 4.1 Dark sections (owner's decision)
+
+**2026-11-12:** the owner confirmed that dark bands may be used on other screens too, wherever the new document's sections call for them. Rule of thumb: at most one or two dark bands per page, hard paper↔brown edges with one `--section-y` inside the band on each side (as on Living). First use after this decision: home page "Your future" (`.future`). The text below is the history of earlier decisions.
 
 Besides the footer, the site has deliberate dark (`--gh-brown`) bands: How It Works chapter 05 (GLO), a future manifesto section, and Living With Glonari section 2 (Try Before You Buy — the third, an exception approved by the owner, 2026-11-06). A dark band in the middle of a page enters and leaves through soft paper↔brown stretches (`clamp(120px, 18svh, 220px)`), not a hard edge.
 
@@ -182,7 +184,7 @@ New pages should test at 1440×900, 1024px, 768px and 375px, matching how the ho
 - Do not add a sky-blue secondary accent.
 - Do not change button radius to 6–8px or drop pill buttons.
 - Do not move H1/H2 to IBM Plex Sans.
-- Do not introduce Reserve's or Pulse's full dark-mode surfaces — Glonari Homes is light; the footer (governed by 3.4) and the few dark bands listed in 4.1 are the only dark areas.
+- Do not introduce Reserve's or Pulse's full dark-mode surfaces — Glonari Homes is light; the footer (governed by 3.4) and the dark bands allowed by 4.1 are the only dark areas.
 
 ## 10. Before building a new page
 

@@ -1,18 +1,15 @@
 # Glonari Homes — Site Structure
 
-Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari Homes — Website Architecture & Copy v2.docx` — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
+Page list, navigation, and per-page sections. Approved English copy for each section lives in `Glonari_Homes_All_Pages_v2.md` (main source since 2026-11-12; it replaces the older `.docx`) — this file does not duplicate it, only the structure. Visual rules live in `DESIGN-SYSTEM-HOMES.md`. Build status lives in `PROJECT-STATUS.md`.
 
 ## Navigation (as built, every page)
 
-- **Header nav:** Home · How It Works · Living With Glonari · Already Own a Home? · FAQs
+- **Header nav:** Home · How It Works · Living With Glonari · Find Your Home · Glonari Properties · FAQs
 - **Header CTA** (always visible, not in the nav list): Find My Glonari Home → `find-your-home.html`
-- **Footer columns:**
-  - *Explore* — How It Works, Living With Glonari, Already Own a Home?, Find Your Home, FAQs
-  - *Glonari* — About Glonari, Global Dream Journey (→ external site, new tab), Member Qualification, Contact, Member Login (the rest still `#` — not finalized, see `PROJECT-STATUS.md`)
-  - *Legal* — Privacy & Your Data, Legal & Disclosures (both still `#`)
-- **Footer disclosure** (verbatim, every page): *"All figures are illustrative. Glonari Homes is in development and terms may change. Home Business results are not guaranteed, are not passive income and depend on member participation and program terms. GLO is a membership and access credential, not rent, a property interest or a source of income. This site is not an offer to sell, lease or finance any property. Glonari is not a bank."*
+- **Footer columns:** *Explore* — the six pages above; *Legal* — Privacy, Legal & Disclosures, Contact (the last three still `#`). Tagline: "AI for Human Prosperity™".
+- **Footer disclosure** (verbatim from the document, every page): "Glonari Homes is a proposed program. Content and numbers on this preliminary site are illustrative and subject to definitive agreements and approval…"
 
-`find-your-home.html` is reachable from the header CTA, the footer, and in-page CTAs — it is intentionally not a top-level nav item.
+`find-your-home.html` is now a top-level nav item and also the target of the header CTA. `already-own-a-home.html` is no longer in the menu or footer (the document has no such page); the file is kept unlinked.
 
 ## Visitor journey (from the architecture doc)
 
@@ -31,17 +28,17 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 
 ## Pages
 
-### 1. Home — `site/index.html` — ✅ built
+### 1. Home — `docs/index.html` — ✅ rebuilt to the 2026-11-12 document
 
-1. Hero
-2. The problem
-3. What a Glonari Home is
-4. The economics, simply
-5. Meet Gia
-6. Try first, decide later (Try Before You Buy™)
-7. Final call to action
+1. Hero (scene, layered; new copy)
+2. Why Glonari? (wipe scene, "More Than a Place to Live.")
+3. The cost (pinned numbers: $7,469 · $8,333 · −$2,500 · $5,833; the "Important" note always visible)
+4. Find your home
+5. Meet Gia (chat kept as it was, owner's decision)
+6. Your future (dark band)
+7. Final invitation
 
-### 2. How It Works — `site/how-it-works.html` — ✅ built (awaiting owner review)
+### 2. How It Works — `docs/how-it-works.html` — ✅ built (awaiting owner review)
 
 A "magazine in eight chapters". Page files: `css/how-it-works.css`, `js/how-it-works.js`. Pinned scenes: first screen, 04, 08 (exactly three). Chapter anchors `#ch-01`…`#ch-08`.
 
@@ -56,7 +53,7 @@ A "magazine in eight chapters". Page files: `css/how-it-works.css`, `js/how-it-w
 7. Privacy — copy + three icon labels
 8. The Whole System — opener, then scene: cut-out + five cards, closing line, CTA → `living-with-glonari.html`
 
-### 3. Living With Glonari — `site/living-with-glonari.html` — ✅ built (awaiting owner review)
+### 3. Living With Glonari — `docs/living-with-glonari.html` — ✅ built (awaiting owner review)
 
 Page files: `css/living.css`, `js/living.js`. Pinned scenes (owner's decision, four): Hero, Try Before You Buy, Gia goes with you, The bigger idea.
 
@@ -71,7 +68,7 @@ Planned sections:
 6. The journey before and after (`#journey-before-and-after`, pause, paper) — preview frame linking to Global Dream Journey™ + copy, two columns ≥1024px ✅
 7. The bigger idea (`#the-bigger-idea`, scene, dark) — night villa, five manifesto lines one at a time in gold Cormorant, gold dust (canvas), the night lightens, gold button → Find Your Home; static: all lines stacked ✅
 
-### 4. Already Own a Home? — `site/already-own-a-home.html` — 🔨 in progress
+### (retired) Already Own a Home? — `docs/already-own-a-home.html` — unlinked, kept as a file
 
 Page files: `css/own.css`, `js/own.js`.
 
@@ -82,7 +79,7 @@ Planned sections:
 2. Module vs. full Glonari Home
 3. Status and CTA
 
-### 5. Find Your Home — `site/find-your-home.html` — ⏳ stub only
+### 5. Find Your Home — `docs/find-your-home.html` — ⏳ stub only
 
 Planned sections:
 
@@ -91,7 +88,9 @@ Planned sections:
 2. Your Glonari Home journey
 3. Illustrative home card
 
-### 6. FAQs — `site/faqs.html` — ⏳ stub only
+### 6. FAQs — `docs/faqs.html` — ⏳ stub only (7 screens in the document; questions without an approved answer are shown with the note that terms will be in the final agreements — owner's decision)
+
+### 7. Glonari Properties & GPA — `docs/glonari-properties.html` — ⏳ stub only (new page, 7 screens in the document)
 
 Planned categories:
 
@@ -103,9 +102,8 @@ Planned categories:
 
 ## Cross-page links already referenced from the home page
 
-- `how-it-works.html` (plain, and `#value` anchor)
-- `living-with-glonari.html#ownership`
-- `already-own-a-home.html`
-- `find-your-home.html` (plain, and `#qualify` anchor)
+- `how-it-works.html`
+- `living-with-glonari.html#when-life-changes` and `#gia-goes-with-you`
+- `find-your-home.html` (plain)
 
 When each stub page is built, keep these anchors (`#value`, `#ownership`, `#qualify`) or update the home page links to match the final section IDs.

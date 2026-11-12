@@ -38,20 +38,17 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 6. Your future (dark band)
 7. Final invitation
 
-### 2. How It Works — `docs/how-it-works.html` — ✅ built (awaiting owner review)
+### 2. How It Works — `docs/how-it-works.html` — ✅ rebuilt 2026-11-12 to Page 02 of the v2 document (awaiting owner review)
 
-A "magazine in eight chapters". Page files: `css/how-it-works.css`, `js/how-it-works.js`. Pinned scenes: first screen, 04, 08 (exactly three). Chapter anchors `#ch-01`…`#ch-08`.
+7 screens. Page files: `css/how-it-works.css`, `js/how-it-works.js`. Pinned scenes: exactly three (01, 05, 07). Anchors `#ch-01`…`#ch-07`; fixed left rail of 7 (compact "02 / 07" at ≤1100px). One dark band: 04.
 
-- First screen (scene) — layered terrace / "HOW IT WORKS" / family cut-out, copy "How a Glonari Home Works"
-- Chapter rail 01–08, fixed left (compact "02 / 08" at ≤1100px)
-1. Four Parts — 4 cards
-2. Where the Money Comes From — full-screen opener, paragraph, 4 source cards, closing line
-3. Participation — two highlighted columns
-4. How Results Work (scene) — flow diagram + statement + disclaimer
-5. GLO (the only dark chapter) — opener, GLO seal, is / is-not panels, note
-6. Your Statement — Digital Banker mock-up built in code + chat with Gia
-7. Privacy — copy + three icon labels
-8. The Whole System — opener, then scene: cut-out + five cards, closing line, CTA → `living-with-glonari.html`
+1. Introduction (scene) — layered terrace / "HOW IT WORKS" / family cut-out; "A Better Way to Live. Built Around You."; button → 02
+2. Who does what? — four role cards (Properties, Homes, Gia, You), dealt onto the table
+3. Choose your home — headline + tall photo with a survey line; button → Find Your Home
+4. Understand the cost (dark) — fee sentences, ledger of the three figures, note; button → `find-your-home.html#cost-illustration`
+5. Who can join? (scene) — café parallax opener, text below
+6. The journey — four nodes on a gold line (no pin)
+7. Next step (scene) — family parallax opener, text + "Find My Home" below
 
 ### 3. Living With Glonari — `docs/living-with-glonari.html` — ✅ built (awaiting owner review)
 

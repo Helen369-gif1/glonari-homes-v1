@@ -29,7 +29,13 @@ Owner's decisions: the document has priority over the built site; dark bands may
 - Home now has **five** pinned scenes (hero, problem, econ, find, cta). Proposal (not applied, waiting for the owner): shorten the econ scene from 420svh to ~340svh (the longest, 4 figures); alternative: problem 120→100svh.
 - Checked headless Chrome: 1440×900/720, 1024×768 (pinned: clip states per progress, dot follows, clicks to 2/5/1 land correctly), 768, 375 and reduced motion 1440/375 (static, dots work): no console errors (favicon 404), no horizontal scroll. Real-browser feel of the motion still to be seen.
 
-**Next:** How It Works (7 screens) → Living With Glonari (7) → Find Your Home (6) → Glonari Properties & GPA (7) → FAQs (7); then `OPEN-QUESTIONS.md` from the italic notes.
+**2026-11-12 (How It Works rebuilt to Page 02, 7 screens) — DONE, awaiting the owner's look in a real browser.** Backups: `masters/retired/how-it-works-2026-11-12.html|css|js`. Files: `how-it-works.html`, `css/how-it-works.css`, `js/how-it-works.js`. Copy verbatim; italic notes not published → `OPEN-QUESTIONS.md` (new).
+- Screens (ids `#ch-01…#ch-07`, rail of 7): 01 hero (kept layered scene, new copy + button → #ch-02) · 02 Who does what? (4 cards: Properties = `placeholder-how-02-properties`, Homes = `how-01-business`, Gia = `how-01-gia`, You = `how-03-you`; dealt onto the table ≥1101px, staggered heights) · 03 Choose your home (new composition, not the arch: huge headline left, tall photo right with a 1px survey line offset from its edges; one motion = photo drawn in from the base + line follows, ≥1024px; photo is `placeholder-how-03-choose-home`) · 04 Understand the cost (**the page's only dark band**, solid brown, hard edges; sentences verbatim, note 18px cream on brown ≈14:1; decorative ledger $8,333 / −$2,500 / $5,833; button → `find-your-home.html#cost-illustration`) · 05 Who can join? (café parallax opener, pinned; text below on paper) · 06 The journey (four icon nodes on a gold line, **no pin**, line + nodes drawn by scroll ≥1024px; vertical list below) · 07 Next step (family parallax opener, pinned; lead + "Find My Home" below).
+- Pinned scenes: exactly three (01, 05, 07). Removed: chapters GLO, Digital Banker, Privacy, results flow, whole-system map, chat duo. Retired images (all in `masters/retired/`): `how-01-connections`, `how-02-{savings,partners,referrals,knowledge}`, `how-03-gia`, `how-05-glo-hall-night`, `how-08-family-gia-cutout`.
+- Checked headless Chrome at 1440, 1024, 768, 375 and reduced motion (1440, 375): no console errors (favicon 404 only), no horizontal scroll, images load, one dark section, text ≥17px. Motion itself still to be seen in a real browser.
+- Open: real photos for 02 Properties and 03; the `#cost-illustration` anchor on Find Your Home.
+
+**Next:** Living With Glonari (7) → Find Your Home (6) → Glonari Properties & GPA (7) → FAQs (7); then `OPEN-QUESTIONS.md` from the italic notes.
 
 ## Done
 

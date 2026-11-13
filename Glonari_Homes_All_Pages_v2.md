@@ -2,7 +2,7 @@
 
 ## Website Copy — All Pages
 
-Version updated 2026-11-13: incorporates the owner's answers (*Glonari_Questions — Answered*). **Where an owner's answer differs from earlier program materials, the owner's answer prevails.**
+Version updated 2026-11-13: incorporates the owner's answers (*Glonari_Questions — Answered*). **Where an owner's answer differs from earlier program materials, the owner's answer prevails.** The numerical additions file was integrated selectively: only items consistent with the owner's answers (see `OPEN-QUESTIONS.md`, 2026-11-13).
 
 **Reading note:** Regular text is website copy. *Italic text identifies information we would like to explain on the website but which is not yet established. These notes are not approved customer promises and are never published.*
 
@@ -56,9 +56,9 @@ Consider an example home valued at **$1 million**.
 | Global Connections benefit | — | −$2,500 |
 | **Monthly cash requirement** | **$7,469** | **$5,833** |
 
-That is approximately **$1,636 less per month** than owning the same home with a mortgage.
+That is approximately **$1,636 less per month** than owning the same home with a mortgage—without surprise repair bills, separate property-tax bills, or separate insurance policies.
 
-**Important:** This compares Glonari with the modeled cost of owning a home with a mortgage—not the local market rent for a comparable home. The Global Connections benefit is an agreed amount, applied automatically to your monthly fee. The Glonari fee does not include utilities or personal expenses. Estimated example based on an $800,000, 30-year mortgage at 7.18%, property taxes of 1.1%, insurance of $300 per month, and maintenance of 1% per year. Actual costs vary.
+**Important:** This compares Glonari with the modeled cost of owning a home with a mortgage—not the local market rent for a comparable home. The Global Connections benefit is an agreed amount, applied automatically to your monthly fee. The Glonari fee does not include utilities or personal expenses. Estimated example based on an $800,000, 30-year mortgage at 7.18%, property taxes of 1.1%, insurance of $300 per month, and maintenance of 1% per year. Actual payments and savings vary by location, home selection, and program terms.
 
 **Where the $2,500 comes from.** It is the minimum amount a member earns through Gia and Global Connections. It is applied to your monthly fee automatically—there is nothing to apply for.
 
@@ -158,6 +158,20 @@ The goal is simple: make living more comfortable and more affordable.
 
 *Here we need to identify the legal parties to the housing agreement and explain precisely which responsibilities remain with the family and which belong to Glonari.*
 
+## SCREEN 02B — GIA IN EVERYDAY LIFE
+
+*New screen: needs its own full composition, not an add-on to Screen 02.*
+
+# Savings You Don’t Have to Chase.
+
+**One bundle instead of three bills.** For a $1 million home, property taxes, insurance, and upkeep can cost about $2,050 a month—roughly $24,600 a year—when an owner pays them separately. In a Glonari Home they are included in your monthly fee.
+
+**Care before emergencies.** Gia is designed to keep track of your home’s systems and schedule preventive maintenance before small issues become expensive repairs.
+
+**The buying power of a portfolio.** Because Glonari coordinates purchasing across many homes, Gia is designed to find preferred rates on home services and everyday essentials that a single household could not negotiate alone.
+
+Estimated example; actual costs vary by home and location.
+
 ## SCREEN 03 — CHOOSE YOUR HOME
 
 # Start With the Home You Want.
@@ -183,6 +197,20 @@ A **$2,500 monthly Global Connections benefit**—the minimum you earn through G
 You know your minimum monthly cost for many years ahead. GPA appreciation is designed to cover the base amount, so you never have to worry about it.
 
 **See the Monthly Cost Example**
+
+## SCREEN 04B — YOUR MONTH, STEP BY STEP
+
+*New screen: needs its own full composition, not an add-on to Screen 04.*
+
+# One Month in a Glonari Home.
+
+**01. One monthly fee.** $8,333 covers your home, taxes, insurance, maintenance, repairs, and Gia.
+
+**02. Global Connections offsets it.** Your minimum monthly earnings through Gia and Global Connections—$2,500—are applied to your fee automatically.
+
+**03. You pay $5,833.** That is your cash requirement for the month, before utilities and personal expenses, and you know it years ahead.
+
+Estimated example for a $1 million home. Actual payments vary by home selection and program terms.
 
 ## SCREEN 05 — WHO CAN JOIN?
 
@@ -280,7 +308,18 @@ Your monthly fee covers the all-inclusive cost of living in your home; none of i
 
 GPA shares have the potential for long-term value growth. As they appreciate, the minimum you must hold goes down each month—and shares you no longer need can be sold or applied to another property.
 
-*Here we need a straightforward five-year and ten-year example: total housing fees paid and the GPA position at the end.*
+### Three Years, Side by Side
+
+| After 36 months | Traditional ownership | Glonari Home |
+| --- | --- | --- |
+| Upfront commitment | $200,000 down payment on an $800,000 mortgage | GPA equal to at least 20% of the home’s value—$200,000 for a $1 million home—or a sponsor who provides the shares |
+| Debt after 36 months | About $774,663 still owed on the mortgage | No mortgage |
+| Monthly cash requirement | $7,469, and taxes, insurance, and repair costs can rise | $5,833, and you know your minimum monthly cost years ahead |
+| If your plans change | Selling a home involves transaction costs | Shares you no longer need can be sold or applied to another property; the lease includes an option to buy |
+
+Estimated example for a $1 million home: an $800,000, 30-year mortgage at 7.18%; taxes 1.1%, insurance $300 per month, maintenance 1% per year. Actual payments and savings vary by location, home selection, and program terms.
+
+*Here we need a five-year and ten-year example: total housing fees paid and the GPA position at the end.*
 
 ## SCREEN 07 — FINAL INVITATION
 
@@ -338,7 +377,7 @@ GPA is initially limited to accredited investors until full SEC authorization is
 
 *Here we need the required documents and the exact eligibility checks.*
 
-## SCREEN 05 — YOUR HOME COST ILLUSTRATION
+## SCREEN 05 — YOUR HOME COST ESTIMATE
 
 # Know the Numbers for Your Situation.
 

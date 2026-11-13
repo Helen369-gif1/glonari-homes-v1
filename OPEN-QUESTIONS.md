@@ -74,3 +74,15 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 Answered and moved into copy in `Glonari_Homes_All_Pages_v2.md`: agreement type, who can join (20% GPA or a sponsor), accredited-only start, minimum-share rule, own-home path, source of the $2,500, fee contents, no refund, no extra shares after move-in. Home Business is replaced by Gia / Global Connections earnings.
 Still open: agreement term, renewal and termination; what happens if Glonari sells the home; option-to-buy price and whether GPA/fees count; transfer to another Glonari Home (notice, charges); dividends; Gia's current features; Global Connections outside Glonari; company facts; NAV+/HQV governance; required documents, locations and approval timeline; who can be a sponsor.
+
+## Numerical additions file (2026-11-13) — NOT applied, need the owner's decision
+
+From `website_numerical_additions_from_brochure.md`; they conflict with the owner's answers or are not backed by any source:
+- "$4,000 under a standard member tier" / "adjusted tier" for the fee — no such tier in the answers.
+- "$2,500–$5,000 per month" Home Business value and "surplus above the threshold goes to you" — answer 11 says no part of the fee goes back to the member; Home Business was replaced by Gia earnings.
+- Digital Banker statement, Try Before You Buy, "buy the complete Glonari Home + Home Business" — retired concepts.
+- "Flexible qualification — start building your profile before moving in", "$0 personal debt while you test-live" — conflict with the 20% GPA rule.
+- "6–8% transaction fees" for selling a home — no source; replaced by "transaction costs".
+- "thousands of homes" (group purchasing) — no source; written as "many homes".
+- 40% / $400,000 operating value — investor metric, stays only on the Glonari Properties page.
+- The Home Business disclaimer — Home Business no longer exists; no replacement disclaimer written (legal to decide).

@@ -26,7 +26,7 @@ A home you love. Thoughtful services. And Gia™, your personal AI concierge, he
 
 Glonari Homes brings together professionally managed residential living, intelligent assistance, and new financial opportunities designed to make life more affordable.
 
-Glonari Homes is open to Glonari Members who hold GPA equal to at least 20% of the home’s value—or who have a sponsor who provides it.
+Glonari Homes is open to Glonari Members who hold GPA equal to at least 20% of the home’s value—or have a sponsor who provides the shares.
 
 **Explore How It Works** | **Find My Home**
 
@@ -188,7 +188,7 @@ You know your minimum monthly cost for many years ahead. GPA appreciation is des
 
 # Your Options Should Be Clear From the Start.
 
-A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or who have a sponsor who provides it.
+A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or have a sponsor who provides the shares.
 
 As GPA appreciates, the minimum number of shares you must hold goes down each month. Shares you no longer need to hold can be sold or applied to another property. After you move in, you are never required to buy more.
 
@@ -200,7 +200,7 @@ GPA is initially limited to accredited investors until full SEC authorization is
 
 **01. Choose a qualifying home.** Find a residence that meets the program’s property criteria.
 
-**02. Join as a Member.** Hold GPA equal to at least 20% of the home’s value, or have a sponsor who provides it.
+**02. Join as a Member.** Hold GPA equal to at least 20% of the home’s value, or have a sponsor who provides the shares.
 
 **03. Complete approvals.** Property acquisition, membership, and agreements require approval.
 
@@ -332,7 +332,7 @@ Tell us about the kind of home you want, where you would like to live, and what 
 
 # Understand Your Options Before You Commit.
 
-A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or who have a sponsor who provides it.
+A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or have a sponsor who provides the shares.
 
 GPA is initially limited to accredited investors until full SEC authorization is received. Property acquisition, membership, financing where applicable, and program agreements are subject to approval.
 
@@ -516,7 +516,7 @@ No. The full fee is a fee for living in the home and its services. What builds f
 
 ### Must I buy GPA to live in a Glonari Home?
 
-Yes. A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or who have a sponsor who provides it.
+Yes. A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or have a sponsor who provides the shares.
 
 ### Do I have to keep a certain number of shares the whole time?
 

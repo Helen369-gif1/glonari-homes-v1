@@ -1,16 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find Your Home &middot; Glonari Homes</title>
 <meta name="description" content="Your next home starts with what matters to you: the neighborhood, the space, the people, and the kind of life you want to live there.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/find.css">
 </head>
-<body class="no-js">
+<body class="no-js find-page">
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -41,12 +50,157 @@
 </header>
 <!-- /partial:header -->
 
-<main id="main" class="stub">
-  <div class="container">
-    <p class="eyebrow">Find Your Home</p>
-    <h1 class="h2">Let&rsquo;s Find the Home That Fits Your Life.</h1>
-    <p>This page is being built. Meanwhile, start from the <a href="index.html">home page</a>.</p>
-  </div>
+<main id="main">
+
+  <!-- ============ 01 Hero (scene): placeholder street + home, copy, the disclaimer on a paper bar ============ -->
+  <section class="find-hero" aria-labelledby="find-title" data-hero>
+    <div class="scene" data-scene="find-hero" style="--travel: 170svh">
+      <div class="scene__stage find-hero__stage">
+        <div class="find-hero__photo">
+          <div class="find-frame">
+            <!-- placeholder-find-hero-bg (16:9) + placeholder-find-hero-home (cut-out, native 3165:1595, alpha): replace with the final art -->
+            <img class="find-layer find-hero__bg" src="assets/images/placeholder-find-hero-bg-1600.webp"
+                 srcset="assets/images/placeholder-find-hero-bg-1600.webp 1600w, assets/images/placeholder-find-hero-bg-2000.webp 2000w"
+                 sizes="max(100vw, 177.8svh)" width="2000" height="1125" alt="" fetchpriority="high">
+            <img class="find-cutout find-hero__home" src="assets/images/placeholder-find-hero-home-1600.webp"
+                 srcset="assets/images/placeholder-find-hero-home-1600.webp 1600w, assets/images/placeholder-find-hero-home-2000.webp 2000w"
+                 sizes="(min-width: 769px) 62vw, 150vw" width="2000" height="1008" alt="" fetchpriority="high">
+          </div>
+          <div class="find-hero__shade" aria-hidden="true"></div>
+          <h1 class="find-hero__title" id="find-title" data-hcopy>The Home You Have in Mind.</h1>
+          <div class="find-hero__side" data-hcopy>
+            <p>Your next home starts with what matters to you: the neighborhood, the space, the people, and the kind of life you want to live there.</p>
+            <a class="btn btn--light" href="#where">Start Exploring</a>
+          </div>
+          <div class="find-hero__cue" aria-hidden="true">Scroll</div>
+        </div>
+        <div class="find-hero__bar">
+          <div class="find-hero__bar-in">
+            <p>Glonari Properties may evaluate qualifying properties for potential acquisition and inclusion in Glonari Homes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 Where would you like to live? (pause, no pin) ============ -->
+  <section class="find-where" id="where" aria-labelledby="where-title">
+    <div class="container">
+      <p class="eyebrow">02 &middot; Where would you like to live?</p>
+      <h2 class="find-h" id="where-title">Find a Place That Feels Right.</h2>
+      <div class="find-where__grid">
+        <p class="find-where__lead lead" data-reveal>Tell us about the kind of home you want, where you would like to live, and what matters most to your family.</p>
+        <div class="find-map" aria-hidden="true">
+          <!-- placeholder-find-map.svg: abstract map, no region names; the gold route and the rings are drawn by find.js -->
+          <img class="find-map__base" src="assets/images/placeholder-find-map.svg" width="1200" height="560" alt="" loading="lazy">
+          <svg class="find-map__route" viewBox="0 0 1200 560" preserveAspectRatio="none">
+            <path class="find-map__path" d="M120 396C230 330 280 230 396 214C520 196 560 330 668 322C790 312 806 176 922 168C1000 162 1050 214 1084 262" pathLength="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 The first questions (scene >=1024px; the questions are read-only) ============ -->
+  <section class="find-q" id="priorities" aria-labelledby="priorities-title">
+    <div class="find-q__scene" data-scene="find-q" style="--travel: 320svh">
+      <div class="find-q__stage">
+        <div class="container find-q__in">
+          <p class="eyebrow">03 &middot; The first questions</p>
+          <h2 class="find-q__title" id="priorities-title">Let&rsquo;s Start With Your Priorities.</h2>
+          <ol class="find-q__list">
+            <li class="find-q__item" style="--i:1">
+              <span class="find-q__no" aria-hidden="true">01</span>
+              <p class="find-q__q">Where would you like to live?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q1-1000.webp" srcset="assets/images/placeholder-find-q1-640.webp 640w, assets/images/placeholder-find-q1-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:2">
+              <span class="find-q__no" aria-hidden="true">02</span>
+              <p class="find-q__q">What kind of home are you looking for?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q2-1000.webp" srcset="assets/images/placeholder-find-q2-640.webp 640w, assets/images/placeholder-find-q2-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:3">
+              <span class="find-q__no" aria-hidden="true">03</span>
+              <p class="find-q__q">What would make that home right for your life?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q3-1000.webp" srcset="assets/images/placeholder-find-q3-640.webp 640w, assets/images/placeholder-find-q3-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:4">
+              <span class="find-q__no" aria-hidden="true">04</span>
+              <p class="find-q__q">What monthly housing budget are you considering?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q4-1000.webp" srcset="assets/images/placeholder-find-q4-640.webp 640w, assets/images/placeholder-find-q4-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:5">
+              <span class="find-q__no" aria-hidden="true">05</span>
+              <p class="find-q__q">When would you ideally like to move?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q5-1000.webp" srcset="assets/images/placeholder-find-q5-640.webp 640w, assets/images/placeholder-find-q5-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+          </ol>
+          <div class="find-q__dots" role="group" aria-label="Questions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 Do I qualify? (the page's only dark band, hard edges) ============ -->
+  <section class="find-opt" id="options" aria-labelledby="options-title">
+    <div class="container">
+      <p class="eyebrow eyebrow--light">04 &middot; Do I qualify?</p>
+      <h2 class="find-h find-h--light" id="options-title">Understand Your Options Before You Commit.</h2>
+      <div class="find-opt__rule" aria-hidden="true"></div>
+      <p class="find-opt__s find-opt__s--a" data-reveal>Property acquisition, investor eligibility, membership, financing where applicable, and program agreements are subject to approval.</p>
+      <p class="find-opt__s find-opt__s--b" data-reveal>GPA securities are initially available only to eligible accredited investors.</p>
+    </div>
+  </section>
+
+  <!-- ============ 05 Your home cost illustration ============ -->
+  <section class="find-cost" aria-labelledby="cost-title">
+    <span id="cost-illustration" class="find-cost__anchor" aria-hidden="true"></span>
+    <div class="container">
+      <p class="eyebrow">05 &middot; Your home cost illustration</p>
+      <h2 class="find-h" id="cost-title">Know the Numbers for Your Situation.</h2>
+    </div>
+    <div class="container">
+      <div class="find-cost__house">
+        <img src="assets/images/home-04-house-cutout-1100.webp" srcset="assets/images/home-04-house-cutout-1100.webp 1100w, assets/images/home-04-house-cutout-2000.webp 2000w" sizes="(min-width: 1100px) 980px, 100vw" width="2000" height="1126" alt="" loading="lazy">
+      </div>
+      <div class="find-cost__ground" aria-hidden="true"></div>
+      <div class="find-cost__texts">
+        <p class="find-cost__a" data-reveal>Every property is different. The brochure&rsquo;s $1 million home is an <span class="find-cost__u">illustrative</span> example, not a quote for every applicant.</p>
+        <p class="find-cost__b" data-reveal>A personal illustration should distinguish the full monthly fee from any planned financial benefit and optional sources of funding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 What happens next? (scene): placeholder family, copy and the button on a paper panel ============ -->
+  <section class="find-next" id="next" aria-labelledby="next-title">
+    <div class="scene" data-scene="find-next" style="--travel: 140svh">
+      <div class="scene__stage find-next__stage">
+        <div class="find-next__photo">
+          <div class="find-frame">
+            <!-- placeholder-find-final-bg (16:9) + placeholder-find-final-people (cut-out, native 1710:2826, alpha): replace with the final art -->
+            <img class="find-layer find-next__bg" src="assets/images/placeholder-find-final-bg-1600.webp"
+                 srcset="assets/images/placeholder-find-final-bg-1600.webp 1600w, assets/images/placeholder-find-final-bg-2000.webp 2000w"
+                 sizes="max(100vw, 177.8svh)" width="2000" height="1125" alt="" loading="lazy">
+            <img class="find-cutout find-next__people" src="assets/images/placeholder-find-final-people-900.webp"
+                 srcset="assets/images/placeholder-find-final-people-900.webp 900w, assets/images/placeholder-find-final-people-1400.webp 1400w"
+                 sizes="(min-width: 769px) 23vw, 40vw" width="1400" height="2314"
+                 alt="A mother with her two children, seen from behind, walking up to the open front door of their home" loading="lazy">
+          </div>
+        </div>
+        <div class="find-next__panel">
+          <div class="find-next__panel-in">
+            <p class="eyebrow">06 &middot; What happens next?</p>
+            <h2 class="find-next__title" id="next-title">One Home. A Clearer Next Step.</h2>
+            <div class="find-next__side">
+              <p>Request your personalized cost overview and payment schedule.</p>
+              <a class="btn" href="#">Request</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- partial:footer -->
@@ -90,5 +244,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="js/main.js" defer></script>
+<script src="js/find.js" defer></script>
 </body>
 </html>
+
+
+

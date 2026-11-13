@@ -129,6 +129,22 @@ Vertical relationships (adopted from Global Dream Light — consistent with what
 
 Two-column split (desktop): `grid-template-columns: minmax(0,1fr) minmax(0,1fr)`, gap 48–96px depending on composition (see `.gia__grid`, `.formula__body` in `home.css` for existing examples). All grid children: `min-width: 0`.
 
+### 5.1 Spacing QA gate (mandatory before reporting any section as done)
+
+Rules:
+1. The first text element of a section never touches the section's top edge. Gap from section top to the eyebrow/heading is --section-y (0 only for a pinned scene whose stage brings its own space).
+2. Panels and bands (paper panels under photos, dark blocks, cards): padding top and bottom are equal (±8px). Padding between the last content and the next band's edge is a token, never "whatever is left".
+3. No dead gap inside a section larger than --section-y; no content jammed against the next section (less than 64px) unless it's a hairline-separated footer-style block.
+4. Two-column blocks share one alignment line (tops, or bottoms, or centers) — columns never float at different heights without a design reason stated in the report.
+5. Heading group → content, eyebrow → heading, heading → body follow the table in §5.
+
+How to check (do not judge by eye):
+- Measure with getBoundingClientRect (Playwright) at 1440×900, 1024, 768 and 375×812. For each section record: top gap, bottom gap, internal panel padding top/bottom, gap between columns' alignment lines.
+- Take viewport screenshots scrolled to every section boundary (not full-page; full-page headless screenshots come out blank). Before/after when changing existing spacing.
+- If a screenshot or measurement could not be taken, say so; do not claim it was checked.
+
+Report format: after the 3–6 lines, add the table «section | top | bottom | panel pad T/B | OK?» for each section touched, at 1440 and 375. A task without this table is not done. If any value breaks a rule, fix it before reporting; if it is intentional, state why.
+
 ## 6. Responsive bands (as built)
 
 - **≥ 1101px** — full desktop header (inline nav + CTA).

@@ -72,14 +72,18 @@ Planned sections:
 2. Module vs. full Glonari Home
 3. Status and CTA
 
-### 5. Find Your Home — `docs/find-your-home.html` — ⏳ stub only
+### 4. Find Your Home — `docs/find-your-home.html` — ✅ built (Page 04 of the document, 6 screens)
 
-Planned sections:
+Page files: `css/find.css`, `js/find.js`. Media are `placeholder-find-…` until the real ones arrive (see `PROJECT-STATUS.md`).
 
-- Hero
-1. Conversation with Gia
-2. Your Glonari Home journey
-3. Illustrative home card
+1. Hero (scene, pin) — street + home, "The Home You Have in Mind.", "Start Exploring" → `#where`; the "Glonari Properties may evaluate…" disclaimer on a paper bar that slides up at the end of the scene
+2. Where would you like to live? (`#where`, pause, paper) — huge headline, lead, abstract map with a gold route and unnamed rings
+3. The first questions (`#priorities`, scene ≥1024px, paper) — five read-only questions replace each other, a square arch with a gold outline opens upward; list with small arches below 1024px / reduced motion
+4. Do I qualify? (`#options`, **the page's only dark band**, hard edges, no pin) — two statements, gold rule between them
+5. Your home cost illustration (pause, paper) — invisible anchor `#cost-illustration`; house cut-out from the home page, ground line, "illustrative" underlined on scroll
+6. What happens next? (`#next`, scene, pin) — family parallax, paper panel with the closing lines and the button "Request a Personal Cost Overview" (placeholder `href="#"`)
+
+Pinned scenes: 01, 03, 06 (03 can lose its pin if three feel heavy: the questions then change with normal scroll).
 
 ### 6. FAQs — `docs/faqs.html` — ⏳ stub only (7 screens in the document; questions without an approved answer are shown with the note that terms will be in the final agreements — owner's decision)
 

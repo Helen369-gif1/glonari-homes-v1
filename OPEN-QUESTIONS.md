@@ -45,6 +45,27 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 (Screens 01 and 07 have no note.)
 
+## Page 04 — Find Your Home
+
+**Screen 02 — Where would you like to live?**
+- Here we need to show the regions in which Glonari Homes is actually available, any verified property inventory, and the criteria a proposed home must meet. *Built meanwhile (Helen, 2026-11-13): an abstract map with unnamed rings; when the regions are approved, label the rings.*
+
+**Screen 03 — The first questions**
+- Here we need the approved application or consultation process, along with a privacy notice before collecting personal information. *The five questions are read-only (no input fields) until then.*
+
+**Screen 04 — Do I qualify?**
+- Here we need an explicit answer to whether a Glonari Home is available to a family that does not invest in GPA. We also need the actual eligibility rules, required documents, and any upfront financial commitment.
+
+**Screen 05 — Your home cost illustration**
+- Here we need an approved estimate for the selected home: full fee, planned benefit and qualifying conditions, expenses paid separately, required investment if applicable, and a scenario in which the benefit is not received.
+
+**Screen 06 — What happens next?**
+- Here we need to explain who handles the request, when the family receives an answer, the approval stages, and whether the property is actually available. The present draft does not establish a live application service.
+- Screen 06 on the site (Helen's decision, 2026-11-13; not from the document): the line reads "Request your personalized cost overview and payment schedule." and the button reads "Request". The button is a placeholder (`href="#"`, no mailto): where it leads is Helen's decision.
+- Removed from the site, kept as a note: the document's line "The brochure invites prospective participants to request a personalized home-and-cost illustration and review the relevant terms." and its button "Request a Personal Illustration".
+
+(Screen 01 has no note.)
+
 ## Technical open points (not from the document)
 
-- How It Works, Screen 04: the button "See the Monthly Cost Example" links to `find-your-home.html#cost-illustration`; that anchor does not exist yet on the Find Your Home stub (build it with Page 04).
+- ~~How It Works, Screen 04: `find-your-home.html#cost-illustration` anchor~~ — built on Find Your Home Screen 05 (invisible id, 2026-11-13).

@@ -145,6 +145,20 @@ How to check (do not judge by eye):
 
 Report format: after the 3–6 lines, add the table «section | top | bottom | panel pad T/B | OK?» for each section touched, at 1440 and 375. A task without this table is not done. If any value breaks a rule, fix it before reporting; if it is intentional, state why.
 
+### 5.2 Spacing check (mandatory)
+
+After every edit to a page, check spacing with numbers, not by eye. Runs together with §5.1 and before every report.
+
+For each section, measure the distance between neighbouring blocks (getBoundingClientRect, Playwright) at **1440, 1024, 768 and 375 px** and put the numbers in the report.
+
+Norms:
+- Between large blocks (section → section, heading group → major media/grid): at least one `--section-y`.
+- Between a pinned scene and the next section: at least `clamp(120px, 16vw, 240px)`.
+- Nothing touches the edge of the neighbouring screen (scene stage, next section, viewport edge).
+- Nothing overlaps the eyebrow of the next section (the eyebrow's top must be below the previous block's bottom).
+
+If any number is below the norm, fix it before reporting. Do not report with a known violation; if a value is intentionally lower, state why in the report.
+
 ## 6. Responsive bands (as built)
 
 - **≥ 1101px** — full desktop header (inline nav + CTA).

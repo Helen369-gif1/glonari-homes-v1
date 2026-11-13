@@ -1,6 +1,10 @@
 ﻿# Glonari Homes — Project Status
 
-Last updated: 2026-11-12. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
+
+## 2026-11-13 — Spacing check rule
+
+Added `DESIGN-SYSTEM-HOMES.md` §5.2 «Spacing check (mandatory)»: after any page edit, measure gaps between neighbouring blocks at 1440/1024/768/375 px; norms — ≥ one `--section-y` between large blocks, ≥ `clamp(120px, 16vw, 240px)` between a scene and the next section, nothing touches the neighbouring screen's edge or overlaps the next eyebrow; fix before reporting. One line added to `CLAUDE.md` (runs before every report, alongside the §5.1 table). Existing pages were not re-measured yet — next page edit should include the check; open question: run it across all current pages once.
 
 ## 2026-11-12 — Rebuild to `Glonari_Homes_All_Pages_v2.md` (the document is now the main source)
 

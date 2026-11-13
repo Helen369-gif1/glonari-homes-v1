@@ -234,46 +234,33 @@
 
   <!-- ============ 4. Find your home ============ -->
   <section class="find" aria-labelledby="find-title">
-   <div class="scene find__scene" data-scene="find" style="--travel: 280svh">
-    <div class="scene__stage find__stage">
     <div class="container find__grid">
-      <p class="eyebrow find__eyebrow" data-reveal>Find your home</p>
-
-      <div class="find__head" data-reveal>
-        <h2 class="find__title" id="find-title">The Home You Have in&nbsp;Mind.</h2>
+      <div class="find__head">
+        <p class="eyebrow">Find your home</p>
+        <h2 class="h2 find__title" id="find-title">The Home You Have in&nbsp;Mind.</h2>
         <p class="find__lead">Your Glonari Home does not have to come from an existing property inventory.</p>
       </div>
 
-      <!-- Placeholder homes (placeholder-find-…): replace with the owner's real photos or video -->
+      <!-- One effect on this screen: the arch video plays once when 40% of it is visible (home.js). No loop, no autoplay.
+           Made from the horizontal 720p master (see OPEN-QUESTIONS.md). -->
       <div class="find__arch" data-find-arch>
-        <div class="find__arch-in">
-          <img class="is-on" src="assets/images/placeholder-find-1-stucco-900.webp" width="900" height="900" loading="lazy" alt="A sunlit stucco home with arched windows and a wide stone staircase at golden hour">
-          <img src="assets/images/placeholder-find-2-day-1600.webp" width="1600" height="1066" loading="lazy" alt="" style="object-position:50% 50%">
-          <img src="assets/images/placeholder-find-3-evening-1600.webp" width="1600" height="1066" loading="lazy" alt="" style="object-position:76% 50%">
-          <img src="assets/images/placeholder-find-4-villa-1600.webp" width="1600" height="900" loading="lazy" alt="" style="object-position:50% 50%">
-          <img src="assets/images/placeholder-find-5-dusk-1672.webp" width="1672" height="941" loading="lazy" alt="" style="object-position:50% 50%">
-        </div>
-        <div class="find__ticks">
-          <button type="button" class="is-on" aria-label="Show home 1" aria-current="true"></button>
-          <button type="button" aria-label="Show home 2"></button>
-          <button type="button" aria-label="Show home 3"></button>
-          <button type="button" aria-label="Show home 4"></button>
-          <button type="button" aria-label="Show home 5"></button>
-        </div>
+        <video class="find__video" data-find-video muted playsinline preload="metadata" width="480" height="720"
+               poster="assets/images/find-arch-poster.jpg" aria-label="Camera approaching an open front door of a sunlit Mediterranean home">
+          <source src="assets/images/find-arch.webm" type="video/webm">
+          <source src="assets/images/find-arch.mp4" type="video/mp4">
+        </video>
       </div>
+    </div>
 
-      <div class="find__side" data-reveal>
+    <div class="find__strip">
+      <div class="container find__strip-in">
         <p>Found a place you love? Glonari Properties can evaluate qualifying homes for acquisition and inclusion in the program.</p>
         <p>Already own the home? You can sell it to Glonari Properties—or keep it, hold GPA shares instead, and use their appreciating value to help with other household expenses or existing housing costs.</p>
         <a class="link-arrow" href="find-your-home.html">Explore Your Home Options <span aria-hidden="true">→</span></a>
+        <p class="find__note">Every property is subject to eligibility, location, condition, title, valuation, and program approval.</p>
       </div>
-
-      <p class="find__note" data-reveal>Every property is subject to eligibility, location, condition, title, valuation, and program approval.</p>
     </div>
-    </div>
-   </div>
   </section>
-
   <!-- ============ 5. Meet Gia ============ -->
   <section class="gia" aria-labelledby="gia-title">
     <div class="container gia__grid">

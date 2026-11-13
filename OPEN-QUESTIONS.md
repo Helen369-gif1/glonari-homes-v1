@@ -95,3 +95,6 @@ From `website_numerical_additions_from_brochure.md`; they conflict with the owne
 - "thousands of homes" (group purchasing) — no source; written as "many homes".
 - 40% / $400,000 operating value — investor metric, stays only on the Glonari Properties page.
 - The Home Business disclaimer — Home Business no longer exists; no replacement disclaimer written (legal to decide).
+
+- find-arch сделано из горизонтального 720p, при желании заменить вертикальным 1080×1620 тем же именем (docs/assets/images/find-arch.mp4/.webm/-poster.jpg).
+- видео обрезано на 5 с, дальше кадр размывается и в стекле двери появляется артефакт.

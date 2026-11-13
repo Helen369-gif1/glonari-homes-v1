@@ -45,6 +45,10 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; }
 html { -webkit-text-size-adjust: 100%; }
+/* Playfair Display and Cormorant Garamond default to old-style figures ("1" reads as "I"). One site-wide rule:
+   every element inherits lining figures. Covers .h2, .lead, .important__label/__rows, .ledger__*, .econ__*,
+   hero/page titles (.hero__*, .hiw-*, .liv-*, .own-*, .find-*), .gia__*, .future__*, .problem__*, .cta__title, .brand, nav. */
+html { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
 body {
   background: var(--gh-cream);
   color: var(--gh-ink);

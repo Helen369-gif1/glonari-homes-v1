@@ -7,7 +7,7 @@ Page list, navigation, and per-page sections. Approved English copy for each sec
 - **Header nav:** Home · How It Works · Living With Glonari · Find Your Home · Glonari Properties · FAQs
 - **Header CTA** (always visible, not in the nav list): Find My Glonari Home → `find-your-home.html`
 - **Footer columns:** *Explore* — the six pages above; *Legal* — Privacy, Legal & Disclosures, Contact (the last three still `#`). Tagline: "AI for Human Prosperity™".
-- **Footer disclosure** (verbatim from the document, every page): "Glonari Homes is a proposed program. Content and numbers on this preliminary site are illustrative and subject to definitive agreements and approval…"
+- **Footer disclosure** (verbatim from the document, every page): "Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities."
 
 `find-your-home.html` is now a top-level nav item and also the target of the header CTA. `already-own-a-home.html` is no longer in the menu or footer (the document has no such page); the file is kept unlinked.
 

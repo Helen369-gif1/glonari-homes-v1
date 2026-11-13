@@ -69,3 +69,8 @@ The italic notes in the document are questions for the owner, not site copy: the
 ## Technical open points (not from the document)
 
 - ~~How It Works, Screen 04: `find-your-home.html#cost-illustration` anchor~~ — built on Find Your Home Screen 05 (invisible id, 2026-11-13).
+
+## Update 2026-11-13 — answers received (source: `Glonari_Questions - Answered`)
+
+Answered and moved into copy in `Glonari_Homes_All_Pages_v2.md`: agreement type, who can join (20% GPA or sponsor), accredited-only start, minimum-share rule, own-home path, source of the $2,500, fee contents, no refund, no extra shares after move-in. Home Business is replaced by Gia / Global Connections earnings.
+Still open: agreement term, renewal and termination; what happens if Glonari sells the home; option-to-buy price and whether GPA/fees count; transfer to another Glonari Home (notice, charges); dividends; Gia's current features; Global Connections outside Glonari; company facts; NAV+/HQV governance; required documents, locations and approval timeline; the exact meaning of "sponsor".

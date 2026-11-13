@@ -1,10 +1,10 @@
 # GLONARI HOMES™
 
-## Preliminary Website Copy — All Pages
+## Website Copy — All Pages
 
-Based primarily on *Glonari Homes & Properties Complete*, November 2026, Version 3.0.
+Version updated 2026-11-13: incorporates the owner's answers (*Glonari_Questions — Answered*). **Where an owner's answer differs from earlier program materials, the owner's answer prevails.**
 
-**Reading note:** Regular text is proposed website copy based on the current brochure. *Italic text identifies information we would like to explain on the website but which is not established in the current brochure. These notes are not approved customer promises.*
+**Reading note:** Regular text is website copy. *Italic text identifies information we would like to explain on the website but which is not yet established. These notes are not approved customer promises and are never published.*
 
 ### Main Navigation
 
@@ -26,9 +26,9 @@ A home you love. Thoughtful services. And Gia™, your personal AI concierge, he
 
 Glonari Homes brings together professionally managed residential living, intelligent assistance, and new financial opportunities designed to make life more affordable.
 
-**Explore How It Works** | **Find My Home**
+Glonari Homes is open to Glonari Members who hold GPA equal to at least 20% of the home’s value—or who have a sponsor who provides it.
 
-*Here we would like to explain, in one clear sentence, who can join Glonari Homes today and whether a GPA investment is required.*
+**Explore How It Works** | **Find My Home**
 
 ## SCREEN 02 — WHY GLONARI?
 
@@ -36,31 +36,33 @@ Glonari Homes brings together professionally managed residential living, intelli
 
 Traditional renting gives you a place to call home in exchange for a monthly payment.
 
-Glonari Homes is designed to bring more into the experience: professionally managed living, help from Gia, and planned financial benefits that may reduce your housing costs.
+A Glonari Home is different: a long-term lease with an option to buy, with rights very close to those of an owner. Add professionally managed living, help from Gia, and planned financial benefits that reduce your housing costs.
+
+One all-inclusive monthly fee covers taxes, insurance, maintenance, and repairs. Only utilities and personal expenses are separate. And you know your minimum monthly cost years ahead.
 
 **Your home should make life easier, not more complicated.**
-
-*Here we need a clear comparison with ordinary renting: what additional rights a family receives, how long the agreement lasts, whether it can be renewed, how fees may change, and what is included in the monthly payment. The brochure does not establish these terms in sufficient detail.*
 
 ## SCREEN 03 — THE COST
 
 # A Better Home Experience. Less Out of Pocket.
 
-Consider an illustrative home valued at **$1 million**.
+Consider an example home valued at **$1 million**.
 
-**Traditional homeownership:** $7,469 per month.
+| Monthly cost | Traditional ownership | Glonari Home |
+| --- | --- | --- |
+| Mortgage principal & interest | $5,419 | — |
+| Taxes, insurance, maintenance & repairs | $2,050 | Included |
+| Glonari Home fee | — | $8,333 |
+| Global Connections benefit | — | −$2,500 |
+| **Monthly cash requirement** | **$7,469** | **$5,833** |
 
-**Glonari Home:** $8,333 gross monthly fee.
+That is approximately **$1,636 less per month** than owning the same home with a mortgage.
 
-**Planned Global Connections benefit:** −$2,500 per month.
+**Important:** This compares Glonari with the modeled cost of owning a home with a mortgage—not the local market rent for a comparable home. The Global Connections benefit is an agreed amount, applied automatically to your monthly fee. The Glonari fee does not include utilities or personal expenses. Estimated example based on an $800,000, 30-year mortgage at 7.18%, property taxes of 1.1%, insurance of $300 per month, and maintenance of 1% per year. Actual costs vary.
 
-**Illustrative remaining monthly cash requirement:** **$5,833**.
+**Where the $2,500 comes from.** It is the minimum amount a member earns through Gia and Global Connections. It is applied to your monthly fee automatically—there is nothing to apply for.
 
-That is approximately **$1,636 less per month** than the traditional-ownership example, provided the planned benefit is available.
-
-**Important:** This compares Glonari with the modeled cost of owning a home with a mortgage—not the local market rent for a comparable home. The planned Global Connections benefit requires enforceable, funded arrangements. Without it, the full $8,333 fee is payable. The figures are illustrative and exclude certain additional expenses.
-
-*Here we need to explain where the $2,500 benefit comes from, who provides it, what the family must do to receive it, whether it can stop, and what the full monthly fee covers. We also need an actual comparison with ordinary renting, which the brochure does not provide.*
+**What the $8,333 covers.** One all-inclusive fee for the costs of living in the home—taxes, insurance, maintenance, repairs, and Gia. Utilities and personal expenses within the home are separate.
 
 ## SCREEN 04 — FIND YOUR HOME
 
@@ -70,11 +72,13 @@ Your Glonari Home does not have to come from an existing property inventory.
 
 Found a place you love? Glonari Properties can evaluate qualifying homes for acquisition and inclusion in the program.
 
+Already own the home? You can sell it to Glonari Properties—or keep it, hold GPA shares instead, and use their appreciating value to help with other household expenses or existing housing costs.
+
 Every property is subject to eligibility, location, condition, title, valuation, and program approval.
 
 **Explore Your Home Options**
 
-*Here we need to explain how a family proposes a home, which locations are available, how long approval takes, and what happens if the family already owns the property.*
+*Here we need to explain how a family proposes a home, which locations are available, and how long approval takes.*
 
 ## SCREEN 05 — MEET GIA
 
@@ -84,13 +88,15 @@ Meet Gia™, short for Glonari Intelligent Agent.
 
 Gia learns your preferences, helps coordinate maintenance, organizes services and schedules, and looks for ways to make daily life simpler and more economical.
 
+Gia also helps you earn. Through Global Connections, Gia helps generate the minimum monthly earnings that offset your Glonari Home fee.
+
 Less time managing your home. More time enjoying it.
 
 **Meet Gia**
 
 Available capabilities depend on the services offered and the permissions you provide.
 
-*Here we would like to show what Gia can already do today, which features are planned, and whether Gia still helps members generate income through Global Connections or a personal Home Business.*
+*Here we would like to show what Gia can already do today and which features are planned.*
 
 ## SCREEN 06 — YOUR FUTURE
 
@@ -98,13 +104,19 @@ Available capabilities depend on the services offered and the permissions you pr
 
 Your needs can change. The home that fits your life today may not be the home you want forever.
 
-Glonari Homes and Glonari Properties are designed as connected experiences, while your housing agreement and any GPA investment remain separate legal relationships.
+**Stay for the long term.** Your Glonari Home is a long-term lease, with rights very close to those of an owner.
+
+**Buy the home.** The lease includes an option to buy.
+
+**Move on.** GPA shares you no longer need to hold can be sold or applied to another property.
+
+Glonari Homes and Glonari Properties are connected experiences, while your housing agreement and your GPA holding remain separate legal relationships.
 
 **Plan Your Next Chapter**
 
-*Here we need direct answers to three questions: Can I stay in my home long-term? Can I move to another Glonari Home? Can I eventually purchase the specific home I live in? The new brochure does not confirm a resident purchase right or explain whether GPA shares or previous housing payments could be used toward a purchase.*
+The monthly fee is a fee for living in your home and the services that come with it; none of it is returned. What builds over time is your GPA position.
 
-*We also need to explain what a family retains after five or ten years, including whether any monthly payments are refundable.*
+*Here we need to explain how a move to another Glonari Home works (availability, notice, charges) and how the option-to-buy price would be set.*
 
 ## SCREEN 07 — FINAL INVITATION
 
@@ -128,7 +140,7 @@ Discover what Glonari Homes could mean for you and the home you have in mind.
 
 Glonari Homes connects a home, professional property management, and Gia—your personal AI concierge—in one residential experience.
 
-The goal is simple: make living more comfortable and potentially more affordable.
+The goal is simple: make living more comfortable and more affordable.
 
 **Understand the Program**
 
@@ -138,11 +150,11 @@ The goal is simple: make living more comfortable and potentially more affordable
 
 **Glonari Properties™** acquires, owns, and manages qualifying residential properties.
 
-**Glonari Homes™** provides the residential living experience under a program agreement.
+**Glonari Homes™** provides the residential living experience under a long-term lease with an option to buy.
 
-**Gia™** helps coordinate services, maintenance, schedules, shopping, and personal assistance.
+**Gia™** helps coordinate services, maintenance, schedules, shopping, and personal assistance—and helps you earn through Global Connections.
 
-**You** choose a home, review the terms, and decide whether the program fits your circumstances.
+**You** choose a home, review the terms, and join as a Glonari Member.
 
 *Here we need to identify the legal parties to the housing agreement and explain precisely which responsibilities remain with the family and which belong to Glonari.*
 
@@ -152,35 +164,35 @@ The goal is simple: make living more comfortable and potentially more affordable
 
 Choose a qualifying residence, including a home you already own or one you would like Glonari Properties to consider purchasing.
 
+If you already own it, you can sell it to Glonari Properties, or keep it and hold GPA shares instead.
+
 The property must pass the applicable reviews and approvals before it can enter the program.
 
 **Explore Your Home Options**
 
-*Here we need the actual service areas, property criteria, application process, and an explanation of what happens if the family currently owns the home.*
+*Here we need the actual service areas, property criteria, and application process.*
 
 ## SCREEN 04 — UNDERSTAND THE COST
 
 # Know What You Pay.
 
-For an illustrative **$1 million home**, the brochure models a **$8,333 monthly Glonari Home fee**.
+For an example **$1 million home**, the Glonari Home fee is **$8,333 per month**—all-inclusive. It covers taxes, insurance, maintenance, repairs, and Gia. Utilities and personal expenses are separate.
 
-A planned **$2,500 monthly Global Connections benefit** could reduce the remaining cash requirement to **$5,833**.
+A **$2,500 monthly Global Connections benefit**—the minimum you earn through Gia and Global Connections—is applied to your fee automatically. Your remaining cash requirement: **$5,833**.
 
-The contractual fee remains $8,333. The benefit is not guaranteed and must be supported by enforceable, funded arrangements.
+You know your minimum monthly cost for many years ahead. GPA appreciation is designed to cover the base amount, so you never have to worry about it.
 
 **See the Monthly Cost Example**
-
-*Here we need an itemized list of included services, additional household expenses, fee-increase rules, the funding and eligibility conditions for Global Connections, and what happens when the benefit is unavailable.*
 
 ## SCREEN 05 — WHO CAN JOIN?
 
 # Your Options Should Be Clear From the Start.
 
-The brochure describes a qualifying GPA position for its full-participation example. Initial investment in GPA securities is limited to eligible accredited investors.
+A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or who have a sponsor who provides it.
 
-Broader investor access is a future objective, subject to authorization.
+As GPA appreciates, the minimum number of shares you must hold goes down each month. Shares you no longer need to hold can be sold or applied to another property. After you move in, you are never required to buy more.
 
-*Here we need to state explicitly whether families can join Glonari Homes without purchasing GPA shares, whether accredited-investor status applies only to securities or also to housing, and what happens if the value of a qualifying GPA position falls.*
+GPA is initially limited to accredited investors until full SEC authorization is received. After that, anyone can hold it—so most families can join once broader access opens.
 
 ## SCREEN 06 — THE JOURNEY
 
@@ -188,19 +200,17 @@ Broader investor access is a future objective, subject to authorization.
 
 **01. Choose a qualifying home.** Find a residence that meets the program’s property criteria.
 
-**02. Review eligibility.** Understand the proposed agreement, program requirements, and any applicable GPA investment requirements.
+**02. Join as a Member.** Hold GPA equal to at least 20% of the home’s value, or have a sponsor who provides it.
 
 **03. Complete approvals.** Property acquisition, membership, and agreements require approval.
 
 **04. Make it home.** Enter the Glonari Home agreement and begin using available Gia services.
 
-*Here we need to confirm whether every family follows this same sequence and whether a non-GPA route exists.*
-
 ## SCREEN 07 — NEXT STEP
 
 # Understand the Details. Then Decide.
 
-Explore a personal home-and-cost illustration before making a decision about joining the program.
+Explore a personal home-and-cost estimate before making a decision about joining the program.
 
 **Find My Home**
 
@@ -236,9 +246,11 @@ When your home needs attention, Gia is designed to help you organize the next st
 
 A home should offer comfort and continuity—not just a place to spend the night.
 
+Your Glonari Home is a long-term lease with an option to buy, and you know your minimum monthly cost for many years ahead.
+
 Glonari’s residential experience is designed around professionally managed properties and coordinated services.
 
-*Here we need to explain the actual duration of the housing agreement, renewal rights, possible increases in monthly fees, grounds for termination, and what protects the resident if Glonari Properties sells the home.*
+*Here we need to explain renewal rights, grounds for termination, and what protects the resident if Glonari Properties sells the home.*
 
 ## SCREEN 04 — WHEN LIFE CHANGES
 
@@ -246,27 +258,29 @@ Glonari’s residential experience is designed around professionally managed pro
 
 A growing family. A new career. A different city. The right home may change over time.
 
-*Here we would like to explain whether a family can transfer to another Glonari Home, which properties are available, how notice works, and whether any transfer fees apply. The current brochure does not provide those rules.*
+*Here we would like to explain whether a family can transfer to another Glonari Home, which properties are available, how notice works, and whether any transfer fees apply.*
 
 ## SCREEN 05 — THE POSSIBILITY OF OWNERSHIP
 
 # Could This Home One Day Be Yours?
 
+Yes. Your Glonari lease includes an option to buy.
+
 GPA Class A shares represent an equity interest in Glonari Properties—not title to an individual house.
 
 The right to live in a home and the right to own company shares are separate.
 
-*Here we need to explain whether a resident can eventually buy the specific home, how the price would be determined, whether shares could be exchanged for or credited toward the purchase, and whether any earlier housing fees would count. None of these purchase terms is established in the new brochure.*
+*Here we need to explain how the purchase price would be determined and whether any earlier housing fees or GPA would count toward it.*
 
 ## SCREEN 06 — WHAT STAYS WITH YOU?
 
 # Understand What You Take With You.
 
-Your monthly housing payments and your GPA investment, if any, serve different purposes.
+Your monthly fee covers the all-inclusive cost of living in your home; none of it is returned. What you build comes from your GPA.
 
-GPA shares have the potential for long-term value growth.
+GPA shares have the potential for long-term value growth. As they appreciate, the minimum you must hold goes down each month—and shares you no longer need can be sold or applied to another property.
 
-*Here we need a straightforward five-year and ten-year example: total housing fees paid, any refundable amount, what happens to the GPA holding on departure, and whether a resident can sell shares or retain them after leaving the home.*
+*Here we need a straightforward five-year and ten-year example: total housing fees paid and the GPA position at the end.*
 
 ## SCREEN 07 — FINAL INVITATION
 
@@ -318,31 +332,29 @@ Tell us about the kind of home you want, where you would like to live, and what 
 
 # Understand Your Options Before You Commit.
 
-Property acquisition, investor eligibility, membership, financing where applicable, and program agreements are subject to approval.
+A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or who have a sponsor who provides it.
 
-GPA securities are initially available only to eligible accredited investors.
+GPA is initially limited to accredited investors until full SEC authorization is received. Property acquisition, membership, financing where applicable, and program agreements are subject to approval.
 
-*Here we need an explicit answer to whether a Glonari Home is available to a family that does not invest in GPA. We also need the actual eligibility rules, required documents, and any upfront financial commitment.*
+*Here we need the required documents and the exact eligibility checks.*
 
 ## SCREEN 05 — YOUR HOME COST ILLUSTRATION
 
 # Know the Numbers for Your Situation.
 
-Every property is different. The brochure’s $1 million home is an illustrative example, not a quote for every applicant.
+Every property is different. Our $1 million home is an estimated example, not a quote for every applicant.
 
-A personal illustration should distinguish the full monthly fee from any planned financial benefit and optional sources of funding.
-
-*Here we need an approved estimate for the selected home: full fee, planned benefit and qualifying conditions, expenses paid separately, required investment if applicable, and a scenario in which the benefit is not received.*
+Your personal estimate shows the full monthly fee, the Global Connections benefit, the expenses paid separately, and the GPA position required for your home.
 
 ## SCREEN 06 — WHAT HAPPENS NEXT?
 
 # One Home. A Clearer Next Step.
 
-The brochure invites prospective participants to request a personalized home-and-cost illustration and review the relevant terms.
+Request your personalized cost overview and payment schedule.
 
-**Request a Personal Illustration**
+**Request**
 
-*Here we need to explain who handles the request, when the family receives an answer, the approval stages, and whether the property is actually available. The present draft does not establish a live application service.*
+*Here we need to explain who handles the request, when the family receives an answer, the approval stages, and whether the property is actually available.*
 
 ---
 
@@ -368,7 +380,7 @@ Glonari Properties aims to combine residential ownership and management with Gia
 
 The goal is to improve operating efficiency and create economic value beyond the property alone.
 
-*Here we need verified information about the company: the number of houses actually owned, property locations, operating properties, the total value of assets, outstanding debt, and operating results. The brochure does not disclose these figures.*
+*Here we need verified information about the company: the number of houses actually owned, property locations, operating properties, the total value of assets, outstanding debt, and operating results.*
 
 ## SCREEN 03 — WHAT ARE GPA SHARES?
 
@@ -378,9 +390,9 @@ GPA Class A represents equity in Glonari Properties.
 
 Instead of investing only in one property, eligible investors may participate in a business associated with a wider portfolio of real estate and related operations.
 
-GPA shares do not give an investor ownership of the home in which they live.
+Glonari Members hold GPA equal to at least 20% of the value of their home. GPA shares do not give an investor ownership of the home in which they live.
 
-Initial securities participation is limited to eligible accredited investors. Broader access remains a future objective subject to authorization.
+GPA is initially limited to accredited investors until full SEC authorization is received. After that, anyone can hold it.
 
 *Here we need to explain Class A shareholder rights, any distributions, share issuance and dilution, and what happens to shareholder interests if the company has significant debt.*
 
@@ -388,21 +400,21 @@ Initial securities participation is limited to eligible accredited investors. Br
 
 # What If Real Estate Could Work More Efficiently?
 
-The brochure illustrates a $1 million home together with a **$400,000 target for additional operating-business value**—a potential $1.4 million in combined gross economic value.
+Our model pairs a $1 million home with a **$400,000 target for additional operating-business value**—a potential $1.4 million in combined gross economic value.
 
-This is a planning target, not an independent appraisal of the home, a proven operating result, or an automatic gain for GPA shareholders.
+This is a planning target, not an independent appraisal of the home or a proven operating result.
 
-*Here we need evidence supporting the operating income, valuation methods, property assets and liabilities, and an explanation of how the economic model translates—or does not translate—into shareholder value.*
+*Here we need evidence supporting the operating income, valuation methods, property assets and liabilities, and an explanation of how the economic model translates into shareholder value.*
 
 ## SCREEN 05 — UNDERSTANDING NAV+
 
 # Modeled Value Is Not Cash in Hand.
 
-The brochure uses NAV+ to illustrate possible economic value under different scenarios.
+Our model uses NAV+ to estimate economic value under different scenarios.
 
-In the base scenario, a share starts at **$100** and reaches a modeled **$437.83** after 36 months.
+GPA is designed to appreciate at least in line with the 10-Year Case-Shiller housing index. In the base scenario, a share starts at **$100** and reaches a modeled **$437.83** after 36 months.
 
-These figures are illustrative scenarios, not promised returns, available cash, or guaranteed sale prices. Actual value may fall.
+These figures are modeled scenarios, not available cash or guaranteed sale prices.
 
 *Here we should explain who determines NAV+, how often valuations are reviewed, how Home Qualification Value (HQV) is determined, and how both differ from a price a buyer would actually pay.*
 
@@ -410,19 +422,21 @@ These figures are illustrative scenarios, not promised returns, available cash, 
 
 # Know How You Could Access Your Investment.
 
-The brochure does not promise a trading market, listing, redemption, share repurchase, minimum price, or liquidity for GPA.
+As GPA appreciates, a member’s required minimum goes down each month. Shares beyond the minimum can be sold or applied to another property.
 
-A possible sale of eligible shares or a lender-approved loan secured by shares may provide funds under certain conditions. Neither changes the contractual Glonari Home fee.
+GPA has no promised trading market, listing, redemption, share repurchase, or minimum price.
+
+A sale of eligible shares or a lender-approved loan secured by shares may provide funds under certain conditions. Neither changes the contractual Glonari Home fee.
 
 Borrowing creates repayment obligations and interest. Selling shares reduces the investor's position and may have tax consequences.
 
-*Here we need to explain whether actual buyers or lenders exist, whether Glonari can repurchase shares, what restrictions apply, and whether the illustrated 1,543 excess shares could realistically be sold while a family continues living in its home.*
+*Here we need to explain whether actual buyers or lenders exist, whether Glonari can repurchase shares, and what restrictions apply.*
 
 ## SCREEN 07 — ADVANCED INVESTMENT STRATEGIES
 
 # Investment Decisions Deserve Their Own Conversation.
 
-The GPA supplement illustrates strategies involving borrowing, retaining shares, and purchasing additional shares with financing.
+Our GPA models illustrate strategies involving borrowing, retaining shares, and purchasing additional shares with financing.
 
 Leverage can increase both gains and losses. Availability of credit, collateral acceptance, interest rates, and investment performance are not guaranteed.
 
@@ -440,65 +454,77 @@ Leverage can increase both gains and losses. Availability of credit, collateral 
 
 Before choosing a home, you should understand what you pay, what you receive, what you own, and what happens if your plans change.
 
-Some important details depend on final program agreements and are not fully specified in the November 2026 brochure.
+Some details depend on the final program agreements.
 
 ## SCREEN 02 — LIVING IN A GLONARI HOME
 
 ### Is this ordinary renting?
 
-The program describes living in a property owned by Glonari Properties under a Glonari Home agreement, together with professional management and Gia services.
-
-*Here we need to explain the exact legal nature of the agreement and how its protections differ from ordinary renting.*
+No. A Glonari Home is a long-term lease with an option to buy, with rights very close to those of an owner. It comes with professional management and Gia’s services.
 
 ### Who owns the home?
 
-Glonari Properties is described as the owner and manager of homes in the program. GPA ownership does not give a resident title to an individual residence.
+Glonari Properties owns and manages the homes in the program. GPA ownership does not give a resident title to an individual residence.
 
 ### Can I stay for ten years or longer?
 
-*Here we need the actual agreement term, renewal options, fee-adjustment rules, and conditions for termination. The new brochure does not establish them.*
+Yes. It is a long-term lease, and you know your minimum monthly cost for many years ahead.
+
+*Here we need the actual agreement term, renewal options, and conditions for termination.*
 
 ### Can I eventually buy my home?
 
-*Here we need to confirm whether a buyout is possible, when it can happen, whether GPA can be used toward the purchase, and how the price would be set.*
+Yes. The lease includes an option to buy.
+
+*Here we need to explain how the price would be set and whether GPA can be used toward the purchase.*
 
 ### What if Glonari sells the house where I live?
 
 *Here we need the resident’s legal protections and the consequences of a sale, refinancing, or financial difficulty affecting Glonari Properties.*
 
+### What if I already own the home I want?
+
+You can sell it to Glonari Properties, or keep it and hold GPA shares instead. The value of appreciating GPA can help with other household expenses or existing housing costs.
+
 ## SCREEN 03 — MONTHLY PAYMENTS
 
 ### How much does a Glonari Home cost?
 
-The illustrative example uses a full monthly Glonari Home fee of **$8,333** for a $1 million residence.
+In our example, the full monthly Glonari Home fee is **$8,333** for a $1 million residence.
 
-### Why does the brochure also show $5,833?
+### Why does the example also show $5,833?
 
-It assumes a planned **$2,500 Global Connections benefit**. If fully available, that leaves $5,833 in monthly cash required before any optional GPA funding.
+A **$2,500 Global Connections benefit** is applied to your fee. That leaves $5,833 in monthly cash required.
 
-### Is the $2,500 benefit guaranteed?
+### Where does the $2,500 come from, and is it guaranteed?
 
-No. The brochure requires enforceable, funded arrangements for the benefit. Without it, the full $8,333 fee is due.
+It is the minimum amount you earn through Gia and Global Connections—an agreed amount, applied to your monthly fee automatically. There is nothing to apply for.
+
+### Can I know my monthly cost in advance?
+
+Yes. You know your minimum monthly cost for many years ahead. GPA appreciation is designed to cover the base amount, so you never have to worry about it.
 
 ### What does the monthly fee include?
 
-The brochure describes applicable Home services and professional management, but does not provide a complete itemized list.
-
-*Here we need the exact inclusions, exclusions and additional expenses.*
+An all-inclusive fee covering all ownership costs: taxes, insurance, maintenance, repairs, and Gia. Utilities and personal expenses within the home are not included.
 
 ### Do I get any of my housing payments back if I leave?
 
-*Here we need a clear contractual answer and a simple five- and ten-year example. The brochure does not say that monthly fees accumulate toward personal ownership or are refundable on departure.*
+No. The full fee is a fee for living in the home and its services. What builds for you is your GPA, which benefits from appreciation.
 
 ## SCREEN 04 — GPA AND INVESTMENT
 
 ### Must I buy GPA to live in a Glonari Home?
 
-*Here we need an explicit answer. The brochure describes GPA qualification in its full-participation example but does not clearly establish a residence-only alternative.*
+Yes. A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home’s value, or who have a sponsor who provides it.
+
+### Do I have to keep a certain number of shares the whole time?
+
+You hold at least 20% of the home’s value in GPA. Because GPA is designed to appreciate faster than the home’s value, the minimum number of shares goes down each month. Shares you no longer need can be sold or applied to another property.
 
 ### Who can invest in GPA?
 
-Initial securities participation is limited to investors who meet the applicable accredited-investor requirements.
+GPA is initially limited to accredited investors until full SEC authorization is received. After that, anyone can hold it. Until then, ordinary families cannot join at first.
 
 ### Are GPA shares backed by an individual house?
 
@@ -506,21 +532,19 @@ GPA shares are equity in Glonari Properties. They are not title to a particular 
 
 ### Do GPA shares pay regular dividends?
 
-*Here we need the actual shareholder distribution policy. The brochure does not promise regular payouts.*
+*Here we need the actual shareholder distribution policy.*
 
 ### Can I sell my GPA shares?
 
-There is no promised trading market, repurchase program, redemption mechanism, minimum share price, or liquidity.
+Shares beyond your required minimum can be sold or applied to another property. GPA has no promised trading market, repurchase program, redemption mechanism, or minimum share price.
 
 ### Can I borrow against GPA shares?
 
-The brochure describes potential lender-approved loans secured by eligible GPA holdings, subject to collateral, restrictions, and approval. Financing is not guaranteed.
+Potential lender-approved loans secured by eligible GPA holdings are subject to collateral, restrictions, and approval. Financing is not guaranteed.
 
-### What happens if the value of GPA falls?
+### What if the value of GPA drops and I no longer have the required amount?
 
-Investment value may decline. Losses may affect an investor’s ability to reach or maintain a qualifying position, and borrowing can magnify the financial risk.
-
-*Here we need the actual consequences for a family already living in a Glonari Home if its qualifying share value falls.*
+After you move in, you are never required to buy more shares. GPA is designed to appreciate at least in line with the 10-Year Case-Shiller housing index, which has historically been positive.
 
 ## SCREEN 05 — GIA AND GLOBAL CONNECTIONS
 
@@ -528,11 +552,9 @@ Investment value may decline. Losses may affect an investor’s ability to reach
 
 Gia, short for Glonari Intelligent Agent, is the personal AI concierge designed to help manage home services, maintenance, scheduling, purchases and everyday needs.
 
-### Does Gia help create income?
+### Does Gia help me earn?
 
-The new brochure focuses on Gia as a concierge and as part of more efficient property management. It refers to planned Global Connections benefits but does not detail the earlier personal Home Business income model.
-
-*Here we need to confirm whether the personal Home Business concept remains part of the program and whether a family can earn additional money through Gia.*
+Yes. Through Global Connections, Gia helps generate the minimum monthly earnings that offset your Glonari Home fee.
 
 ### Can I participate in Global Connections without joining Glonari Properties?
 
@@ -546,23 +568,23 @@ The new brochure focuses on Gia as a concierge and as part of more efficient pro
 
 ### Can I move to another Glonari Home?
 
+Yes—your GPA can be applied to another property.
+
 *Here we need the transfer policy, availability, notice requirements and any additional charges.*
 
 ### What happens to my GPA if I move out?
 
-Housing and GPA investments are separate legal relationships.
-
-*Here we need to confirm whether a former resident can retain GPA shares, whether selling is required, and what restrictions apply.*
+Housing and GPA are separate legal relationships. Shares you no longer need can be sold or applied to another property.
 
 ### What if I decide to leave after ten years?
 
-*Here we need an example showing total housing fees paid, what is refundable if anything, what happens to any GPA position, and how the family could access money from its investment.*
+*Here we need an example showing total housing fees paid (none of it refundable) and what the GPA position would be.*
 
 ## SCREEN 07 — FINAL CLARITY
 
 # Know the Terms. Make the Choice That Fits You.
 
-Glonari Homes aims to bring together housing, AI-powered services, and new financial possibilities. Actual eligibility, fees, services, investments, and resident rights depend on the applicable agreements.
+Glonari Homes brings together housing, AI-powered services, and new financial possibilities. Actual eligibility, fees, services, investments, and resident rights depend on the applicable agreements.
 
 **Explore Your Home** | **How It Works**
 
@@ -576,6 +598,6 @@ Privacy | Legal & Disclosures | Contact
 
 **GLONARI HOMES™ — AI for Human Prosperity™**
 
-Glonari Homes is a proposed program. Content and numbers on this preliminary site are illustrative and subject to definitive agreements and approval. Investment values may fall. Housing benefits, financing, property availability, and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website draft is not an offer to sell, lease, or finance property or to sell securities.
+Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities.
 
 *Before publication, the final legal, privacy, program-status, and investment disclosures should be reviewed and approved.*

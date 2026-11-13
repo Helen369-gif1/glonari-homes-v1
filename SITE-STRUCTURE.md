@@ -32,10 +32,10 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 
 1. Hero (scene, layered; new copy)
 2. Why Glonari? (wipe scene, "More Than a Place to Live.")
-3. The cost (pinned numbers: $7,469 · $8,333 · −$2,500 · $5,833; the "Important" note always visible)
+3. The cost (pinned numbers: $7,469 · $8,333 · −$2,500 · $5,833), then **Cost compared** (new full screen, paper: two ledger tables + two footnotes), then the "Important" note
 4. Find your home
-5. Meet Gia (chat kept as it was, owner's decision)
-6. Your future (dark band)
+5. Meet Gia (chat: Global Connections earnings, no Home Business)
+6. Your future (dark band; the three panels on the gold line carry the three statements)
 7. Final invitation
 
 ### 2. How It Works — `docs/how-it-works.html` — ✅ rebuilt 2026-11-12 to Page 02 of the v2 document (awaiting owner review)

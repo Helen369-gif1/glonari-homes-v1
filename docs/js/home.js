@@ -216,6 +216,17 @@
     return () => { if (sentence && original !== null) sentence.innerHTML = original; };
   });
 
+  /* ---------- 3a. Cost compared: the gold line between the two totals is drawn by the scroll (the screen's only motion).
+     Side-by-side layout only; stacked (≤860px) and reduced motion show it complete. ---------- */
+  const mmLedger = gsap.matchMedia();
+  mmLedger.add("(min-width: 861px) and (prefers-reduced-motion: no-preference)", () => {
+    const rule = $("[data-ledger-rule]");
+    const cols = $(".ledger__cols");
+    if (!rule || !cols) return;
+    gsap.fromTo(rule, { scaleX: 0 }, { scaleX: 1, ease: "none",
+      scrollTrigger: { trigger: cols, start: "top 70%", end: "bottom 45%", scrub: .6, invalidateOnRefresh: true } });
+  });
+
   // Images load lazily; re-measure once everything has its size.
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();

@@ -66,6 +66,15 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 (Screen 01 has no note.)
 
+## Home — "The cost" (2026-11-13)
+
+- Оговорка про planned benefit убрана вместе с лидом под `.econ` ("…provided the planned benefit is available."): документ называет выгоду agreed amount, нужен ответ владельца/юриста.
+- Чат Gia на главной (вопрос про Global Connections earnings и ответ без цифр) — текст не из документа, чата в документе нет.
+
+## Home — Screen 01, eligibility sentence (2026-11-13)
+
+- Место для условия допуска (Screen 01) не выбрано владельцем. Предложение "Glonari Homes is open to Glonari Members who hold GPA equal to at least 20% of the home’s value—or have a sponsor who provides the shares." пока нигде на сайте не опубликовано (убрано из hero; экран с «20%» удалён).
+
 ## Technical open points (not from the document)
 
 - ~~How It Works, Screen 04: `find-your-home.html#cost-illustration` anchor~~ — built on Find Your Home Screen 05 (invisible id, 2026-11-13).

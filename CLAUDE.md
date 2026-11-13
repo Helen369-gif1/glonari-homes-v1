@@ -4,10 +4,12 @@ Multi-page marketing site for Glonari Homes. The site is English only. Talk to t
 
 ## Start of every session
 
-Read, in order: this file, then `PROJECT-STATUS.md` (what's done / in progress / left / open questions), `DESIGN-SYSTEM-HOMES.md` (colors, typography, spacing, components), `SITE-STRUCTURE.md` (pages, navigation, per-page sections). Together they restore full context without needing the chat history — the project is worked on from two computers.
-Also read DESIGN-BRIEF.md before building or changing any page. It has priority over generic design habits; DESIGN-SYSTEM-HOMES.md and the screenshots in reference/ have priority over it.
+Read, in order: this file, then `PROJECT-STATUS.md` (what's done / in progress / left / open questions), `DESIGN-BRIEF.md`, `DESIGN-SYSTEM-HOMES.md` (colors, typography, spacing, components), `SITE-STRUCTURE.md` (pages, navigation, per-page sections). Together they restore full context without needing the chat history — the project is worked on from two computers.
+**`DESIGN-BRIEF.md` is mandatory, not optional:** read it in full before building, changing, or even only planning/writing prompts or copy placement for any page or section. It has priority over generic design habits; DESIGN-SYSTEM-HOMES.md and the screenshots in reference/ have priority over it. Also read `Glonari Homes — референсы по секциям11.docx` when a task touches how a section looks or moves.
 
 ## Обязательные правила
+
+- **Перед любой работой со страницей или секцией (в том числе при составлении плана, промпта или размещении нового текста) прочитай DESIGN-BRIEF.md целиком и скажи в первой строке плана, что прочитал.** Новое содержимое = новый полный экран со своей композицией, а не абзац, карточка или таблица, приклеенные к существующему экрану; никаких шаблонных блоков; дисклеймеры ≥16px, контраст ≥4.5:1, на спокойном фоне. Перед показом пройди «Self-check before delivering» из DESIGN-BRIEF.md.
 
 - **Отчёт после работы минимальный:** 3–6 строк — что сделано, какие файлы, что осталось открытым. Без скриншотов, без пересказа кода. Скриншоты делать и присылать только если владелец просит.
 - **Перед отчётом о любой странице или секции выполни Spacing QA gate из DESIGN-SYSTEM-HOMES.md §5.1 и приложи таблицу замеров.**

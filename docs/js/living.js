@@ -276,7 +276,7 @@
     if (!stage) return;
     gsap.fromTo($(".liv-settle__lit", stage), { opacity: 0 }, {
       opacity: 1, ease: "none",
-      scrollTrigger: { trigger: stage, start: "top 85%", end: "bottom 30%", scrub: .6, invalidateOnRefresh: true },
+      scrollTrigger: { trigger: stage, start: "top 75%", end: "top 12%", scrub: .6, invalidateOnRefresh: true },
     });
   }
 
@@ -291,6 +291,16 @@
     })
       .fromTo($(".liv-settle__rail i", box), { scaleY: 0 }, { scaleY: 1, duration: 1 }, 0)
       .fromTo($(".liv-settle__rail b", box), { opacity: 0 }, { opacity: 1, duration: .1 }, .9);
+  }
+
+  /* Pause "Your Home. Your Life. Your Gia.": the gold line is drawn down with the scroll. */
+  function pauseRail() {
+    const box = $(".liv-pause");
+    if (!box) return;
+    gsap.fromTo($(".liv-pause__rail i", box), { scaleY: 0 }, {
+      scaleY: 1, ease: "none",
+      scrollTrigger: { trigger: box, start: "top 85%", end: "bottom 80%", scrub: .6, invalidateOnRefresh: true },
+    });
   }
 
   /* Dark chapter: the two gold lines are drawn down with the scroll (scaleY from the top);
@@ -313,6 +323,7 @@
     const giaOff = giaScene();
     const finalOff = finalScene();
     settleLight();
+    pauseRail();
     settleRail();
     chapRails();
     doc.classList.remove("scenes-pending");

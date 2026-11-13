@@ -179,3 +179,5 @@ Finish **Already Own a Home?** (hero done; sections 1–3 next), then the remain
 2. Read this file (`PROJECT-STATUS.md`).
 3. Read `DESIGN-SYSTEM-HOMES.md` and `SITE-STRUCTURE.md`.
 4. Run the site locally — see `README.md`.
+
+**2026-11-13 (Living With Glonari: pause after the Gia screen).** New light pause .liv-pause between #gia-goes-with-you and #feeling-at-home: one line 'Your Home. Your Life. Your Gia.' (moved out of the Gia head), a 1px gold line drawn on scroll (pauseRail() in js/living.js), [data-reveal] for the line, static under reduced motion. Files: living-with-glonari.html, css/living.css, js/living.js. Not yet checked in a real browser with scroll.

@@ -170,8 +170,8 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   object-fit: cover;
 }
 /* the dusk layer is darkened with a static filter (never animated); only the lit layer's opacity moves */
-.liv-settle__dusk { filter: brightness(.55) saturate(.85); }
-.liv-settle__lit { z-index: 1; }
+.liv-settle__dusk { filter: brightness(.38) saturate(.7) contrast(1.05); }
+.liv-settle__lit { z-index: 1; filter: brightness(1.06) saturate(1.12); }
 .liv-settle__scrim {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background:
@@ -638,7 +638,36 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
    ========================================================== */
 .liv-gia { position: relative; padding-top: var(--section-y); background: var(--gh-paper); }
 .liv-gia__copy { max-width: 640px; color: var(--gh-ink-2); }
-.liv-gia__tag { margin: 28px 0 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.15; color: var(--gh-gold-ink); }
+/* pause after the Gia screen: one line, offset right of the gold line that runs through it into the strip */
+.liv-pause {
+  position: relative; background: var(--gh-paper);
+  min-height: 55svh; display: flex; align-items: center;
+  padding-bottom: clamp(24px, 4vw, 64px);   /* centre, nudged a little above the middle */
+}
+.liv-pause + .liv-settle { padding-top: 0; }
+.liv-pause .container { width: 100%; }
+.liv-pause__line {
+  margin: 0 0 0 calc((100% / 12) * 2);
+  max-width: 11em;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(44px, 6vw, 96px); line-height: 1.04; letter-spacing: -.01em;
+  color: var(--gh-ink);
+}
+.liv-pause__line span { white-space: nowrap; }
+.liv-pause__rail {
+  position: absolute; top: 0; bottom: 0; width: 0; pointer-events: none;
+  left: calc(var(--page-pad) + (100% - 2 * var(--page-pad)) / 12 - 12px);
+}
+.liv-pause__rail i { position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px; background: var(--gp-gold-mid); transform-origin: top; }
+.scenes-pending .liv-pause__rail i { transform: scaleY(0); }
+@media (max-width: 768px) {
+  .liv-pause { min-height: 0; padding-block: clamp(56px, 16vw, 88px) clamp(64px, 18vw, 96px); }
+  .liv-pause__line { margin-left: 0; padding-left: 24px; }
+  .liv-pause__rail { left: var(--page-pad); }
+}
+@media (max-width: 640px) {
+  .liv-pause__line span { display: block; }
+}
 .liv-gia .scene { margin-top: clamp(64px, 7vw, 96px); }
 
 .liv-gia__box { position: relative; }

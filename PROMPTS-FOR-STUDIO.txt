@@ -1,0 +1,188 @@
+﻿GLONARI HOMES - ПРОМПТЫ ДЛЯ STUDIO CODE (2026-11-13)
+
+Порядок работы: 0, 1, 2, 3, 4, потом 5 и 6.
+В начало каждого промпта (кроме 0) вставляйте ОБЩУЮ ШАПКУ.
+Источник текста: файл Glonari_Homes_All_Pages_v2.md в корне проекта (уже обновлён с учётом ответов владельца и файла с числовыми дополнениями).
+Что не внесено из файла с числовыми дополнениями и почему - см. OPEN-QUESTIONS.md, раздел Numerical additions file.
+Слово sponsor оставлено по ответу на вопрос 2.
+Папки update-1, .playwright-mcp и screenshots удалены (в git ещё не зафиксировано, коммит не делался).
+
+
+======================================================================
+ОБЩАЯ ШАПКА (вставлять в начало промптов 1-6)
+======================================================================
+
+Первой строкой плана напиши, что прочитал DESIGN-BRIEF.md целиком. Прочитай по порядку: CLAUDE.md, PROJECT-STATUS.md, DESIGN-BRIEF.md, DESIGN-SYSTEM-HOMES.md (раздел 3, 5.1, 5.2, 7), SITE-STRUCTURE.md, OPEN-QUESTIONS.md, нужный раздел Glonari_Homes_All_Pages_v2.md.
+Текст копировать дословно, не переписывать, курсив из документа не публиковать.
+Перед работой сохрани копии изменяемых файлов в masters/retired/ с датой.
+Дизайн: новое содержимое = новый полный экран со своей композицией, не карточка и не абзац, приклеенный к экрану. Дисклеймеры не меньше 16px, контраст не меньше 4.5:1, на спокойном фоне. Не более 1-2 эффектов на экран, без свечения. Если нужна картинка, поставь placeholder-... и скажи.
+Проверка: Spacing QA gate (5.1) и Spacing check (5.2) на 1440, 1024, 768, 375, консоль без ошибок, картинки грузятся, нет горизонтального скролла, reduced motion показывает всё статично. Таблицу замеров приложить.
+Обнови PROJECT-STATUS.md. Не коммить. Отчёт: 3-6 строк.
+
+
+======================================================================
+ПРОМПТ 0 - ПОДВАЛ
+======================================================================
+
+Прочитай CLAUDE.md, PROJECT-STATUS.md, DESIGN-SYSTEM-HOMES.md. Источник текста: Glonari_Homes_All_Pages_v2.md, раздел SITE-WIDE FOOTER.
+
+Задача: обновить только текст дисклеймера в docs/partials/footer.html (абзац .site-footer__disclosure). Ничего не менять в стиле.
+Поставь дословно: "Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities."
+Запусти python scripts/sync-partials.py, проверь, что все страницы в docs/ получили новый текст. В SITE-STRUCTURE.md (строка про Footer disclosure) замени старую цитату на новую.
+Не коммить. Отчёт: 3 строки.
+
+
+======================================================================
+ПРОМПТ 1 - HOME
+======================================================================
+
+[Общая шапка]. Источник текста: Glonari_Homes_All_Pages_v2.md, PAGE 01 - HOME, все 7 экранов.
+
+Работай в docs/index.html, docs/css/home.css, docs/js/home.js.
+Не менять: существующие сцены и анимации (hero, wipe "Why Glonari", pinned numbers в .econ, arch-сцена .find, чат Gia, панели .future), картинки не удалять.
+
+ВАЖНО по дизайну: всё, что добавляется, не должно выглядеть как приложенный блок, карточка или таблица из шаблона. Если нужен новый экран, строй его как новый полноэкранный со своей композицией на уровне главной страницы, и напиши в плане, что это новый экран. Если новое место тесное, не впихивай, а сообщи.
+
+Правки, по экранам:
+
+1. Hero (#intro): правый столбец с двумя абзацами. Добавь третье предложение документа "Glonari Homes is open to Glonari Members who hold GPA equal to at least 20% of the home's value-or have a sponsor who provides the shares." как короткую строку под ними (в документе тире длинное, копируй из файла). Не ломай композицию на 1440, 1024, 375. Если не помещается, не ужимай шрифт, сообщи в отчёте.
+
+2. Why Glonari (.problem): замени текст вторых абзацев на документный ("A Glonari Home is different: a long-term lease with an option to buy..." и абзац про all-inclusive платёж). Wipe-сцену и типографику не трогай.
+
+3. The cost, .econ: анимацию трогать нельзя. Только убрать "Illustrative" / "illustrative" из подписей.
+
+4. НОВЫЙ ПОЛНЫЙ ЭКРАН "Cost compared" сразу после .econ и перед .important. Светлый (бумага), без пина, без тёмной полосы (на странице уже есть .future). Это не таблица-карточка. Предлагаемая композиция (можно улучшить, но не упрощать до обычной таблицы):
+ - слева крупный заголовок Cormorant, справа два "бухгалтерских столбца" (настоящая table с caption, строки разделены линиями 1px, подписи Plex Sans, суммы Cormorant, выравнивание по правому краю);
+ - столбец Traditional ownership: Mortgage principal & interest $5,419; Taxes, insurance, maintenance & repairs $2,050; итог $7,469. Столбец Glonari Home: Taxes, insurance, maintenance & repairs - Included; Glonari Home fee $8,333; Global Connections benefit -$2,500; итог $5,833. Столбцы стоят на разных высотах, но итоговые строки сидят на одной базовой линии; между итогами тонкая золотая линия 1px (--gp-gold-mid), на ней подпись mono "approx. $1,636 less per month";
+ - под столбцами строка дословно: "That is approximately $1,636 less per month than owning the same home with a mortgage-without surprise repair bills, separate property-tax bills, or separate insurance policies."
+ - две редакционные сноски с тонкой линией, без рамок: "Where the $2,500 comes from. It is the minimum amount a member earns through Gia and Global Connections. It is applied to your monthly fee automatically-there is nothing to apply for." и "What the $8,333 covers. One all-inclusive fee for the costs of living in the home-taxes, insurance, maintenance, repairs, and Gia. Utilities and personal expenses within the home are separate." (дословно из документа, Screen 03);
+ - один эффект: линия между итогами прорисовывается по скроллу, строки без других движений. На телефоне и при reduced motion всё статично, столбцы друг под другом, без горизонтального скролла. Шрифт не меньше 16px, контраст не меньше 4.5:1.
+ Если нужен фон или изображение, поставь placeholder-... и скажи.
+
+5. .important: замени 4 "ruled rows" на текст документа (Screen 03, абзац Important), разбив на 4 короткие строки без изменения слов: "This compares Glonari with the modeled cost of owning a home with a mortgage-not the local market rent for a comparable home." / "The Global Connections benefit is an agreed amount, applied automatically to your monthly fee." / "The Glonari fee does not include utilities or personal expenses." / "Estimated example based on an $800,000, 30-year mortgage at 7.18%, property taxes of 1.1%, insurance of $300 per month, and maintenance of 1% per year. Actual payments and savings vary by location, home selection, and program terms." Оформление .important не менять.
+
+6. Find your home (.find): добавь абзац "Already own the home? You can sell it to Glonari Properties-or keep it, hold GPA shares instead, and use their appreciating value to help with other household expenses or existing housing costs." в текстовую колонку, 16px и больше, без нового блока. Проверь, что колонка остаётся целиком в кадре на 1440x720 и 1024x768. Если нет, сообщи.
+
+7. Meet Gia (.gia): добавь абзац "Gia also helps you earn. Through Global Connections, Gia helps generate the minimum monthly earnings that offset your Glonari Home fee." между основным текстом и закрывающей строкой. В чате (docs/index.html, строка около 254) замени "Gia, how is my Home Business doing this month?" на "Gia, how are my Global Connections earnings this month?" и приведи ответ Gia к этой теме, без слова "Home Business".
+
+8. Your future (.future): три панели на золотой линии станут носителями трёх утверждений документа, а не отдельными карточками: "Stay for the long term. Your Glonari Home is a long-term lease, with rights very close to those of an owner." / "Buy the home. The lease includes an option to buy." / "Move on. GPA shares you no longer need to hold can be sold or applied to another property." Заголовок и остальной текст документа, кнопка - как есть. Анимацию (линии, parallax) не менять.
+
+Убрать на странице: "brochure" (alt "brochures and bills" у фото оставь, это про реальные листовки), "illustrative", "Home Business".
+
+Самопроверка по DESIGN-BRIEF: не похоже ли на шаблон, читается ли с первого взгляда, совпадает ли с главной. Если нет, переделай до отчёта.
+
+
+======================================================================
+ПРОМПТ 2 - HOW IT WORKS
+======================================================================
+
+[Общая шапка]. Раздел документа: PAGE 02 - HOW IT WORKS, экраны 01-07 и новые 02B и 04B.
+
+Файлы: docs/how-it-works.html, docs/css/how-it-works.css, docs/js/how-it-works.js.
+Не менять: hero (ch-01), закреплённые сцены (01, 05, 07), анимацию "раздачи карточек" в ch-02, картинки.
+
+1. ch-02 "Who does what?": замени текст четырёх карточек на документный: Glonari Homes - "provides the residential living experience under a long-term lease with an option to buy"; Gia - "...and helps you earn through Global Connections"; You - "...and join as a Glonari Member". Карточки и раздачу не менять.
+
+2. НОВЫЙ ПОЛНЫЙ ЭКРАН 02B "Savings You Don't Have to Chase" сразу после ch-02, id="ch-02b". Светлый, без пина, не карточки. Предложение: асимметричная редакционная композиция, огромная цифра Cormorant "$2,050 / month" слева с тонкой золотой линией, справа три утверждения (One bundle instead of three bills / Care before emergencies / The buying power of a portfolio) столбиком, разные отступы, без рамок и иконок в кружках. Подпись "Estimated example; actual costs vary by home and location." не меньше 16px. Один эффект: линия рисуется по скроллу. Текст из документа, экран 02B.
+
+3. ch-03 "Choose your home": добавь строку "If you already own it, you can sell it to Glonari Properties, or keep it and hold GPA shares instead." после первого абзаца, в той же колонке, без нового блока. Композицию с фото не трогать.
+
+4. ch-04 "Know what you pay" (единственная тёмная полоса страницы, hiw-cost): замени три абзаца на документные ("For an example $1 million home, the Glonari Home fee is $8,333 per month-all-inclusive...", "A $2,500 monthly Global Connections benefit...", "You know your minimum monthly cost..."). Слово "brochure" (docs/how-it-works.html, строка около 177) и "illustrative" убрать. Декоративный ledger $8,333 / -$2,500 / $5,833 оставить. Кнопку "See the Monthly Cost Example" оставить, она ведёт на find-your-home.html#cost-illustration.
+
+5. НОВЫЙ ПОЛНЫЙ ЭКРАН 04B "One Month in a Glonari Home" сразу после ch-04, id="ch-04b". Светлый, спокойный (на странице уже есть тёмная полоса), без пина. Предложение: три шага 01 / 02 / 03, соединённые тонкой золотой линией, цифра растёт в Cormorant ($8,333 -> -$2,500 -> $5,833), подписи Plex. Без карточек. Один эффект: линия и цифры прорисовываются по скроллу. Подпись "Estimated example for a $1 million home. Actual payments vary by home selection and program terms." не меньше 16px. Текст из документа, экран 04B.
+
+6. ch-05 "Who can join?": в docs/how-it-works.html (строка около 215) убери "The brochure describes...", замени на документный текст: Glonari Members, GPA от 20% или sponsor, минимум снижается каждый месяц, больше докупать не нужно, доступ для обычных семей после SEC. Строка "Broader investor access..." (hiw-join__small) заменяется абзацем про accredited и SEC из документа. Café-parallax и пин не трогать.
+
+7. ch-06 "The journey": обнови шаги 01-04 до документных (02 = "Join as a Member"). Линию и узлы не менять.
+
+8. ch-07: "personal home-and-cost estimate" вместо "illustration".
+
+Навигация по главам (rail): добавь 02B и 04B как новые пункты между 02-03 и 04-05; существующие id не менять; номера в rail пересчитать, при необходимости на 9 пунктов.
+Убрать на странице: "brochure", "illustrative", "Home Business".
+
+
+======================================================================
+ПРОМПТ 3 - LIVING WITH GLONARI
+======================================================================
+
+[Общая шапка]. Раздел документа: PAGE 03 - LIVING WITH GLONARI, экраны 01-07 и таблица "Three Years, Side by Side" (в экране 06).
+
+Файлы: docs/living-with-glonari.html, docs/css/living.css, docs/js/living.js.
+Не менять: hero, сцену Gia с видео, "When life changes", пины, раскладку тёмной главы #ownership (две золотые линии, фразы по ним).
+
+1. Строка около 157: сообщение Gia "Your Home Business moved with you. Nothing starts from zero." замени на "Your Global Connections earnings moved with you. Nothing starts from zero." Других упоминаний Home Business на странице нет, проверь.
+
+2. #feeling-at-home (экран 03): вставь абзац "Your Glonari Home is a long-term lease with an option to buy, and you know your minimum monthly cost for many years ahead." между первым абзацем и "Glonari's residential experience...". Не ломай полосу с фото и золотую линию. Мёртвых зазоров быть не должно.
+
+3. #ownership (экран 05 в тёмной главе): заголовок и текст по документу: "Yes. Your Glonari lease includes an option to buy." + GPA-абзацы. Фразы остаются по золотым линиям дословно, как раньше.
+
+4. #what-stays-with-you (экран 06, часть той же главы): текст по документу ("Your monthly fee covers the all-inclusive cost of living in your home; none of it is returned..."). Сохрани строку "GPA shares have the potential for long-term value growth."
+
+5. НОВЫЙ ПОЛНЫЙ ЭКРАН "Three Years, Side by Side" между главой #ownership и #final-invitation, id="three-years". Светлый, без пина, это пауза. Не обычная таблица: два "столбца-времени" Traditional ownership и Glonari Home как две вертикальные колонки, разделённые золотой линией 1px, строки (Upfront commitment / Debt after 36 months / Monthly cash requirement / If your plans change) как редакционные строки на общей сетке, цифры Cormorant ($774,663; $7,469; $5,833). Настоящая table с caption. Один эффект: строки появляются по очереди. Подпись "Estimated example for a $1 million home: an $800,000, 30-year mortgage at 7.18%..." не меньше 16px. Текст дословно из документа (Screen 06, "Three Years, Side by Side"). Отступ от тёмной главы и до final: по разделу 5 дизайн-системы.
+
+6. #final-invitation: не менять.
+
+Убрать: "Home Business" и "illustrative".
+
+
+======================================================================
+ПРОМПТ 4 - FIND YOUR HOME
+======================================================================
+
+[Общая шапка]. Раздел документа: PAGE 04 - FIND YOUR HOME, экраны 01-06.
+
+Файлы: docs/find-your-home.html, docs/css/find.css, docs/js/find.js.
+Не менять: hero и final-сцены, вопросы (экран 03), карту, картинки, пины.
+
+1. Экран 04 "Do I qualify?" (#options, единственная тёмная полоса): замени два утверждения (find-opt__s--a, --b) на документные: "A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home's value, or have a sponsor who provides the shares." и "GPA is initially limited to accredited investors until full SEC authorization is received. Property acquisition, membership, financing where applicable, and program agreements are subject to approval." Текст на коричневом не меньше 18px, кремовый, дизайн полосы не менять.
+
+2. Экран 05 (.find-cost): eyebrow "05 - Your home cost illustration" замени на "05 - Your home cost estimate". id="cost-illustration" и якорь оставить как есть. Заголовок "Know the Numbers for Your Situation." без изменений. Абзацы: find-cost__a - "Every property is different. Our $1 million home is an estimated example, not a quote for every applicant." (слово "illustrative" с подчёркиванием по скроллу заменяется на "estimated"), find-cost__b - "Your personal estimate shows the full monthly fee, the Global Connections benefit, the expenses paid separately, and the GPA position required for your home." Слово "brochure" (find-your-home.html, строка около 168) убрать. Композиция с домом и линией земли не меняется.
+
+3. Экран 06: проверить, что текст соответствует документу ("Request your personalized cost overview and payment schedule." + "Request"), ничего не менять.
+
+Убрать: "brochure", "illustration", "illustrative".
+
+
+======================================================================
+ПРОМПТ 5 - FAQs (страницу нужно построить)
+======================================================================
+
+[Общая шапка]. Раздел документа: PAGE 06 - FAQs, экраны 01-07. Страница сейчас .stub.
+
+Файлы: docs/faqs.html (заменить .stub), новые docs/css/faqs.css и docs/js/faqs.js. Подключи как на других страницах (шапка и подвал из partials, не трогать).
+
+Структура: 7 экранов по документу. Экран 01 - введение. Экраны 02-06 - группы вопросов: Living in a Glonari Home, Monthly payments, GPA and investment, Gia and Global Connections, Leaving or moving. Экран 07 - финал с двумя кнопками.
+Вопросы и ответы дословно из документа. Если у вопроса в документе только курсив, а ответа нет, покажи: "The final terms will be set out in the program agreements." (решение владельца 2026-11-12). Курсивные заметки не публиковать.
+Дизайн: не шаблонный аккордеон. Печатная вёрстка вопросов и ответов: номер группы большим Cormorant слева, вопросы Playfair, ответы IBM Plex Sans, тонкие линии 1px между вопросами, на широком экране асимметричная сетка (номер группы и вопросы в разных колонках). Ответы раскрываются по клику (details/summary, доступно с клавиатуры), первый вопрос каждой группы открыт. Без пинов, один мягкий эффект на экран (появление строк). Фон светлый, одна тёмная полоса допустима только для экрана 07. Шрифт ответов не меньше 17px.
+Поиск не добавлять (его нет в документе).
+В SITE-STRUCTURE.md статус страницы -> построена.
+
+
+======================================================================
+ПРОМПТ 6 - GLONARI PROPERTIES & GPA (страницу нужно построить)
+======================================================================
+
+[Общая шапка]. Раздел документа: PAGE 05 - GLONARI PROPERTIES & GPA, экраны 01-07. Страница сейчас .stub.
+
+Файлы: docs/glonari-properties.html (заменить .stub), новые docs/css/properties.css и docs/js/properties.js.
+Текст дословно, курсивные заметки не публиковать. Это страница для инвесторов, оформи её спокойнее и строже, чем главную, но тот же дизайн-язык.
+Экраны:
+01 Hero - "The Company Behind the Homes.", кнопка "Explore Glonari Properties"; одна закреплённая сцена допустима, медиа placeholder-properties-hero-...
+02 The company - "Real Homes. A Broader Business."
+03 What are GPA shares? - "Own Part of the Business. Not a Particular House." Абзацы дословно.
+04 Where value may come from - $1,000,000 + $400,000 = $1,400,000 как композиция из трёх крупных цифр Cormorant на одной линии, без карточек. Подпись "planning target, not an independent appraisal..." не меньше 16px.
+05 Understanding NAV+ - "Modeled Value Is Not Cash in Hand." Одна цифра: $100 -> $437.83 за 36 месяцев (base). Без таблиц сценариев и без прогнозов.
+06 Can shares be sold? - абзацы дословно.
+07 Advanced investment strategies - "Investment Decisions Deserve Their Own Conversation." Кнопка "Review the Investment Materials" (href="#", плейсхолдер). Никаких примеров кредитования и ставок на странице.
+Ограничения: не более двух закреплённых сцен (hero и экран 04, если нужен), одна тёмная полоса на выбор (рекомендую экран 05 или 07), остальное светлые паузы. Дисклеймеры на спокойном фоне, не меньше 16px, никогда на фото. Слов "brochure" и "illustrative" быть не должно.
+В SITE-STRUCTURE.md статус страницы -> построена.
+
+
+======================================================================
+ЗАМЕЧАНИЯ
+======================================================================
+
+- В промптах 2 и 3 новые экраны (02B, 04B, Three Years) сделаны паузами без пина, потому что закреплённых сцен на How It Works и на Living уже по три.
+- Что осталось открытым по тексту, см. OPEN-QUESTIONS.md.
+- Сильные формулировки из ответов владельца (например "you never have to worry about it", Case-Shiller "historically positive") опубликованы как написано; рекомендуется показать юристу до публикации.
+- Всё это лежит в файле PROMPTS-FOR-STUDIO.txt в корне проекта.

@@ -24,15 +24,11 @@
   function heroScene() {
     const scene = $('[data-scene="find-hero"]');
     if (!scene) return;
+    // two effects: the home settles onto the street, then one slow push-in of the street
     gsap.timeline({ scrollTrigger: scrubTo(scene), defaults: { ease: "none" } })
       .fromTo($(".find-hero__cue", scene), { opacity: 1 }, { opacity: 0, duration: .06 }, 0)
-      // the home comes in over the street
-      .fromTo($(".find-hero__home", scene), { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1, duration: .32, ease: "power1.out" }, .04)
-      .fromTo($(".find-hero__shade", scene), { opacity: 0 }, { opacity: 1, duration: .2 }, .3)
-      .fromTo($$("[data-hcopy]", scene), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .16, stagger: .08 }, .4)
-      // a slow shared zoom
-      .fromTo($(".find-hero__bg", scene), { scale: 1 }, { scale: 1.04, duration: .5, immediateRender: false }, .5)
-      .fromTo($(".find-hero__home", scene), { scale: 1 }, { scale: 1.06, duration: .5, immediateRender: false }, .5);
+      .fromTo($(".find-hero__home", scene), { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: .36, ease: "power1.out" }, .04)
+      .fromTo($(".find-hero__bg", scene), { scale: 1 }, { scale: 1.04, duration: .5, immediateRender: false }, .5);
   }
 
   /* ---------- 06 what happens next ---------- */
@@ -40,8 +36,8 @@
     const scene = $('[data-scene="find-next"]');
     if (!scene) return;
     gsap.timeline({ scrollTrigger: scrubTo(scene), defaults: { ease: "none" } })
-      .fromTo($(".find-next__bg", scene), { scale: 1 }, { scale: 1.04, duration: 1 }, 0)
-      .fromTo($(".find-next__people", scene), { scale: 1 }, { scale: 1.06, duration: 1 }, 0)
+      .fromTo($(".find-next__bg", scene), { scale: 1 }, { scale: 1.02, duration: 1 }, 0)
+      .fromTo($(".find-next__people", scene), { scale: 1 }, { scale: 1.05, duration: 1 }, 0)
       // the panel's lines come up into the paper panel (the panel itself stays: no empty strip under the photo)
       .fromTo($(".find-next__panel-in", scene), { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: .22, ease: "power2.out" }, .72);
   }
@@ -152,7 +148,7 @@
     // 04: the gold rule between the heading and the statements is drawn
     const rule = $(".find-opt__rule");
     if (rule) gsap.fromTo(rule, { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: st(rule, "top 90%", "top 55%") });
-    // 05: the home rises a little, the ground line is drawn, "illustrative" gets its underline
+    // 05: the home rises a little, the ground line is drawn, "estimated" gets its underline
     const house = $(".find-cost__house img");
     if (house) gsap.fromTo(house, { y: 48 }, { y: 0, ease: "none", scrollTrigger: st($(".find-cost__house"), "top 95%", "bottom 75%") });
     const ground = $(".find-cost__ground");

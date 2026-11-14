@@ -1,0 +1,247 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Your Home &middot; Glonari Homes</title>
+<meta name="description" content="Your next home starts with what matters to you: the neighborhood, the space, the people, and the kind of life you want to live there.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/find.css">
+</head>
+<body class="no-js find-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- partial:header -->
+<header class="site-header" data-header>
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Glonari Homes, home page"><img src="assets/images/logo-glonari-homes.webp" alt="" width="540" height="170"></a>
+
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+        <li><a href="find-your-home.html">Find Your Home</a></li>
+        <li><a href="glonari-properties.html">Glonari Properties</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+      <a class="btn btn--small nav__cta-mobile" href="find-your-home.html">Find My Glonari Home</a>
+    </nav>
+
+    <a class="btn btn--small header-cta" href="find-your-home.html">Find My Glonari Home</a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" data-burger>
+      <span class="visually-hidden">Menu</span>
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+<!-- /partial:header -->
+
+<main id="main">
+
+  <!-- ============ 01 Hero (scene): street, the title between the street and the home, the home; copy and the disclaimer on a quiet paper bar ============ -->
+  <section class="find-hero" aria-labelledby="find-title" data-hero>
+    <div class="scene" data-scene="find-hero" style="--travel: 170svh">
+      <div class="scene__stage find-hero__stage">
+        <div class="find-hero__photo">
+          <div class="find-hero__layers">
+            <!-- two layers on one 3344x1882 canvas, same geometry (inset 0, same object-fit / object-position); the title sits between them -->
+            <img class="find-layer find-hero__bg" src="assets/images/find-hero-bg-1600.webp"
+                 srcset="assets/images/find-hero-bg-1600.webp 1600w, assets/images/find-hero-bg-2560.webp 2560w"
+                 sizes="max(100vw, 177.8svh)" width="2560" height="1441" alt="" fetchpriority="high">
+            <img class="find-layer find-hero__home" src="assets/images/find-hero-home-1600.webp"
+                 srcset="assets/images/find-hero-home-1600.webp 1600w, assets/images/find-hero-home-2560.webp 2560w"
+                 sizes="max(100vw, 177.8svh)" width="2560" height="1441" alt="" fetchpriority="high">
+          </div>
+          <div class="find-hero__shade" aria-hidden="true"></div>
+          <h1 class="find-hero__title" id="find-title">The Home You Have in Mind.</h1>
+          <div class="find-hero__cue" aria-hidden="true"></div>
+        </div>
+        <div class="find-hero__bar">
+          <div class="find-hero__bar-in">
+            <p class="find-hero__lead">Your next home starts with what matters to you: the neighborhood, the space, the people, and the kind of life you want to live there.</p>
+            <p class="find-hero__note">Glonari Properties may evaluate qualifying properties for potential acquisition and inclusion in Glonari Homes.</p>
+            <a class="btn find-hero__btn" href="#where">Start Exploring</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 Where would you like to live? (pause, no pin) ============ -->
+  <section class="find-where" id="where" aria-labelledby="where-title">
+    <div class="container">
+      <p class="eyebrow">02 &middot; Where would you like to live?</p>
+      <h2 class="find-h" id="where-title">Find a Place That Feels Right.</h2>
+      <div class="find-where__grid">
+        <p class="find-where__lead lead" data-reveal>Tell us about the kind of home you want, where you would like to live, and what matters most to your family.</p>
+        <div class="find-map" aria-hidden="true">
+          <!-- placeholder-find-map.svg: abstract map, no region names; the gold route and the rings are drawn by find.js -->
+          <img class="find-map__base" src="assets/images/placeholder-find-map.svg" width="1200" height="560" alt="" loading="lazy">
+          <svg class="find-map__route" viewBox="0 0 1200 560" preserveAspectRatio="none">
+            <path class="find-map__path" d="M120 396C230 330 280 230 396 214C520 196 560 330 668 322C790 312 806 176 922 168C1000 162 1050 214 1084 262" pathLength="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 The first questions (scene >=1024px; the questions are read-only) ============ -->
+  <section class="find-q" id="priorities" aria-labelledby="priorities-title">
+    <div class="find-q__scene" data-scene="find-q" style="--travel: 320svh">
+      <div class="find-q__stage">
+        <div class="container find-q__in">
+          <p class="eyebrow">03 &middot; The first questions</p>
+          <h2 class="find-q__title" id="priorities-title">Let&rsquo;s Start With Your Priorities.</h2>
+          <ol class="find-q__list">
+            <li class="find-q__item" style="--i:1">
+              <span class="find-q__no" aria-hidden="true">01</span>
+              <p class="find-q__q">Where would you like to live?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q1-1000.webp" srcset="assets/images/placeholder-find-q1-640.webp 640w, assets/images/placeholder-find-q1-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:2">
+              <span class="find-q__no" aria-hidden="true">02</span>
+              <p class="find-q__q">What kind of home are you looking for?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q2-1000.webp" srcset="assets/images/placeholder-find-q2-640.webp 640w, assets/images/placeholder-find-q2-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:3">
+              <span class="find-q__no" aria-hidden="true">03</span>
+              <p class="find-q__q">What would make that home right for your life?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q3-1000.webp" srcset="assets/images/placeholder-find-q3-640.webp 640w, assets/images/placeholder-find-q3-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:4">
+              <span class="find-q__no" aria-hidden="true">04</span>
+              <p class="find-q__q">What monthly housing budget are you considering?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q4-1000.webp" srcset="assets/images/placeholder-find-q4-640.webp 640w, assets/images/placeholder-find-q4-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+            <li class="find-q__item" style="--i:5">
+              <span class="find-q__no" aria-hidden="true">05</span>
+              <p class="find-q__q">When would you ideally like to move?</p>
+              <figure class="find-q__fig"><img src="assets/images/placeholder-find-q5-1000.webp" srcset="assets/images/placeholder-find-q5-640.webp 640w, assets/images/placeholder-find-q5-1000.webp 1000w" sizes="(min-width: 1024px) 46vh, 88px" width="1000" height="1000" alt="" loading="lazy"></figure>
+            </li>
+          </ol>
+          <div class="find-q__dots" role="group" aria-label="Questions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 Do I qualify? (the page's only dark band, hard edges) ============ -->
+  <section class="find-opt" id="options" aria-labelledby="options-title">
+    <div class="container">
+      <p class="eyebrow eyebrow--light">04 &middot; Do I qualify?</p>
+      <h2 class="find-h find-h--light" id="options-title">Understand Your Options Before You Commit.</h2>
+      <div class="find-opt__rule" aria-hidden="true"></div>
+      <p class="find-opt__s find-opt__s--a" data-reveal>A Glonari Home is available to Glonari Members who hold GPA equal to at least 20% of the home&rsquo;s value, or have a sponsor who provides the shares.</p>
+      <p class="find-opt__s find-opt__s--b" data-reveal>GPA is initially limited to accredited investors until full SEC authorization is received. <span class="find-opt__q">Property acquisition, membership, financing where applicable, and program agreements are subject to approval.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 05 Your home cost estimate (anchor #cost-illustration stays) ============ -->
+  <section class="find-cost" aria-labelledby="cost-title">
+    <span id="cost-illustration" class="find-cost__anchor" aria-hidden="true"></span>
+    <div class="container">
+      <p class="eyebrow">05 &middot; Your home cost estimate</p>
+      <h2 class="find-h" id="cost-title">Know the Numbers for Your Situation.</h2>
+    </div>
+    <div class="container">
+      <div class="find-cost__house">
+        <img src="assets/images/home-04-house-cutout-1100.webp" srcset="assets/images/home-04-house-cutout-1100.webp 1100w, assets/images/home-04-house-cutout-2000.webp 2000w" sizes="(min-width: 1100px) 980px, 100vw" width="2000" height="1126" alt="" loading="lazy">
+      </div>
+      <div class="find-cost__ground" aria-hidden="true"></div>
+      <div class="find-cost__texts">
+        <p class="find-cost__a" data-reveal>Every property is different. Our $1 million home is an <span class="find-cost__u">estimated</span> example, not a quote for every applicant.</p>
+        <p class="find-cost__b" data-reveal>Your personal estimate shows the full monthly fee, the Global Connections benefit, the expenses paid separately, and the GPA position required for your home.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 What happens next? (scene): a 16:9 photo (street door + family on one canvas), copy and the button on a paper panel ============ -->
+  <section class="find-next" id="next" aria-labelledby="next-title">
+    <div class="scene" data-scene="find-next" style="--travel: 140svh">
+      <div class="scene__stage find-next__stage">
+        <div class="find-next__photo">
+          <img class="find-layer find-next__bg" src="assets/images/find-final-bg-1600.webp"
+               srcset="assets/images/find-final-bg-1600.webp 1600w, assets/images/find-final-bg-2560.webp 2560w"
+               sizes="100vw" width="2560" height="1441" alt="" loading="lazy">
+          <img class="find-layer find-next__people" src="assets/images/find-final-people-1600.webp"
+               srcset="assets/images/find-final-people-1600.webp 1600w, assets/images/find-final-people-2560.webp 2560w"
+               sizes="100vw" width="2560" height="1441"
+               alt="A mother with her two children, seen from behind, walking up to the open front door of their home" loading="lazy">
+        </div>
+        <div class="find-next__panel">
+          <div class="find-next__panel-in">
+            <p class="eyebrow">06 &middot; What happens next?</p>
+            <h2 class="find-next__title" id="next-title">One Home. A Clearer Next Step.</h2>
+            <div class="find-next__side">
+              <p>Request your personalized cost overview and payment schedule.</p>
+              <a class="btn" href="#">Request</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--light" href="index.html"><img src="assets/images/logo-glonari-homes.webp" alt="Glonari Homes" width="540" height="170"></a>
+        <p>AI for Human Prosperity™</p>
+        <a class="btn btn--light btn--small" href="find-your-home.html">Find My Glonari Home</a>
+      </div>
+      <nav class="site-footer__cols" aria-label="Footer">
+        <div>
+          <p class="site-footer__h">Explore</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+            <li><a href="find-your-home.html">Find Your Home</a></li>
+            <li><a href="glonari-properties.html">Glonari Properties</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__h">Legal</p>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Legal &amp; Disclosures</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__disclosure">Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities.</p>
+    <p class="site-footer__legal">© 2026 Glonari. All rights reserved.</p>
+  </div>
+</footer>
+<!-- /partial:footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/find.js" defer></script>
+</body>
+</html>
+
+
+

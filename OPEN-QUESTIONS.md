@@ -76,6 +76,8 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 (Screen 01 has no note.)
 
+**Update 2026-11-14 (built):** the word "Scroll" under the hero was removed (not in the document; only the animated line stays). Screen 04: the second statement is split into two sizes (first sentence large, "Property acquisition…" smaller), text verbatim.
+
 ## Home — "The cost" (2026-11-13)
 
 - Оговорка про planned benefit убрана вместе с лидом под `.econ` ("…provided the planned benefit is available."): документ называет выгоду agreed amount, нужен ответ владельца/юриста.

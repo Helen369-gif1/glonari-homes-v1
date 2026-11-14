@@ -77,11 +77,11 @@ Planned sections:
 
 Page files: `css/find.css`, `js/find.js`. Media are `placeholder-find-…` until the real ones arrive (see `PROJECT-STATUS.md`).
 
-1. Hero (scene, pin) — street + home, "The Home You Have in Mind.", "Start Exploring" → `#where`; the "Glonari Properties may evaluate…" disclaimer on a paper bar that slides up at the end of the scene
+1. Hero (scene, pin) — street, title between street and home, home; "The Home You Have in Mind."; a quiet paper bar under the photo holds the paragraph, the "Glonari Properties may evaluate…" disclaimer and "Start Exploring" → `#where`
 2. Where would you like to live? (`#where`, pause, paper) — huge headline, lead, abstract map with a gold route and unnamed rings
 3. The first questions (`#priorities`, scene ≥1024px, paper) — five read-only questions replace each other, a square arch with a gold outline opens upward; list with small arches below 1024px / reduced motion
 4. Do I qualify? (`#options`, **the page's only dark band**, hard edges, no pin) — two statements, gold rule between them
-5. Your home cost illustration (pause, paper) — invisible anchor `#cost-illustration`; house cut-out from the home page, ground line, "illustrative" underlined on scroll
+5. Your home cost estimate (pause, paper) — invisible anchor `#cost-illustration`; house cut-out from the home page, ground line, "estimated" underlined on scroll
 6. What happens next? (`#next`, scene, pin) — family parallax, paper panel with the closing lines and the button "Request a Personal Cost Overview" (placeholder `href="#"`)
 
 Pinned scenes: 01, 03, 06 (03 can lose its pin if three feel heavy: the questions then change with normal scroll).

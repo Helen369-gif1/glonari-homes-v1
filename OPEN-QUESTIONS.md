@@ -34,7 +34,7 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 **Screen 02 — Everyday life with Gia**
 - Here we need real examples of Gia's currently available services, what she can do automatically, what needs the resident's approval, and which features are still planned.
-- Gia chat (Home page and Living With Glonari): one message mentions "Your Home Business moved with you", which the document does not have. Kept as is by the owner's decision; to be reviewed.
+- Gia chat (Living With Glonari): the "By the sea" message now reads "Your Global Connections earnings moved with you. Nothing starts from zero." (2026-11-14; "Home Business" replaced, owner's decision). The chat messages are still not in the document.
 
 **Screen 03 — Feeling at home**
 - Here we need to explain the actual duration of the housing agreement, renewal rights, possible increases in monthly fees, grounds for termination, and what protects the resident if Glonari Properties sells the home.
@@ -48,6 +48,10 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 **Screen 06 — What stays with you?**
 - Here we need a straightforward five-year and ten-year example: total housing fees paid, any refundable amount, what happens to the GPA holding on departure, and whether a resident can sell shares or retain them after leaving the home.
+
+**Update 2026-11-14 (built):**
+- Screen 06, "Three Years, Side by Side": neighbouring repeat, decide whether to shorten it in the document. "Shares you no longer need can be sold or applied to another property" stands in the paragraph of Screen 06 and, right after it, in the table row "If your plans change". Both kept verbatim on the site.
+- Also repeated on the page (kept, different roles): "option to buy" (Screens 03, 05, table), "you know your minimum monthly cost" (Screen 03 and the $5,833 cell).
 
 (Screens 01 and 07 have no note.)
 

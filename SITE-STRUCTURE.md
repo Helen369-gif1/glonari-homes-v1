@@ -52,13 +52,14 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 
 ### 3. Living With Glonari — `docs/living-with-glonari.html` — ✅ rebuilt 2026-11-12 to Page 03 of the v2 document (awaiting owner review)
 
-7 screens. Page files: `css/living.css`, `js/living.js`. Pinned scenes: exactly three (01, 02, 07). Anchors kept for the home page: `#gia-goes-with-you`, `#when-life-changes`.
+8 blocks (7 screens + `#three-years`). Page files: `css/living.css`, `js/living.js`. Pinned scenes: exactly three (01, 02, 07). Anchors kept for the home page: `#gia-goes-with-you`, `#when-life-changes`.
 
 1. Hero (scene) — garden, kitchen, "LIVING", family; "The Life You Make at Home."; button → `#gia-goes-with-you`
 2. Everyday life with Gia (`#gia-goes-with-you`, scene, paper) — one room, four views behind the glass, Gia's chat keeps its history
 3. Feeling at home (`#feeling-at-home`, pause, paper) — wide strip, the light comes on with the scroll
 4. When life changes (`#when-life-changes`, pause, paper) — self-playing stage: tabs | photo stack + Gia pill | Gia steps
 5+6. The possibility of ownership / What stays with you? (`#ownership`, `#what-stays-with-you`, one dark chapter, no pin) — two gold lines that never touch, sentences laid out along them
+5b. Three Years, Side by Side (`#three-years`, paper pause, no pin) — table: Traditional ownership vs Glonari Home, gold line, Cormorant figures; hard edges between the dark chapter and the final
 7. Final invitation (`#final-invitation`, scene, dark) — night villa, headline, line, "Explore Your Home" → Find Your Home
 
 ### (retired) Already Own a Home? — `docs/already-own-a-home.html` — unlinked, kept as a file

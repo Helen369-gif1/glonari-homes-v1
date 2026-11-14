@@ -2,6 +2,17 @@
 
 Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-14 (Living With Glonari to the document text, new `#three-years`) — not committed
+Copies before: `masters/retired/living-before-living-2026-11-14.html|css|js` (+ OPEN-QUESTIONS, PROJECT-STATUS, SITE-STRUCTURE). Files: `living-with-glonari.html`, `css/living.css` (js untouched). Hero, Gia scene, the pause "Your Home. Your Life. Your Gia.", the strip, "When life changes", final: untouched. Pins still three.
+- Gia chat "By the sea": "Your Global Connections earnings moved with you…" (no "Home Business" left).
+- 03: new paragraph (long-term lease with an option to buy) as a staircase under the big phrase (cols 3–8, 27px ink), the "coordinated services" paragraph lower right as before.
+- 05: "Yes. Your Glonari lease includes an option to buy." Playfair, left under the headline; the GPA Class A sentence stays offset right.
+- 06 (variant 1): the two-line mechanic kept, `.liv-sep--2` content now: left line "Your monthly fee covers … none of it is returned.", right line "What you build comes from your GPA." (document text verbatim; the old "serve different purposes" sentence, not in the document, is gone). `.liv-chap__risk` = the document's full GPA paragraph.
+- NEW `#three-years` (paper, no pin, hard edges both sides): visible `.h2` "Three Years, Side by Side" inside the table caption, real table (roles set), labels | Traditional | 1px gold line | Glonari Home; Cormorant figures $774,663 / "No mortgage" / $7,469 / $5,833; rows reveal one by one; 16px note. ≤768px: stacked rows with a gold rule on the Glonari cell. No eyebrow.
+- Repeat "Shares you no longer need can be sold or applied…" (06 paragraph + table row) kept in both; recorded in OPEN-QUESTIONS.
+- Hero (not changed): the bottom title reads on the photo at 1440; the paragraph is lightest over the fruit bowls; menu items "Find Your Home / Glonari Properties / FAQs" are weak over the bright window and foliage. Owner's decision pending.
+- Checked 1440/1024/768/375 + reduced motion 1440/375: console clean, no horizontal scroll, section-y gaps equal. Shots `review/living-*.png`.
+
 ## 2026-11-14 (How It Works to the document text, 9 screens) — not committed
 Copies before: `masters/retired/how-it-works-before-how-it-works-2026-11-14.html|css|js` (+ OPEN-QUESTIONS, PROJECT-STATUS, SITE-STRUCTURE). Files: `how-it-works.html`, `css/how-it-works.css`, `js/how-it-works.js`. Hero, the three pins (01, 05, 07), the card deal, all images: untouched.
 - Text: ch-02 cards, ch-03 "If you already own it…" line (own style, same column), ch-04 three document paragraphs (no "brochure"/"illustrative"; the "benefit is not guaranteed" note removed), ch-05 three paragraphs (lead + side column of two), ch-06 step 02 "Join as a Member", ch-07 "estimate".

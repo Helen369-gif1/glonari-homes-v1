@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Living With Glonari &middot; Glonari Homes</title>
+<meta name="description" content="A home is where everyday life happens. Glonari Homes is designed to combine comfort, professional management, and intelligent support so you can spend more time living and less time coordinating it all.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/living.css">
+</head>
+<body class="no-js liv-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- partial:header -->
+<header class="site-header" data-header>
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Glonari Homes, home page"><img src="assets/images/logo-glonari-homes.webp" alt="" width="540" height="170"></a>
+
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+        <li><a href="find-your-home.html">Find Your Home</a></li>
+        <li><a href="glonari-properties.html">Glonari Properties</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+      <a class="btn btn--small nav__cta-mobile" href="find-your-home.html">Find My Glonari Home</a>
+    </nav>
+
+    <a class="btn btn--small header-cta" href="find-your-home.html">Find My Glonari Home</a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" data-burger>
+      <span class="visually-hidden">Menu</span>
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+<!-- /partial:header -->
+
+<main id="main">
+
+  <!-- ============ First screen (scene): garden · kitchen · word · family ============ -->
+  <section class="liv-hero" aria-labelledby="liv-title" data-hero>
+    <div class="scene" data-scene="liv-hero" style="--travel: 180svh">
+      <div class="scene__stage liv-hero__stage">
+        <div class="liv-hero__frame">
+          <img class="liv-hero__layer liv-hero__garden" src="assets/images/living-00-garden-bg-1600.webp"
+               srcset="assets/images/living-00-garden-bg-1600.webp 1600w, assets/images/living-00-garden-bg-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" alt="" fetchpriority="high">
+          <img class="liv-hero__layer liv-hero__kitchen" src="assets/images/living-00-kitchen-table-1600.webp"
+               srcset="assets/images/living-00-kitchen-table-1600.webp 1600w, assets/images/living-00-kitchen-table-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" alt="" fetchpriority="high">
+          <div class="liv-hero__layer liv-hero__wordbox" aria-hidden="true">
+            <p class="liv-hero__word">Living</p>
+          </div>
+          <img class="liv-hero__layer liv-hero__family" src="assets/images/living-00-family-cutout-1600.webp"
+               srcset="assets/images/living-00-family-cutout-1600.webp 1600w, assets/images/living-00-family-cutout-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" fetchpriority="high"
+               alt="A family laughing over breakfast at the kitchen table in warm morning light, the garden visible through the windows">
+        </div>
+
+        <div class="liv-hero__shade" aria-hidden="true"></div>
+
+        <div class="liv-hero__copy">
+          <div class="liv-hero__copy-in">
+            <h1 class="liv-hero__title" id="liv-title" data-hcopy>The Life You Make at Home.</h1>
+            <p class="liv-hero__sub" data-hcopy>A home is where everyday life happens. Glonari Homes is designed to combine comfort, professional management, and intelligent support so you can spend more time living and less time coordinating it all.</p>
+            <a class="btn btn--light liv-hero__btn" href="#gia-goes-with-you" data-hcopy>Discover Living With Glonari</a>
+          </div>
+        </div>
+
+        <div class="liv-hero__cue" aria-hidden="true">Scroll</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · Everyday life with Gia (scene, paper): one room, four views, one chat that keeps its history ============ -->
+  <section class="liv-gia" id="gia-goes-with-you" aria-labelledby="liv-gia-title">
+    <div class="container">
+      <div class="liv-gia__head" data-reveal>
+        <p class="eyebrow">Everyday life with Gia</p>
+        <h2 class="h2" id="liv-gia-title">Less Managing. More Living.</h2>
+        <p class="liv-gia__copy">Gia remembers your preferences and helps coordinate services, maintenance, scheduling, shopping, and personal assistance.</p>
+        <p class="liv-gia__copy">When your home needs attention, Gia is designed to help you organize the next step.</p>
+      </div>
+    </div>
+
+    <div class="scene" data-scene="liv-gia" style="--travel: 320svh">
+      <div class="scene__stage liv-gia__stage">
+        <div class="container">
+          <div class="liv-gia__box">
+            <div class="liv-gia__frame">
+              <div class="liv-gia__zoom">
+                <video class="liv-gia__view liv-gia__view--city" poster="assets/images/living-05-view-city-poster-1280.webp"
+                       width="1280" height="720" muted loop playsinline preload="none" aria-hidden="true" data-gia-video>
+                  <source src="assets/images/living-05-view-city-1280.webm" type="video/webm">
+                  <source src="assets/images/living-05-view-city-1280.mp4" type="video/mp4">
+                </video>
+                <video class="liv-gia__view liv-gia__view--suburb" poster="assets/images/living-05-view-suburb-poster-1280.webp"
+                       width="1280" height="720" muted loop playsinline preload="none" aria-hidden="true" data-gia-video>
+                  <source src="assets/images/living-05-view-suburb-1280.webm" type="video/webm">
+                  <source src="assets/images/living-05-view-suburb-1280.mp4" type="video/mp4">
+                </video>
+                <video class="liv-gia__view liv-gia__view--sea" poster="assets/images/living-05-view-sea-poster-1280.webp"
+                       width="1280" height="720" muted loop playsinline preload="none" aria-hidden="true" data-gia-video>
+                  <source src="assets/images/living-05-view-sea-1280.webm" type="video/webm">
+                  <source src="assets/images/living-05-view-sea-1280.mp4" type="video/mp4">
+                </video>
+                <video class="liv-gia__view liv-gia__view--garden" poster="assets/images/living-05-view-garden-poster-1280.webp"
+                       width="1280" height="732" muted loop playsinline preload="none" aria-hidden="true" data-gia-video>
+                  <source src="assets/images/living-05-view-garden-1280.webm" type="video/webm">
+                  <source src="assets/images/living-05-view-garden-1280.mp4" type="video/mp4">
+                </video>
+                <img class="liv-gia__interior" src="assets/images/living-05-window-interior-1600.webp"
+                     srcset="assets/images/living-05-window-interior-1600.webp 1600w, assets/images/living-05-window-interior-2560.webp 2560w"
+                     sizes="(min-width: 769px) 96vw, 134vw" width="2560" height="1440" loading="lazy"
+                     alt="A calm living room with a sofa, an armchair and a round coffee table in front of a large floor-to-ceiling window">
+              </div>
+              <p class="liv-gia__place" aria-hidden="true">
+                <span class="liv-gia__place-i">01 / 04 &middot; City</span>
+                <span class="liv-gia__place-i">02 / 04 &middot; Suburb</span>
+                <span class="liv-gia__place-i">03 / 04 &middot; By the sea</span>
+                <span class="liv-gia__place-i">04 / 04 &middot; Garden home</span>
+              </p>
+            </div>
+
+            <div class="chat liv-gia__chat" role="group" aria-label="Messages from Gia in four different homes">
+              <div class="chat__head">
+                <img src="assets/images/gia-avatar-256.webp" width="40" height="40" alt="">
+                <div><strong>Gia</strong><span>Your Glonari AI</span></div>
+              </div>
+              <div class="chat__body liv-gia__body">
+                <div class="liv-gia__msgs">
+                  <div class="liv-gia__item">
+                    <p class="msg msg--typing" aria-hidden="true"><span></span><span></span><span></span></p>
+                    <p class="msg msg--gia"><span class="visually-hidden">City: </span>Welcome home. Your morning routine is set up, just like before.</p>
+                  </div>
+                  <div class="liv-gia__item">
+                    <p class="msg msg--typing" aria-hidden="true"><span></span><span></span><span></span></p>
+                    <p class="msg msg--gia"><span class="visually-hidden">Suburb: </span>More room for the kids, and the school you liked is ten minutes away.</p>
+                  </div>
+                  <div class="liv-gia__item">
+                    <p class="msg msg--typing" aria-hidden="true"><span></span><span></span><span></span></p>
+                    <p class="msg msg--gia"><span class="visually-hidden">By the sea: </span>Your Global Connections earnings moved with you. Nothing starts from zero.</p>
+                  </div>
+                  <div class="liv-gia__item">
+                    <p class="msg msg--typing" aria-hidden="true"><span></span><span></span><span></span></p>
+                    <p class="msg msg--gia"><span class="visually-hidden">Garden home: </span>A smaller place, the same you. I kept everything that matters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- static layout only (phones, reduced motion, no JS): the four views as small cards -->
+          <ul class="liv-gia__places" data-reveal>
+            <li><figure>
+              <img src="assets/images/living-05-view-city-poster-800.webp"
+                   srcset="assets/images/living-05-view-city-poster-800.webp 800w, assets/images/living-05-view-city-poster-1280.webp 1280w"
+                   sizes="(max-width: 768px) 50vw, 600px" width="1280" height="720" loading="lazy" alt="A city skyline at dusk above a river with boats">
+              <figcaption>City</figcaption>
+            </figure></li>
+            <li><figure>
+              <img src="assets/images/living-05-view-suburb-poster-800.webp"
+                   srcset="assets/images/living-05-view-suburb-poster-800.webp 800w, assets/images/living-05-view-suburb-poster-1280.webp 1280w"
+                   sizes="(max-width: 768px) 50vw, 600px" width="1280" height="720" loading="lazy" alt="Family houses with lit windows above a lake at dusk">
+              <figcaption>Suburb</figcaption>
+            </figure></li>
+            <li><figure>
+              <img src="assets/images/living-05-view-sea-poster-800.webp"
+                   srcset="assets/images/living-05-view-sea-poster-800.webp 800w, assets/images/living-05-view-sea-poster-1280.webp 1280w"
+                   sizes="(max-width: 768px) 50vw, 600px" width="1280" height="720" loading="lazy" alt="A calm sea under an evening sky">
+              <figcaption>By the sea</figcaption>
+            </figure></li>
+            <li><figure>
+              <img src="assets/images/living-05-view-garden-poster-800.webp"
+                   srcset="assets/images/living-05-view-garden-poster-800.webp 800w, assets/images/living-05-view-garden-poster-1280.webp 1280w"
+                   sizes="(max-width: 768px) 50vw, 600px" width="1280" height="732" loading="lazy" alt="A garden with flowering shrubs, lanterns and two chairs at dusk">
+              <figcaption>Garden home</figcaption>
+            </figure></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ pause (paper, no pin): one line, a gold line runs from the Gia screen down into the strip ============ -->
+  <section class="liv-pause" aria-label="Your Home. Your Life. Your Gia.">
+    <span class="liv-pause__rail" aria-hidden="true"><i></i></span>
+    <div class="container">
+      <p class="liv-pause__line" data-reveal><span>Your Home.</span> <span>Your Life.</span> <span>Your Gia.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 03 · Feeling at home (pause, paper, no pin): a wide strip, the light comes on with the scroll ============ -->
+  <section class="liv-settle" id="feeling-at-home" aria-labelledby="liv-settle-title">
+    <div class="liv-settle__stage" data-settle>
+      <div class="liv-settle__pic">
+        <img class="liv-settle__dusk" src="assets/images/living-03-settle-dusk-1600.webp"
+             srcset="assets/images/living-03-settle-dusk-1600.webp 1600w, assets/images/living-03-settle-dusk-2560.webp 2560w"
+             sizes="100vw" width="2560" height="1097" alt="" loading="lazy">
+        <img class="liv-settle__lit" src="assets/images/living-03-settle-lit-1600.webp"
+             srcset="assets/images/living-03-settle-lit-1600.webp 1600w, assets/images/living-03-settle-lit-2560.webp 2560w"
+             sizes="100vw" width="2560" height="1097"
+             alt="A large stone villa with arched windows glowing warm, in a garden of olive trees and lavender above a lake at sunset" loading="lazy">
+        <span class="liv-settle__scrim" aria-hidden="true"></span>
+      </div>
+      <div class="container liv-settle__tw">
+        <h2 class="liv-settle__title" id="liv-settle-title">A Place to Settle Into.</h2>
+      </div>
+    </div>
+    <div class="container liv-settle__text">
+      <span class="liv-settle__rail" aria-hidden="true"><i></i><b></b></span>
+      <p class="eyebrow" data-reveal>Feeling at home</p>
+      <p class="liv-settle__a" data-reveal>A home should offer comfort and continuity&mdash;not just a place to spend the night.</p>
+      <p class="liv-settle__c" data-reveal>Your Glonari Home is a long-term lease with an option to buy, and you know your minimum monthly cost for many years ahead.</p>
+      <p class="liv-settle__b" data-reveal>Glonari&rsquo;s residential experience is designed around professionally managed properties and coordinated services.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 · When life changes (pause, paper, no pin): self-playing 3-scenario stage ============ -->
+  <section class="liv-life" id="when-life-changes" aria-labelledby="liv-life-title">
+    <div class="container">
+      <div class="liv-life__head" data-reveal>
+        <p class="eyebrow">When life changes</p>
+        <h2 class="h2" id="liv-life-title">Your Life Changes. Your Needs Can, Too.</h2>
+        <p class="liv-life__copy">A growing family. A new career. A different city. The right home may change over time.</p>
+      </div>
+
+      <div class="liv-stage" data-life-stage>
+        <ul class="liv-stage__tabs" aria-label="Life changes">
+          <li><button type="button" class="liv-tab" data-i="0" aria-current="true"><span class="liv-tab__t">A new baby</span><span class="liv-tab__bar" aria-hidden="true"></span></button></li>
+          <li><button type="button" class="liv-tab" data-i="1"><span class="liv-tab__t">Children moving out</span><span class="liv-tab__bar" aria-hidden="true"></span></button></li>
+          <li><button type="button" class="liv-tab" data-i="2"><span class="liv-tab__t">A new job in another city</span><span class="liv-tab__bar" aria-hidden="true"></span></button></li>
+        </ul>
+
+        <div class="liv-stage__stack">
+          <figure class="liv-pc" data-pos="0" data-gia="Gia: looking for a bigger home">
+            <div class="liv-pc__in"><img src="assets/images/living-04-new-baby-800.webp"
+                 srcset="assets/images/living-04-new-baby-800.webp 800w, assets/images/living-04-new-baby-1200.webp 1200w"
+                 sizes="(min-width: 1024px) 380px, (min-width: 769px) 320px, 80vw" width="1200" height="1200" loading="lazy" style="object-position: 40% 50%"
+                 alt="A young couple on a garden sofa at sunset, the mother holding their newborn wrapped in a knitted blanket">
+            <figcaption>A new baby.</figcaption></div>
+          </figure>
+          <figure class="liv-pc" data-pos="1" data-gia="Gia: looking for a smaller home">
+            <div class="liv-pc__in"><img src="assets/images/living-04-leaving-home-800.webp"
+                 srcset="assets/images/living-04-leaving-home-800.webp 800w, assets/images/living-04-leaving-home-1200.webp 1200w"
+                 sizes="(min-width: 1024px) 380px, (min-width: 769px) 320px, 80vw" width="1200" height="1200" loading="lazy" style="object-position: 28% 50%"
+                 alt="Parents saying goodbye to their teenage son at the front door, his backpack on and a suitcase beside him">
+            <figcaption>Children moving out.</figcaption></div>
+          </figure>
+          <figure class="liv-pc" data-pos="-1" data-gia="Gia: looking for a home in your new city">
+            <div class="liv-pc__in"><img src="assets/images/living-04-new-job-800.webp"
+                 srcset="assets/images/living-04-new-job-800.webp 800w, assets/images/living-04-new-job-1200.webp 1200w"
+                 sizes="(min-width: 1024px) 380px, (min-width: 769px) 320px, 80vw" width="1200" height="1200" loading="lazy" style="object-position: 45% 50%"
+                 alt="A young woman smiling as she packs folded sweaters and a plant into a moving box outside her home, a suitcase behind her">
+            <figcaption>A new job in another city.</figcaption></div>
+          </figure>
+          <p class="liv-pill" aria-live="polite"><span class="liv-pill__in"><img src="assets/images/gia-avatar-256.webp" width="256" height="256" alt=""><span class="liv-pill__t">Gia: looking for a bigger home</span></span></p>
+        </div>
+
+        <aside class="liv-gcard" aria-label="What Gia does when your life changes">
+          <p class="liv-gcard__h">Gia</p>
+          <ol class="liv-gcard__steps">
+            <li><span class="liv-gcard__dot" aria-hidden="true"></span>Current home</li>
+            <li><span class="liv-gcard__dot" aria-hidden="true"></span>Tell Gia what changed</li>
+            <li><span class="liv-gcard__dot" aria-hidden="true"></span>Gia finds your next match</li>
+            <li><span class="liv-gcard__dot" aria-hidden="true"></span>Your next Glonari Home</li>
+          </ol>
+        </aside>
+
+        <div class="liv-stage__dots" aria-label="Choose a scenario">
+          <button type="button" class="liv-dot" data-i="0" aria-label="A new baby" aria-current="true"><span class="liv-dot__bar" aria-hidden="true"></span></button>
+          <button type="button" class="liv-dot" data-i="1" aria-label="Children moving out"><span class="liv-dot__bar" aria-hidden="true"></span></button>
+          <button type="button" class="liv-dot" data-i="2" aria-label="A new job in another city"><span class="liv-dot__bar" aria-hidden="true"></span></button>
+        </div>
+        <p class="liv-stage__status" aria-live="polite">Gia: looking for a bigger home</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ 05 + 06 · One dark chapter (pause, no pin): two gold lines that never meet ============ -->
+  <section class="liv-chap" id="ownership" aria-label="Ownership and what stays with you">
+    <div class="container">
+      <div class="liv-chap__head">
+        <p class="eyebrow eyebrow--light" data-reveal>The possibility of ownership</p>
+        <h2 class="liv-chap__h" data-reveal>Could This Home One Day Be Yours?</h2>
+        <p class="liv-chap__yes" data-reveal>Yes. Your Glonari lease includes an option to buy.</p>
+        <p class="liv-chap__lead" data-reveal>GPA Class A shares represent an equity interest in Glonari Properties&mdash;not title to an individual house.</p>
+      </div>
+
+      <div class="liv-chap__duo" data-chap>
+        <span class="liv-chap__rail liv-chap__rail--a" aria-hidden="true"><i></i><b></b></span>
+        <span class="liv-chap__rail liv-chap__rail--b" aria-hidden="true"><i></i><b></b></span>
+
+        <p class="liv-sep liv-sep--1">
+          <span class="liv-sep__a">The right to live in a home</span>
+          <span class="liv-sep__and">and</span>
+          <span class="liv-sep__b">the right to own company shares</span>
+          <span class="liv-sep__end">are separate.</span>
+        </p>
+
+        <div class="liv-chap__s6" id="what-stays-with-you">
+          <p class="eyebrow eyebrow--light" data-reveal>What stays with you?</p>
+          <h2 class="liv-chap__h liv-chap__h--6" data-reveal>Understand What You Take With You.</h2>
+        </div>
+
+        <p class="liv-sep liv-sep--2">
+          <span class="liv-sep__a">Your monthly fee covers the all-inclusive cost of living in your home; none of it is returned.</span>
+          <span class="liv-sep__b">What you build comes from your GPA.</span>
+        </p>
+      </div>
+
+      <p class="liv-chap__risk" data-reveal>GPA shares have the potential for long-term value growth. As they appreciate, the minimum you must hold goes down each month&mdash;and shares you no longer need can be sold or applied to another property.</p>
+    </div>
+  </section>
+
+  <!-- ============ Three Years, Side by Side (pause, paper, no pin): hard edges between the dark chapter and the final ============ -->
+  <section class="liv-three" id="three-years" aria-labelledby="liv-three-title">
+    <div class="container">
+      <table class="liv-tbl" role="table">
+        <caption><h2 class="h2" id="liv-three-title" data-reveal>Three Years, Side by Side</h2></caption>
+        <thead role="rowgroup">
+          <tr role="row" data-reveal>
+            <th role="columnheader" scope="col">After 36 months</th>
+            <th role="columnheader" scope="col">Traditional ownership</th>
+            <th role="columnheader" scope="col">Glonari Home</th>
+          </tr>
+        </thead>
+        <tbody role="rowgroup">
+          <tr role="row" data-reveal>
+            <th role="rowheader" scope="row">Upfront commitment</th>
+            <td role="cell">$200,000 down payment on an $800,000 mortgage</td>
+            <td role="cell">GPA equal to at least 20% of the home&rsquo;s value&mdash;$200,000 for a $1 million home&mdash;or a sponsor who provides the shares</td>
+          </tr>
+          <tr role="row" data-reveal>
+            <th role="rowheader" scope="row">Debt after 36 months</th>
+            <td role="cell">About <span class="liv-num">$774,663</span> still owed on the mortgage</td>
+            <td role="cell"><span class="liv-num">No mortgage</span></td>
+          </tr>
+          <tr role="row" data-reveal>
+            <th role="rowheader" scope="row">Monthly cash requirement</th>
+            <td role="cell"><span class="liv-num">$7,469</span>, and taxes, insurance, and repair costs can rise</td>
+            <td role="cell"><span class="liv-num">$5,833</span>, and you know your minimum monthly cost years ahead</td>
+          </tr>
+          <tr role="row" data-reveal>
+            <th role="rowheader" scope="row">If your plans change</th>
+            <td role="cell">Selling a home involves transaction costs</td>
+            <td role="cell">Shares you no longer need can be sold or applied to another property; the lease includes an option to buy</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="liv-three__note" data-reveal>Estimated example for a $1 million home: an $800,000, 30-year mortgage at 7.18%; taxes 1.1%, insurance $300 per month, maintenance 1% per year. Actual payments and savings vary by location, home selection, and program terms.</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 · Final invitation (scene, dark): the night villa; headline, line, button ============ -->
+  <section class="liv-final" id="final-invitation" aria-labelledby="liv-final-title">
+    <div class="scene" data-scene="liv-final" style="--travel: 240svh">
+      <div class="scene__stage liv-final__stage">
+        <picture class="liv-final__bg">
+          <source media="(min-width: 769px) and (prefers-reduced-motion: no-preference)"
+                  srcset="assets/images/living-07-night-villa-1600.webp 1600w, assets/images/living-07-night-villa-2560.webp 2560w"
+                  sizes="max(100vw, 177.8svh)" width="2560" height="1440">
+          <img src="assets/images/living-07-night-villa-mobile-940.webp"
+               srcset="assets/images/living-07-night-villa-mobile-720.webp 720w, assets/images/living-07-night-villa-mobile-940.webp 940w"
+               sizes="100vw" width="940" height="1670" loading="lazy"
+               alt="A villa at night under a starry sky, its windows glowing warm">
+        </picture>
+        <span class="liv-final__dark" aria-hidden="true"></span>
+        <span class="liv-final__glow" aria-hidden="true"></span>
+        <canvas class="liv-final__dust" aria-hidden="true"></canvas>
+
+        <div class="container liv-final__in">
+          <p class="eyebrow eyebrow--light liv-final__eyebrow">Final invitation</p>
+          <h2 class="liv-final__h" id="liv-final-title">A Home for the Life You Want to Build.</h2>
+          <p class="liv-final__p">See how Glonari Homes could fit your life today&mdash;and understand the questions that matter for your future.</p>
+          <div class="liv-final__cta">
+            <a class="btn liv-final__btn" href="find-your-home.html">Explore Your Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--light" href="index.html"><img src="assets/images/logo-glonari-homes.webp" alt="Glonari Homes" width="540" height="170"></a>
+        <p>AI for Human Prosperity™</p>
+        <a class="btn btn--light btn--small" href="find-your-home.html">Find My Glonari Home</a>
+      </div>
+      <nav class="site-footer__cols" aria-label="Footer">
+        <div>
+          <p class="site-footer__h">Explore</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+            <li><a href="find-your-home.html">Find Your Home</a></li>
+            <li><a href="glonari-properties.html">Glonari Properties</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__h">Legal</p>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Legal &amp; Disclosures</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__disclosure">Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities.</p>
+    <p class="site-footer__legal">© 2026 Glonari. All rights reserved.</p>
+  </div>
+</footer>
+<!-- /partial:footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/living.js" defer></script>
+</body>
+</html>

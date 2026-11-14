@@ -1,0 +1,798 @@
+/* ==========================================================
+   Glonari Homes — Living With Glonari
+   Page-only styles. Shared tokens/components live in main.css.
+   Page order (2026-11-12, doc Page 03): 01 hero (scene) · 02 Gia (scene) · 03 settle (pause) ·
+   04 when life changes (pause) · 05+06 dark chapter (pause) · 07 final (scene). Three pins.
+
+   First screen: the How It Works layering (.hiw-hero) with one
+   more layer — garden (back) · kitchen · word · family cut-out ·
+   copy, all pixel-aligned in one 16:9 frame. Default CSS is the
+   static final layout (phones, reduced motion, no JS); .has-scenes
+   (living.js, >=769px) pins the stage.
+   ========================================================== */
+
+.liv-hero__stage {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #6b5a32;
+}
+.liv-hero__frame {
+  --fx: 50%;                       /* horizontal anchor of the frame = screen centre */
+  position: absolute;
+  left: 50%;
+  top: calc((100svh - max(56.25vw, 100svh)) * .4);
+  width: max(100vw, 177.78svh);
+  aspect-ratio: 16 / 9;
+  transform: translateX(calc(var(--fx) * -1));
+}
+.liv-hero__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform-origin: 50% 30%;       /* kitchen and family zoom around the same point (the heads), so the table stays aligned */
+  will-change: transform;
+}
+.liv-hero__word {
+  position: absolute;
+  left: var(--fx);
+  bottom: 63%;                     /* the heads (the boy, the mother's hair) overlap only the lower part of the letters */
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: min(12.4vw, 30svh);
+  line-height: .72;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #FBF4E8;
+  text-shadow: 0 2px 40px rgba(70, 30, 20, .22);
+}
+
+.liv-hero__shade {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(20, 12, 8, .84) 0%, rgba(20, 12, 8, .52) 24%, rgba(20, 12, 8, 0) 46%),
+    linear-gradient(90deg, rgba(20, 12, 8, .5) 0%, rgba(20, 12, 8, .2) 22%, rgba(20, 12, 8, 0) 45%);
+}
+.liv-hero__copy {
+  position: absolute; z-index: 6; left: 0; right: 0;
+  bottom: clamp(40px, 8svh, 84px);
+}
+.liv-hero__copy-in {
+  width: min(100%, calc(var(--container) + 2 * var(--page-pad)));
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+.liv-hero__title {
+  max-width: 620px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--gp-text);
+  text-shadow: 0 2px 24px rgba(5, 4, 2, .35);
+}
+.liv-hero__sub {
+  max-width: 500px;
+  margin: 16px 0 0;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: rgba(246, 240, 231, .88);
+  text-shadow: 0 1px 14px rgba(5, 4, 2, .45);
+}
+/* same cue as the home hero / How It Works */
+.liv-hero__cue {
+  position: absolute; z-index: 6; right: var(--page-pad); bottom: 28px;
+  display: grid; justify-items: center; gap: 12px;
+  font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(246, 240, 231, .92); text-shadow: 0 1px 10px rgba(5, 4, 2, .4);
+  pointer-events: none;
+}
+.liv-hero__cue::after {
+  content: ""; width: 1px; height: 36px;
+  background: linear-gradient(rgba(246, 240, 231, .9), rgba(246, 240, 231, 0));
+  transform-origin: top; animation: livCue 2.4s var(--ease) infinite;
+}
+@keyframes livCue { 0% { transform: scaleY(0); opacity: 1; } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+html:not(.has-scenes) .liv-hero__cue { display: none; }
+
+/* before GSAP takes over (see the inline script in <head>): hide the start states,
+   so the first frame is the garden + the word */
+.scenes-pending .liv-hero__kitchen,
+.scenes-pending .liv-hero__family,
+.scenes-pending [data-hcopy],
+.scenes-pending .liv-hero__shade { opacity: 0; }
+
+/* Portrait screens: frame fills the height, centred on the boy (father at the left edge);
+   "LIVING" fits on one line, the boy's hair overlaps its lower part */
+@media (max-aspect-ratio: 1/1) {
+  .liv-hero__frame { --fx: 40%; top: 0; width: auto; height: 100svh; }
+  .liv-hero__word { bottom: 67%; font-size: min(19vw, 190px); line-height: .8; }
+  .liv-hero__shade { background: linear-gradient(0deg, rgba(20, 12, 8, .86) 0%, rgba(20, 12, 8, .5) 30%, rgba(20, 12, 8, 0) 54%); }
+}
+
+
+/* ==========================================================
+   Page tokens. The gold of the lines / timer bars (shared by the
+   "When life changes" stage and the dark chapter).
+   ========================================================== */
+.liv-page { --tl-gold: var(--gp-gold-mid); }
+
+/* hero button (document: "Discover Living With Glonari") */
+.liv-hero__btn { margin-top: 28px; }
+/* >=1024px: two columns at the bottom, like the home hero. Headline + button left,
+   the paragraph right (<=3 lines at 1440), so faces and the table stay clear. */
+@media (min-width: 1024px) {
+  .liv-hero__copy-in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(54%, 700px));
+    column-gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+  }
+  .liv-hero__title { grid-area: 1 / 1; align-self: end; }
+  .liv-hero__btn { grid-area: 2 / 1; justify-self: start; align-self: start; }
+  .liv-hero__sub { grid-area: 1 / 2 / span 2; align-self: end; max-width: none; margin: 0; font-size: clamp(16px, 1.2vw, 18px); }
+}
+
+/* ==========================================================
+   03 · Feeling at home — a pause on paper, no pin.
+   A wide strip (3830×1642 source) at full width: the dusk photo with the
+   same photo "lit" over it. The lit layer fades in with the scroll
+   (opacity, settleLight() in living.js: the light comes on). Without
+   the scroll effect (phones, reduced motion, no JS) the lit photo is
+   shown. The headline sits on the sky in the strip's top-left; a dark
+   violet scrim keeps it readable over both states. The two paragraphs
+   hang under the strip in different columns.
+   Phones: the headline goes above the picture, on paper.
+   ========================================================== */
+.liv-settle { position: relative; padding-top: var(--section-y); background: var(--gh-paper); }
+.liv-settle__stage { position: relative; }
+.liv-settle__pic {
+  position: relative;
+  aspect-ratio: 3830 / 1642;
+  overflow: hidden;
+  isolation: isolate;
+  background: #4a4590;
+}
+.liv-settle__pic img {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%; max-width: none;
+  object-fit: cover;
+}
+/* the dusk layer is darkened with a static filter (never animated); only the lit layer's opacity moves */
+.liv-settle__dusk { filter: brightness(.38) saturate(.7) contrast(1.05); }
+.liv-settle__lit { z-index: 1; filter: brightness(1.06) saturate(1.12); }
+.liv-settle__scrim {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(104deg, rgba(28, 18, 60, .66) 0%, rgba(28, 18, 60, .5) 30%, rgba(28, 18, 60, .18) 50%, rgba(28, 18, 60, 0) 64%),
+    linear-gradient(180deg, rgba(28, 18, 60, .3) 0%, rgba(28, 18, 60, 0) 40%);
+}
+.scenes-pending .liv-settle__lit { opacity: 0; }
+
+.liv-settle__tw { position: absolute; top: 0; left: 0; right: 0; padding-top: clamp(24px, 4.4vw, 76px); pointer-events: none; }
+.liv-settle__title {
+  margin: 0;
+  max-width: 3.9em;
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: clamp(44px, 6.4vw, 112px);
+  line-height: .96;
+  letter-spacing: -.01em;
+  color: #FBF4E8;
+  text-shadow: 0 2px 28px rgba(20, 10, 44, .4);
+}
+
+.liv-settle__text {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  padding-block: clamp(120px, 16vw, 240px);   /* the gap to "When life changes" is this padding alone (>= --section-y) */
+}
+.liv-settle__text .eyebrow { grid-column: 2 / -1; }
+.liv-settle__a {
+  grid-column: 2 / 12; margin: 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(40px, 5vw, 76px); line-height: 1.12;
+  text-wrap: balance;
+  color: var(--gh-ink);
+}
+.liv-settle__b {
+  grid-column: 7 / 12; margin: clamp(56px, 7vw, 112px) 0 0;
+  font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6;
+  color: var(--gh-ink-2);
+}
+/* the one gold line of this block: from the strip's lower edge down along the text's left side to a 13px ring
+   at the foot of the block, where "When life changes" begins. Drawn with the scroll (settleRail()) only where
+   motion is allowed (.has-scenes); otherwise a short static stub with the ring above the next screen. */
+.liv-settle__rail {
+  position: absolute; width: 0; bottom: 56px; height: 44px; pointer-events: none;
+  left: calc(var(--page-pad) + (100% - 2 * var(--page-pad)) / 12 - 12px);
+}
+.has-scenes .liv-settle__rail { top: 0; bottom: 56px; height: auto; }   /* the ring stays clear of the next eyebrow */
+.liv-settle__rail i { position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px; background: var(--tl-gold); transform-origin: top; }
+.liv-settle__rail b {
+  position: absolute; bottom: -6.5px; left: -6.5px; width: 13px; height: 13px; border-radius: 50%;
+  border: 1px solid var(--tl-gold); background: var(--gh-paper);
+}
+.scenes-pending .liv-settle__rail i { transform: scaleY(0); }
+.scenes-pending .liv-settle__rail b { opacity: 0; }
+/* the block's own bottom padding is the gap, so the next screen adds none above its eyebrow */
+.liv-settle + .liv-life { padding-top: 0; }
+
+@media (max-width: 1023px) {
+  .liv-settle__a { grid-column: 2 / 13; }
+  .liv-settle__b { grid-column: 2 / 10; }
+}
+@media (max-width: 768px) {
+  .liv-settle__stage { display: flex; flex-direction: column; }
+  .liv-settle__tw { position: static; order: -1; padding-top: 0; padding-bottom: 28px; }
+  .liv-settle__title { max-width: none; font-size: clamp(42px, 12.5vw, 60px); color: var(--gh-ink); text-shadow: none; }
+  .liv-settle__pic { aspect-ratio: 4 / 3; }
+  .liv-settle__pic img { object-position: 62% 50%; }
+  .liv-settle__dusk, .liv-settle__scrim { display: none; }
+  .liv-settle__text .eyebrow, .liv-settle__a, .liv-settle__b { grid-column: 1 / -1; }
+  .liv-settle__b { margin-top: 32px; }
+  .liv-settle__rail { left: var(--page-pad); }
+}
+
+/* ==========================================================
+   05 + 06 · One dark chapter — hard paper→brown edge above, the
+   night scene below. Pause, no pin.
+   The idea "the right to live in a home and the right to own shares
+   are separate" is drawn: two parallel gold lines that never touch.
+   Each sentence is laid out verbatim along them (left line / "and" /
+   right line / the rest). The lines run through both screens, with
+   the headline of screen 06 between them; they are drawn with the
+   scroll (chapRails() in living.js). Labels sit on the lines on a
+   brown backing, like names on a map line.
+   Phones: no lines; each half of a sentence gets its own gold rule.
+   ========================================================== */
+.liv-chap {
+  --c1: 1; --c2: 1.3;               /* column weights: line · middle · line */
+  position: relative;
+  padding: var(--section-y) 0;
+  background: var(--gh-brown);
+  color: var(--gh-cream);
+}
+.liv-chap__head { max-width: 1080px; }
+.liv-chap__h {
+  margin: 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(44px, 7.2vw, 112px); line-height: .98; letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--gh-cream);
+}
+.liv-chap__lead {
+  max-width: 560px;
+  margin: clamp(28px, 3vw, 44px) 0 0 min(34%, 440px);
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
+  color: rgba(244, 237, 226, .88);
+}
+
+.liv-chap__duo {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);   /* = --c1 / --c2 */
+  margin-top: clamp(72px, 8vw, 128px);
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+.liv-chap__rail {
+  position: absolute; top: 0; bottom: 0; width: 0; pointer-events: none;
+  --cx: calc(100% * var(--c1) / (2 * var(--c1) + var(--c2)) / 2);
+}
+.liv-chap__rail--a { left: var(--cx); }
+.liv-chap__rail--b { right: var(--cx); }
+.liv-chap__rail i {
+  position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px;
+  background: var(--tl-gold);
+  transform-origin: top;
+}
+.liv-chap__rail b {
+  position: absolute; bottom: -7px; left: -7px;
+  width: 13px; height: 13px; border-radius: 50%;
+  border: 1px solid var(--tl-gold); background: var(--gh-brown);
+}
+.scenes-pending .liv-chap__rail i { transform: scaleY(0); }
+.scenes-pending .liv-chap__rail b { opacity: 0; }
+
+.liv-sep { display: contents; }
+.liv-sep > span { position: relative; z-index: 1; font-family: var(--font-word); font-weight: 500; }
+.liv-sep__a, .liv-sep__b, .liv-sep__and {
+  align-self: start; justify-self: center; text-align: center;
+  padding: 14px 18px;
+  font-size: clamp(24px, 2.7vw, 40px); line-height: 1.12;
+}
+.liv-sep__a, .liv-sep__b { background: var(--gh-brown); color: var(--gh-cream); }
+.liv-sep__and { padding-inline: 0; font-style: italic; color: rgba(244, 237, 226, .6); }
+.liv-sep__end {
+  grid-column: 2; justify-self: center; text-align: center;
+  margin-top: 4px;
+  font-size: clamp(32px, 3.8vw, 56px); line-height: 1.05;
+  color: var(--gp-gold);
+}
+.liv-sep--1 .liv-sep__a { grid-area: 1 / 1; }
+.liv-sep--1 .liv-sep__and { grid-area: 1 / 2; }
+.liv-sep--1 .liv-sep__b { grid-area: 1 / 3; }
+.liv-sep--1 .liv-sep__end { grid-area: 2 / 2; }
+.liv-chap__s6 { grid-area: 3 / 2; margin-top: clamp(72px, 8vw, 120px); text-align: center; }
+.liv-chap__s6 .eyebrow { justify-content: center; }
+.liv-chap__h--6 { font-size: clamp(34px, 4.2vw, 64px); line-height: 1.04; }
+.liv-sep--2 .liv-sep__a { grid-area: 4 / 1; margin-top: clamp(56px, 6vw, 96px); }
+.liv-sep--2 .liv-sep__and { grid-area: 4 / 2; margin-top: clamp(56px, 6vw, 96px); }
+.liv-sep--2 .liv-sep__b { grid-area: 4 / 3; margin-top: clamp(56px, 6vw, 96px); }
+.liv-sep--2 .liv-sep__end { grid-area: 5 / 2; }
+
+.liv-chap__risk {
+  max-width: 540px;
+  margin: clamp(48px, 5vw, 72px) 0 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--tl-gold);
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
+  color: var(--gh-cream);
+}
+
+@media (max-width: 1023px) {
+  .liv-chap { --c2: 1.7; }
+  .liv-chap__duo { grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 1fr); }
+}
+@media (max-width: 768px) {
+  .liv-chap__lead { margin-left: 0; }
+  .liv-chap__duo { display: block; margin-top: 56px; padding-bottom: 0; }
+  .liv-chap__rail { display: none; }
+  .liv-sep { display: block; margin: 0; }
+  .liv-sep > span { display: block; justify-self: stretch; text-align: left; }
+  .liv-sep__a, .liv-sep__b { padding: 4px 0 4px 20px; margin-top: 0; border-left: 1px solid var(--tl-gold); background: none; font-size: 26px; }
+  .liv-sep__and { padding: 14px 0 14px 21px; margin-top: 0; font-size: 22px; }
+  .liv-sep__end { margin: 16px 0 0 21px; font-size: 34px; }
+  .liv-chap__s6 { margin: 72px 0 40px; text-align: left; }
+  .liv-chap__s6 .eyebrow { justify-content: flex-start; }
+  .liv-sep--2 .liv-sep__a, .liv-sep--2 .liv-sep__and, .liv-sep--2 .liv-sep__b { margin-top: 0; }
+  .liv-chap__risk { margin-top: 48px; max-width: none; }
+}
+
+/* ==========================================================
+   07 · Final invitation — the page's third and last scene, dark
+   (the night villa). Static (phones, reduced motion, no JS): the
+   phone picture, headline, line and button stacked. .has-scenes
+   (living.js, >=769px, motion-safe): one screen pinned; headline in
+   the sky above the villa, gold dust (canvas), the night lightens,
+   the line and then the button come in.
+   ========================================================== */
+.liv-final { background: var(--gh-brown); color: var(--gp-text); }
+.liv-final__stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: var(--section-y) clamp(300px, 78vw, 560px);  /* the bottom shows the villa under the button */
+}
+.liv-final__bg, .liv-final__dark, .liv-final__glow, .liv-final__dust {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+}
+.liv-final__bg img { width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 100%; }
+.liv-final__dark { background: linear-gradient(180deg, rgba(10, 7, 4, .72) 0%, rgba(10, 7, 4, .56) 55%, rgba(10, 7, 4, .12) 100%); }
+.liv-final__glow, .liv-final__dust { display: none; }
+
+.liv-final__in { position: relative; text-align: center; }
+.liv-final__eyebrow { margin: 0 0 clamp(28px, 4vw, 44px); }
+.liv-final__h {
+  max-width: 980px; margin: 0 auto;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(38px, 5.4vw, 86px); line-height: 1.04;
+  text-wrap: balance;
+  color: var(--gp-gold);
+  text-shadow: 0 2px 24px rgba(5, 4, 2, .55);
+}
+.liv-final__p {
+  max-width: 720px; margin: clamp(20px, 2.4vw, 32px) auto 0;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(22px, 2.3vw, 34px); line-height: 1.2;
+  text-wrap: balance;
+  color: var(--gp-champagne);
+  text-shadow: 0 2px 24px rgba(5, 4, 2, .55);
+}
+.liv-final__cta { margin-top: clamp(32px, 4vw, 48px); }
+.liv-final__btn { background: var(--gp-gold); border-color: var(--gp-gold); color: var(--gh-ink); }
+.liv-final__btn:hover { background: var(--gp-champagne); border-color: var(--gp-champagne); }
+
+/* ---- the scene ---- */
+.has-scenes .liv-final__stage { padding: 0; }
+.has-scenes .liv-final__bg img { object-position: 50% 85%; }
+.has-scenes .liv-final__dark {
+  background: linear-gradient(180deg, rgba(10, 7, 4, .88) 0%, rgba(10, 7, 4, .74) 60%, rgba(10, 7, 4, .5) 100%);
+  will-change: opacity;
+}
+.has-scenes .liv-final__glow {
+  display: block; opacity: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(242, 179, 90, .34), rgba(242, 179, 90, 0) 70%);
+  mix-blend-mode: screen;
+}
+.has-scenes .liv-final__dust { display: block; width: 100%; height: 100%; }
+.has-scenes .liv-final__in {
+  position: absolute;
+  inset: var(--header-h) 0 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding-bottom: 32svh;                /* keep the text in the sky, above the villa */
+}
+.has-scenes .liv-final__eyebrow { position: absolute; top: 28px; left: 0; right: 0; margin: 0; }
+
+
+/* ==========================================================
+   04 · When life changes — a calm pause on paper (no pin).
+   Eyebrow, heading and copy, then one three-column stage
+   (the Shopify "Sell globally" mechanic, Glonari style):
+   scenario buttons | stack of three photo cards + Gia's pill | Gia's steps.
+   Every 4 s (--life-ms) the next scenario comes forward: the active tab's gold
+   timer fills, the steps light up one by one, the pill slides out from behind
+   the card. All of it is CSS animation; lifeStage() in living.js only sets
+   data-pos / aria-current, restarts the run (.is-run) and sets .is-paused
+   (off screen, finger down — no hover pause), which freezes every animation. The end of the
+   timer (animationend) is what advances the scene.
+   Without JS (no .is-on): first scene complete — pill, three photos in a row,
+   all steps lit. Reduced motion: manual switching only, no autoplay.
+   ≤768px: only the stack + dots + one status line.
+   ========================================================== */
+.liv-life { position: relative; padding-block: var(--section-y); background: var(--gh-paper); overflow-x: clip; }  /* bottom too: hard paper to brown edge into the dark chapter */
+.liv-life__copy { max-width: 640px; color: var(--gh-ink-2); }
+
+.liv-stage {
+  --life-ms: 5000ms;
+  --card: clamp(206px, 21vw, 312px);
+  --side: calc(var(--card) * .25);
+  --out: 150px;
+  margin-top: clamp(64px, 7vw, 96px);
+  display: grid; align-items: center; row-gap: 32px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.liv-stage > * { min-width: 0; }
+.liv-stage__tabs, .liv-stage__dots, .liv-stage__status { display: none; }
+
+/* --- no JS: first scene complete, photos in a row --- */
+.liv-stage__stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.liv-pc { margin: 0; }
+.liv-pc__in {
+  padding: 10px; background: #fff; border: 1px solid var(--gh-line);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: 0 18px 40px -16px rgba(43, 26, 12, .28), 0 2px 6px rgba(43, 26, 12, .06);
+}
+.liv-pc img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+.liv-pc figcaption {
+  height: 52px; padding: 0 4px; display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--font-mono); font-weight: 500; font-size: 12.5px; letter-spacing: .02em; line-height: 1.4;
+  color: var(--gh-gold-ink);
+}
+.liv-pill { grid-row: 1; grid-column: 1 / -1; justify-self: start; margin: 0 0 4px; max-width: 100%; }
+.liv-pill__in {
+  display: inline-flex; align-items: center; gap: 10px; max-width: 100%;
+  padding: 8px 18px 8px 8px; background: #fff; border: 1px solid var(--gh-line); border-radius: 24px;
+  box-shadow: 0 10px 28px -12px rgba(43, 26, 12, .3);
+  font-size: 14px; line-height: 1.35; color: var(--gh-ink);
+}
+.liv-pill__in img { flex: none; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.liv-stage__stack .liv-pc { grid-row: 2; }
+.liv-gcard {
+  padding: 22px 22px 24px; background: #fff; border: 1px solid var(--gh-line); border-radius: calc(var(--radius) + 4px);
+  max-width: 340px;
+}
+.liv-gcard__h {
+  margin: 0 0 16px; font-family: var(--font-mono); font-weight: 600; font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--gh-ink-2);
+}
+.liv-gcard__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.liv-gcard__steps li { position: relative; padding-left: 28px; font-size: 16px; line-height: 1.35; color: var(--gh-ink); }
+.liv-gcard__dot {
+  position: absolute; left: 0; top: 4px; width: 14px; height: 14px; border-radius: 50%;
+  border: 1px solid var(--tl-gold); background: var(--tl-gold);
+}
+
+/* --- JS on (.is-on): the stage --- */
+.liv-stage.is-on { column-gap: clamp(16px, 2.4vw, 40px); }
+.liv-stage.is-on .liv-stage__tabs { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.liv-stage.is-on .liv-stage__stack {
+  display: block; position: relative; justify-self: center;
+  width: calc(var(--side) + var(--card) + var(--out));
+  height: calc((var(--card) - 20px) * 1.25 + 20px + 52px);
+}
+.liv-stage.is-on .liv-pc {
+  position: absolute; top: 0; left: var(--side); width: var(--card);
+  transition: transform 900ms var(--ease), opacity 900ms var(--ease), filter 900ms var(--ease);
+}
+/* the stack: active in front; next behind on the right, previous behind on the left */
+.liv-stage.is-on .liv-pc[data-pos="0"]  { transform: none; opacity: 1; filter: saturate(1) brightness(1); z-index: 3; }
+.liv-stage.is-on .liv-pc[data-pos="1"]  { transform: translateX(calc(var(--card) * .26)) scale(.84) rotate(3deg); opacity: .75; filter: saturate(.7) brightness(.96); z-index: 2; pointer-events: none; }
+.liv-stage.is-on .liv-pc[data-pos="-1"] { transform: translateX(calc(var(--card) * -.26)) scale(.84) rotate(-3deg); opacity: .75; filter: saturate(.7) brightness(.96); z-index: 2; pointer-events: none; }
+/* the card that crosses from one back position to the other goes BEHIND the stack and dips in opacity (class set by lifeStage()) */
+.liv-stage.is-on .liv-pc.is-wrap { z-index: 1; animation: life-wrap 900ms var(--ease); }
+@keyframes life-wrap { 0%, 100% { opacity: .75; } 50% { opacity: .3; } }
+
+/* "breathing" between scenes: on the inner wrapper so it never fights the position transform.
+   Front card ±6px / ±.6°, back cards half that in antiphase (--sg -1); the values ease on a scene change. */
+@property --amp { syntax: "<length>"; inherits: false; initial-value: 6px; }
+@property --rt  { syntax: "<angle>";  inherits: false; initial-value: .6deg; }
+@property --sg  { syntax: "<number>"; inherits: false; initial-value: 1; }
+.liv-stage.is-on[data-motion="on"] .liv-pc__in,
+.liv-stage.is-on[data-motion="on"] .liv-pill__in {
+  --amp: 6px; --rt: .6deg; --sg: 1;
+  transition: --amp 900ms var(--ease), --rt 900ms var(--ease), --sg 900ms var(--ease);
+  animation: life-breathe 4s ease-in-out infinite;
+}
+.liv-stage.is-on[data-motion="on"] .liv-pc:not([data-pos="0"]) .liv-pc__in { --amp: 3px; --rt: .3deg; --sg: -1; }
+@keyframes life-breathe {
+  0%, 100% { transform: translateY(0) rotate(calc(var(--rt) * var(--sg) * -1)); }
+  50%      { transform: translateY(calc(var(--amp) * var(--sg) * -1)) rotate(calc(var(--rt) * var(--sg))); }
+}
+
+.liv-stage.is-on .liv-pill {
+  position: absolute; z-index: 4; top: 46%; left: calc(var(--side) + var(--card) - 40px); margin: 0;
+  width: max-content; max-width: 190px; transform: translateY(-50%);
+}
+.liv-stage.is-on .liv-gcard { width: 100%; }
+/* comes out from behind the card's right edge: -40px → 0 with a little overshoot, 250ms after the cards start moving */
+.liv-stage.is-on[data-motion="on"] .liv-pill.is-run { animation: life-pill 600ms var(--ease) 250ms both; }
+@keyframes life-pill {
+  from { opacity: 0; transform: translate(-40px, -50%); z-index: 2; }
+  60%  { opacity: 1; transform: translate(7px, -50%); z-index: 4; }
+  to   { opacity: 1; transform: translate(0, -50%); z-index: 4; }
+}
+
+.liv-tab {
+  position: relative; width: 100%; padding: 15px 18px 17px; text-align: left; cursor: pointer;
+  font: inherit; font-size: 16px; line-height: 1.3; color: var(--gh-ink-2);
+  background: transparent; border: 1px solid var(--gh-line); border-radius: 12px; overflow: hidden;
+  transition: background-color .25s, color .25s, border-color .25s;
+}
+.liv-tab:hover { background: rgba(244, 237, 226, .55); color: var(--gh-ink); }
+.liv-tab[aria-current] { background: var(--gh-cream); color: var(--gh-ink); }
+.liv-tab__bar {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--tl-gold);
+  transform: scaleX(0); transform-origin: left center; visibility: hidden;
+}
+.liv-tab[aria-current] .liv-tab__bar { visibility: visible; }
+
+/* motion: steps start unlit and light up one by one; the timer fills; both restart with .is-run */
+.liv-stage[data-motion="on"] .liv-gcard__dot { background: transparent; }
+.liv-stage[data-motion="on"] .liv-gcard__steps li { color: var(--gh-ink-2); opacity: .75; }
+.liv-stage.is-run .liv-gcard__steps li { animation: life-step-t 450ms var(--ease) both; }
+.liv-stage.is-run .liv-gcard__dot { animation: life-step-d 450ms var(--ease) both; }
+.liv-stage.is-run .liv-gcard__steps li:nth-child(1), .liv-stage.is-run li:nth-child(1) .liv-gcard__dot { animation-delay: calc(var(--life-ms) * .08); }
+.liv-stage.is-run .liv-gcard__steps li:nth-child(2), .liv-stage.is-run li:nth-child(2) .liv-gcard__dot { animation-delay: calc(var(--life-ms) * .22); }
+.liv-stage.is-run .liv-gcard__steps li:nth-child(3), .liv-stage.is-run li:nth-child(3) .liv-gcard__dot { animation-delay: calc(var(--life-ms) * .36); }
+.liv-stage.is-run .liv-gcard__steps li:nth-child(4), .liv-stage.is-run li:nth-child(4) .liv-gcard__dot { animation-delay: calc(var(--life-ms) * .50); }
+@keyframes life-step-t { to { color: var(--gh-ink); opacity: 1; } }
+@keyframes life-step-d { to { background: var(--tl-gold); } }
+.liv-stage.is-run .liv-tab[aria-current] .liv-tab__bar,
+.liv-stage.is-run .liv-dot[aria-current] .liv-dot__bar { animation: life-timer var(--life-ms) linear forwards; }
+@keyframes life-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.liv-stage.is-paused *, .liv-stage.is-paused *::before { animation-play-state: paused !important; }
+/* reduced motion / no autoplay: the active tab and dot just show a full gold bar */
+.liv-stage.is-on:not([data-motion="on"]) .liv-tab[aria-current] .liv-tab__bar,
+.liv-stage.is-on:not([data-motion="on"]) .liv-dot[aria-current] .liv-dot__bar { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) { .liv-stage.is-on .liv-pc { transition: none; } }
+
+/* ≥1024px: tabs | stack | Gia */
+@media (min-width: 1024px) {
+  /* larger composition on desktop (owner, 2026-11-08): bigger cards, tabs, pill and Gia's card */
+  .liv-stage { --card: clamp(230px, 25vw, 380px); }
+  .liv-stage.is-on { grid-template-columns: minmax(190px, 270px) auto minmax(220px, 310px); justify-content: space-between; }
+  .liv-stage.is-on .liv-tab { padding: 18px 22px 20px; font-size: 18px; }
+  .liv-pc figcaption { height: 58px; font-size: 13.5px; }
+  .liv-stage.is-on .liv-stage__stack { height: calc((var(--card) - 20px) * 1.25 + 20px + 58px); }
+  .liv-stage.is-on .liv-pill { max-width: 210px; }
+  .liv-pill__in { font-size: 15px; padding: 9px 20px 9px 9px; }
+  .liv-pill__in img { width: 34px; height: 34px; }
+  .liv-gcard { padding: 28px 28px 30px; max-width: 360px; }
+  .liv-gcard__h { margin-bottom: 20px; font-size: 13px; }
+  .liv-gcard__steps { gap: 18px; }
+  .liv-gcard__steps li { padding-left: 32px; font-size: 18px; }
+  .liv-gcard__dot { top: 5px; width: 16px; height: 16px; }
+}
+/* 769–1023px: tabs become a row on top, stack and Gia side by side */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .liv-stage.is-on { grid-template-columns: auto minmax(200px, 1fr); justify-content: center; }
+  .liv-stage.is-on .liv-stage__tabs { grid-column: 1 / -1; grid-auto-flow: column; justify-content: center; }
+  .liv-stage.is-on .liv-tab { padding: 13px 16px 15px; font-size: 15px; }
+}
+/* ≤768px: stack + dots + one status line (Gia's steps and the tabs are hidden) */
+@media (max-width: 768px) {
+  .liv-stage { --card: min(62vw, 260px); --out: 0px; row-gap: 22px; }
+  .liv-stage__stack { grid-template-columns: 1fr; gap: 24px; }
+  .liv-stage.is-on .liv-stage__tabs, .liv-stage.is-on .liv-gcard, .liv-stage.is-on .liv-pill { display: none; }
+  .liv-stage.is-on .liv-stage__stack { width: calc(var(--side) * 2 + var(--card)); touch-action: pan-y; }
+  .liv-stage.is-on .liv-stage__dots { display: flex; justify-content: center; gap: 0; }
+  .liv-stage.is-on .liv-stage__status {
+    display: block; margin: 0; text-align: center; min-height: 3em;
+    font-size: 15px; line-height: 1.4; color: var(--gh-ink-2);
+  }
+}
+.liv-dot {
+  position: relative; box-sizing: content-box; width: 10px; height: 10px; padding: 0; cursor: pointer;
+  border: 10px solid transparent; border-radius: 999px; background: var(--gh-line); background-clip: padding-box;
+  overflow: hidden; transition: width .4s var(--ease);
+}
+.liv-dot[aria-current] { width: 40px; }
+.liv-dot__bar { position: absolute; inset: 0; background: var(--tl-gold); transform: scaleX(0); transform-origin: left center; }
+@media (max-width: 480px) { .liv-gcard { max-width: none; } }
+
+/* ==========================================================
+   02 · Everyday life with Gia — scene on paper. One interior (window
+   glass is transparent) over four stacked views; the shared .chat
+   (main.css) keeps its history.
+   Default (phones, reduced motion, no JS): the room with the garden
+   view, the chat under it with all four messages, then the four
+   views as small cards. .has-scenes (>=769px, motion-safe): the
+   stage is pinned, the chat sits over the right pane / armchair,
+   giaScene() in living.js runs the views, the place label and the
+   messages (max 3 visible; the chat body grows with them, set by JS).
+   Window glass in the 16:9 frame: x 14–91%, y 6–80%.
+   ========================================================== */
+.liv-gia { position: relative; padding-top: var(--section-y); background: var(--gh-paper); }
+.liv-gia__copy { max-width: 640px; color: var(--gh-ink-2); }
+/* pause after the Gia screen: one line, offset right of the gold line that runs through it into the strip */
+.liv-pause {
+  position: relative; background: var(--gh-paper);
+  min-height: 55svh; display: flex; align-items: center;
+  padding-bottom: clamp(24px, 4vw, 64px);   /* centre, nudged a little above the middle */
+}
+.liv-pause + .liv-settle { padding-top: 0; }
+.liv-pause .container { width: 100%; }
+.liv-pause__line {
+  margin: 0 0 0 calc((100% / 12) * 2);
+  max-width: 11em;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(44px, 6vw, 96px); line-height: 1.04; letter-spacing: -.01em;
+  color: var(--gh-ink);
+}
+.liv-pause__line span { white-space: nowrap; }
+.liv-pause__rail {
+  position: absolute; top: 0; bottom: 0; width: 0; pointer-events: none;
+  left: calc(var(--page-pad) + (100% - 2 * var(--page-pad)) / 12 - 12px);
+}
+.liv-pause__rail i { position: absolute; top: 0; bottom: 0; left: -.5px; width: 1px; background: var(--gp-gold-mid); transform-origin: top; }
+.scenes-pending .liv-pause__rail i { transform: scaleY(0); }
+@media (max-width: 768px) {
+  .liv-pause { min-height: 0; padding-block: clamp(56px, 16vw, 88px) clamp(64px, 18vw, 96px); }
+  .liv-pause__line { margin-left: 0; padding-left: 24px; }
+  .liv-pause__rail { left: var(--page-pad); }
+}
+@media (max-width: 640px) {
+  .liv-pause__line span { display: block; }
+}
+.liv-gia .scene { margin-top: clamp(64px, 7vw, 96px); }
+
+.liv-gia__box { position: relative; }
+.liv-gia__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius);
+  background: #3a3150;
+}
+.liv-gia__zoom { position: absolute; inset: 0; transform-origin: 50% 45%; will-change: transform; }
+/* the views are a little larger than the frame, so their own zoom never opens a gap */
+.liv-gia__view {
+  position: absolute; top: -4%; left: -4%;
+  width: 108%; height: 108%; max-width: none;
+  object-fit: cover;
+  will-change: transform, opacity;
+}
+.liv-gia__interior {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; max-width: none;
+  object-fit: cover;
+}
+/* static: only the garden (last) view; the others don't even load */
+html:not(.has-scenes) .liv-gia__view:not(.liv-gia__view--garden) { display: none; }
+
+/* place label: a small chip in the window's top-left corner */
+.liv-gia__place {
+  position: absolute; z-index: 2;
+  left: calc(14% + 16px); top: calc(6% + 16px);
+  display: grid; margin: 0;
+}
+.liv-gia__place-i {
+  grid-area: 1 / 1;
+  justify-self: start;
+  padding: 7px 12px 6px;
+  border-radius: 999px;
+  background: rgba(20, 12, 8, .42);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--gh-cream);
+}
+html:not(.has-scenes) .liv-gia__place-i:not(:last-child) { display: none; }
+.has-scenes .liv-gia__place-i:not(:first-child) { opacity: 0; }
+
+/* the chat — static: under the frame */
+.liv-gia__chat { position: relative; width: min(100%, 460px); margin: 20px auto 0; }
+.liv-gia__msgs { position: relative; display: grid; gap: 10px; }   /* offsetParent of the items (living.js measures in it) */
+.liv-gia__item { position: relative; display: grid; }
+
+/* static: the four views as small cards, 2 columns */
+.liv-gia__places {
+  list-style: none; margin: 48px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+}
+.liv-gia__places li { min-width: 0; }
+.liv-gia__places figure { margin: 0; }
+.liv-gia__places img {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
+  object-fit: cover; border-radius: var(--radius);
+}
+.liv-gia__places li:nth-child(2) img { object-position: 30% 50%; }   /* the suburb house sits left */
+.liv-gia__places figcaption {
+  margin-top: 10px;
+  font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gh-gold-ink);
+}
+
+/* pinned: the room fills the screen (owner: "you're in the room", not a photo card),
+   with the same thin 12px margin on all four sides. --gia-fh = the height under the
+   header minus the margins; --gia-fw = the stage width (cqw) minus the margins, capped
+   at 1.15 × 16:9 so very wide screens don't lose the top of the window. The image is
+   cover-fitted: --gia-rw/--gia-rh is its rendered size; the place chip follows the glass
+   (x 14%, y 6% of the image) through it. The chat is pinned to the stage at a fixed
+   offset from the frame's top-right corner and a fixed width, so it doesn't scale. */
+.has-scenes .liv-gia__stage {
+  --gia-gap: 12px;
+  container-type: inline-size;
+  display: flex; align-items: center;
+  padding: calc(var(--header-h) + var(--gia-gap)) 0 var(--gia-gap);
+}
+.has-scenes .liv-gia__stage > .container {
+  --gia-fh: calc(100svh - var(--header-h) - 2 * var(--gia-gap));
+  --gia-iw: calc(var(--gia-fh) * 16 / 9);
+  --gia-fw: min(100cqw - 2 * var(--gia-gap), var(--gia-iw) * 1.15);
+  --gia-rw: max(var(--gia-fw), var(--gia-iw));
+  --gia-rh: calc(var(--gia-rw) * 9 / 16);
+  width: 100%; max-width: none; padding-inline: 0;
+}
+.has-scenes .liv-gia__box { position: static; width: var(--gia-fw); margin-inline: auto; }
+.has-scenes .liv-gia__frame { width: var(--gia-fw); height: var(--gia-fh); aspect-ratio: auto; border-radius: 4px; }
+.has-scenes .liv-gia__place {
+  left: calc((var(--gia-fw) - var(--gia-rw)) / 2 + var(--gia-rw) * .14 + 20px);
+  top: max(20px, calc((var(--gia-fh) - var(--gia-rh)) / 2 + var(--gia-rh) * .06 + 20px));
+}
+.has-scenes .liv-gia .scene { margin-top: 0; }   /* the stage's own header clearance is the gap */
+.has-scenes .liv-gia__places { display: none; }
+.has-scenes .liv-gia__chat {
+  position: absolute; z-index: 3;
+  top: calc(var(--header-h) + var(--gia-gap) + 32px);
+  right: calc((100% - var(--gia-fw)) / 2 + 32px);
+  width: 340px;
+  margin: 0;
+}
+@media (max-width: 1100px) { .has-scenes .liv-gia__chat { width: 300px; } }
+/* 12px band at the top for the fade, so a bubble in view is never cut by it */
+.has-scenes .liv-gia__chat .chat__head { margin-bottom: 2px; }
+.has-scenes .liv-gia__body {
+  box-sizing: content-box;
+  height: 0;   /* giaScene() grows it with the messages */
+  padding-top: 12px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(transparent, #000 12px);
+  mask-image: linear-gradient(transparent, #000 12px);
+}
+.has-scenes .liv-gia__msgs { will-change: transform; }
+/* the dots sit in the slot of the message they stand for */
+.has-scenes .liv-gia__item .msg--typing { display: inline-flex; position: absolute; left: 0; top: 0; }
+
+@media (max-width: 768px) {
+  .liv-gia__frame { aspect-ratio: 4 / 3; }
+  .liv-gia__interior { object-position: 62% 50%; }  /* right pane, armchair and table */
+  .liv-gia__place { left: 12px; top: 12px; }
+}
+

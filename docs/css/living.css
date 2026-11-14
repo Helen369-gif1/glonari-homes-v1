@@ -208,6 +208,11 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   text-wrap: balance;
   color: var(--gh-ink);
 }
+.liv-settle__c {
+  grid-column: 3 / 9; margin: clamp(56px, 7vw, 112px) 0 0;
+  font-size: clamp(20px, 1.9vw, 27px); line-height: 1.5;
+  color: var(--gh-ink);
+}
 .liv-settle__b {
   grid-column: 7 / 12; margin: clamp(56px, 7vw, 112px) 0 0;
   font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6;
@@ -233,7 +238,8 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 
 @media (max-width: 1023px) {
   .liv-settle__a { grid-column: 2 / 13; }
-  .liv-settle__b { grid-column: 2 / 10; }
+  .liv-settle__c { grid-column: 2 / 12; }
+  .liv-settle__b { grid-column: 4 / 13; }
 }
 @media (max-width: 768px) {
   .liv-settle__stage { display: flex; flex-direction: column; }
@@ -242,8 +248,9 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   .liv-settle__pic { aspect-ratio: 4 / 3; }
   .liv-settle__pic img { object-position: 62% 50%; }
   .liv-settle__dusk, .liv-settle__scrim { display: none; }
-  .liv-settle__text .eyebrow, .liv-settle__a, .liv-settle__b { grid-column: 1 / -1; }
-  .liv-settle__b { margin-top: 32px; }
+  .liv-settle__text .eyebrow, .liv-settle__a, .liv-settle__c, .liv-settle__b { grid-column: 1 / -1; }
+  .liv-settle__c { margin-top: 32px; }
+  .liv-settle__b { margin-top: 24px; }
   .liv-settle__rail { left: var(--page-pad); }
 }
 
@@ -274,9 +281,15 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   text-wrap: balance;
   color: var(--gh-cream);
 }
+.liv-chap__yes {
+  max-width: 640px; margin: clamp(28px, 3vw, 44px) 0 0;
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(26px, 2.6vw, 38px); line-height: 1.2;
+  color: var(--gh-cream);
+}
 .liv-chap__lead {
   max-width: 560px;
-  margin: clamp(28px, 3vw, 44px) 0 0 min(34%, 440px);
+  margin: clamp(24px, 2.4vw, 36px) 0 0 min(34%, 440px);
   font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6;
   color: rgba(244, 237, 226, .88);
 }
@@ -329,10 +342,12 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
 .liv-chap__s6 { grid-area: 3 / 2; margin-top: clamp(72px, 8vw, 120px); text-align: center; }
 .liv-chap__s6 .eyebrow { justify-content: center; }
 .liv-chap__h--6 { font-size: clamp(34px, 4.2vw, 64px); line-height: 1.04; }
-.liv-sep--2 .liv-sep__a { grid-area: 4 / 1; margin-top: clamp(56px, 6vw, 96px); }
-.liv-sep--2 .liv-sep__and { grid-area: 4 / 2; margin-top: clamp(56px, 6vw, 96px); }
-.liv-sep--2 .liv-sep__b { grid-area: 4 / 3; margin-top: clamp(56px, 6vw, 96px); }
-.liv-sep--2 .liv-sep__end { grid-area: 5 / 2; }
+.liv-sep--2 .liv-sep__a, .liv-sep--2 .liv-sep__b {
+  margin-top: clamp(56px, 6vw, 96px);
+  font-size: clamp(21px, 2vw, 30px); line-height: 1.2;
+}
+.liv-sep--2 .liv-sep__a { grid-area: 4 / 1; }
+.liv-sep--2 .liv-sep__b { grid-area: 4 / 3; }
 
 .liv-chap__risk {
   max-width: 540px;
@@ -358,8 +373,59 @@ html:not(.has-scenes) .liv-hero__cue { display: none; }
   .liv-sep__end { margin: 16px 0 0 21px; font-size: 34px; }
   .liv-chap__s6 { margin: 72px 0 40px; text-align: left; }
   .liv-chap__s6 .eyebrow { justify-content: flex-start; }
-  .liv-sep--2 .liv-sep__a, .liv-sep--2 .liv-sep__and, .liv-sep--2 .liv-sep__b { margin-top: 0; }
+  .liv-sep--2 .liv-sep__a, .liv-sep--2 .liv-sep__b { margin-top: 0; font-size: 26px; }
   .liv-chap__risk { margin-top: 48px; max-width: none; }
+}
+
+/* ==========================================================
+   Three Years, Side by Side — paper pause between two dark blocks (hard edges).
+   A real table drawn as editorial rows: labels | Traditional | 1px gold line | Glonari Home.
+   Only effect: rows come in one by one (data-reveal). Nothing pinned.
+   ========================================================== */
+.liv-three { background: var(--gh-paper); padding-block: var(--section-y); }
+.liv-tbl { display: block; width: 100%; margin: 0; border-collapse: collapse; }
+.liv-tbl caption { display: block; text-align: left; }
+.liv-tbl caption .h2 { margin-bottom: clamp(48px, 5vw, 80px); }
+.liv-tbl thead, .liv-tbl tbody { display: block; }
+.liv-tbl tr {
+  position: relative; display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.15fr) minmax(0, 1.45fr);
+  border-top: 1px solid rgba(31, 26, 20, .16);
+}
+
+.liv-tbl th, .liv-tbl td { text-align: left; font-weight: 400; padding: clamp(24px, 2.6vw, 40px) clamp(20px, 3vw, 48px); min-width: 0; }
+.liv-tbl th:first-child { padding-left: 0; }
+.liv-tbl thead tr { border-top: 0; }
+.liv-tbl thead th {
+  padding-block: 0 20px;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(18px, 1.6vw, 22px); color: var(--gh-ink);
+}
+.liv-tbl thead th:first-child { font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; align-self: end; color: var(--gh-ink-2); }
+.liv-tbl tbody th {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.35; color: var(--gh-ink);
+}
+.liv-tbl td { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--gh-ink-2); }
+.liv-tbl tbody td:last-child { color: var(--gh-ink); border-left: 1px solid var(--gp-gold-mid); }   /* the 1px gold divider: a cell border, so it sits on a whole pixel and runs through every row */
+.liv-rest { display: block; margin-top: 12px; }
+.liv-num {
+  font-family: var(--font-word); font-weight: 500; font-size: clamp(44px, 5.2vw, 78px); line-height: 1; letter-spacing: -.01em; color: var(--gh-ink);
+}
+.liv-three__note {
+  max-width: 760px; margin: clamp(40px, 4vw, 64px) 0 0 auto;
+  font-size: 16px; line-height: 1.6; color: var(--gh-ink-2);
+}
+@media (max-width: 768px) {
+  .liv-tbl tr { grid-template-columns: minmax(0, 1fr); padding-block: 8px 20px; }
+  .liv-tbl thead { display: none; }
+  .liv-tbl th, .liv-tbl td { padding: 12px 0; }
+  .liv-tbl th:first-child { padding-left: 0; }
+  .liv-tbl tbody th { padding-bottom: 4px; }
+  .liv-tbl td:last-child { padding-left: 20px; border-left: 1px solid var(--gp-gold-mid); }
+  .liv-tbl td:nth-of-type(1)::before { content: "Traditional ownership"; }
+  .liv-tbl td:nth-of-type(2)::before { content: "Glonari Home"; }
+  .liv-tbl td::before { display: block; font-family: var(--font-mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--gh-ink-2); margin-bottom: 6px; }
+  .liv-num { font-size: 48px; }
+  .liv-three__note { margin-left: 0; }
 }
 
 /* ==========================================================

@@ -104,6 +104,18 @@ The italic notes in the document are questions for the owner, not site copy: the
 - Screen 04: the document has **no captions** for the three figures. Possible captions made only from the document's own words: "a $1 million home" / "$400,000 target for additional operating-business value" / "a potential $1.4 million in combined gross economic value". For now the full document sentence stands under the line and the figures have no captions.
 - Screen 05: a small label "36 months" next to $437.83 (the phrase is in the paragraph; not duplicated as a label).
 
+## Page 06 — FAQs (built 2026-11-14)
+
+**Document notes (not published):** Living, "ten years": agreement term, renewal, termination · "buy my home": price and GPA toward it · "Glonari sells the house": resident's protections · Monthly: none · GPA: dividend policy · Gia: eligibility for Global Connections outside Glonari; verified list of Gia's features · Leaving: transfer policy, availability, notice, charges; ten-year example. These five questions show "The final terms will be set out in the program agreements." (owner, 2026-11-12).
+
+**Proposal (not published):** the document has no question about what happens if the Global Connections benefit is not funded or available. Suggest adding to Monthly payments: "What if the Global Connections benefit is not available?" with an answer from the owner/lawyer.
+
+**Repeats in the document (kept verbatim, different groups):** "you know your minimum monthly cost for many years ahead" (Living "ten years", Monthly "in advance"); "Shares you no longer need can be sold or applied to another property" (GPA ×2, Leaving ×2). Decide whether to shorten.
+
+**For the lawyer:** "Until then, ordinary families cannot join at first."; "so you never have to worry about it"; "historically been positive" (Case-Shiller); "an agreed amount, … automatically" — published as written.
+
+**Placeholders:** `placeholder-faq-evening-table-*`, `placeholder-faq-open-door-*` (2560×1100 and 1600×688, 21:9, no text). Wanted: warm evening table by a window, no faces; morning entry, door ajar, key on a console.
+
 ## Home — "The cost" (2026-11-13)
 
 - Оговорка про planned benefit убрана вместе с лидом под `.econ` ("…provided the planned benefit is available."): документ называет выгоду agreed amount, нужен ответ владельца/юриста.

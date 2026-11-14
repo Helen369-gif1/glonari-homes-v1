@@ -2,6 +2,14 @@
 
 Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-14 (FAQs built, 7 screens) — not committed
+Copies before: `masters/retired/faqs|OPEN-QUESTIONS|PROJECT-STATUS|SITE-STRUCTURE-before-faqs-2026-11-14.*`. Files: `docs/faqs.html` (`.stub` gone), new `css/faqs.css`, `js/faqs.js` (opens the group/question a #hash points to). Header, footer, other pages untouched.
+- Owner's choices: final 07 on paper (no dark band, footer is the page's only dark), group numbers 01–05, two photo pauses.
+- Screens: 01 type-only intro (h1 lines rise, lead + 18px agreement note under a gold line, staircase) · groups `#faq-01…05` (big Cormorant number + Playfair title sticky on the left ≥1024px, questions on cols 6–12 as `details/summary`, 1px lines, answers Plex 18px, first question of each group open) · pause A after "Monthly payments", pause B after "Gia and Global Connections" (`placeholder-faq-evening-table|open-door-2560/1600.webp`, 21:9, copies cropped from living-00 kitchen and find-final-bg) · 07 final (headline, gold line, lead, "Explore Your Home" / "How It Works"). No pins, no dark band.
+- 27 questions; the 5 with only an italic note show "The final terms will be set out in the program agreements."
+- Checked 1440/1024/768/375 + reduced motion 1440/375: console clean, no horizontal scroll, all text ≥16px, section gaps = one `--section-y` (158/113/96/96; with motion the pauses read +28px before they reveal, that is the reveal offset). No "brochure"/"illustrative"/"Home Business". Shots `review/faqs-*.png` (effects are reveals, no mid-scroll frame).
+- Next: real images for the two pauses (replace placeholders); lawyer items in OPEN-QUESTIONS.
+
 ## 2026-11-14 (Glonari Properties: hero shade, screen 03 redone) — not committed
 Copies before: `masters/retired/glonari-properties|properties-before-prop-03-2026-11-14.html|css|js`.
 - Hero: no "01 / 07" (eyebrow numbering starts on screen 02; "PROPERTIES" stays a temporary word). Bottom shade strengthened (`.np-hero__shade`, smooth stops, no edge; phones separately). Measured on the real pixels at the pin end, worst pixel under the copy vs the text colour: paragraphs 5.3 / 5.4 / 5.8 / 6.3 at 1440 / 1280 / 1024 / 1920, 9.9 at 768, 7.8 at 375; title 5.5–6.1 desktop, 4.7 at 375 (was 2.5–3.2). Before the change: 2.4–3.2.

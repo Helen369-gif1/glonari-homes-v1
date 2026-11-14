@@ -1,0 +1,348 @@
+﻿/* ==========================================================
+   Glonari Homes — Glonari Properties & GPA (Page 05, 7 screens)
+   Page-only styles. Shared tokens/components live in main.css.
+   An investor page: calmer and stricter than Home, same design language.
+
+   01 hero (scene) · 02 company (pause) · 03 GPA shares (type only)
+   · 04 value (scene) · 05 NAV+ (the only dark band) · 06 selling (pause)
+   · 07 advanced strategies (last screen)
+
+   Default CSS = the static final layout (phones, reduced motion, no JS).
+   .has-scenes (properties.js, >=769px) pins 01 and 04: two pins.
+   Disclaimers: >=16px, ink/cream on calm paper/brown, never on a photo.
+   ========================================================== */
+
+.np-page { overflow-x: clip; }
+
+/* ---------- shared: section heading (Playfair, calm) ---------- */
+.np-h {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 4.8vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+.np-h--wide { max-width: 18ch; }
+.np-nowrap { white-space: nowrap; }
+@media (max-width: 420px) { .np-nowrap { white-space: normal; } }
+.np-h--light { color: #FBF4E8; }
+
+/* ---------- 01 hero: ported from the Already-Own-a-Home hero (own.css), same layers, shade, copy timing; word and copy are this page's ---------- */
+.np-hero__stage {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #8a4f5a;
+}
+.np-hero__frame {
+  --fx: 50%;                       /* horizontal anchor of the frame = screen centre */
+  --wx: 41%;                     /* centre of the word: its last letter sits behind the woman's head */
+  position: absolute;
+  left: 50%;
+  top: calc((100svh - max(56.25vw, 100svh)) * .4);
+  width: max(100vw, 177.78svh);
+  aspect-ratio: 16 / 9;
+  transform: translateX(calc(var(--fx) * -1));
+}
+.np-hero__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform-origin: 78% 30%;       /* house and woman zoom around her face, so she stays on the porch and under the header */
+  will-change: transform;
+}
+/* the woman a bit smaller than in the source (owner's reference): she sits further back on the porch,
+   feet and deck visible. CSS `scale` composes with GSAP's transform (the scroll zoom) */
+.np-hero__woman, .np-hero__shadow { scale: .86; translate: -2% 0.5%; }   /* = WOMAN, WX, WY in own.js */
+.np-hero__shadow {   /* soft contact shadows on the deck: under the pouf, the chair and feet, the lantern. Positions are % of the 2000x1126 frame */
+  background:
+    radial-gradient(ellipse 13% 3.2% at 54% 89.2%, rgba(14, 6, 2, .85), rgba(14, 6, 2, .45) 50%, transparent 78%),
+    radial-gradient(ellipse 16% 3.4% at 65% 93.6%, rgba(14, 6, 2, .8), rgba(14, 6, 2, .42) 50%, transparent 78%),
+    radial-gradient(ellipse 7% 2.2% at 92.5% 95.4%, rgba(14, 6, 2, .9), rgba(14, 6, 2, .5) 50%, transparent 78%);
+  pointer-events: none;
+}
+.np-hero__word {
+  position: absolute;
+  left: var(--wx);
+  bottom: 56%;                     /* under the porch roof, well clear of the header; the woman's hand overlaps the last letter */
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: min(7.6vw, 17svh);                   /* a long word: smaller than "HOME" (12.4vw) so it stays clear of the menu and the woman */
+  line-height: .72;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #FBF4E8;
+  text-shadow: 0 1px 3px rgba(50, 22, 10, .35), 0 2px 14px rgba(60, 28, 14, .55), 0 2px 44px rgba(70, 30, 20, .4);   /* the H stands over a light porch column */
+}
+
+.np-hero__shade {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(20, 12, 8, .82) 0%, rgba(20, 12, 8, .66) 24%, rgba(20, 12, 8, .44) 38%, rgba(20, 12, 8, .2) 52%, rgba(20, 12, 8, .06) 62%, rgba(20, 12, 8, 0) 70%),
+    linear-gradient(90deg, rgba(20, 12, 8, .5) 0%, rgba(20, 12, 8, .2) 22%, rgba(20, 12, 8, 0) 45%);
+}
+.np-hero__copy {
+  position: absolute; z-index: 6; left: 0; right: 0;
+  bottom: clamp(40px, 8svh, 84px);
+}
+.np-hero__copy-in {
+  width: min(100%, calc(var(--container) + 2 * var(--page-pad)));
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+.np-hero__title {
+  max-width: 620px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--gp-text);
+  text-shadow: 0 2px 24px rgba(5, 4, 2, .35);
+}
+.np-hero__sub {
+  max-width: 500px;
+  margin: 16px 0 0;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: rgba(246, 240, 231, .88);
+  text-shadow: 0 1px 14px rgba(5, 4, 2, .45);
+}
+/* same cue as the home hero / How It Works / Living */
+.np-hero__cue { position: absolute; z-index: 6; right: var(--page-pad); bottom: 28px; pointer-events: none; }   /* the line only: the word "Scroll" is not in the document */
+.np-hero__cue::after {
+  content: ""; width: 1px; height: 36px;
+  background: linear-gradient(rgba(246, 240, 231, .9), rgba(246, 240, 231, 0));
+  transform-origin: top; animation: npCue 2.4s var(--ease) infinite;
+}
+@keyframes npCue { 0% { transform: scaleY(0); opacity: 1; } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+html:not(.has-scenes) .np-hero__cue { display: none; }
+
+/* before GSAP takes over (see the inline script in <head>): hide the start states,
+   so the first frame is the sunset + the word */
+.scenes-pending .np-hero__house,
+.scenes-pending .np-hero__woman,
+.scenes-pending .np-hero__shadow,
+.scenes-pending [data-hcopy],
+.scenes-pending .np-hero__shade { opacity: 0; }
+
+/* Portrait screens: frame fills the height, centred on the woman;
+   "HOME" fits on one line above her */
+@media (max-aspect-ratio: 1/1) {
+  .np-hero__frame { --fx: 72%; --wx: 72%; top: 0; width: auto; height: 100svh; }
+  .np-hero__word { bottom: 74%; font-size: min(12.5vw, 96px); line-height: .8; }
+  .np-hero__shade { background: linear-gradient(0deg, rgba(20, 12, 8, .92) 0%, rgba(20, 12, 8, .84) 32%, rgba(20, 12, 8, .66) 46%, rgba(20, 12, 8, .34) 58%, rgba(20, 12, 8, .1) 68%, rgba(20, 12, 8, 0) 78%); }
+}
+
+/* the copy: title + button, then the two paragraphs (Living hero layout). >=1024px: two columns at the bottom */
+.np-hero__sub p { margin: 0 0 12px; }
+.np-hero__sub p:last-child { margin-bottom: 0; }
+.np-hero__sub { max-width: 560px; }
+.np-hero__btn { margin-top: 28px; }
+@media (min-width: 1024px) {
+  .np-hero__copy-in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(54%, 700px));
+    column-gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+  }
+  .np-hero__title { grid-area: 1 / 1; align-self: end; }
+  .np-hero__btn { grid-area: 2 / 1; justify-self: start; align-self: start; }
+  .np-hero__sub { grid-area: 1 / 2 / span 2; align-self: end; max-width: none; margin: 0; font-size: clamp(16px, 1.2vw, 18px); }
+}
+
+/* ---------- 02 company ---------- */
+.np-company { padding-top: clamp(120px, 16vw, 240px); }   /* follows a pinned scene: the larger norm (DS 5.2) */
+.np-company__grid {
+  --bleed: max(var(--page-pad), calc((100vw - var(--container)) / 2 + var(--page-pad)));
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+  align-items: start;
+}
+.np-company__fig { grid-column: 1 / 6; margin: 0 0 0 calc(var(--bleed) * -1); }
+.np-company__fig img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 0 2px 2px 0; }
+/* the text starts lower than the photo's top and hangs from the gold hairline: no twin columns */
+.np-company__text { grid-column: 7 / 13; padding-top: clamp(40px, 9vw, 150px); }
+.np-company__text .np-h { margin-top: 0; }
+.np-company__a { margin: clamp(28px, 3vw, 44px) 0 0; max-width: 24em; }
+.np-company__b { margin: 20px 0 0; max-width: 28em; font-size: 18px; line-height: 1.6; color: var(--gh-ink); padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); }
+@media (max-width: 899px) {
+  .np-company__fig { grid-column: 1 / -1; margin: 0 calc(var(--bleed) * -1) 0 calc(var(--bleed) * -1); }
+  .np-company__fig img { border-radius: 0; aspect-ratio: 4 / 4.2; }
+  .np-company__text { grid-column: 1 / -1; padding-top: clamp(40px, 8vw, 64px); }
+}
+
+/* ---------- 03 GPA shares: type only. Two-line headline across the container, three paragraphs as a staircase on the 12-column grid,
+   one 1px gold line down their left edge (drawn by scroll) that ends in a 13px ring; the accredited / SEC line stands under a hairline ---------- */
+.np-shares { padding-top: var(--section-y); }   /* only padding-top (DS 5) */
+.np-shares .eyebrow { margin-bottom: 20px; }
+.np-shares__title {
+  margin: 0;
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(48px, 6.4vw, 104px);
+  line-height: 1.04; letter-spacing: -.015em;
+}
+.np-shares__l1, .np-shares__l2 { display: block; }
+.np-shares__l1 { color: var(--gh-ink); }
+.np-shares__l2 { color: var(--gh-gold-ink); }
+.np-shares__grid {
+  position: relative;
+  margin-top: clamp(64px, 6vw, 96px);                                /* headline -> first paragraph */
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(40px, 4.5vw, 72px);
+}
+.np-shares__grid p { margin: 0; text-wrap: pretty; }
+.np-shares__a { grid-column: 2 / 8; grid-row: 1; }
+.np-shares__b { grid-column: 7 / 13; grid-row: 2; font-size: 18px; line-height: 1.6; }
+.np-shares__c { grid-column: 2 / 9; grid-row: 3; }
+/* the gold line: along the left edge of the three paragraphs (12px left of column 2), top of the first to the foot of the last, ring at its end */
+.np-shares__rail { grid-column: 1 / -1; grid-row: 1 / 4; position: relative; pointer-events: none; }
+.np-shares__rail i, .np-shares__rail b { position: absolute; }
+.np-shares__rail i { top: 0; bottom: 0; width: 1px; background: var(--gp-gold-mid); transform-origin: top; left: calc((100% + clamp(16px, 2vw, 32px)) / 12 - 12px); }
+.np-shares__rail b { bottom: -6.5px; width: 13px; height: 13px; border-radius: 50%; border: 1px solid var(--gp-gold-mid); background: var(--gh-cream); left: calc((100% + clamp(16px, 2vw, 32px)) / 12 - 12px - 6px); }
+.np-shares__d {
+  grid-column: 2 / 13; grid-row: 4;
+  margin-left: -12px; padding: 24px 0 0 12px; border-top: 1px solid var(--gp-gold-mid);
+  font-size: 18px; line-height: 1.55; max-width: 38em;
+}
+@media (max-width: 768px) {
+  /* one column, the line on the left */
+  .np-shares__title { font-size: clamp(40px, 11vw, 64px); }
+  .np-shares__grid { grid-template-columns: minmax(0, 1fr); padding-left: 28px; }
+  .np-shares__a, .np-shares__b, .np-shares__c, .np-shares__d { grid-column: 1; }
+  .np-shares__rail { grid-column: 1; }
+  .np-shares__rail i { left: -16px; }
+  .np-shares__rail b { left: -22.5px; }
+  .np-shares__d { margin-left: -28px; padding-left: 28px; }
+}
+
+/* ---------- 04 value: three figures on one gold line (scene) ---------- */
+/* static: one --section-y above and below. Pinned (.has-scenes): the stage centres the content under the header and brings its own air;
+   the scene is followed by the dark band, so the paper blank under the content + this margin stays >= clamp(120px, 16vw, 240px) */
+.np-calc { padding-top: var(--section-y); margin-bottom: var(--section-y); }
+.has-scenes .np-calc { padding-top: 0; margin-bottom: clamp(48px, 6vw, 96px); }
+.has-scenes .np-calc__stage { display: flex; align-items: center; padding-top: var(--header-h); }
+.np-calc__in { width: min(100%, calc(var(--container) + 2 * var(--page-pad))); margin-inline: auto; }
+.np-calc__title { margin-top: 0; max-width: 20ch; font-size: clamp(32px, min(4.4vw, 7svh), 64px); }
+.np-calc .eyebrow { margin-bottom: 16px; }
+.np-calc__sum {
+  margin-top: clamp(32px, 6svh, 72px);
+  display: flex; align-items: baseline; justify-content: space-between; gap: clamp(8px, 1.4vw, 24px);
+  font-family: var(--font-word); font-weight: 500; line-height: 1;
+  font-size: clamp(30px, min(5.2vw, 11svh), 88px);
+  white-space: nowrap;
+}
+.np-calc__op { color: var(--gh-gold-ink); font-weight: 500; }
+.np-calc__line { height: 1px; margin-top: clamp(14px, 2svh, 24px); background: var(--gp-gold-mid); transform-origin: left center; }
+.np-calc__texts {
+  margin-top: clamp(24px, 4svh, 48px);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: 20px;
+}
+.np-calc__texts p { margin: 0; text-wrap: pretty; }
+.np-calc__a { grid-column: 1 / 8; font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, min(2vw, 3.6svh), 28px); line-height: 1.32; }
+.np-calc__a strong { font-weight: 500; }
+.np-calc__b { grid-column: 9 / 13; font-size: 18px; line-height: 1.55; align-self: end; }
+@media (max-width: 1100px) {
+  .np-calc__a { grid-column: 1 / 8; }
+  .np-calc__b { grid-column: 8 / 13; }
+}
+@media (max-width: 768px) {
+  .np-calc__title { font-size: clamp(34px, 9vw, 48px); }
+  .np-calc__sum {
+    flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 4px;
+    font-size: clamp(44px, 14vw, 72px);
+    padding-left: 20px; border-left: 1px solid var(--gp-gold-mid);
+  }
+  .np-calc__line { display: none; }
+  .np-calc__texts { grid-template-columns: 1fr; }
+  .np-calc__a, .np-calc__b { grid-column: 1 / -1; }
+  .np-calc__b { font-size: 16px; }
+}
+.scenes-pending .np-calc__n, .scenes-pending .np-calc__op { opacity: 0; }
+
+/* ---------- 05 NAV+: the page's only dark band, hard edges ---------- */
+.np-nav { background: var(--gh-brown); color: var(--gp-text); padding-block: var(--section-y); }
+.np-nav__grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px); row-gap: 56px; align-items: start;
+}
+.np-nav__left { grid-column: 1 / 6; }
+.np-nav__right { grid-column: 7 / 13; padding-top: clamp(0px, 4vw, 72px); }
+.np-nav .eyebrow { margin-bottom: 20px; }
+.np-nav__a { margin: clamp(32px, 3.4vw, 48px) 0 0; font-size: 19px; line-height: 1.55; color: var(--gp-text); }
+.np-nav__b { margin: 20px 0 0; font-size: 19px; line-height: 1.55; color: var(--gp-text); }
+.np-nav__b strong { font-weight: 600; color: var(--gp-champagne); }
+.np-nav__fig {
+  display: grid; grid-template-columns: auto 1fr; grid-template-areas: "from rule" "to to";
+  align-items: center; gap: clamp(8px, 1.4vw, 20px) clamp(16px, 2vw, 32px);
+  font-family: var(--font-word); font-weight: 500; line-height: .9;
+}
+.np-nav__from { grid-area: from; font-size: clamp(34px, 3.6vw, 56px); color: var(--gp-champagne); }
+.np-nav__rule { grid-area: rule; height: 1px; background: var(--gp-gold-mid); transform-origin: left center; }
+.np-nav__to { grid-area: to; position: relative; font-size: clamp(64px, 9.6vw, 148px); color: #FBF4E8; }
+.np-nav__ghost { visibility: hidden; }
+.np-nav__live { position: absolute; left: 0; top: 0; }
+.np-nav__c {
+  margin: clamp(28px, 3vw, 44px) 0 0; padding-left: 24px; border-left: 1px solid var(--gp-gold-mid);
+  max-width: 24em;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(21px, 1.9vw, 27px); line-height: 1.35; color: #FBF4E8;
+}
+@media (max-width: 899px) {
+  .np-nav__left, .np-nav__right { grid-column: 1 / -1; padding-top: 0; }
+  .np-nav__to { font-size: clamp(64px, 22vw, 120px); }
+}
+
+/* ---------- 06 selling: heading, panorama bleeding off the right, text staircase ---------- */
+.np-sell { padding-top: var(--section-y); }
+.np-sell .eyebrow { margin-bottom: 20px; }
+.np-sell__fig {
+  --bleed-l: max(var(--page-pad), calc((100vw - var(--container)) / 2 + var(--page-pad)));
+  margin: clamp(48px, 6vw, 96px) 0 0 var(--bleed-l);
+}
+.np-sell__fig img { width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; border-radius: 2px 0 0 2px; }
+.np-sell__grid {
+  margin-top: clamp(48px, 5vw, 80px);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(32px, 4vw, 56px);
+}
+.np-sell__grid p { margin: 0; text-wrap: pretty; }
+.np-sell__a { grid-column: 1 / 6; font-size: 18px; line-height: 1.6; }
+.np-sell__b { grid-column: 7 / 13; margin-top: 0; }
+.np-sell__c { grid-column: 3 / 8; font-size: 18px; line-height: 1.6; }
+.np-sell__d { grid-column: 8 / 13; padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); font-size: 18px; line-height: 1.6; }
+@media (max-width: 899px) {
+  .np-sell__a, .np-sell__b, .np-sell__c, .np-sell__d { grid-column: 1 / -1; }
+  .np-sell__fig img { aspect-ratio: 2 / 1; }
+}
+
+/* ---------- 07 advanced strategies: the last screen, its own bottom --section-y ---------- */
+.np-adv { padding-top: var(--section-y); padding-bottom: var(--section-y); }
+.np-adv .eyebrow { margin-bottom: 20px; }
+.np-adv__rule { height: 1px; background: var(--gp-gold-mid); margin: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 56px); transform-origin: left center; }
+.np-adv__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: 32px; align-items: start; }
+.np-adv__a { grid-column: 1 / 7; margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.1vw, 30px); line-height: 1.3; text-wrap: pretty; }
+.np-adv__side { grid-column: 8 / 13; }
+.np-adv__side p { margin: 0 0 32px; font-size: 18px; line-height: 1.6; text-wrap: pretty; }
+@media (max-width: 899px) {
+  .np-adv__a, .np-adv__side { grid-column: 1 / -1; }
+}
+
+
+
+
+
+

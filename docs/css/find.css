@@ -136,7 +136,7 @@ html:not(.has-scenes) .find-hero__cue { display: none; }
 }
 
 /* ---------- 02 where ---------- */
-.find-where { padding-top: calc(var(--section-y) * 1.5); }
+.find-where { padding-top: var(--section-y); }   /* norm §5.1: one --section-y from the section top to the eyebrow */
 .find-where__grid {
   margin-top: clamp(32px, 4vw, 64px);
   display: grid;

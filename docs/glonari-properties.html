@@ -1,16 +1,25 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glonari Properties &middot; Glonari Homes</title>
 <meta name="description" content="Glonari Properties is the real estate business designed to acquire, own, and manage a growing portfolio of residential properties.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/properties.css">
 </head>
-<body class="no-js">
+<body class="no-js np-page">
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -41,12 +50,160 @@
 </header>
 <!-- /partial:header -->
 
-<main id="main" class="stub">
-  <div class="container">
-    <p class="eyebrow">Glonari Properties</p>
-    <h1 class="h2">The Company Behind the Homes.</h1>
-    <p>This page is being built. Meanwhile, start from the <a href="index.html">home page</a>.</p>
-  </div>
+<main id="main">
+
+  <!-- ============ 01 Hero (scene, pin 1 of 2): the Already-Own-a-Home hero, layer for layer (sunset · porch home · word · woman), with this page's copy ============ -->
+  <section class="np-hero" aria-labelledby="np-title" data-hero>
+    <div class="scene" data-scene="np-hero" style="--travel: 180svh">
+      <div class="scene__stage np-hero__stage">
+        <div class="np-hero__frame">
+          <img class="np-hero__layer np-hero__sky" src="assets/images/own-00-sunset-bg-1600.webp"
+               srcset="assets/images/own-00-sunset-bg-1600.webp 1600w, assets/images/own-00-sunset-bg-2000.webp 2000w"
+               sizes="max(100vw, 177.8svh)" width="2000" height="1126" alt="" fetchpriority="high">
+          <img class="np-hero__layer np-hero__house" src="assets/images/own-00-porch-house-1600.webp"
+               srcset="assets/images/own-00-porch-house-1600.webp 1600w, assets/images/own-00-porch-house-2000.webp 2000w"
+               sizes="max(100vw, 177.8svh)" width="2000" height="1126" alt="" fetchpriority="high">
+          <div class="np-hero__layer np-hero__wordbox" aria-hidden="true">
+            <p class="np-hero__word">Properties</p>
+          </div>
+          <div class="np-hero__layer np-hero__shadow" aria-hidden="true"></div>
+          <img class="np-hero__layer np-hero__woman" src="assets/images/own-00-woman-cutout-1600.webp"
+               srcset="assets/images/own-00-woman-cutout-1600.webp 1600w, assets/images/own-00-woman-cutout-2000.webp 2000w"
+               sizes="max(100vw, 177.8svh)" width="2000" height="1126" fetchpriority="high"
+               alt="A woman with a cup of tea relaxes in a wicker chair on the porch of a craftsman home at golden hour">
+        </div>
+
+        <div class="np-hero__shade" aria-hidden="true"></div>
+
+        <div class="np-hero__copy">
+          <div class="np-hero__copy-in">
+            <h1 class="np-hero__title" id="np-title" data-hcopy>The Company Behind the Homes.</h1>
+            <div class="np-hero__sub" data-hcopy>
+              <p>Glonari Properties&trade; is the real estate business designed to acquire, own, and manage a growing portfolio of residential properties.</p>
+              <p>Its GPA Class A shares offer eligible investors participation in the broader company&mdash;not direct ownership of a particular home.</p>
+            </div>
+            <a class="btn btn--light np-hero__btn" href="#company" data-hcopy>Explore Glonari Properties</a>
+          </div>
+        </div>
+
+        <div class="np-hero__cue" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 The company (pause): tall street photo bleeding off the left, text lower right ============ -->
+  <section class="np-company" id="company" aria-labelledby="company-title">
+    <div class="container np-company__grid">
+      <figure class="np-company__fig">
+        <!-- master: masters/properties-company-street.png (2400x3000) -->
+        <img src="assets/images/properties-company-street-1200.webp"
+             srcset="assets/images/properties-company-street-800.webp 800w, assets/images/properties-company-street-1200.webp 1200w"
+             sizes="(min-width: 900px) 40vw, 100vw" width="1200" height="1500" alt="A sunlit residential street lined with olive trees, lavender and Mediterranean-style homes" loading="lazy">
+      </figure>
+      <div class="np-company__text" data-reveal>
+        <p class="eyebrow">02 / 07</p>
+        <h2 class="np-h" id="company-title">Real Homes. <span class="np-nowrap">A Broader Business.</span></h2>
+        <p class="np-company__a lead">Glonari Properties aims to combine residential ownership and management with Gia-powered operations, coordinated purchasing, preventive maintenance, and resident services.</p>
+        <p class="np-company__b">The goal is to improve operating efficiency and create economic value beyond the property alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 What are GPA shares? (type only, no image: two-line headline, three paragraphs as a staircase along one gold line, the accredited / SEC line under a hairline) ============ -->
+  <section class="np-shares" aria-labelledby="shares-title">
+    <div class="container">
+      <p class="eyebrow">03 / 07</p>
+      <h2 class="np-shares__title" id="shares-title"><span class="np-shares__l1">Own Part of the Business.</span> <span class="np-shares__l2">Not a Particular House.</span></h2>
+      <div class="np-shares__grid">
+        <div class="np-shares__rail" aria-hidden="true"><i></i><b></b></div>
+        <p class="np-shares__a lead" data-reveal>GPA Class A represents equity in Glonari Properties.</p>
+        <p class="np-shares__b" data-reveal>Instead of investing only in one property, eligible investors may participate in a business associated with a wider portfolio of real estate and related operations.</p>
+        <p class="np-shares__c lead" data-reveal>Glonari Members hold GPA equal to at least 20% of the value of their home. GPA shares do not give an investor ownership of the home in which they live.</p>
+        <p class="np-shares__d" data-reveal>GPA is initially limited to accredited investors until full SEC authorization is received. After that, anyone can hold it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 Where value may come from (scene, pin 2 of 2): three figures on one gold line, drawn by scroll ============ -->
+  <section class="np-calc" aria-labelledby="calc-title">
+    <div class="scene" data-scene="np-calc" style="--travel: 80svh">
+      <div class="scene__stage np-calc__stage">
+        <div class="container np-calc__in">
+          <p class="eyebrow">04 / 07</p>
+          <h2 class="np-h np-calc__title" id="calc-title">What If Real Estate Could Work More Efficiently?</h2>
+          <div class="np-calc__sum" data-sum>
+            <span class="np-calc__n" data-n>$1,000,000</span>
+            <span class="np-calc__op" data-n aria-hidden="true">+</span>
+            <span class="np-calc__n" data-n>$400,000</span>
+            <span class="np-calc__op" data-n aria-hidden="true">=</span>
+            <span class="np-calc__n np-calc__n--total" data-n>$1,400,000</span>
+          </div>
+          <div class="np-calc__line" aria-hidden="true"></div>
+          <div class="np-calc__texts">
+            <p class="np-calc__a">Our model pairs a $1 million home with a <strong>$400,000 target for additional operating-business value</strong>&mdash;a potential $1.4 million in combined gross economic value.</p>
+            <p class="np-calc__b">This is a planning target, not an independent appraisal of the home or a proven operating result.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 Understanding NAV+ (the page's only dark band, hard edges, no pin): one figure, the caveat as loud as the figure ============ -->
+  <section class="np-nav" aria-labelledby="nav-title">
+    <div class="container np-nav__grid">
+      <div class="np-nav__left">
+        <p class="eyebrow eyebrow--light">05 / 07</p>
+        <h2 class="np-h np-h--light" id="nav-title">Modeled Value Is Not Cash in Hand.</h2>
+        <p class="np-nav__a" data-reveal>Our model uses NAV+ to estimate economic value under different scenarios.</p>
+        <p class="np-nav__b" data-reveal>GPA is designed to appreciate at least in line with the 10-Year Case-Shiller housing index. In the base scenario, a share starts at <strong>$100</strong> and reaches a modeled <strong>$437.83</strong> after 36 months.</p>
+      </div>
+      <div class="np-nav__right">
+        <div class="np-nav__fig" data-fig>
+          <span class="np-nav__from">$100</span>
+          <span class="np-nav__rule" aria-hidden="true"></span>
+          <span class="np-nav__to"><span class="np-nav__ghost" aria-hidden="true">$437.83</span><span class="np-nav__live" data-count="437.83" data-from="100">$437.83</span></span>
+        </div>
+        <p class="np-nav__c">These figures are modeled scenarios, not available cash or guaranteed sale prices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 Can shares be sold? (pause): heading, panorama bleeding off the right, text staircase ============ -->
+  <section class="np-sell" aria-labelledby="sell-title">
+    <div class="container">
+      <p class="eyebrow">06 / 07</p>
+      <h2 class="np-h np-h--wide" id="sell-title">Know How You Could Access Your Investment.</h2>
+    </div>
+    <figure class="np-sell__fig">
+      <!-- master: masters/properties-access-panorama.png (3600x1200) -->
+      <img src="assets/images/properties-access-panorama-2560.webp"
+           srcset="assets/images/properties-access-panorama-1600.webp 1600w, assets/images/properties-access-panorama-2560.webp 2560w"
+           sizes="100vw" width="2560" height="853" alt="A hillside neighborhood of Mediterranean-style homes among olive trees, with a winding road" loading="lazy">
+    </figure>
+    <div class="container np-sell__grid">
+      <p class="np-sell__a" data-reveal>As GPA appreciates, a member&rsquo;s required minimum goes down each month. Shares beyond the minimum can be sold or applied to another property.</p>
+      <p class="np-sell__b lead" data-reveal>GPA has no promised trading market, listing, redemption, share repurchase, or minimum price.</p>
+      <p class="np-sell__c" data-reveal>A sale of eligible shares or a lender-approved loan secured by shares may provide funds under certain conditions. Neither changes the contractual Glonari Home fee.</p>
+      <p class="np-sell__d" data-reveal>Borrowing creates repayment obligations and interest. Selling shares reduces the investor&rsquo;s position and may have tax consequences.</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 Advanced investment strategies (last screen: its own bottom --section-y) ============ -->
+  <section class="np-adv" aria-labelledby="adv-title">
+    <div class="container">
+      <p class="eyebrow">07 / 07</p>
+      <h2 class="np-h np-h--wide" id="adv-title">Investment Decisions Deserve Their Own Conversation.</h2>
+      <div class="np-adv__rule" aria-hidden="true"></div>
+      <div class="np-adv__grid">
+        <p class="np-adv__a" data-reveal>Our GPA models illustrate strategies involving borrowing, retaining shares, and purchasing additional shares with financing.</p>
+        <div class="np-adv__side" data-reveal>
+          <p>Leverage can increase both gains and losses. Availability of credit, collateral acceptance, interest rates, and investment performance are not guaranteed.</p>
+          <a class="btn" href="#">Review the Investment Materials</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- partial:footer -->
@@ -90,5 +247,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="js/main.js" defer></script>
+<script src="js/properties.js" defer></script>
 </body>
 </html>
+

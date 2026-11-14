@@ -78,6 +78,32 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 **Update 2026-11-14 (built):** the word "Scroll" under the hero was removed (not in the document; only the animated line stays). Screen 04: the second statement is split into two sizes (first sentence large, "Property acquisition…" smaller), text verbatim.
 
+## Page 05 — Glonari Properties & GPA (built 2026-11-14)
+
+**Document notes (not published):**
+- Screen 02: the actual number of houses owned, locations, operating properties, total asset value, debt, operating results.
+- Screen 03: Class A shareholder rights, distributions, issuance and dilution, what happens to shareholders if the company has significant debt.
+- Screen 04: evidence for the operating income, valuation methods, assets and liabilities, how the model translates into shareholder value.
+- Screen 05: who determines NAV+, review frequency, how HQV is determined, how both differ from a real buyer's price.
+- Screen 06: whether actual buyers or lenders exist, whether Glonari can repurchase shares, what restrictions apply.
+- Screen 07: links to the definitive offering documents, independently supported information, approved financing terms; advanced leverage examples stay separate from the family story. The button "Review the Investment Materials" is a placeholder (`href="#"`).
+
+**For the lawyer:**
+- Screen 05: the figure **$100 → $437.83** (base scenario, 36 months) is shown as the page's main number on a dark band, with the document's sentence "These figures are modeled scenarios, not available cash or guaranteed sale prices." next to it at equal weight. The document has no literal "not a forecast" or "values can fall" (only the site footer: "Investment values can change"). Decide whether such a sentence must be added to the document.
+- Screen 04: the **$400,000** operating-business target appears as a headline figure ($1,000,000 + $400,000 = $1,400,000), with the sentence "This is a planning target, not an independent appraisal…" under it.
+- Screen 03: "GPA is initially limited to accredited investors until full SEC authorization is received. After that, anyone can hold it." on a public page; the second sentence can read as an offer.
+
+**Decisions of the owner (2026-11-14):**
+- Eyebrows on this page are numbers only ("01 / 07" … "07 / 07"), no words.
+- Screen 04 figures are written in digits: "$1,000,000 + $400,000 = $1,400,000" (the document says "$1 million", "$400,000", "$1.4 million"; the digits are the owner's decision).
+
+**Screen 01, the big word (2026-11-14):** the document has no word for the Properties hero (Living has "LIVING", Own-a-Home has "HOME"). "PROPERTIES" is set as a **temporary** word — not from the document, owner's decision needed. The hero is now the Already-Own-a-Home hero (sunset, porch home, woman in the chair) with this page's copy; the "01 / 07" eyebrow is not on it (that template has none).
+
+**Proposals (words not in the document, NOT published):**
+- Screen 01: the document's bold line "A separate section for investment information" (above the headline) is not on the site, because the owner chose numbers-only eyebrows. Say if it should return as a label.
+- Screen 04: the document has **no captions** for the three figures. Possible captions made only from the document's own words: "a $1 million home" / "$400,000 target for additional operating-business value" / "a potential $1.4 million in combined gross economic value". For now the full document sentence stands under the line and the figures have no captions.
+- Screen 05: a small label "36 months" next to $437.83 (the phrase is in the paragraph; not duplicated as a label).
+
 ## Home — "The cost" (2026-11-13)
 
 - Оговорка про planned benefit убрана вместе с лидом под `.econ` ("…provided the planned benefit is available."): документ называет выгоду agreed amount, нужен ответ владельца/юриста.

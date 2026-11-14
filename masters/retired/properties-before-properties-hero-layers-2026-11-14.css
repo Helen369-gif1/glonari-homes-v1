@@ -1,0 +1,242 @@
+/* ==========================================================
+   Glonari Homes — Glonari Properties & GPA (Page 05, 7 screens)
+   Page-only styles. Shared tokens/components live in main.css.
+   An investor page: calmer and stricter than Home, same design language.
+
+   01 hero (scene) · 02 company (pause) · 03 GPA shares (type only)
+   · 04 value (scene) · 05 NAV+ (the only dark band) · 06 selling (pause)
+   · 07 advanced strategies (last screen)
+
+   Default CSS = the static final layout (phones, reduced motion, no JS).
+   .has-scenes (properties.js, >=769px) pins 01 and 04: two pins.
+   Disclaimers: >=16px, ink/cream on calm paper/brown, never on a photo.
+   ========================================================== */
+
+.np-page { overflow-x: clip; }
+
+/* ---------- shared: section heading (Playfair, calm) ---------- */
+.np-h {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 4.8vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+.np-h--wide { max-width: 18ch; }
+.np-nowrap { white-space: nowrap; }
+@media (max-width: 420px) { .np-nowrap { white-space: normal; } }
+.np-h--light { color: #FBF4E8; }
+
+/* ---------- 01 hero ---------- */
+.np-hero__stage {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--gh-paper);
+  display: flex; flex-direction: column;
+}
+.has-scenes .np-hero__stage { height: auto; min-height: 100svh; }
+.np-hero__photo { position: relative; flex: 1 1 auto; min-height: 52svh; overflow: hidden; background: #14110f; }
+.np-hero__img {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-width: none;
+  object-fit: cover; object-position: 50% 62%;
+  transform-origin: 50% 70%; will-change: transform;
+}
+/* a soft top-to-bottom tone behind the title and the menu: no edge, no patch */
+.np-hero__shade {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 8, 6, .55) 0%, rgba(10, 8, 6, .22) 38%, rgba(10, 8, 6, 0) 62%);
+}
+.np-hero__no, .np-hero__title { position: absolute; z-index: 3; left: var(--hx); margin: 0; }
+.np-hero__photo { --hx: max(var(--page-pad), calc((100% - var(--container)) / 2)); }
+.np-hero__no { top: calc(var(--header-h) + clamp(16px, 4svh, 48px)); }
+.np-hero__title {
+  top: calc(var(--header-h) + clamp(16px, 4svh, 48px) + 34px);
+  max-width: 9em;
+  font-family: var(--font-word); font-weight: 500;
+  font-size: clamp(46px, min(6vw, 11svh), 104px);
+  line-height: .92; letter-spacing: -.012em; text-wrap: balance;
+  color: #FBF4E8;
+  text-shadow: 0 1px 2px rgba(10, 8, 6, .4);
+}
+.np-hero__bar { position: relative; z-index: 7; flex: none; background: var(--gh-paper); border-top: 1px solid var(--gp-gold-mid); }
+.np-hero__bar-in {
+  width: min(100%, calc(var(--container) + 2 * var(--page-pad)));
+  margin-inline: auto;
+  padding: clamp(20px, 3svh, 32px) var(--page-pad);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) auto;
+  gap: 18px clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+.np-hero__bar p { margin: 0; font-size: 18px; line-height: 1.5; color: var(--gh-ink); text-wrap: pretty; }
+.np-hero__b { padding-left: clamp(20px, 2.4vw, 36px); border-left: 1px solid var(--gp-gold-mid); }
+@media (max-width: 1100px) {
+  .np-hero__bar-in { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "a btn" "b b"; }
+  .np-hero__a { grid-area: a; }
+  .np-hero__btn { grid-area: btn; }
+  .np-hero__b { grid-area: b; padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--gh-line); }
+}
+.scenes-pending .np-hero__img { transform: scale(1); }
+@media (max-width: 768px) {
+  .np-hero__stage { min-height: 0; }
+  .np-hero__photo { flex: none; aspect-ratio: 4 / 5; min-height: 0; }
+  .np-hero__img { object-position: 50% 60%; }
+  .np-hero__title { font-size: clamp(40px, 11.5vw, 76px); padding-right: var(--page-pad); }
+  .np-hero__bar-in { grid-template-columns: 1fr; grid-template-areas: "a" "b" "btn"; padding-block: 28px; }
+  .np-hero__btn { justify-self: start; }
+}
+
+/* ---------- 02 company ---------- */
+.np-company { padding-top: clamp(120px, 16vw, 240px); }   /* follows a pinned scene: the larger norm (DS 5.2) */
+.np-company__grid {
+  --bleed: max(var(--page-pad), calc((100vw - var(--container)) / 2 + var(--page-pad)));
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+  align-items: start;
+}
+.np-company__fig { grid-column: 1 / 6; margin: 0 0 0 calc(var(--bleed) * -1); }
+.np-company__fig img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 0 2px 2px 0; }
+/* the text starts lower than the photo's top and hangs from the gold hairline: no twin columns */
+.np-company__text { grid-column: 7 / 13; padding-top: clamp(40px, 9vw, 150px); }
+.np-company__text .np-h { margin-top: 0; }
+.np-company__a { margin: clamp(28px, 3vw, 44px) 0 0; max-width: 24em; }
+.np-company__b { margin: 20px 0 0; max-width: 28em; font-size: 18px; line-height: 1.6; color: var(--gh-ink); padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); }
+@media (max-width: 899px) {
+  .np-company__fig { grid-column: 1 / -1; margin: 0 calc(var(--bleed) * -1) 0 calc(var(--bleed) * -1); }
+  .np-company__fig img { border-radius: 0; aspect-ratio: 4 / 4.2; }
+  .np-company__text { grid-column: 1 / -1; padding-top: clamp(40px, 8vw, 64px); }
+}
+
+/* ---------- 03 GPA shares: type only, a staircase across the grid ---------- */
+.np-shares { padding-top: var(--section-y); }
+.np-shares .eyebrow { margin-bottom: 20px; }
+.np-shares__grid {
+  margin-top: clamp(48px, 6vw, 96px);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(32px, 4vw, 56px);
+}
+.np-shares__grid p { margin: 0; }
+.np-shares__a { grid-column: 1 / 7; }
+.np-shares__b { grid-column: 7 / 13; margin-top: clamp(0px, 3vw, 44px) !important; font-size: 18px; line-height: 1.6; }
+.np-shares__c { grid-column: 3 / 9; font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.1vw, 30px); line-height: 1.3; text-wrap: pretty; }
+.np-shares__d { grid-column: 3 / 13; padding-top: 24px; border-top: 1px solid var(--gp-gold-mid); font-size: 19px; line-height: 1.55; max-width: 36em; }
+@media (max-width: 899px) {
+  .np-shares__a, .np-shares__b, .np-shares__c, .np-shares__d { grid-column: 1 / -1; margin-top: 0 !important; }
+}
+
+/* ---------- 04 value: three figures on one gold line (scene) ---------- */
+/* static: one --section-y above and below. Pinned (.has-scenes): the stage centres the content under the header and brings its own air;
+   the scene is followed by the dark band, so the paper blank under the content + this margin stays >= clamp(120px, 16vw, 240px) */
+.np-calc { padding-top: var(--section-y); margin-bottom: var(--section-y); }
+.has-scenes .np-calc { padding-top: 0; margin-bottom: clamp(48px, 6vw, 96px); }
+.has-scenes .np-calc__stage { display: flex; align-items: center; padding-top: var(--header-h); }
+.np-calc__in { width: min(100%, calc(var(--container) + 2 * var(--page-pad))); margin-inline: auto; }
+.np-calc__title { margin-top: 0; max-width: 20ch; font-size: clamp(32px, min(4.4vw, 7svh), 64px); }
+.np-calc .eyebrow { margin-bottom: 16px; }
+.np-calc__sum {
+  margin-top: clamp(32px, 6svh, 72px);
+  display: flex; align-items: baseline; justify-content: space-between; gap: clamp(8px, 1.4vw, 24px);
+  font-family: var(--font-word); font-weight: 500; line-height: 1;
+  font-size: clamp(30px, min(5.2vw, 11svh), 88px);
+  white-space: nowrap;
+}
+.np-calc__op { color: var(--gh-gold-ink); font-weight: 500; }
+.np-calc__line { height: 1px; margin-top: clamp(14px, 2svh, 24px); background: var(--gp-gold-mid); transform-origin: left center; }
+.np-calc__texts {
+  margin-top: clamp(24px, 4svh, 48px);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: 20px;
+}
+.np-calc__texts p { margin: 0; text-wrap: pretty; }
+.np-calc__a { grid-column: 1 / 8; font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, min(2vw, 3.6svh), 28px); line-height: 1.32; }
+.np-calc__a strong { font-weight: 500; }
+.np-calc__b { grid-column: 9 / 13; font-size: 18px; line-height: 1.55; align-self: end; }
+@media (max-width: 1100px) {
+  .np-calc__a { grid-column: 1 / 8; }
+  .np-calc__b { grid-column: 8 / 13; }
+}
+@media (max-width: 768px) {
+  .np-calc__title { font-size: clamp(34px, 9vw, 48px); }
+  .np-calc__sum {
+    flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 4px;
+    font-size: clamp(44px, 14vw, 72px);
+    padding-left: 20px; border-left: 1px solid var(--gp-gold-mid);
+  }
+  .np-calc__line { display: none; }
+  .np-calc__texts { grid-template-columns: 1fr; }
+  .np-calc__a, .np-calc__b { grid-column: 1 / -1; }
+  .np-calc__b { font-size: 16px; }
+}
+.scenes-pending .np-calc__n, .scenes-pending .np-calc__op { opacity: 0; }
+
+/* ---------- 05 NAV+: the page's only dark band, hard edges ---------- */
+.np-nav { background: var(--gh-brown); color: var(--gp-text); padding-block: var(--section-y); }
+.np-nav__grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px); row-gap: 56px; align-items: start;
+}
+.np-nav__left { grid-column: 1 / 6; }
+.np-nav__right { grid-column: 7 / 13; padding-top: clamp(0px, 4vw, 72px); }
+.np-nav .eyebrow { margin-bottom: 20px; }
+.np-nav__a { margin: clamp(32px, 3.4vw, 48px) 0 0; font-size: 19px; line-height: 1.55; color: var(--gp-text); }
+.np-nav__b { margin: 20px 0 0; font-size: 19px; line-height: 1.55; color: var(--gp-text); }
+.np-nav__b strong { font-weight: 600; color: var(--gp-champagne); }
+.np-nav__fig {
+  display: grid; grid-template-columns: auto 1fr; grid-template-areas: "from rule" "to to";
+  align-items: center; gap: clamp(8px, 1.4vw, 20px) clamp(16px, 2vw, 32px);
+  font-family: var(--font-word); font-weight: 500; line-height: .9;
+}
+.np-nav__from { grid-area: from; font-size: clamp(34px, 3.6vw, 56px); color: var(--gp-champagne); }
+.np-nav__rule { grid-area: rule; height: 1px; background: var(--gp-gold-mid); transform-origin: left center; }
+.np-nav__to { grid-area: to; position: relative; font-size: clamp(64px, 9.6vw, 148px); color: #FBF4E8; }
+.np-nav__ghost { visibility: hidden; }
+.np-nav__live { position: absolute; left: 0; top: 0; }
+.np-nav__c {
+  margin: clamp(28px, 3vw, 44px) 0 0; padding-left: 24px; border-left: 1px solid var(--gp-gold-mid);
+  max-width: 24em;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(21px, 1.9vw, 27px); line-height: 1.35; color: #FBF4E8;
+}
+@media (max-width: 899px) {
+  .np-nav__left, .np-nav__right { grid-column: 1 / -1; padding-top: 0; }
+  .np-nav__to { font-size: clamp(64px, 22vw, 120px); }
+}
+
+/* ---------- 06 selling: heading, panorama bleeding off the right, text staircase ---------- */
+.np-sell { padding-top: var(--section-y); }
+.np-sell .eyebrow { margin-bottom: 20px; }
+.np-sell__fig {
+  --bleed-l: max(var(--page-pad), calc((100vw - var(--container)) / 2 + var(--page-pad)));
+  margin: clamp(48px, 6vw, 96px) 0 0 var(--bleed-l);
+}
+.np-sell__fig img { width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; border-radius: 2px 0 0 2px; }
+.np-sell__grid {
+  margin-top: clamp(48px, 5vw, 80px);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px); row-gap: clamp(32px, 4vw, 56px);
+}
+.np-sell__grid p { margin: 0; text-wrap: pretty; }
+.np-sell__a { grid-column: 1 / 6; font-size: 18px; line-height: 1.6; }
+.np-sell__b { grid-column: 7 / 13; margin-top: 0; }
+.np-sell__c { grid-column: 3 / 8; font-size: 18px; line-height: 1.6; }
+.np-sell__d { grid-column: 8 / 13; padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); font-size: 18px; line-height: 1.6; }
+@media (max-width: 899px) {
+  .np-sell__a, .np-sell__b, .np-sell__c, .np-sell__d { grid-column: 1 / -1; }
+  .np-sell__fig img { aspect-ratio: 2 / 1; }
+}
+
+/* ---------- 07 advanced strategies: the last screen, its own bottom --section-y ---------- */
+.np-adv { padding-top: var(--section-y); padding-bottom: var(--section-y); }
+.np-adv .eyebrow { margin-bottom: 20px; }
+.np-adv__rule { height: 1px; background: var(--gp-gold-mid); margin: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 56px); transform-origin: left center; }
+.np-adv__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); row-gap: 32px; align-items: start; }
+.np-adv__a { grid-column: 1 / 7; margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.1vw, 30px); line-height: 1.3; text-wrap: pretty; }
+.np-adv__side { grid-column: 8 / 13; }
+.np-adv__side p { margin: 0 0 32px; font-size: 18px; line-height: 1.6; text-wrap: pretty; }
+@media (max-width: 899px) {
+  .np-adv__a, .np-adv__side { grid-column: 1 / -1; }
+}

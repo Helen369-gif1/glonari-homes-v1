@@ -88,15 +88,17 @@ Pinned scenes: 01, 03, 06 (03 can lose its pin if three feel heavy: the question
 
 ### 6. FAQs — `docs/faqs.html` — ⏳ stub only (7 screens in the document; questions without an approved answer are shown with the note that terms will be in the final agreements — owner's decision)
 
-### 7. Glonari Properties & GPA — `docs/glonari-properties.html` — ⏳ stub only (new page, 7 screens in the document)
+### 7. Glonari Properties & GPA — `docs/glonari-properties.html` — ✅ built 2026-11-14 (Page 05, 7 screens; media still placeholders)
 
-Planned categories:
+Page files: `css/properties.css`, `js/properties.js`. Calmer and stricter than Home. Pinned scenes: exactly two (01, 04). One dark band: 05. Eyebrows are numbers only.
 
-- The basics
-- Money
-- GLO
-- Living and owning
-- Privacy
+1. Hero (scene) — the Already-Own-a-Home hero whole (sunset · porch home · word "PROPERTIES" (temporary) · woman), h1, two paragraphs, "Explore Glonari Properties" → `#company`
+2. The company (`#company`, pause) — street photo bleeding left, text lower right
+3. What are GPA shares? (type only)
+4. Where value may come from (scene) — $1,000,000 + $400,000 = $1,400,000 on a gold line
+5. Understanding NAV+ (dark band, no pin) — $100 → $437.83 with the caveat beside it
+6. Can shares be sold? (pause) — panorama + text staircase
+7. Advanced investment strategies — closing screen, button "Review the Investment Materials" (`href="#"`)
 
 ## Cross-page links already referenced from the home page
 

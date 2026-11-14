@@ -38,9 +38,9 @@ Intended reading order: Home → How It Works → Living With Glonari → Find Y
 6. Your future (dark band; the three panels on the gold line carry the three statements)
 7. Final invitation
 
-### 2. How It Works — `docs/how-it-works.html` — ✅ rebuilt 2026-11-12 to Page 02 of the v2 document (awaiting owner review)
+### 2. How It Works — `docs/how-it-works.html` — ✅ brought to the document text 2026-11-14 (awaiting owner review)
 
-7 screens. Page files: `css/how-it-works.css`, `js/how-it-works.js`. Pinned scenes: exactly three (01, 05, 07). Anchors `#ch-01`…`#ch-07`; fixed left rail of 7 (compact "02 / 07" at ≤1100px). One dark band: 04.
+9 screens (01, 02, 02B, 03, 04, 04B, 05, 06, 07). Page files: `css/how-it-works.css`, `js/how-it-works.js`. Pinned scenes: exactly three (01, 05, 07). Anchors `#ch-01`, `#ch-02`, `#ch-02b`, `#ch-03`, `#ch-04`, `#ch-04b`, `#ch-05`…`#ch-07`; fixed left rail of 9 (compact "01 / 09" at ≤1100px). One dark band: 04.
 
 1. Introduction (scene) — layered terrace / "HOW IT WORKS" / family cut-out; "A Better Way to Live. Built Around You."; button → 02
 2. Who does what? — four role cards (Properties, Homes, Gia, You), dealt onto the table

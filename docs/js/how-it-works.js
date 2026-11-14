@@ -114,6 +114,27 @@
     return () => gsap.set([...steps, ...$$(".hiw-step__node, .hiw-step__p", list)], { clearProps: "all" });
   }
 
+  /* Screen 04B: the stair line is drawn step by step: figure 01 and its tread, the riser down,
+     figure 02 and its tread, the riser, figure 03 and its tread. Not pinned, scrubbed. */
+  function monthScene() {
+    const list = $("[data-month]");
+    if (!list) return;
+    const steps = $$("[data-mstep]", list);
+    const parts = ".hiw-month__n, .hiw-month__fig, .hiw-month__p";
+    const tl = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: { trigger: list, start: "top 78%", end: "bottom 55%", scrub: .6, invalidateOnRefresh: true },
+    });
+    steps.forEach((li, i) => {
+      const at = i * .3;
+      tl.fromTo($$(parts, li), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .1, stagger: .02 }, at)
+        .fromTo(li, { "--t": 0 }, { "--t": 1, duration: .14 }, at + .04);
+      if (i < steps.length - 1) tl.fromTo(li, { "--r": 0 }, { "--r": 1, duration: .1 }, at + .18);
+    });
+    tl.to({}, { duration: .1 });
+    return () => gsap.set([...steps, ...$$(parts, list)], { clearProps: "all" });
+  }
+
   /* Layered openers 05 and 07, pinned: two-speed parallax — the terrace 1→BG_ZOOM, the people
      1→FG_ZOOM, both around --po (CSS, per opener) — then the number, the eyebrow and the
      heading come in; a short hold before release. Zoom kept moderate (a bigger one cut the
@@ -156,9 +177,9 @@
     ScrollTrigger.refresh();
     return undo;
   });
-  // 03 and 06: >=1024px, where their layouts are the wide ones
+  // 03, 04B and 06: >=1024px, where their layouts are the wide ones
   mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-    const undo = [chooseScene(), stepsScene()];
+    const undo = [chooseScene(), monthScene(), stepsScene()];
     ScrollTrigger.refresh();
     return () => undo.forEach((f) => f && f());
   });

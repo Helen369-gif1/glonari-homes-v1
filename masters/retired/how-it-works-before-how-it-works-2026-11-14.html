@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It Works &middot; Glonari Homes</title>
+<meta name="description" content="Glonari Homes connects a home, professional property management, and Gia—your personal AI concierge—in one residential experience.">
+<script>
+  /* Wide screens with motion: hide the scene start states until GSAP takes over (no flash of the final layout).
+     Safety net: if the scripts never arrive, the static layout comes back after 4s. */
+  if (matchMedia("(min-width: 769px) and (prefers-reduced-motion: no-preference)").matches) {
+    document.documentElement.classList.add("scenes-pending");
+    setTimeout(function () { document.documentElement.classList.remove("scenes-pending"); }, 4000);
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/how-it-works.css?v=20261112b">
+</head>
+<body class="no-js hiw-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Line icons: 48×48 grid, 1.5px stroke, one colour (currentColor) -->
+<svg class="hiw-sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-home" viewBox="0 0 48 48"><path d="M8 22 24 9l16 13"/><path d="M13 18v20h22V18"/><path d="M21 38v-9h6v9"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 48 48"><path d="M14 7h14l8 8v26H14Z"/><path d="M28 7v8h8M19 24h12M19 30h12M19 36h7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 48 48"><path d="M24 7l14 5v11c0 9-6 15.5-14 18-8-2.5-14-9-14-18V12Z"/><path d="m18 24 4.5 4.5L31 20"/></symbol>
+  <symbol id="i-key" viewBox="0 0 48 48"><circle cx="16" cy="24" r="8"/><path d="M24 24h18M36 24v7M42 24v5"/></symbol>
+</svg>
+
+<!-- partial:header -->
+<header class="site-header" data-header>
+  <div class="site-header__in">
+    <a class="brand" href="index.html" aria-label="Glonari Homes, home page"><img src="assets/images/logo-glonari-homes.webp" alt="" width="540" height="170"></a>
+
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+        <li><a href="find-your-home.html">Find Your Home</a></li>
+        <li><a href="glonari-properties.html">Glonari Properties</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+      <a class="btn btn--small nav__cta-mobile" href="find-your-home.html">Find My Glonari Home</a>
+    </nav>
+
+    <a class="btn btn--small header-cta" href="find-your-home.html">Find My Glonari Home</a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" data-burger>
+      <span class="visually-hidden">Menu</span>
+      <span class="burger__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+<!-- /partial:header -->
+
+<main id="main">
+
+  <!-- ============ 01 · Introduction (scene): terrace · words · family ============ -->
+  <section class="hiw-hero" id="ch-01" aria-labelledby="hiw-title" data-hero>
+    <div class="scene" data-scene="hiw-hero" style="--travel: 160svh">
+      <div class="scene__stage hiw-hero__stage">
+        <div class="hiw-hero__frame">
+          <img class="hiw-hero__layer hiw-hero__bg" src="assets/images/how-00-terrace-bg-1600.webp"
+               srcset="assets/images/how-00-terrace-bg-1600.webp 1600w, assets/images/how-00-terrace-bg-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" alt="" fetchpriority="high">
+          <div class="hiw-hero__layer hiw-hero__wordbox" aria-hidden="true">
+            <p class="hiw-hero__word"><span class="hiw-hero__word-in"><span>How it</span> <span>works</span></span></p>
+          </div>
+          <img class="hiw-hero__layer hiw-hero__fg" src="assets/images/how-00-terrace-family-cutout-1600.webp"
+               srcset="assets/images/how-00-terrace-family-cutout-1600.webp 1600w, assets/images/how-00-terrace-family-cutout-2560.webp 2560w"
+               sizes="max(100vw, 177.8svh)" width="2560" height="1440" fetchpriority="high"
+               alt="A family on a terrace sofa at dusk looks at a tablet together, with the sea and the lights of the coast behind them">
+        </div>
+
+        <div class="hiw-hero__shade" aria-hidden="true"></div>
+
+        <div class="hiw-hero__copy">
+          <div class="hiw-hero__copy-in">
+            <h1 class="hiw-hero__title" id="hiw-title" data-hcopy>A Better Way to Live. Built Around You.</h1>
+            <p class="hiw-hero__sub" data-hcopy>Glonari Homes connects a home, professional property management, and Gia&mdash;your personal AI concierge&mdash;in one residential experience.</p>
+            <p class="hiw-hero__sub hiw-hero__sub--2" data-hcopy>The goal is simple: make living more comfortable and potentially more affordable.</p>
+            <a class="btn hiw-hero__btn" href="#ch-02" data-hcopy>Understand the Program</a>
+          </div>
+        </div>
+
+        <div class="hiw-hero__cue" aria-hidden="true">Scroll</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Chapter index (fixed left rail; compact chip under 1100px) ============ -->
+  <nav class="hiw-toc" aria-label="Sections" data-hiw-toc>
+    <ol class="hiw-toc__list">
+      <li><a href="#ch-01"><span class="hiw-toc__n">01</span><span class="hiw-toc__t">Introduction</span></a></li>
+      <li><a href="#ch-02"><span class="hiw-toc__n">02</span><span class="hiw-toc__t">Who Does What?</span></a></li>
+      <li><a href="#ch-03"><span class="hiw-toc__n">03</span><span class="hiw-toc__t">Choose Your Home</span></a></li>
+      <li><a href="#ch-04"><span class="hiw-toc__n">04</span><span class="hiw-toc__t">Understand the Cost</span></a></li>
+      <li><a href="#ch-05"><span class="hiw-toc__n">05</span><span class="hiw-toc__t">Who Can Join?</span></a></li>
+      <li><a href="#ch-06"><span class="hiw-toc__n">06</span><span class="hiw-toc__t">The Journey</span></a></li>
+      <li><a href="#ch-07"><span class="hiw-toc__n">07</span><span class="hiw-toc__t">Next Step</span></a></li>
+    </ol>
+    <p class="hiw-toc__compact" aria-hidden="true"><span data-hiw-toc-current>01</span> / 07</p>
+  </nav>
+
+  <!-- ============ 02 · Who does what? (calm; the four cards are laid out like on a table) ============ -->
+  <section class="hiw-ch hiw-who" id="ch-02" aria-labelledby="ch-02-title">
+    <div class="container">
+      <header class="hiw-head" data-reveal>
+        <p class="eyebrow">02 &middot; Who does what?</p>
+        <h2 class="h2" id="ch-02-title">One Connected Experience. Different Roles.</h2>
+      </header>
+      <div class="hiw-grid4 hiw-who__grid">
+        <article class="hiw-card" data-reveal style="--d:0">
+          <img src="assets/images/how-02-properties-800.webp" srcset="assets/images/how-02-properties-800.webp 800w, assets/images/how-02-properties-1122.webp 1122w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1122" height="1402" loading="lazy" alt="">
+          <p class="hiw-who__p"><strong>Glonari Properties&trade;</strong> acquires, owns, and manages qualifying residential properties.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:1">
+          <img src="assets/images/how-01-business-800.webp" srcset="assets/images/how-01-business-800.webp 800w, assets/images/how-01-business-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1500" loading="lazy" alt="">
+          <p class="hiw-who__p"><strong>Glonari Homes&trade;</strong> provides the residential living experience under a program agreement.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:2">
+          <img src="assets/images/how-01-gia-800.webp" srcset="assets/images/how-01-gia-800.webp 800w, assets/images/how-01-gia-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1500" loading="lazy" alt="">
+          <p class="hiw-who__p"><strong>Gia&trade;</strong> helps coordinate services, maintenance, schedules, shopping, and personal assistance.</p>
+        </article>
+        <article class="hiw-card" data-reveal style="--d:3">
+          <img src="assets/images/how-03-you-800.webp" srcset="assets/images/how-03-you-800.webp 800w, assets/images/how-03-you-1200.webp 1200w"
+               sizes="(max-width: 480px) 90vw, (max-width: 1100px) 45vw, 260px" width="1200" height="1200" loading="lazy" alt="">
+          <p class="hiw-who__p"><strong>You</strong> choose a home, review the terms, and decide whether the program fits your circumstances.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · Choose your home (calm; a plot plan: the photo is drawn in, a survey line follows) ============ -->
+  <section class="hiw-ch hiw-ch--before-dark hiw-choose" id="ch-03" aria-labelledby="ch-03-title">
+    <div class="container hiw-choose__grid">
+      <header class="hiw-choose__head" data-reveal>
+        <p class="eyebrow">03 &middot; Choose your home</p>
+        <h2 class="h2 hiw-choose__title" id="ch-03-title">Start With the Home You Want.</h2>
+      </header>
+
+      <figure class="hiw-choose__fig" data-choose>
+        <span class="hiw-choose__ln hiw-choose__ln--v" aria-hidden="true"></span>
+        <span class="hiw-choose__ln hiw-choose__ln--h" aria-hidden="true"></span>
+        <div class="hiw-choose__ph">
+          <img src="assets/images/how-03-choose-home-800.webp"
+               srcset="assets/images/how-03-choose-home-800.webp 800w, assets/images/how-03-choose-home-1200.webp 1200w"
+               sizes="(max-width: 1023px) 80vw, 44vw" width="1200" height="1500" loading="lazy"
+               alt="A two-storey stucco home with a tiled roof, olive trees and an arched front door at sunset">
+        </div>
+      </figure>
+
+      <div class="hiw-choose__copy">
+        <p class="hiw-choose__lead" data-reveal>Choose a qualifying residence, including a home you already own or one you would like Glonari Properties to consider purchasing.</p>
+        <p class="hiw-choose__small" data-reveal style="--d:1">The property must pass the applicable reviews and approvals before it can enter the program.</p>
+        <a class="btn" href="find-your-home.html" data-reveal style="--d:2">Explore Your Home Options</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · Understand the cost (the page's one dark band, hard edges) ============ -->
+  <section class="hiw-ch hiw-ch--dark hiw-cost" id="ch-04" aria-labelledby="ch-04-title" data-dark>
+    <div class="container hiw-cost__grid">
+      <div class="hiw-cost__text">
+        <header class="hiw-head" data-reveal>
+          <p class="eyebrow eyebrow--light">04 &middot; Understand the cost</p>
+          <h2 class="h2" id="ch-04-title">Know What You Pay.</h2>
+        </header>
+        <p class="hiw-cost__p" data-reveal>For an illustrative <strong>$1 million home</strong>, the brochure models a <strong>$8,333 monthly Glonari Home fee</strong>.</p>
+        <p class="hiw-cost__p" data-reveal style="--d:1">A planned <strong>$2,500 monthly Global Connections benefit</strong> could reduce the remaining cash requirement to <strong>$5,833</strong>.</p>
+        <p class="hiw-cost__note" data-reveal style="--d:2">The contractual fee remains $8,333. The benefit is not guaranteed and must be supported by enforceable, funded arrangements.</p>
+        <a class="btn btn--light" href="find-your-home.html#cost-illustration" data-reveal style="--d:3">See the Monthly Cost Example</a>
+      </div>
+      <!-- the arithmetic of the two paragraphs, drawn as a ledger (decorative: the figures are in the copy) -->
+      <div class="hiw-cost__ledger" aria-hidden="true">
+        <p class="hiw-cost__row" data-reveal style="--d:1"><span>$8,333</span></p>
+        <p class="hiw-cost__row hiw-cost__row--minus" data-reveal style="--d:2"><i>&minus;</i><span>$2,500</span></p>
+        <p class="hiw-cost__row hiw-cost__row--total" data-reveal style="--d:3"><span>$5,833</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 · Who can join? (opener, pinned two-layer parallax) ============ -->
+  <section class="hiw-ch hiw-ch--opened" id="ch-05" aria-labelledby="ch-05-title">
+    <!-- pinned on wide screens (layeredScenes() in how-it-works.js); phones: the plain parallax opener -->
+    <div class="scene hiw-layered" data-scene="hiw-cafe" style="--travel: 140svh">
+    <div class="scene__stage">
+    <div class="hiw-opener hiw-opener--layered hiw-opener--cafe" data-opener>
+      <!-- two layers in one frame: the terrace, then the three friends in front -->
+      <img class="hiw-opener__img hiw-opener__bg" src="assets/images/how-02-cafe-bg-1600.webp"
+           srcset="assets/images/how-02-cafe-bg-1600.webp 1600w, assets/images/how-02-cafe-bg-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy" alt="">
+      <img class="hiw-opener__img hiw-opener__fg" src="assets/images/how-02-cafe-people-cutout-1600.webp"
+           srcset="assets/images/how-02-cafe-people-cutout-1600.webp 1600w, assets/images/how-02-cafe-people-cutout-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy"
+           alt="Three friends talk over coffee at an outdoor caf&eacute; on a hillside terrace at sunset">
+      <div class="hiw-opener__veil" aria-hidden="true"></div>
+      <div class="container hiw-opener__copy">
+        <p class="hiw-opener__n" aria-hidden="true" data-reveal style="--d:0">05</p>
+        <p class="eyebrow eyebrow--light" data-reveal style="--d:1">05 &middot; Who can join?</p>
+        <h2 class="h2 hiw-opener__title" id="ch-05-title"><span data-reveal style="--d:2">Your Options Should Be Clear From the Start.</span></h2>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="container hiw-after hiw-join">
+      <p class="lead hiw-join__lead" data-reveal>The brochure describes a qualifying GPA position for its full-participation example. Initial investment in GPA securities is limited to eligible accredited investors.</p>
+      <p class="hiw-join__small" data-reveal style="--d:1">Broader investor access is a future objective, subject to authorization.</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 · The journey (calm; the four nodes and their line are drawn by the scroll, no pin) ============ -->
+  <section class="hiw-ch hiw-journey" id="ch-06" aria-labelledby="ch-06-title">
+    <div class="container">
+      <header class="hiw-head" data-reveal>
+        <p class="eyebrow">06 &middot; The journey</p>
+        <h2 class="h2" id="ch-06-title">From the Home You Imagine to the Life You Live.</h2>
+      </header>
+      <ol class="hiw-steps" data-steps>
+        <li class="hiw-step" data-step>
+          <span class="hiw-step__node"><svg class="hiw-icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+          <p class="hiw-step__p"><span class="hiw-step__n">01.</span> <strong>Choose a qualifying home.</strong> Find a residence that meets the program&rsquo;s property criteria.</p>
+        </li>
+        <li class="hiw-step" data-step>
+          <span class="hiw-step__node"><svg class="hiw-icon" aria-hidden="true"><use href="#i-doc"/></svg></span>
+          <p class="hiw-step__p"><span class="hiw-step__n">02.</span> <strong>Review eligibility.</strong> Understand the proposed agreement, program requirements, and any applicable GPA investment requirements.</p>
+        </li>
+        <li class="hiw-step" data-step>
+          <span class="hiw-step__node"><svg class="hiw-icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <p class="hiw-step__p"><span class="hiw-step__n">03.</span> <strong>Complete approvals.</strong> Property acquisition, membership, and agreements require approval.</p>
+        </li>
+        <li class="hiw-step" data-step>
+          <span class="hiw-step__node"><svg class="hiw-icon" aria-hidden="true"><use href="#i-key"/></svg></span>
+          <p class="hiw-step__p"><span class="hiw-step__n">04.</span> <strong>Make it home.</strong> Enter the Glonari Home agreement and begin using available Gia services.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 07 · Next step (opener, pinned two-layer parallax) ============ -->
+  <section class="hiw-ch hiw-ch--opened hiw-end" id="ch-07" aria-labelledby="ch-07-title">
+    <div class="scene hiw-layered" data-scene="hiw-family" style="--travel: 140svh">
+    <div class="scene__stage">
+    <div class="hiw-opener hiw-opener--layered hiw-opener--family" data-opener>
+      <!-- two layers in one frame: the terrace, then the family at the table in front -->
+      <img class="hiw-opener__img hiw-opener__bg" src="assets/images/how-08-terrace-bg-1600.webp"
+           srcset="assets/images/how-08-terrace-bg-1600.webp 1600w, assets/images/how-08-terrace-bg-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy" alt="">
+      <img class="hiw-opener__img hiw-opener__fg" src="assets/images/how-08-terrace-family-1600.webp"
+           srcset="assets/images/how-08-terrace-family-1600.webp 1600w, assets/images/how-08-terrace-family-2000.webp 2000w"
+           sizes="max(100vw, 177.8svh)" width="2000" height="1126" loading="lazy"
+           alt="A family and a friend laugh together over dinner at an outdoor table by their home at sunset">
+      <div class="hiw-opener__veil" aria-hidden="true"></div>
+      <div class="container hiw-opener__copy">
+        <p class="hiw-opener__n" aria-hidden="true" data-reveal style="--d:0">07</p>
+        <p class="eyebrow eyebrow--light" data-reveal style="--d:1">07 &middot; Next step</p>
+        <h2 class="h2 hiw-opener__title" id="ch-07-title"><span data-reveal style="--d:2">Understand the Details.</span> <span data-reveal style="--d:3">Then Decide.</span></h2>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="container hiw-end__after">
+      <p class="lead hiw-end__lead" data-reveal>Explore a personal home-and-cost illustration before making a decision about joining the program.</p>
+      <a class="btn" href="find-your-home.html" data-reveal style="--d:1">Find My Home</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--light" href="index.html"><img src="assets/images/logo-glonari-homes.webp" alt="Glonari Homes" width="540" height="170"></a>
+        <p>AI for Human Prosperity™</p>
+        <a class="btn btn--light btn--small" href="find-your-home.html">Find My Glonari Home</a>
+      </div>
+      <nav class="site-footer__cols" aria-label="Footer">
+        <div>
+          <p class="site-footer__h">Explore</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="living-with-glonari.html">Living With Glonari</a></li>
+            <li><a href="find-your-home.html">Find Your Home</a></li>
+            <li><a href="glonari-properties.html">Glonari Properties</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__h">Legal</p>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Legal &amp; Disclosures</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="site-footer__disclosure">Glonari Homes is a proposed program. Figures on this site are estimated examples, subject to definitive agreements and approval. Investment values can change. Property availability and GPA liquidity are not guaranteed. Conceptual images or examples do not establish actual operating inventory. This website is not an offer to sell, lease, or finance property or to sell securities.</p>
+    <p class="site-footer__legal">© 2026 Glonari. All rights reserved.</p>
+  </div>
+</footer>
+<!-- /partial:footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/how-it-works.js?v=20261112b" defer></script>
+</body>
+</html>

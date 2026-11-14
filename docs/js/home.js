@@ -33,20 +33,27 @@
     } else showAll();
   }
 
-  /* ---------- 4. Find your home: the arch video plays exactly once ----------
-     No loop, no autoplay. When 40% of the arch is visible: play() once, stop observing. The video ends on
-     its last frame (nothing is rewound), so leaving and coming back does not replay it; a reload does.
-     Reduced motion, or a play() the browser refuses (data saver, low power): the poster stays, silently. */
+  /* ---------- 4. Find your home: the arch video plays from the first frame every time the arch comes into view ----------
+     No loop. At 40% visible: rewind and play once to the end (it rests on the last frame while the arch stays
+     in view; it is not restarted). When the arch leaves the viewport completely: pause and rewind, so the next
+     visit starts again. Reduced motion, or a play() the browser refuses: the poster stays, silently. */
   const findVideo = $("[data-find-video]");
   const findArch = $("[data-find-arch]");
   if (findVideo && findArch && "IntersectionObserver" in window) {
+    let playing = false;                       // true from the moment we start until the arch leaves the view
+    const rewind = () => { try { findVideo.currentTime = 0; } catch (e) {} };
     const io = new IntersectionObserver((en) => {
-      if (!en.some((e) => e.isIntersecting)) return;
-      io.disconnect();
-      if (reduce.matches) return;
+      const e = en[en.length - 1];
+      if (!e.isIntersecting) {
+        if (playing) { playing = false; findVideo.pause(); rewind(); }
+        return;
+      }
+      if (playing || e.intersectionRatio < .4 || reduce.matches) return;
+      playing = true;
+      rewind();
       const p = findVideo.play();
       if (p && p.catch) p.catch(() => {});
-    }, { threshold: .4 });
+    }, { threshold: [0, .4] });
     io.observe(findArch);
   }
   if (!window.gsap || !window.ScrollTrigger) return;

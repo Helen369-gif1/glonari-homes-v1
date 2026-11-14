@@ -2,6 +2,15 @@
 
 Last updated: 2026-11-13. Update this file after every significant step so a new chat (on either computer) can resume without re-reading the whole conversation history. Keep entries short: decisions, what changed, open questions, next step — not a transcript.
 
+## 2026-11-14 (How It Works to the document text, 9 screens) — not committed
+Copies before: `masters/retired/how-it-works-before-how-it-works-2026-11-14.html|css|js` (+ OPEN-QUESTIONS, PROJECT-STATUS, SITE-STRUCTURE). Files: `how-it-works.html`, `css/how-it-works.css`, `js/how-it-works.js`. Hero, the three pins (01, 05, 07), the card deal, all images: untouched.
+- Text: ch-02 cards, ch-03 "If you already own it…" line (own style, same column), ch-04 three document paragraphs (no "brochure"/"illustrative"; the "benefit is not guaranteed" note removed), ch-05 three paragraphs (lead + side column of two), ch-06 step 02 "Join as a Member", ch-07 "estimate".
+- NEW `#ch-02b` (eyebrow/title from the document: "Gia in everyday life" / "Savings You Don't Have to Chase."): $2,050 Cormorant + "a month", static gold line, caption "Taxes, insurance, maintenance & repairs" (owner's wording), three statements offset right, 16px note. No pin, plain reveal.
+- NEW `#ch-04b` ("Your month, step by step" / "One Month in a Glonari Home."): stair line $8,333 → −$2,500 → $5,833 (treads + risers drawn by the scroll, `monthScene()`, ≥1024px; list with a left rule below). 16px note.
+- ch-04 (variant A, owner): the decorative ledger is now one real (not aria-hidden) figure "$5,833" with caption "Estimated example for a $1 million home." (18px).
+- Rail: 9 items (01–09), compact "/ 09"; eyebrows and opener numbers renumbered (ids unchanged). Pins still three.
+- Checked 1440/1024/768/375 + reduced motion 1440/375: console clean, no horizontal scroll, every section padding-top = one --section-y (158/113/96/96), notes 16–18px. Shots `review/hiw-*.png`.
+
 ## 2026-11-14 (Gia fix) — not committed
 Copies before: `masters/retired/index|home-before-gia-fix-2026-11-13.html|css`. (1) Gia headline back on Cormorant, `clamp(52px, 10.4vw, 148px)`, line-height .95; gap from step 3 to the right column (measured on the last step): 96px at 1280/1320, 93 at 1366, 74 at 1400, 62+ at 1440 (53 before the 148 cap), ≥1600 capped at 148px. (2) Room edge to edge, no radius; chat on the page grid's left edge (`max(--page-pad, (100% − container)/2)`), hangs 56px below the photo. (3) `.chat__body` min-height removed; the typing dots now share grid row 2 with Gia's still invisible answer, so the card is 288px tall through typing and after (sampled every 0.4s at 1440 and 1280: top, height and the 56px overhang constant). (4) Ledger line at the end of the scroll spans from the left total's right edge to the right table's left edge (1280: 728.7→896.7, 1440: 819.2→1006.4, scaleX 1). `tools/shot.mjs` restored (git-ignored); position argument accepts fractions >1 (`.ledger__cols@1.2`).
 

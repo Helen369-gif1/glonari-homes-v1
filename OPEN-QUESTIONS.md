@@ -24,6 +24,12 @@ The italic notes in the document are questions for the owner, not site copy: the
 
 (Screen 01 has no note.)
 
+**Update 2026-11-14 (built):**
+- Screen 04: the removed sentence "The contractual fee remains $8,333. The benefit is not guaranteed and must be supported by enforceable, funded arrangements." was the only non-guarantee wording on How It Works (the document's Screen 04 does not have it). **Needs a lawyer's check** whether a non-guarantee statement about the Global Connections benefit must stay on the page.
+- Screens 02B / 04B: eyebrows and rail labels are the document's screen names ("Gia in everyday life", "Your month, step by step"). The 02B caption "Taxes, insurance, maintenance & repairs" is the owner's wording (not a literal document line).
+- Hero still says "potentially more affordable"; the document says "more affordable" (owner: keep).
+
+
 ## Page 03 — Living With Glonari
 
 **Screen 02 — Everyday life with Gia**

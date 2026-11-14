@@ -422,6 +422,16 @@
 }
 .ledger__title { margin: 0; max-width: 11em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }   /* Playfair defaults to old-style figures: "1" reads as "I" */
 
+.ledger__portrait {   /* tall 4:5 photo under the title, in the otherwise empty left column */
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 4 / 5;
+  margin-top: clamp(40px, 4vw, 64px);
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
 .ledger__cols {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(168px, 13vw, 208px) minmax(0, 1fr);   /* the label needs ≥32px of air on both sides */
@@ -519,6 +529,7 @@
 
 @media (max-width: 1199px) {
   .ledger__grid { grid-template-columns: minmax(0, 1fr); }
+  .ledger__portrait { display: none; }   /* single column: the photo would push the tables a screen away */
 }
 @media (max-width: 860px) {
   .ledger__cols { grid-template-columns: minmax(0, 1fr); align-items: start; }
@@ -613,14 +624,36 @@
   background: var(--gh-paper);
   border-block: 1px solid var(--gh-line);
 }
-.find__strip-in p { margin: 0 0 16px; max-width: 760px; font-size: 18px; line-height: 1.6; color: var(--gh-ink-2); }
+/* two paragraphs on different heights (left lower, right higher), link under the right one, then a 3:1 panorama that bleeds off the right edge */
+.find__strip-in {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 5fr);
+  gap: 0 clamp(40px, 8vw, 128px);
+  align-items: start;
+  justify-content: space-between;
+}
+.find__strip-in p { margin: 0 0 16px; font-size: 18px; line-height: 1.6; color: var(--gh-ink-2); }
+.find__p1 { grid-column: 1; margin-top: clamp(40px, 5vw, 80px) !important; }
+.find__p2 { grid-column: 2; }
 .find__strip-in .link-arrow { margin: 8px 0 0; color: var(--gh-ink); }
-.find__strip-in .find__note { margin: 40px 0 0; padding-top: 20px; max-width: none; border-top: 1px solid var(--gh-line); font-size: 16px; line-height: 1.55; }
+.find__pano {
+  display: block;
+  width: calc(100% - max(var(--page-pad), (100% - var(--container)) / 2));
+  margin: clamp(48px, 5vw, 72px) 0 0 auto;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  border-radius: 18px 0 0 18px;
+}
+.find__strip .find__note { margin: clamp(40px, 4vw, 56px) 0 0; padding-top: 20px; max-width: none; border-top: 1px solid var(--gh-line); font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); }
 
 @media (max-width: 768px) {
   .find__grid { grid-template-columns: minmax(0, 1fr); row-gap: 40px; align-items: start; }
   .find__title { max-width: none; font-size: clamp(36px, 10vw, 52px); }
   .find__arch { width: min(100%, calc(min(78svh, 820px) * 2 / 3)); }
+  .find__strip-in { grid-template-columns: minmax(0, 1fr); }
+  .find__p1, .find__p2 { grid-column: 1; }
+  .find__p1 { margin-top: 0 !important; }
+  .find__p2 { margin-left: 0; }
 }
 @media (max-width: 480px) {
   /* page pad is 20px: outline 8px off the frame keeps it 12px from the screen edge, the video is not narrowed */
@@ -633,61 +666,68 @@
 /* The room bleeds off the right edge of the screen; the headline is a staircase of three short lines;
    the closing line is set big under the photo. */
 .gia__grid.container {
-  width: 100%;
-  padding-inline: max(var(--page-pad), calc((100% - var(--container)) / 2)) 0;
   display: grid;
-  grid-template-columns: minmax(0, 4.4fr) minmax(0, 7.6fr);
-  gap: 48px clamp(40px, 5vw, 80px);
-  align-items: end;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0 clamp(24px, 3vw, 48px);
+  align-items: start;
 }
+/* the headline runs the full width in three steps; the narrow text column sits top right beside the first two steps */
+.gia__head { grid-column: 1 / -1; grid-row: 1 / span 2; min-width: 0; }
+.gia__head .eyebrow { margin: 0 0 20px; }
 .gia__title {
-  margin: 0 0 clamp(28px, 3.5vw, 44px);
+  margin: 0;
   font-family: var(--font-word);
   font-weight: 500;
-  font-size: clamp(52px, 6.4vw, 96px);
+  font-size: clamp(52px, 10.4vw, 148px);
   line-height: .95;
   letter-spacing: -.015em;
 }
 .gia__title span { display: block; white-space: nowrap; }
-.gia__title span:nth-child(2) { padding-left: .6em; }
-.gia__title span:nth-child(3) { padding-left: 1.2em; color: var(--gh-gold-ink); }
-.gia__text > p:not(.eyebrow) { color: var(--gh-ink-2); max-width: 400px; }
-.gia__text .link-arrow { margin-top: 28px; color: var(--gh-ink); }
+.gia__title span:nth-child(2) { padding-left: .9em; }
+.gia__title span:nth-child(3) { padding-left: 1.8em; color: var(--gh-gold-ink); }
+.gia__text { grid-column: 9 / -1; grid-row: 1; position: relative; z-index: 1; padding-top: 36px; }
+.gia__text > p { margin: 0 0 16px; color: var(--gh-ink-2); }
+.gia__text .link-arrow { margin-top: 12px; color: var(--gh-ink); }
 
-.gia__visual { position: relative; }
+.gia__visual { position: relative; margin-top: clamp(48px, 5vw, 72px); }   /* the room runs edge to edge */
 .gia__room {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 21 / 9;
   object-fit: cover;
-  object-position: 30% 50%;
-  border-radius: 18px 0 0 18px;
+  object-position: 50% 60%;
 }
-.gia__foot { padding-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px clamp(40px, 6vw, 96px); align-items: end; }
+.gia__foot { padding-top: calc(56px + clamp(40px, 5vw, 72px)); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px clamp(40px, 6vw, 96px); align-items: end; }
 .gia__closing { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(34px, 4.4vw, 64px); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
 .gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); max-width: 420px; padding-top: 16px; border-top: 1px solid var(--gh-line); }
 @media (max-width: 1023px) {
   .gia__foot { grid-template-columns: minmax(0, 1fr); }
 }
 /* the chat's look (.chat, .msg, the typing dots) is shared in main.css; here only its place */
-.gia .chat {
+.gia .chat {   /* over the lower left corner of the room, hanging 56px below it */
   position: absolute;
-  top: 50%;
-  right: 5%;
-  width: min(370px, 62%);
-  transform: translateY(-50%);
+  left: max(var(--page-pad), calc((100% - var(--container)) / 2));   /* on the page grid's left edge */
+  bottom: -56px;
+  width: min(370px, 46%);
 }
-.gia .chat__body { min-height: 230px; }
+
+/* the typing dots share the cell of Gia's (still invisible) answer, so the card never changes height while it types */
+.gia .chat__body > .msg--you { grid-row: 1; }
+.gia .chat__body > .msg--typing, .gia .chat__body > .msg--gia { grid-row: 2; grid-column: 1; align-self: start; }
 
 .js .gia .chat [data-msg] { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
 .js .gia .chat [data-msg].is-shown { opacity: 1; transform: none; }
 
-@media (max-width: 1023px) {
-  .gia__grid.container { grid-template-columns: minmax(0, 1fr); padding-right: var(--page-pad); }
-  .gia__visual { margin-right: calc(-1 * var(--page-pad)); }
+@media (max-width: 1279px) {
+  .gia__grid.container { grid-template-columns: minmax(0, 1fr); }
+  .gia__head { grid-row: auto; }
+  .gia__text { grid-column: 1; grid-row: auto; width: min(100%, 420px); margin-left: auto; padding-top: 40px; }  .gia__room { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 640px) {
-  .gia .chat { position: relative; top: auto; right: auto; width: 92%; margin: -72px auto 0; transform: none; }
+  .gia .chat { position: relative; left: auto; bottom: auto; width: 92%; margin: -72px auto 0; }
+  .gia__foot { padding-top: clamp(40px, 5vw, 72px); }
+  .gia__text { margin-left: 0; }
+  .gia__room { aspect-ratio: 4 / 3; }
   .gia__title span:nth-child(2) { padding-left: .4em; }
   .gia__title span:nth-child(3) { padding-left: .8em; }
 }
@@ -798,13 +838,13 @@
   color: var(--gp-text);
 }
 .future__body .btn { margin-top: 20px; }
-.future__body .future__fee {
-  margin-top: 28px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(197, 142, 66, .4);
-  font-size: 16px;
-  line-height: 1.55;
+/* the fee note: a narrow light strip right under the dark band, plain text, no picture */
+.future__note {
+  padding-block: clamp(40px, 5vw, 72px);
+  background: var(--gh-paper);
+  border-bottom: 1px solid var(--gh-line);
 }
+.future__note p { margin: 0; max-width: 760px; font-size: 18px; line-height: 1.6; color: var(--gh-ink-2); }
 @media (max-width: 1100px) {
   .future__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "strip" "body"; }
 }

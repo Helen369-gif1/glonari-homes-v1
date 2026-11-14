@@ -1,0 +1,871 @@
+/* ==========================================================
+   Glonari Homes — home page sections
+   ========================================================== */
+
+/* ==========================================================
+   1. Hero (layered scene, driven by js/hero.js)
+   Depth, back to front: sky · word · valley · girl
+   ========================================================== */
+:root {
+  --gh-word: #FFFFFF;
+  --img-ratio: 1.7919;          /* 3358 / 1874, every layer has this size */
+  --scene-travel: 170svh;       /* scroll distance while the hero is pinned */
+  --word-from: 175;             /* word start offset, % of its own height */
+}
+
+.hero { position: relative; height: 100svh; }
+.js .hero { height: calc(100svh + var(--scene-travel)); }
+
+.hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #2c8cef;
+}
+.hero__frame {
+  position: absolute;
+  left: 50%;
+  top: calc((100svh - max(100vw, 100svh * var(--img-ratio)) / var(--img-ratio)) * .2);
+  width: max(100vw, calc(100svh * var(--img-ratio)));
+  aspect-ratio: 3358 / 1874;
+  transform: translateX(-50%);
+}
+.hero__layer {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 0%;
+  will-change: transform;
+}
+.hero__layer img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
+
+.hero__word {
+  position: absolute;
+  left: 50%;
+  bottom: 63.5%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: min(19vw, 33svh, 440px);
+  line-height: .72;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--gh-word);
+  text-shadow: 0 2px 40px rgba(20, 40, 70, .18);
+}
+.hero__word-inner { display: block; will-change: transform; }
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgba(5, 4, 2, .74) 0%, rgba(15, 12, 9, .42) 26%, rgba(15, 12, 9, 0) 50%);
+  opacity: 0;
+}
+.hero__copy {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  bottom: clamp(36px, 6svh, 64px);
+}
+/* eyebrow + title + buttons on the left, the two paragraphs on the right:
+   keeps the copy low, so it never reaches the word "GLONARI" behind the woman */
+.hero__copy-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  grid-template-areas: "eyebrow text" "title text" "actions text";
+  column-gap: clamp(32px, 6vw, 112px);
+  align-items: end;
+  width: min(100%, 1400px);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+.hero__eyebrow { grid-area: eyebrow; margin-bottom: 14px; }
+.hero__title {
+  grid-area: title;
+  max-width: 560px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 2.9vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--gp-text);
+  text-shadow: 0 1px 18px rgba(5, 4, 2, .35);
+}
+.hero__text {
+  grid-area: text;
+  align-self: end;
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.6;
+  color: rgba(246, 240, 231, .9);
+  text-shadow: 0 1px 14px rgba(5, 4, 2, .55);
+}
+.hero__text p { margin: 0 0 12px; text-wrap: pretty; }
+.hero__text p:first-child { color: #fff; }
+.hero__actions { grid-area: actions; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+.hero__cue {
+  position: absolute;
+  z-index: 6;
+  right: var(--page-pad);
+  bottom: 28px;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(246, 240, 231, .92);
+  text-shadow: 0 1px 10px rgba(5, 4, 2, .4);
+  pointer-events: none;
+}
+.hero__cue::after {
+  content: "";
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(rgba(246, 240, 231, .9), rgba(246, 240, 231, 0));
+  transform-origin: top;
+  animation: cue 2.4s var(--ease) infinite;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); opacity: 1; }
+  60%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+.no-js .hero__shade, .is-static .hero__shade { opacity: 1; }
+.no-js .hero__cue, .is-static .hero__cue { display: none; }
+
+@media (max-aspect-ratio: 1/1) {
+  :root { --word-from: 430; --scene-travel: 150svh; }
+  .hero__frame {
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: 80svh;
+    transform: translateX(-50%);
+  }
+  .hero__word { bottom: 86%; font-size: min(19.5vw, 200px); text-shadow: 0 2px 24px rgba(20, 40, 70, .22); }
+}
+@media (max-width: 900px) {
+  .hero__copy-in { grid-template-columns: minmax(0, 1fr); grid-template-areas: "eyebrow" "title" "text" "actions"; }
+  .hero__title { margin-bottom: 14px; }
+  .hero__actions { margin-top: 18px; }
+}
+@media (max-width: 768px) {
+  .hero__copy { bottom: 28px; }
+  .hero__text { font-size: 15px; line-height: 1.5; }
+  .hero__text p { margin-bottom: 8px; }
+  .hero__actions .btn { min-height: 42px; padding: 0 20px; font-size: 14px; }
+  .hero__shade {
+    background: linear-gradient(0deg, rgba(5, 4, 2, .88) 0%, rgba(15, 12, 9, .66) 34%, rgba(15, 12, 9, 0) 62%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .hero { height: 100svh; }
+  .hero__cue { display: none; }
+  .hero__cue::after { animation: none; }
+  .hero__shade { opacity: 1; }
+  .hero__layer, .hero__word-inner, [data-copy] { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================
+   2. The problem — image comparison, revealed by scroll
+   Default CSS: a simple stacked before/after, each full width
+   (phones, reduced motion, no JS). Under .has-scenes the two
+   frames become absolute layers and the "after" wipe slides in
+   right to left while its image counter-slides, so the photo
+   itself never visually moves — only the reveal edge sweeps
+   (see js/home.js, problemScene()).
+   ========================================================== */
+.problem { padding-top: var(--section-y); }
+/* Typographic spread: a huge headline, then "then" (muted, small) against "now" (ink, large) */
+.problem__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px 0;
+  padding-bottom: clamp(56px, 6vw, 88px);
+}
+.problem__intro .eyebrow { margin-bottom: 0; }
+.problem__intro .h2 {
+  margin: 0 0 clamp(28px, 4vw, 56px);
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: clamp(54px, 10.5vw, 156px);
+  line-height: .9;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+.problem__text {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: 28px clamp(40px, 7vw, 112px);
+  align-items: start;
+  padding-top: 28px;
+  border-top: 1px solid var(--gh-ink);
+}
+.problem__text p { margin: 0; }
+.problem__then { color: var(--gh-ink-2); }
+.problem__now {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.32;
+  color: var(--gh-ink);
+}
+.problem__fee { grid-column: 2; max-width: 620px; color: var(--gh-ink-2); }
+@media (max-width: 900px) {
+  .problem__text { grid-template-columns: minmax(0, 1fr); }
+  .problem__fee { grid-column: auto; }
+}
+
+.problem__stage { position: relative; background: var(--gh-ink); }
+
+.problem__frame { position: relative; }
+.problem__frame img,
+.problem__wipe-in img { display: block; width: 100%; height: min(58svh, 460px); object-fit: cover; }
+.problem__frame--before img { object-position: 40% 50%; filter: grayscale(.45); }
+.problem__wipe-in img { object-position: 50% 0%; } /* keep the full head in frame; the photo has little headroom */
+
+.problem__wipe { position: relative; overflow: hidden; }
+.problem__wipe-in { position: relative; }
+
+.problem__veil { position: absolute; inset: 0; pointer-events: none; }
+.problem__veil--before {
+  /* noticeably dark, but a gradient (not a flat fill) so the face and interior stay readable */
+  background: linear-gradient(180deg, rgba(5, 4, 2, .62) 0%, rgba(5, 4, 2, .3) 48%, rgba(5, 4, 2, .68) 100%);
+}
+.problem__veil--after {
+  /* local darkening for caption legibility only — the rest of the photo stays bright and natural */
+  background: linear-gradient(0deg, rgba(5, 4, 2, .48) 0%, rgba(5, 4, 2, 0) 42%);
+}
+
+.problem__cap {
+  padding: 22px var(--page-pad) 30px;
+  background: var(--gh-ink);
+  font-family: var(--font-display);
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.25;
+  color: var(--gp-text);
+}
+.problem__cap .eyebrow { display: block; margin-bottom: 10px; }
+
+.problem__statement {
+  margin: 0;
+  padding: clamp(72px, 9vw, 140px) var(--page-pad) clamp(8px, 2vw, 24px);
+  background: var(--gh-cream);
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: clamp(40px, 6.4vw, 100px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-align: center;
+  text-wrap: balance;
+}
+.problem__statement::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  margin: 0 auto clamp(28px, 3.5vw, 48px);
+  background: var(--gh-gold-ink);
+}
+/* scroll-lit words (home.js): the sentence "reads itself" as it passes; static = fully lit */
+.problem__statement .w { transition: none; }
+
+/* ---------- Desktop: pinned, scroll-scrubbed wipe ---------- */
+.has-scenes .problem__frame,
+.has-scenes .problem__wipe { position: absolute; inset: var(--header-h) 0 0; } /* start below the solid header so it never covers the photo */
+.has-scenes .problem__frame img,
+.has-scenes .problem__wipe-in img { height: 100%; }
+.has-scenes .problem__wipe-in { position: absolute; inset: 0; }
+.has-scenes .problem__cap {
+  position: absolute;
+  z-index: 2;
+  left: clamp(20px, 3vw, 44px);
+  right: clamp(20px, 3vw, 44px);
+  bottom: clamp(24px, 4svh, 44px);
+  padding: 0;
+  background: none;
+}
+.has-scenes .problem__cap--after { z-index: 3; }
+
+@media (max-width: 860px) {
+  .problem__intro { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================
+   3. The cost
+   ========================================================== */
+.econ { padding-top: var(--section-y); }
+.econ__stage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(64px, 8vw, 112px) var(--page-pad) 0;
+  color: #fff;
+  text-align: center;
+}
+.econ__sky { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+.econ__stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 26%;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(20, 14, 8, .62), rgba(20, 14, 8, 0));
+  pointer-events: none;
+}
+
+.econ__title {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 76px);
+  line-height: 1.06;
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(120, 60, 40, .25);
+}
+.econ__intro .eyebrow { color: #fff; opacity: .9; }
+
+.econ__steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 32px;
+  max-width: 980px;
+  margin: 56px auto 32px;
+  padding: 0;
+  list-style: none;
+}
+.econ__step { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.econ__label {
+  max-width: 340px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 12px rgba(120, 60, 40, .3);
+}
+.econ__num {
+  font-family: var(--font-word);
+  font-weight: 600;
+  font-size: clamp(56px, 8vw, 104px);
+  line-height: .85;
+  letter-spacing: -.01em;
+  font-variant-numeric: lining-nums;
+  text-shadow: 0 4px 40px rgba(140, 70, 40, .22);
+}
+.econ__house { position: relative; z-index: 0; width: min(100%, 1100px); margin: 0 auto; }
+
+/* Pinned version */
+.has-scenes .econ__stage { padding: 0; }
+.has-scenes .econ__intro,
+.has-scenes .econ__step {
+  position: absolute;
+  inset: 0;
+  padding-top: calc(var(--header-h) + 6svh);
+}
+.has-scenes .econ__intro { padding-inline: var(--page-pad); }
+.has-scenes .econ__steps { position: absolute; inset: 0; margin: 0; max-width: none; display: block; }
+.has-scenes .econ__step { gap: 1.6svh; }
+.has-scenes .econ__step .econ__label { font-size: 13px; max-width: 520px; }
+.has-scenes .econ__num { font-size: min(30vw, 44svh); line-height: .8; }
+.has-scenes .econ__num { font-size: min(30vw, 44svh); line-height: .8; }
+.has-scenes .econ__step--split { flex-direction: row; align-items: flex-start; gap: 7vw; }
+.has-scenes .econ__step--split .econ__num { font-size: min(14vw, 25svh); }
+.has-scenes .econ__step--split .econ__label { max-width: 300px; }
+.has-scenes .econ__house {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: min(96vw, 116svh);
+  max-width: none;
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .econ__steps { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================
+   3a. Cost compared — a new full screen on paper, no pin.
+   Two ledger columns (real tables), totals on one baseline,
+   a 1px gold line between the totals that is drawn by scroll
+   (home.js, the screen's only motion). Static on phones and
+   under reduced motion.
+   ========================================================== */
+.ledger {
+  --tot: clamp(44px, 4.6vw, 68px);   /* size of the two totals */
+  padding-top: var(--section-y);   /* same background as the page: only padding-top (DS §5) */
+}
+.ledger__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3.2fr) minmax(0, 8.8fr);
+  gap: 56px clamp(40px, 5vw, 80px);
+  align-items: start;
+  width: min(100%, 1400px);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+.ledger__title { margin: 0; max-width: 11em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }   /* Playfair defaults to old-style figures: "1" reads as "I" */
+
+.ledger__cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(168px, 13vw, 208px) minmax(0, 1fr);   /* the label needs ≥32px of air on both sides */
+  align-items: end;   /* different heights, bottoms (the totals) on one line */
+}
+.ledger__col { width: 100%; border-collapse: collapse; }
+.ledger__col caption {
+  padding-bottom: 16px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gh-gold-ink);
+}
+.ledger__col th, .ledger__col td {
+  padding: 18px 0;
+  border-top: 1px solid rgba(31, 26, 20, .28);
+  vertical-align: baseline;
+}
+.ledger__col th {
+  padding-right: 20px;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--gh-ink-2);
+}
+.ledger__col td {
+  text-align: right;
+  white-space: nowrap;
+  font-family: var(--font-word);
+  font-weight: 600;
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  font-variant-numeric: lining-nums;
+  color: var(--gh-ink);
+}
+.ledger__col td.is-included { color: var(--gh-gold-ink); }
+.ledger__col tfoot th, .ledger__col tfoot td {
+  padding: 20px 0 12px;
+  border-top: 1px solid var(--gh-ink);
+  border-bottom: 1px solid var(--gh-ink);
+}
+.ledger__col tfoot th { padding-bottom: calc(6.5px + var(--tot) * .18); font-weight: 600; color: var(--gh-ink); }
+/* totals sit on the bottom of the row: the label's last line and the figure share one baseline, however many lines the label takes */
+.ledger__col tfoot th, .ledger__col tfoot td { vertical-align: bottom; }
+.ledger__col tfoot td { font-size: var(--tot); }
+
+/* the line between the totals: its height above the table bottom = baseline of the totals */
+.ledger__between { align-self: end; padding: 0 0 calc(13px + var(--tot) * .18); }   /* the line runs table edge to table edge */
+.ledger__delta {
+  margin: 0 0 12px;
+  padding-inline: 32px;   /* gap to both totals ≥ 32px: the text box is the column minus 2 × 32 */
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--gh-gold-ink);
+}
+.ledger__rule { display: block; height: 1px; background: var(--gp-gold-mid); transform-origin: 0 50%; }
+
+.ledger__result {
+  max-width: 760px;
+  margin: clamp(48px, 5vw, 72px) 0 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(21px, 1.9vw, 28px);
+  line-height: 1.35;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+.ledger__result strong { font-weight: 500; color: var(--gh-gold-ink); }
+
+.ledger__notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px clamp(32px, 4vw, 64px);
+  margin-top: clamp(48px, 5vw, 72px);
+}
+.ledger__notes p {
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(31, 26, 20, .28);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--gh-ink-2);
+}
+.ledger__notes strong { font-weight: 600; color: var(--gh-ink); }
+
+@media (max-width: 1199px) {
+  .ledger__grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .ledger__cols { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .ledger__col caption { padding-top: 0; }
+  .ledger__between { padding: 40px 0 36px; }
+  .ledger__delta { margin-bottom: 14px; }
+  .ledger__notes { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ==========================================================
+   4. Find your home
+   ========================================================== */
+.find { padding-top: var(--section-y); }
+/* Editorial spread: headline and phrase left, one tall arch with a single video right; a quiet paper strip follows. */
+.important { margin-top: var(--section-y); }
+.important__sheet {
+  padding-block: clamp(56px, 7vw, 104px);
+  background: var(--gh-paper);
+  border-block: 1px solid var(--gh-line);
+}
+.important__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 32px clamp(40px, 7vw, 112px);
+  align-items: start;
+}
+.important__label {
+  margin: 0;
+  font-family: var(--font-word);
+  font-weight: 600;
+  font-size: clamp(48px, 6.4vw, 96px);
+  line-height: .9;
+  color: var(--gh-gold-ink);
+}
+.important__rows p {
+  margin: 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--gh-line);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(19px, 1.7vw, 24px);
+  line-height: 1.4;
+  color: var(--gh-ink);
+}
+.important__rows p:first-child { padding-top: 0; border-top: 0; }
+@media (max-width: 768px) {
+  .important__grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+
+.find__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) calc(min(78svh, 820px) * 2 / 3);
+  gap: 0 clamp(40px, 7vw, 112px);
+  align-items: end;
+}
+.find__head { min-width: 0; padding-bottom: 8px; }
+.find__head .eyebrow { margin: 0 0 20px; }
+.find__title { margin: 0 0 28px; max-width: 12ch; font-size: clamp(44px, 5.6vw, 84px); line-height: 1; }
+.find__lead { margin: 0; max-width: 420px; font-family: var(--font-display); font-weight: 500; font-size: clamp(21px, 1.8vw, 26px); line-height: 1.32; }
+
+/* Arch: 2:3, height min(78svh, 820px); the column width follows from the ratio (and never exceeds the column) */
+.find__arch {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
+.find__arch::before { /* thin gold outline, 1px */
+  content: "";
+  position: absolute;
+  inset: -12px -12px 0;
+  border: 1px solid var(--gh-gold-ink);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  pointer-events: none;
+}
+.find__video {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 999px 999px 0 0;
+  background: var(--gh-ink);
+}
+
+/* Quiet light strip right after the screen: no pin, no video, no cards */
+.find__strip {
+  margin-top: var(--section-y);
+  padding-block: clamp(56px, 7vw, 104px);
+  background: var(--gh-paper);
+  border-block: 1px solid var(--gh-line);
+}
+.find__strip-in p { margin: 0 0 16px; max-width: 760px; font-size: 18px; line-height: 1.6; color: var(--gh-ink-2); }
+.find__strip-in .link-arrow { margin: 8px 0 0; color: var(--gh-ink); }
+.find__strip-in .find__note { margin: 40px 0 0; padding-top: 20px; max-width: none; border-top: 1px solid var(--gh-line); font-size: 16px; line-height: 1.55; }
+
+@media (max-width: 768px) {
+  .find__grid { grid-template-columns: minmax(0, 1fr); row-gap: 40px; align-items: start; }
+  .find__title { max-width: none; font-size: clamp(36px, 10vw, 52px); }
+  .find__arch { width: min(100%, calc(min(78svh, 820px) * 2 / 3)); }
+}
+@media (max-width: 480px) {
+  /* page pad is 20px: outline 8px off the frame keeps it 12px from the screen edge, the video is not narrowed */
+  .find__arch::before { inset: -8px -8px 0; }
+}
+/* ==========================================================
+   5. Meet Gia
+   ========================================================== */
+.gia { padding-top: var(--section-y); }
+/* The room bleeds off the right edge of the screen; the headline is a staircase of three short lines;
+   the closing line is set big under the photo. */
+.gia__grid.container {
+  width: 100%;
+  padding-inline: max(var(--page-pad), calc((100% - var(--container)) / 2)) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 4.4fr) minmax(0, 7.6fr);
+  gap: 48px clamp(40px, 5vw, 80px);
+  align-items: end;
+}
+.gia__title {
+  margin: 0 0 clamp(28px, 3.5vw, 44px);
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: clamp(52px, 6.4vw, 96px);
+  line-height: .95;
+  letter-spacing: -.015em;
+}
+.gia__title span { display: block; white-space: nowrap; }
+.gia__title span:nth-child(2) { padding-left: .6em; }
+.gia__title span:nth-child(3) { padding-left: 1.2em; color: var(--gh-gold-ink); }
+.gia__text > p:not(.eyebrow) { color: var(--gh-ink-2); max-width: 400px; }
+.gia__text .link-arrow { margin-top: 28px; color: var(--gh-ink); }
+
+.gia__visual { position: relative; }
+.gia__room {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 30% 50%;
+  border-radius: 18px 0 0 18px;
+}
+.gia__foot { padding-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px clamp(40px, 6vw, 96px); align-items: end; }
+.gia__closing { margin: 0; font-family: var(--font-word); font-weight: 500; font-size: clamp(34px, 4.4vw, 64px); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+.gia__note { margin: 0; font-size: 16px; line-height: 1.55; color: var(--gh-ink-2); max-width: 420px; padding-top: 16px; border-top: 1px solid var(--gh-line); }
+@media (max-width: 1023px) {
+  .gia__foot { grid-template-columns: minmax(0, 1fr); }
+}
+/* the chat's look (.chat, .msg, the typing dots) is shared in main.css; here only its place */
+.gia .chat {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  width: min(370px, 62%);
+  transform: translateY(-50%);
+}
+.gia .chat__body { min-height: 230px; }
+
+.js .gia .chat [data-msg] { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.js .gia .chat [data-msg].is-shown { opacity: 1; transform: none; }
+
+@media (max-width: 1023px) {
+  .gia__grid.container { grid-template-columns: minmax(0, 1fr); padding-right: var(--page-pad); }
+  .gia__visual { margin-right: calc(-1 * var(--page-pad)); }
+}
+@media (max-width: 640px) {
+  .gia .chat { position: relative; top: auto; right: auto; width: 92%; margin: -72px auto 0; transform: none; }
+  .gia__title span:nth-child(2) { padding-left: .4em; }
+  .gia__title span:nth-child(3) { padding-left: .8em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .gia .chat [data-msg] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ==========================================================
+   6. Your future — dark band (hard edges, DS 4.1)
+   ========================================================== */
+.future {
+  margin-top: var(--section-y);
+  padding: var(--section-y) 0;
+  background: var(--gh-brown);
+  color: var(--gp-text);
+}
+/* Composition: a giant two-line headline whose lines drift apart, three "moments of change"
+   panels at different heights on one gold line (today → tomorrow), the copy low on the left.
+   Placeholder photos (placeholder-future-…); motion is a light scrubbed parallax, no pin. */
+.future { overflow: hidden; }
+.future__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  grid-template-areas:
+    "head  head"
+    "body  strip";
+  gap: clamp(40px, 5vw, 72px) clamp(40px, 6vw, 96px);
+  align-items: end;
+}
+.future__head { grid-area: head; }
+.future__title {
+  margin: 0;
+  font-family: var(--font-word);
+  font-weight: 500;
+  font-size: clamp(44px, 7.4vw, 116px);
+  line-height: .95;
+  letter-spacing: -.015em;
+}
+.future__title span { display: block; }
+.future__today { color: var(--gp-text); }
+.future__tomorrow { color: var(--gp-champagne); padding-left: clamp(0px, 5vw, 80px); font-style: italic; }
+
+.future__strip {
+  grid-area: strip;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  column-gap: clamp(14px, 1.8vw, 28px);
+  align-items: end;
+}
+/* the three panels stand on the gold line (different heights, one base) and carry the three statements below it */
+.future__line {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  align-self: end;
+  position: relative;
+  height: 1px;
+  background: var(--gp-gold-mid);
+  transform-origin: 0 50%;
+  z-index: 2;
+}
+.future__line::before, .future__line::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 13px; height: 13px;
+  box-sizing: border-box;
+  border: 1px solid var(--gp-gold-mid);
+  border-radius: 50%;
+  background: var(--gh-brown);
+}
+.future__line::before { left: 0; }
+.future__line::after { right: 0; background: var(--gp-gold-mid); }
+.future__panel { grid-row: 1 / span 2; display: grid; grid-template-rows: subgrid; margin: 0; }
+.future__panel--1 { grid-column: 1; }
+.future__panel--2 { grid-column: 2; }
+.future__panel--3 { grid-column: 3; }
+.future__ph { align-self: end; overflow: hidden; background: #1a1008; }
+.future__panel--1 .future__ph { aspect-ratio: 3 / 4.2; }
+.future__panel--2 .future__ph { aspect-ratio: 3 / 3.1; }
+.future__panel--3 .future__ph { aspect-ratio: 3 / 3.7; }
+.future__panel img { display: block; width: 100%; height: 118%; object-fit: cover; filter: saturate(.85) brightness(.92); }
+.future__panel--1 img { object-position: 50% 30%; }
+.future__panel--2 img { object-position: 50% 40%; }
+.future__panel--3 img { object-position: 45% 35%; }
+.future__panel figcaption {
+  padding-top: 28px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--gp-text-2);
+}
+.future__panel figcaption strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-word);
+  font-weight: 600;
+  font-size: clamp(26px, 2.2vw, 34px);
+  line-height: 1.05;
+  color: var(--gp-champagne);
+}
+.future__body { grid-area: body; padding-top: 24px; border-top: 1px solid rgba(197, 142, 66, .6); }
+.future__body p { color: var(--gp-text-2); max-width: 460px; }
+.future__body .future__lead {
+  font-family: var(--font-display);
+  font-size: clamp(21px, 1.8vw, 26px);
+  line-height: 1.3;
+  color: var(--gp-text);
+}
+.future__body .btn { margin-top: 20px; }
+.future__body .future__fee {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(197, 142, 66, .4);
+  font-size: 16px;
+  line-height: 1.55;
+}
+@media (max-width: 1100px) {
+  .future__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "strip" "body"; }
+}
+@media (max-width: 900px) {
+  .future__tomorrow { padding-left: 0; }
+}
+@media (max-width: 640px) {
+  .future__strip { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 40px; }
+  .future__line { display: none; }
+  .future__panel { grid-row: auto; grid-column: 1; grid-template-rows: auto auto; }
+  .future__panel .future__ph { aspect-ratio: 4 / 3; }
+  .future__panel figcaption { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--gp-gold-mid); }
+}
+
+/* ==========================================================
+   7. Final invitation
+   ========================================================== */
+.cta { padding-top: 0; }
+.cta__stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  isolation: isolate;
+  color: var(--gp-text);
+  text-align: center;
+}
+.cta__img {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 78%;
+}
+/* The "evening" copy: same photo, darker and calmer. Its opacity is
+   what changes on scroll, so no filter is animated. */
+.cta__img--dusk { z-index: -2; filter: brightness(.42) saturate(.85) contrast(1.05); opacity: .55; }
+.cta__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(20, 14, 10, .62) 0%, rgba(20, 14, 10, .44) 40%, rgba(20, 14, 10, .14) 66%, rgba(20, 14, 10, 0) 84%);
+}
+.cta__copy {
+  max-width: 760px;
+  padding: calc(var(--header-h) + 9svh) var(--page-pad) 48px;
+}
+.cta__copy > p { max-width: 560px; margin-inline: auto; color: rgba(246, 240, 231, .9); text-shadow: 0 1px 14px rgba(5, 4, 2, .35); }
+.cta__title {
+  margin: 0 0 22px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(38px, 5.2vw, 78px);
+  line-height: 1.05;
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(5, 4, 2, .3);
+}
+.cta__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 32px 0 26px; }
+.cta__small { font-size: 15px; }
+.cta__small a { font-weight: 500; text-underline-offset: 4px; }
+.cta + * { margin-top: 0; }
